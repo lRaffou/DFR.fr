@@ -94,7 +94,8 @@ function renderHeader()
                     <div class="navbarSocial">
                         <a href="#" class="socialLink"><i class="fab fa-youtube"></i></a>
                         <a href="#" class="socialLink"><i class="fab fa-spotify"></i></a>
-                        <a href="#" class="socialLink"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/dao_family_records?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                            class="socialLink" target="_blank"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </nav>
