@@ -47,10 +47,14 @@ h1 {
 }
 
 h2 {
+    font-family: "Montserrat", sans-serif;
     font-size: 2.5rem;
-    color: #fff;
-    position: relative;
-    padding-bottom: 0.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 1.2rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 h2::after {
@@ -64,15 +68,23 @@ h2::after {
 }
 
 h3 {
+    font-family: "Montserrat", sans-serif;
     font-size: 1.8rem;
-    color: #ff6b6b;
+    font-weight: 600;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     margin-top: 1.5rem;
 }
 
 h4 {
+    font-family: "Montserrat", sans-serif;
     font-size: 1.4rem;
-    color: #fff;
-    font-weight: 600;
+    font-weight: 500;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.8rem;
 }
 
 h5 {
@@ -88,21 +100,47 @@ h6 {
 }
 
 /* Media queries pour les titres */
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
     h1 {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
+        letter-spacing: 1.5px;
     }
 
     h2 {
         font-size: 2rem;
+        letter-spacing: 1px;
     }
 
     h3 {
         font-size: 1.5rem;
+        letter-spacing: 0.8px;
     }
 
     h4 {
         font-size: 1.2rem;
+        letter-spacing: 0.4px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 2.2rem;
+        letter-spacing: 1px;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+        letter-spacing: 0.8px;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+        letter-spacing: 0.6px;
+    }
+
+    h4 {
+        font-size: 1.1rem;
+        letter-spacing: 0.3px;
     }
 }
 
@@ -1143,20 +1181,70 @@ header {
     }
 }
 
-/* Styles pour la page Album */
+/* Styles pour la page Albums */
 .mainAlbum {
     padding: 2rem;
     margin-top: 2rem;
 }
 
-.sectionAlbum h1 {
+.albumHero {
     text-align: center;
-    margin-bottom: 2rem;
-    font-family: "Montserrat-Bold";
-    font-size: 2.5rem;
+    margin-bottom: 3rem;
 }
 
-.containerAlbum {
+.albumHero h1 {
+    font-family: "Montserrat-Bold";
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.albumHero p {
+    font-size: 1.2rem;
+    color: #ccc;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.featuredAlbums {
+    margin-bottom: 4rem;
+}
+
+.featuredAlbums h2 {
+    font-family: "Montserrat-Bold";
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+.albumContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.albumCard.featured {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    background: #1a1a1a;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.albumCard.featured:hover {
+    transform: translateY(-5px);
+}
+
+.albumCatalog h2 {
+    font-family: "Montserrat-Bold";
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+.albumGrid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
@@ -1165,7 +1253,7 @@ header {
 }
 
 .albumCard {
-    background-color: #1a1a1a;
+    background: #1a1a1a;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -1177,8 +1265,8 @@ header {
 }
 
 .albumImage {
-    width: 100%;
-    height: 250px;
+    position: relative;
+    aspect-ratio: 1;
     overflow: hidden;
 }
 
@@ -1186,42 +1274,88 @@ header {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.albumCard:hover .albumImage img {
+    transform: scale(1.05);
+}
+
+.albumOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.albumCard:hover .albumOverlay {
+    opacity: 1;
+}
+
+.btnListen {
+    background: #1db954;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.btnListen:hover {
+    transform: scale(1.05);
 }
 
 .albumInfo {
     padding: 1.5rem;
 }
 
-.albumInfo h2 {
+.albumInfo h3 {
     font-family: "Montserrat-Bold";
-    margin-bottom: 0.5rem;
     font-size: 1.5rem;
-}
-
-.albumInfo p {
     margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.artistName,
+.releaseDate {
     color: #ccc;
+    margin-bottom: 0.5rem;
 }
 
-.btnEcouter {
-    display: inline-block;
-    background-color: #ff5500;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    text-decoration: none;
+.albumTags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
     margin-top: 1rem;
-    transition: background-color 0.3s ease;
 }
 
-.btnEcouter:hover {
-    background-color: #ff7733;
+.albumTags .tag {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: #fff;
 }
 
-/* Media Queries pour la page Album */
+/* Media Queries pour la page Albums */
 @media (max-width: 1000px) {
-    .containerAlbum {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    .albumCard.featured {
+        grid-template-columns: 1fr;
+    }
+
+    .albumHero h1 {
+        font-size: 2.5rem;
     }
 }
 
@@ -1230,11 +1364,11 @@ header {
         padding: 1rem;
     }
 
-    .sectionAlbum h1 {
+    .albumHero h1 {
         font-size: 2rem;
     }
 
-    .containerAlbum {
+    .albumGrid {
         grid-template-columns: 1fr;
     }
 }
