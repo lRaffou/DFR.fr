@@ -11,6 +11,7 @@ function renderHeader()
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/png" href="/img/1logo_simple_dfr_blanc.png" />
         <link rel="stylesheet" href="/css/style.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
             integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
@@ -92,8 +93,10 @@ function renderHeader()
                         </ul>
                     </div>
                     <div class="navbarSocial">
-                        <a href="#" class="socialLink"><i class="fab fa-youtube"></i></a>
-                        <a href="#" class="socialLink"><i class="fab fa-spotify"></i></a>
+                        <a href="https://www.youtube.com/@DaoFamilyRecords" class="socialLink" target="_blank"><i
+                                class="fab fa-youtube"></i></a>
+                        <a href="https://open.spotify.com/intl-fr/artist/3zpewQ11GYG2ev9Ngdsvi9?si=wlTXdkSHSmenHoVpqnK1nQ"
+                            class="socialLink" target="_blank"><i class="fab fa-spotify"></i></a>
                         <a href="https://www.instagram.com/dao_family_records?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                             class="socialLink" target="_blank"><i class="fab fa-instagram"></i></a>
                     </div>
