@@ -1,4 +1,5 @@
 <p>Dernière mise à jour : <span id="timestamp"></span></p>
+
 <script>
   document.getElementById("timestamp").innerText = new Date().toLocaleString();
 </script>
