@@ -20,6 +20,92 @@ body {
     /* justify-content: center; */
     font-family: "Montserrat-Regular";
 }
+
+/* Styles généraux pour les titres */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Montserrat-Bold", sans-serif;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    position: relative;
+}
+
+h1 {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(45deg, #ff0000, #ff6b6b);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: #fff;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #ff0000, transparent);
+}
+
+h3 {
+    font-size: 1.8rem;
+    color: #ff6b6b;
+    margin-top: 1.5rem;
+}
+
+h4 {
+    font-size: 1.4rem;
+    color: #fff;
+    font-weight: 600;
+}
+
+h5 {
+    font-size: 1.2rem;
+    color: #ccc;
+}
+
+h6 {
+    font-size: 1rem;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Media queries pour les titres */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    h4 {
+        font-size: 1.2rem;
+    }
+}
+
 .navMin1000 {
     display: none;
 }
@@ -37,6 +123,7 @@ main {
     flex-direction: column;
     margin-top: -3%;
     gap: 2.2vh;
+    margin-bottom: 15vh;
 }
 /* ------------------------------------Start-NavBar-définitive------------------------------------*/
 header {
@@ -46,20 +133,16 @@ header {
     text-align: center;
 }
 .menuNav {
-    overflow: hidden;
     position: fixed;
     bottom: 0;
     left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.95);
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(10px);
-    border-top: 2px solid rgba(255, 255, 255, 0.6);
-    font-size: 3vw;
-    padding: 2% 4% 2% 4%;
-    margin: 0 2% 2% 2%;
-    z-index: 100;
-    box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.7);
-    border-radius: 20px 20px 0 0;
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 0.5rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 .menuNav ul {
     list-style: none;
@@ -2233,9 +2316,10 @@ header {
 .mainFooter {
     background-color: #111;
     color: #fff;
-    padding: 4rem 2rem 2rem;
-    margin-top: 4rem;
-    padding-bottom: 15vh;
+    padding: 6rem 2rem 3rem;
+    margin-top: 6rem;
+    position: relative;
+    z-index: 1;
 }
 
 .footerContent {
@@ -2243,14 +2327,14 @@ header {
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 3rem;
-    margin-bottom: 3rem;
+    gap: 4rem;
+    margin-bottom: 4rem;
 }
 
 .footerSection {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 .footerLogo {
@@ -2259,20 +2343,21 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto 1rem auto;
+    margin: 0 auto 2rem auto;
 }
 
 .footerDescription {
     text-align: center;
     max-width: 600px;
     margin: 0 auto;
-    line-height: 1.6;
+    line-height: 1.8;
+    color: #ccc;
 }
 
 .footerSection h3 {
     color: #fff;
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
     position: relative;
 }
 
@@ -2280,9 +2365,9 @@ header {
     content: "";
     position: absolute;
     left: 0;
-    bottom: -0.5rem;
-    width: 50px;
-    height: 2px;
+    bottom: -0.7rem;
+    width: 60px;
+    height: 3px;
     background: linear-gradient(45deg, #ff0000, #ff6b6b);
 }
 
@@ -2293,13 +2378,14 @@ header {
 }
 
 .footerLinks li {
-    margin-bottom: 0.8rem;
+    margin-bottom: 1rem;
 }
 
 .footerLinks a {
     color: #ccc;
     text-decoration: none;
     transition: color 0.3s ease;
+    font-size: 1.1rem;
 }
 
 .footerLinks a:hover {
@@ -2309,70 +2395,62 @@ header {
 .socialLinks {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.2rem;
 }
 
 .socialLink {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.2rem;
     color: #ccc;
     text-decoration: none;
     transition: all 0.3s ease;
+    font-size: 1.1rem;
 }
 
 .socialLink i {
-    font-size: 1.5rem;
-    width: 24px;
+    font-size: 1.6rem;
+    width: 28px;
     text-align: center;
-}
-
-.socialLink:hover {
-    color: #fff;
-    transform: translateX(5px);
-}
-
-.socialLink:hover i {
-    color: #ff0000;
 }
 
 .footerBottom {
     max-width: 1200px;
     margin: 0 auto;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
     text-align: center;
 }
 
 .copyright {
     color: #888;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
 }
 
 .legalLink {
     color: #ccc;
     text-decoration: none;
-    margin-left: 1rem;
+    margin: 0 1rem;
     transition: color 0.3s ease;
-}
-
-.legalLink:hover {
-    color: #ff0000;
+    font-size: 1rem;
 }
 
 /* Media Queries for Footer */
 @media (max-width: 768px) {
     .mainFooter {
-        padding: 3rem 1rem 1.5rem;
+        padding: 4rem 1.5rem 2rem;
+        padding-bottom: calc(2rem + 60px);
     }
 
     .footerContent {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 3rem;
     }
 
     .footerSection {
         text-align: center;
+        gap: 1.5rem;
     }
 
     .footerSection h3::after {
