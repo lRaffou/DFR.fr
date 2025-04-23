@@ -45,11 +45,7 @@ function renderFooter()
                         <i class="fab fa-facebook"></i>
                         <span>Facebook</span>
                     </a>
-                    <a href="https://www.linkedin.com/company/dao-family-record/" target="_blank" rel="noopener noreferrer"
-                        class="socialLink">
-                        <i class="fab fa-linkedin"></i>
-                        <span>LinkedIn</span>
-                    </a>
+
                 </div>
             </div>
         </div>

@@ -79,21 +79,39 @@ function renderAcceuil()
             <div class="eventContent">
                 <div class="eventCard">
                     <div class="eventImage">
-                        <img src="/img/Festival_septembre.png" alt="The Red Night - Festival">
+                        <img src="/img/nextEvent.jpg" alt="Coeur Meurtri - Open Air">
                         <div class="eventDate">
-                            <span class="day">08</span>
-                            <span class="month">SEPT</span>
+                            <span class="day">10 - 11</span>
+                            <span class="month">MAI</span>
                         </div>
                     </div>
                     <div class="eventInfo">
-                        <h3>The Red Night - Festival</h3>
+                        <h3>Coeur Meurtri - Open Air</h3>
+                        <div class="eventTags">
+                            <span class="tag">Bass House</span>
+                            <span class="tag">Techno</span>
+                            <span class="tag">Hard Techno</span>
+                        </div>
+                        <p>"Cœur Meurtri by DJ Babe" est un événement musical qui réunira exclusivement des artistes
+                            féminines, mettant en lumière leur créativité, leur diversité et leur force. Imaginé par Sophie
+                            Dao,
+                            alias DJ Babe, talent émergent toulousaine, cet événement vous garanti une expérience
+                            inoubliable.
+                            Ce projet incarne une vision inclusive et bienveillante, célébrant la richesse artistique et
+                            culturelle des femmes dans la musique.
+                            Le cœur battra plus fort au rythme de COEUR MEURTRI, l'open air 100 % féminin orchestré par DJ
+                            Babe ! Pendant deux jours, viens vibrer dans une ambiance électrique et bienveillante, en plein
+                            air au Port de l'Embouchure à Toulouse.</p>
+                        <a href="https://fb.me/e/7OXhf42dF" target="_blank" class="btnEvent">Réserver maintenant</a>
+                        <h3>Coeur Meurtri - After officiel open air</h3>
                         <div class="eventTags">
                             <span class="tag">Bass House</span>
                             <span class="tag">Techno</span>
                             <span class="tag">Hard Techno</span>
                         </div>
                         <p>Une nuit explosive de musique électronique avec les meilleurs artistes de la scène.</p>
-                        <a href="https://www.facebook.com/events/973739001112068" class="btnEvent">Réserver maintenant</a>
+                        <a href="https://shotgun.live/fr/events/after-officiel-coeur-meurtri-open-air-2025" target="_blank"
+                            class="btnEvent">Réserver maintenant</a>
                     </div>
                 </div>
             </div>
