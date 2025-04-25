@@ -15,8 +15,10 @@ function renderAcceuil()
                 </div>
             </div>
             <div class="heroVideo">
-                <iframe src="https://www.youtube.com/embed/EFj2f6M1IYA?si=fkwpugxswrhElOw6" title="Dao Family Records"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                <iframe
+                    src="https://www.youtube.com/embed/videoseries?si=9n7Tnr8qqOqHir4m&amp;list=PLfGk9MSaVom5-wEtYZ2lM2a99SeHHF6sg"
+                    title="Dao Family Records"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen></iframe>
             </div>
         </section>
@@ -123,7 +125,7 @@ function renderAcceuil()
             <div class="artistsGrid">
                 <div class="artistCard">
                     <div class="artistImage">
-                        <img src="/img/Thao-détouré.png" alt="Red Marshal">
+                        <img src="img\artistes\artist1.png" alt="Red Marshal">
                     </div>
                     <div class="artistOverlay">
                         <div class="artistInfo">
@@ -134,7 +136,7 @@ function renderAcceuil()
                 </div>
                 <div class="artistCard">
                     <div class="artistImage">
-                        <img src="/img/Sophie-détouré.png" alt="DJ Babe">
+                        <img src="img\artistes\artist2.png" alt="DJ Babe">
                     </div>
                     <div class="artistOverlay">
                         <div class="artistInfo">
@@ -145,7 +147,7 @@ function renderAcceuil()
                 </div>
                 <div class="artistCard">
                     <div class="artistImage">
-                        <img src="/img/Fernando-détouré.png" alt="Fernando Gomez">
+                        <img src="img\artistes\artist3.png" alt="Fernando Gomez">
                     </div>
                     <div class="artistOverlay">
                         <div class="artistInfo">
@@ -156,7 +158,7 @@ function renderAcceuil()
                 </div>
                 <div class="artistCard">
                     <div class="artistImage">
-                        <img src="/img/Brothers-détouré.png" alt="Dao Brothers">
+                        <img src="img\artistes\artist4.png" alt="Dao Brothers">
                     </div>
                     <div class="artistOverlay">
                         <div class="artistInfo">

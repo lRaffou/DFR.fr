@@ -19,6 +19,7 @@ function renderFooter()
                     <li><a href="/controller/artiste.php">Artistes</a></li>
                     <li><a href="/controller/video.php">Vidéos</a></li>
                     <li><a href="/controller/album.php">Albums</a></li>
+                    <li><a href="mailto:Daofamilyrecords@gmail.com">Contactez-nous</a></li>
                 </ul>
             </div>
 
