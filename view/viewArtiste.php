@@ -25,7 +25,7 @@ function renderArtiste()
 
             <article class="artistCard" data-artist="dj-babe">
                 <div class="artistImage">
-                    <img src="/img/Sophie-détouré.png" alt="Dj Babe" />
+                    <img src="/img/DJ_BABE_01.png" alt="Dj Babe" />
                     <div class="artistOverlay">
                         <div class="artistInfo">
                             <h2>Dj Babe</h2>
