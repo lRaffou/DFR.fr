@@ -76,13 +76,12 @@ const artistData = {
     },
 };
 
+// Gestion ouverture et remplissage modale artistes
 document.addEventListener("DOMContentLoaded", function () {
     const artistCards = document.querySelectorAll(".artistCard");
     const modal = document.getElementById("artistModal");
     const closeModal = document.querySelector(".closeModal");
-    const artistDetailsContainer = document.getElementById(
-        "artistDetailsContainer"
-    );
+    const artistDetailsContainer = document.getElementById("artistDetailsContainer");
 
     function createArtistDetails(artistId) {
         const artist = artistData[artistId];
@@ -90,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="artistDetails">
                 <div class="artistHeader">
                     <div class="artistProfile">
-                        <img src="${artist.image}" alt="${artist.name}" />
+                        <img src="${artist.image}" alt="${artist.name}">
                         <div class="artistTitle">
                             <h2>${artist.name}</h2>
                             <p>${artist.role}</p>
@@ -101,39 +100,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 <div class="artistBio">
                     <h3>Biographie</h3>
-                    ${artist.bio
-                        .map((paragraph) => `<p>${paragraph}</p>`)
-                        .join("")}
+                    ${artist.bio.map(p => `<p>${p}</p>`).join('')}
                 </div>
 
                 <div class="artistMusic">
                     <h3>Écouter</h3>
-                    <iframe style="border-radius:12px"
-                        src="${artist.spotify}"
-                        width="100%" height="152" frameBorder="0"
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
+                    <iframe style="border-radius:12px" src="${artist.spotify}" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                 </div>
 
                 <div class="artistGallery">
                     <h3>Galerie</h3>
                     <div class="galleryGrid">
-                        ${artist.gallery
-                            .map(
-                                (image) => `
-                            <div class="galleryItem">
-                                <img src="${image}" alt="${artist.name}" />
-                            </div>
-                        `
-                            )
-                            .join("")}
+                        ${artist.gallery.map(img => `<div class="galleryItem"><img src="${img}" alt="${artist.name}"></div>`).join('')}
                     </div>
                 </div>
             </div>
         `;
     }
 
-    artistCards.forEach((card) => {
+    artistCards.forEach(card => {
         card.addEventListener("click", function () {
             const artistId = this.getAttribute("data-artist");
             artistDetailsContainer.innerHTML = createArtistDetails(artistId);

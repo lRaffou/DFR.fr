@@ -1,27 +1,29 @@
+/* Fichier style.css optimisé et nettoyé pour Dao Family Records */
+
+/* Reset de base et configuration globale */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: "Montserrat-Regular", sans-serif;
+}
+
 @font-face {
     font-family: "Montserrat-Regular";
     src: url(/fonts/Montserrat/static/Montserrat-Regular.ttf);
 }
+
 @font-face {
     font-family: "Montserrat-Bold";
     src: url(/fonts/Montserrat/static/Montserrat-Bold.ttf);
 }
 
-body {
-    background-color: #000000;
-    color: #fff;
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* justify-content: center; */
-    font-family: "Montserrat-Regular";
-}
-
-/* Styles généraux pour les titres */
+/* Titres généraux */
 h1,
 h2,
 h3,
@@ -32,28 +34,22 @@ h6 {
     margin-bottom: 1rem;
     line-height: 1.2;
     position: relative;
+    text-transform: uppercase;
 }
 
 h1 {
     font-size: 3.5rem;
-    text-transform: uppercase;
     letter-spacing: 2px;
     background: linear-gradient(45deg, #ffffff, #fae4e4);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-    margin-bottom: 1.5rem;
 }
 
 h2 {
-    font-family: "Montserrat", sans-serif;
     font-size: 2.5rem;
-    font-weight: 700;
-    color: #ffffff;
-    text-transform: uppercase;
     letter-spacing: 1.5px;
-    margin-bottom: 1.2rem;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
 }
 
@@ -68,23 +64,13 @@ h2::after {
 }
 
 h3 {
-    font-family: "Montserrat", sans-serif;
     font-size: 1.8rem;
-    font-weight: 600;
-    color: #ffffff;
-    text-transform: uppercase;
     letter-spacing: 1px;
-    margin-top: 1.5rem;
 }
 
 h4 {
-    font-family: "Montserrat", sans-serif;
     font-size: 1.4rem;
-    font-weight: 500;
-    color: #ffffff;
-    text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin-bottom: 0.8rem;
 }
 
 h5 {
@@ -99,77 +85,42 @@ h6 {
     letter-spacing: 1px;
 }
 
-/* Media queries pour les titres */
+/* Responsive titres */
 @media screen and (max-width: 768px) {
     h1 {
         font-size: 2.8rem;
-        letter-spacing: 1.5px;
     }
-
     h2 {
         font-size: 2rem;
-        letter-spacing: 1px;
     }
-
     h3 {
         font-size: 1.5rem;
-        letter-spacing: 0.8px;
     }
-
     h4 {
         font-size: 1.2rem;
-        letter-spacing: 0.4px;
     }
 }
 
 @media screen and (max-width: 480px) {
     h1 {
         font-size: 2.2rem;
-        letter-spacing: 1px;
     }
-
     h2 {
         font-size: 1.8rem;
-        letter-spacing: 0.8px;
     }
-
     h3 {
         font-size: 1.3rem;
-        letter-spacing: 0.6px;
     }
-
     h4 {
         font-size: 1.1rem;
-        letter-spacing: 0.3px;
     }
 }
 
+/* Navigation personnalisée mobile/tablette */
 .navMin1000 {
     display: none;
 }
-.wrapperMin {
-    display: none;
-}
-.containerEventsMin {
-    display: none;
-}
-.containerArtistMin {
-    display: none;
-}
-main {
-    display: flex;
-    flex-direction: column;
-    margin-top: -3%;
-    gap: 2.2vh;
-    margin-bottom: 15vh;
-}
-/* ------------------------------------Start-NavBar-définitive------------------------------------*/
-header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    text-align: center;
-}
+
 .menuNav {
     position: fixed;
     bottom: 0;
@@ -182,6 +133,7 @@ header {
     padding: 0.5rem 0;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 .menuNav ul {
     list-style: none;
     display: flex;
@@ -190,6 +142,7 @@ header {
     margin: 0;
     padding: 0;
 }
+
 .menuNav li {
     outline: none !important;
     border: none !important;
@@ -200,20 +153,7 @@ header {
     background: none !important;
     box-shadow: none !important;
 }
-.menuNav li:focus,
-.menuNav li:active,
-.menuNav li:focus-visible,
-.menuNav li:hover,
-.menuNav li:visited {
-    outline: none !important;
-    border: none !important;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    user-select: none;
-    background: none !important;
-    box-shadow: none !important;
-}
+
 .menuNav a {
     color: #fff;
     text-decoration: none;
@@ -231,23 +171,11 @@ header {
     background: none !important;
     box-shadow: none !important;
 }
-.menuNav a:focus,
-.menuNav a:active,
-.menuNav a:focus-visible,
-.menuNav a:hover,
-.menuNav a:visited {
-    outline: none !important;
-    border: none !important;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    user-select: none;
-    background: none !important;
-    box-shadow: none !important;
-}
+
 .menuNav a.active {
     color: #ff0000;
 }
+
 .menuNav a.active::after {
     content: "";
     position: absolute;
@@ -257,46 +185,70 @@ header {
     background-color: #ff0000;
     opacity: 0.8;
 }
+
 .menuNav i {
     font-size: 1.2em;
     margin-bottom: 0.3em;
     transition: transform 0.3s ease;
 }
+
 .menuNav span {
     font-size: 0.8em;
     font-weight: 500;
 }
+
 .menuNav li:hover a {
     color: #ff0000;
 }
+
 .menuNav li:hover i {
     transform: translateY(-3px);
 }
+
 .navTop {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    /* height: 10vh; */
 }
+
 .logoNav img {
-    height: 7vh;
+    height: 5vh;
 }
+
 .nameDfrNav {
     text-transform: uppercase;
     width: 49%;
-    font-size: 3vw;
+    font-size: 2.5vw;
+    text-align: center;
 }
+
 .connexionNavTop {
     width: 49%;
     display: flex;
     justify-content: end;
     align-items: center;
 }
+
 .connexionImg {
     width: 7vw;
     margin-right: 2vw;
 }
+
+@media screen and (min-width: 1000px) {
+    .navMax1000 {
+        display: none;
+    }
+
+    .navMin1000 {
+        display: block;
+    }
+
+    .menuNav {
+        display: none;
+    }
+}
+
 /* ------------------------------------End-NavBar-définitive------------------------------------*/
 
 /* ------------------------------------Start-Iframe-définitif------------------------------------*/
@@ -316,125 +268,395 @@ header {
 }
 /* ------------------------------------End-Iframe-définitif------------------------------------*/
 /* ------------------------------------Start-Wrapper-définitif------------------------------------*/
-.containerWrapper {
-    display: flex;
-    /* padding: 0 35px; */
-    align-items: center;
-    justify-content: center;
-}
-.wrapper .carousel {
-    white-space: nowrap;
-    font-size: 0px;
-    cursor: pointer;
+/* Carousel */
+.wrapper {
+    max-width: 1200px;
+    margin: auto;
+    position: relative;
     overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
     scroll-behavior: smooth;
 }
+
+.carousel img {
+    height: 340px;
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.carousel img:first-child {
+    margin-left: 0;
+}
+
 .carousel.dragging {
-    cursor: grab;
+    cursor: grabbing;
     scroll-behavior: auto;
 }
+
 .carousel.dragging img {
     pointer-events: none;
 }
-.carousel img {
-    height: 340px;
-    object-fit: contain;
-    /* width: calc(100% /3); */
-    width: 100%;
-    margin-left: 14px;
-}
-.wrapper {
-    max-width: 1200px;
-    position: relative;
-}
-.carousel img:first-child {
-    margin-left: 0px;
-}
+
 .wrapper i {
-    /* background: #313131; */
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     width: 46px;
     height: 46px;
-    text-align: center;
     line-height: 46px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
     cursor: pointer;
-    /* border-radius: 50%; */
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 10;
 }
+
 .wrapper i:first-child {
-    left: 3px;
+    left: 10px;
     display: none;
 }
+
 .wrapper i:last-child {
-    right: 3px;
+    right: 10px;
 }
+
+@media screen and (min-width: 700px) {
+    .carousel img {
+        height: 430px;
+    }
+}
+
 /* ------------------------------------End-Wrapper-définitif------------------------------------*/
 
 /* ------------------------------------Start-Album-définitif------------------------------------*/
-.containerReleases h2 {
+/* Albums Grid */
+.featuredReleases {
+    padding: 4rem 2rem;
+    background-color: #111;
+}
+
+.featuredReleases h2 {
     text-align: center;
-    text-transform: uppercase;
-    font-family: "Montserrat-bold";
-    font-size: 13vw;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #fff;
 }
-.articleReleases a {
-    width: calc(85vw / 2);
-    border: 2px solid #fff;
+
+.releasesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
-.articleReleases img {
+
+.releaseCard {
+    background: #1a1a1a;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.releaseCard:hover {
+    transform: translateY(-10px);
+}
+
+.releaseImage {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+}
+
+.releaseImage img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
-.articleReleases {
+
+.releaseCard:hover .releaseImage img {
+    transform: scale(1.05);
+}
+
+.releaseOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
-    gap: 1.6em;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
+
+.releaseCard:hover .releaseOverlay {
+    opacity: 1;
+}
+
+.btnListen {
+    background: #1db954;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.btnListen:hover {
+    transform: scale(1.05);
+}
+
+.releaseInfo {
+    padding: 1.5rem;
+}
+
+.releaseInfo h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.releaseInfo p {
+    color: #ccc;
+}
+
 /* ------------------------------------End-Album-définitif------------------------------------*/
 
 /* ------------------------------------Start-Events-définitif------------------------------------*/
-.containerEvents h2 {
+/* Events Grid */
+.featuredEvent {
+    padding: 4rem 2rem;
+    background-color: #111;
+}
+
+.featuredEvent h2 {
     text-align: center;
-    text-transform: uppercase;
-    font-family: "Montserrat-bold";
-    font-size: 13vw;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #fff;
 }
-.containerEvents h3 {
-    text-transform: uppercase;
-    font-family: "Montserrat-bold";
-    font-size: 5vw;
+
+.eventContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
-.containerEvents h4 {
-    text-transform: uppercase;
-    font-family: "Montserrat-bold";
-    font-size: 2.5vw;
-    width: 100%;
-    /* text-align: center; */
+
+.eventCard {
+    background: #1a1a1a;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
 }
-.articleEvents a {
-    width: 90vw;
-    border: 2px solid #fff;
+
+.eventCard:hover {
+    transform: translateY(-10px);
 }
-.articleEvents img {
+
+.eventImage {
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+}
+
+.eventImage img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
-.articleEvents {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.6em;
-    /* background: yellow; */
+
+.eventCard:hover .eventImage img {
+    transform: scale(1.05);
+}
+
+.eventDate {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff5500;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    font-weight: bold;
     text-align: center;
 }
-.articleEvents p {
-    width: 90vw;
-    letter-spacing: 0.2rem;
+
+.eventInfo {
+    padding: 1.5rem;
 }
+
+.eventInfo h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.eventTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.eventTags .tag {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+.eventInfo p {
+    color: #ccc;
+    margin-bottom: 1rem;
+}
+
+.eventActions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.eventActions .btnEvent {
+    background: #ff0000;
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.eventActions .btnEvent:hover {
+    transform: translateY(-3px);
+}
+
 /* ------------------------------------End-Events-définitif------------------------------------*/
+
+/* ------------------------------------Start-Events-Page-définitif------------------------------------*/
+/* Past Events Section */
+.pastEvents {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.pastEvents h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    font-family: "Montserrat-Bold";
+    color: white;
+}
+
+.pastEventGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+}
+
+.pastEventCard {
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.pastEventCard:hover {
+    transform: translateY(-6px);
+}
+
+.pastEventImage {
+    height: 220px;
+    overflow: hidden;
+}
+
+.pastEventImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.pastEventInfo {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+.pastEventInfo h3 {
+    font-size: 1.6rem;
+    font-family: "Montserrat-Bold";
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.pastEventInfo p {
+    color: #bbb;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.pastEventAction {
+    margin-top: auto;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.pastEventButton {
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    background-color: #ff5500;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+
+.pastEventButton:hover {
+    background-color: #e64800;
+    color: white;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .pastEventGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ------------------------------------End-Events-Page-définitif------------------------------------*/
 
 /* ------------------------------------Start-Spotify-définitif------------------------------------*/
 .spotify {
@@ -442,6 +664,184 @@ header {
     justify-content: center;
 }
 /* ------------------------------------End-Spotify-définitif------------------------------------*/
+
+/* ------------------------------------Start-Footer-définitif------------------------------------*/
+/* Footer Section */
+.mainFooter {
+    background-color: #111;
+    color: #fff;
+    padding: 6rem 2rem 3rem;
+    margin-top: 6rem;
+    position: relative;
+    z-index: 1;
+}
+
+.footerContent {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 4rem;
+    margin-bottom: 4rem;
+}
+
+.footerSection {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.footerLogo {
+    max-width: 200px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 2rem auto;
+}
+
+.footerDescription {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.8;
+    color: #ccc;
+}
+
+.footerSection h3 {
+    color: #fff;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.footerSection h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.7rem;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(45deg, #ff0000, #ff6b6b);
+}
+
+.footerLinks {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footerLinks li {
+    margin-bottom: 1rem;
+}
+
+.footerLinks a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.footerLinks a:hover {
+    color: #ff0000;
+}
+
+.socialLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.socialLink {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    color: #ccc;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.socialLink i {
+    font-size: 1.6rem;
+    width: 28px;
+    text-align: center;
+}
+
+.footerBottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    text-align: center;
+}
+
+.copyright {
+    color: #888;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.legalLink {
+    color: #ccc;
+    text-decoration: none;
+    margin: 0 1rem;
+    transition: color 0.3s ease;
+    font-size: 1rem;
+}
+
+.legalLink:hover {
+    color: #ff0000;
+}
+
+@media (max-width: 768px) {
+    .mainFooter {
+        padding: 4rem 1.5rem 2rem;
+        padding-bottom: calc(2rem + 60px);
+    }
+
+    .footerContent {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .footerSection {
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .footerSection h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .socialLinks {
+        align-items: center;
+    }
+
+    .socialLink {
+        justify-content: center;
+    }
+}
+
+/* ------------------------------------End-Footer-définitif------------------------------------*/
+
+/* ------------------------------------Start-Video-Page-définitif------------------------------------*/
+.videoList {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+.singleVideo {
+    width: calc(90vw / 2);
+}
+.singleVideo h2 {
+    font-size: 2vw;
+    font-family: "Montserrat-Bold";
+    text-transform: uppercase;
+}
+/* ------------------------------------End-Video-Page-définitif------------------------------------*/
 
 /* ------------------------------------Start-Artist-définitif------------------------------------*/
 .containerArtist {
@@ -477,305 +877,190 @@ header {
 }
 /* ------------------------------------End-Artist-définitif------------------------------------*/
 
-/* ------------------------------------Start-Footer-définitif------------------------------------*/
-.containerFooter {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-top: 1px solid #fff;
-    margin-bottom: 11vh;
-    height: 50vh;
-    gap: 3vh;
-    padding-top: 3vh;
-}
-.logoFooter {
-    max-width: 200px;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto 1rem auto;
-}
-.followFooter {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem 5rem;
-}
-.followFooter img {
-    width: 15vw;
-}
-/* ------------------------------------End-Footer-définitif------------------------------------*/
-
-/* ------------------------------------Start-Video-Page-définitif------------------------------------*/
-.videoList {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1em;
-}
-.singleVideo {
-    width: calc(90vw / 2);
-}
-.singleVideo h2 {
-    font-size: 2vw;
-    font-family: "Montserrat-Bold";
-    text-transform: uppercase;
-}
-/* ------------------------------------End-Video-Page-définitif------------------------------------*/
-
-/* ------------------------------------Start-Events-Page-définitif------------------------------------*/
-.mainEventPage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 3vh 0 3vh 0;
-    gap: 2vh;
-}
-.mainEventPage h1 {
-    text-align: center;
-    text-transform: uppercase;
-    font-family: "Montserrat-bold";
-    font-size: 5.5vw;
-}
-.mainEventPage a {
-    width: 90vw;
-    border: 2px solid #fff;
-}
-.mainEventPage img {
-    width: 100%;
-    height: 100%;
-}
-.mainEventPage h2 {
-    text-align: center;
-    font-family: "Montserrat-bold";
-    font-size: 4vw;
-}
-.mainEventPage p {
-    width: 90vw;
-    letter-spacing: 0.2rem;
-}
-
-.pastEventsPage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2vh;
-    margin: 3vh 0 3vh 0;
-}
-.pastEventsPage h2 {
-    text-align: center;
-    text-transform: uppercase;
-    font-family: "Montserrat-bold";
-    font-size: 6vw;
-}
-.pastEventsPage a {
-    width: 90vw;
-    border: 2px solid #fff;
-    /* border-radius: 50px 0 50px; */
-}
-.pastEventsPage img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-/* ------------------------------------End-Events-Page-définitif------------------------------------*/
-
 /* ------------------------------------Start-Artists-Page-définitif------------------------------------*/
-.artisteCard {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 2px solid #fff;
-}
-.artisteBeforeClick {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5vw;
-    margin: 3px 0 3px 0;
-}
-.artisteBeforeClick h2 {
-    text-align: center;
-    text-transform: uppercase;
-    font-family: "Montserrat-bold";
-    font-size: 5vw;
-}
-.artisteBeforeClick p {
-    text-align: center;
-    text-transform: uppercase;
-    font-family: "Montserrat-bold";
-    font-size: 3vw;
-}
-.artisteBeforeClick img {
-    width: 50vw;
-    border: 2px solid #fff;
+/* Artiste Modal Section */
+.artistModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    overflow-y: auto;
 }
 
-.artistAfterClick {
+.modalContent {
+    position: relative;
+    background-color: white;
+    margin: 2rem auto;
+    padding: 2rem;
+    max-width: 1000px;
+    border-radius: 12px;
+}
+
+.closeModal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #333;
+}
+
+.artistHeader {
+    margin-bottom: 2rem;
+}
+
+.artistProfile {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    margin: 3vh 2vw 3vh 2vw;
-    width: 95vw;
-    gap: 5vh;
+    gap: 2rem;
 }
-.artistAfterClickBio {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    letter-spacing: 0.1rem;
-    gap: 1vh;
-}
-.artistAfterClick img {
-    width: 45vw;
-    border: 2px solid #fff;
-}
-.artistAfterClickGallery {
-    display: flex;
-    justify-content: center;
-}
-.galleryOne {
-    display: flex;
-    flex-direction: column;
-}
-.galleryOne img {
-    width: 45vw;
-}
-.galleryTwo {
+
+.artistProfile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
     object-fit: cover;
 }
+
+.artistTitle h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.artistBio {
+    margin-bottom: 2rem;
+}
+
+.artistBio h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.artistBio p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    color: #666;
+}
+
+.artistMusic {
+    margin-bottom: 2rem;
+}
+
+.artistMusic h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.artistGallery {
+    margin-bottom: 2rem;
+}
+
+.artistGallery h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.galleryGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.galleryItem {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.galleryItem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.galleryItem:hover img {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .modalContent {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .artistProfile {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .artistProfile img {
+        width: 120px;
+        height: 120px;
+    }
+}
+
 /* ------------------------------------End-Artists-Page-définitif------------------------------------*/
 
-/* ------------------------------------Start-Connect-Page-définitif------------------------------------*/
-.formContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 3vh 0;
-    /* background-color: bisque; */
-}
-.formWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* background-color: aqua; */
-}
-.cardFormWrapper {
-    width: 90vw;
-    padding: 2vh;
-    /* background-color: rgb(255 255 255 /35%); */
-}
-.cardFormHeader {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 30px 20px 0;
-    font-size: 4vw;
-    box-shadow: 0px 3px 8px #fff;
-    border-radius: 50px;
-    border: 1px solid #fff;
-}
-.formHeader {
-    flex: 50%;
-    text-align: center;
-    padding: 10px 0;
-    border: 2px solid transparent;
-    border-radius: 50px;
-    user-select: none;
-    cursor: pointer;
-}
-.active {
-    box-shadow: inset 1px 1px 2px rgb(255 255 255 /55%),
-        inset -1px 1px 2px rgb(255 255 255 /55%),
-        inset -1px -1px 2px rgb(255 255 255 /55%),
-        inset 1px -1px 2px rgb(255 255 255 /55%);
-    border-color: #fff;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-.cardFormBody {
-    display: flex;
-    flex-wrap: nowrap;
-    padding: 40px 0;
-    text-align: center;
-}
-.cardFormBody form {
-    flex: 0 0 100%;
-}
-.toggleForm {
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.3, visibility 0.3s;
-}
-.formControl {
+/* Video Modal Section */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.modalContent {
+    position: relative;
+    width: 80%;
+    max-width: 900px;
+    margin: 5% auto;
+    background-color: #000;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.modalContent iframe {
+    width: 100%;
+    height: 500px;
     border: none;
-    border-bottom: 1px solid rgb(255 255 255 /65%);
-    background: none;
-    outline: none;
-    padding: 10px 5px;
-    margin-bottom: 20px;
-    color: #fff;
-}
-.formControl::placeholder {
-    color: rgb(255 255 255 /65%);
-}
-.formButton {
-    border: 1px solid transparent;
-    padding: 1rem 3rem;
-    background-color: #fff;
-    border-radius: 50px;
-    margin-top: 1rem;
-    font-size: 1rem;
-    font-family: "Montserrat-Bold";
-    transition: transform 0.3s, box-shadow 0.3s;
-    user-select: none;
-    color: #000;
-}
-.formButton:hover {
-    box-shadow: 1px 5px 15px #fff;
-    transform: translateY(-5px);
+    display: block;
 }
 
-/* ------------------------------------End-Connect-Page-définitif------------------------------------*/
+.closeModal {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1001;
+}
 
-/* ------------------------------------Start-Profil-Page-définitif------------------------------------*/
-.profilContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 1vh 0;
+@media (max-width: 768px) {
+    .modalContent iframe {
+        height: 280px;
+    }
+    .modalContent {
+        width: 95%;
+        margin-top: 15%;
+    }
 }
-.profilContainer h1 {
-    text-transform: uppercase;
-    font-family: "Montserrat-bold";
-    font-size: 8vw;
-}
-.profilContainer p {
-    font-size: 4vw;
-    font-family: "Montserrat-regular";
-}
-.profilContainer a {
-    text-transform: uppercase;
-    text-decoration: none;
-    color: #000;
-    font-size: 3vw;
-    font-family: "Montserrat-bold";
-}
-.profilContainer button {
-    background-color: #ff0000;
-    color: #fff;
-    border: 2px solid #fff;
-    padding: 2% 4%;
-    font-size: 2.5vw;
-    font-family: "Montserrat-regular";
-}
-.profilContainer button:hover {
-    background-color: #fff;
-    color: #ff0000;
-}
-/* ------------------------------------End-Profil-Page-définitif------------------------------------*/
+
+/* Fin Video Modal Section */
 
 @media screen and (min-width: 700px) {
     .carousel img {
@@ -1749,53 +2034,108 @@ header {
     text-transform: uppercase;
 }
 
-.eventGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
+/* === Styles pour la section Événements Passés === */
+.pastEvents {
+    max-width: 1440px;
     margin: 0 auto;
+    padding: 4rem 2rem;
 }
 
-.eventGrid .eventCard {
+.pastEvents h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    font-family: "Montserrat-Bold";
+    color: white;
+}
+
+.pastEvents .pastEventGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+}
+
+.pastEvents .pastEventCard {
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
 }
 
-.eventGrid .eventImage {
-    height: 200px;
+.pastEvents .pastEventCard:hover {
+    transform: translateY(-6px);
 }
 
-/* Media Queries pour la page Événements */
-@media (max-width: 1000px) {
-    .eventCard.featured {
-        grid-template-columns: 1fr;
-    }
+.pastEvents .pastEventImage {
+    height: 220px;
+    overflow: hidden;
+}
 
-    .eventHero h1 {
-        font-size: 2.5rem;
-    }
+.pastEvents .pastEventImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.pastEvents .pastEventInfo {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+.pastEvents .pastEventInfo h3 {
+    font-size: 1.6rem;
+    font-family: "Montserrat-Bold";
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.pastEvents .pastEventInfo p {
+    color: #bbb;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.pastEvents .pastEventAction {
+    margin-top: auto;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.pastEvents .pastEventAction a.pastEventButton {
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    background-color: #ff5500;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+
+.pastEvents .pastEventAction a.pastEventButton:hover {
+    background-color: #e64800;
+    color: white;
+    text-decoration: none;
 }
 
 @media (max-width: 768px) {
-    .mainEvent {
-        padding: 1rem;
-    }
-
-    .eventHero h1 {
-        font-size: 2rem;
-    }
-
-    .eventGrid {
+    .pastEvents .pastEventGrid {
         grid-template-columns: 1fr;
-    }
-
-    .eventActions {
-        flex-direction: column;
-    }
-
-    .btnEvent {
-        text-align: center;
     }
 }
 
