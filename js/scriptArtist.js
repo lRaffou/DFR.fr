@@ -15,14 +15,14 @@ const artistData = {
             "/img/Red_Marshal_5.jpg",
             "/img/Red_Marshal_2.jpg",
             "/img/Red_Marshal_7.jpg",
-            "/img/Red_Marshal_9.jpg",
+            "/img/gallerie/artist1_4on4.jpg",
         ],
     },
     "dj-babe": {
         name: "Dj Babe",
         role: "DJ - Producteur",
         genre: "Tech House",
-        image: "/img/Sophie-détouré.png",
+        image: "/img/gallerie/artist2_1on4.jpg",
         bio: [
             "Sophie est une artiste française d'origine vietnamienne, dont le parcours musical a été initié par l'influence de ses frères, eux-mêmes actifs dans les scènes bass house (Dao Brothers) et hard techno (Red Marshal). C'est dans cet environnement familial et musical qu'elle a forgé ses premières inspirations et aspirations artistiques.",
             "Forte de ses connaissances et des multiples influences qui l'entourent, Sophie a développé au fil des années un univers musical qui lui est propre. Forte de son expérience et de sa créativité, elle s'est lancée dans la création d'un album ambitieux, dont la sortie est prévue en 2024.",
@@ -31,10 +31,10 @@ const artistData = {
         spotify:
             "https://open.spotify.com/embed/artist/7o0ucOb1npEkb3qhGFIY3U?utm_source=generator",
         gallery: [
-            "/img/Sophie-détouré.png",
-            "/img/Japanese_temple.png",
-            "/img/DJ_BABE_Event_2.png",
-            "/img/Sophie-détouré.png",
+            "/img/gallerie/artist2_1on4.jpg",
+            "/img/gallerie/artist2_2on4.jpg",
+            "/img/gallerie/artist2_3on4.jpg",
+            "/img/gallerie/artist2_4on4.jpg",
         ],
     },
     fernando: {
@@ -51,9 +51,9 @@ const artistData = {
             "https://open.spotify.com/embed/artist/51UZk9XPK15uZgwQEWE3MK?utm_source=generator",
         gallery: [
             "/img/Fernando-détouré.png",
-            "/img/Darkness_fernando.png",
-            "/img/Imagination_Fernando.png",
-            "/img/Fernando-détouré.png",
+            "/img/gallerie/artist3_2on4.jpg",
+            "/img/gallerie/artist3_3on4.jpg",
+            "/img/gallerie/artist3_4on4.jpg",
         ],
     },
     "dao-brothers": {
