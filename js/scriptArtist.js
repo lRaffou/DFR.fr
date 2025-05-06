@@ -2,7 +2,7 @@ const artistData = {
     "red-marshal": {
         name: "Red Marshal",
         role: "DJ - Producteur",
-        genre: "Hard Techno",
+        genre: ["Hard Techno"],
         image: "/img/Red_Marshal_1.jpg",
         bio: [
             "Thao Dao est français d'origine vietnamienne. Ses parents sont arrivés en France avant sa naissance, quittant leur pays pour offrir à leurs enfants une vie meilleure. Pour honorer le choix de ses parents, Thao vit sa vie à 100 km/heure. Très vite, il décide de se consacrer à sa véritable passion, celle qui l'a toujours animé et rendu heureux : la musique.",
@@ -21,7 +21,7 @@ const artistData = {
     "dj-babe": {
         name: "Dj Babe",
         role: "DJ - Producteur",
-        genre: "Tech House",
+        genre: "Hard Techno / Tech House",
         image: "/img/gallerie/artist2_1on4.png",
         bio: [
             "Sophie est une artiste française d'origine vietnamienne, dont le parcours musical a été initié par l'influence de ses frères, eux-mêmes actifs dans les scènes bass house (Dao Brothers) et hard techno (Red Marshal). C'est dans cet environnement familial et musical qu'elle a forgé ses premières inspirations et aspirations artistiques.",
@@ -81,7 +81,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const artistCards = document.querySelectorAll(".artistCard");
     const modal = document.getElementById("artistModal");
     const closeModal = document.querySelector(".closeModal");
-    const artistDetailsContainer = document.getElementById("artistDetailsContainer");
+    const artistDetailsContainer = document.getElementById(
+        "artistDetailsContainer"
+    );
 
     function createArtistDetails(artistId) {
         const artist = artistData[artistId];
@@ -100,25 +102,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 <div class="artistBio">
                     <h3>Biographie</h3>
-                    ${artist.bio.map(p => `<p>${p}</p>`).join('')}
+                    ${artist.bio.map((p) => `<p>${p}</p>`).join("")}
                 </div>
 
                 <div class="artistMusic">
                     <h3>Écouter</h3>
-                    <iframe style="border-radius:12px" src="${artist.spotify}" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    <iframe style="border-radius:12px" src="${
+                        artist.spotify
+                    }" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                 </div>
 
                 <div class="artistGallery">
                     <h3>Galerie</h3>
                     <div class="galleryGrid">
-                        ${artist.gallery.map(img => `<div class="galleryItem"><img src="${img}" alt="${artist.name}"></div>`).join('')}
+                        ${artist.gallery
+                            .map(
+                                (img) =>
+                                    `<div class="galleryItem"><img src="${img}" alt="${artist.name}"></div>`
+                            )
+                            .join("")}
                     </div>
                 </div>
             </div>
         `;
     }
 
-    artistCards.forEach(card => {
+    artistCards.forEach((card) => {
         card.addEventListener("click", function () {
             const artistId = this.getAttribute("data-artist");
             artistDetailsContainer.innerHTML = createArtistDetails(artistId);

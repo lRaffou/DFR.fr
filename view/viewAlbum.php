@@ -6,7 +6,7 @@ function renderAlbum()
     <main class="mainAlbum">
 
         <section class="albumHero">
-            <h1>Nos Albums</h1>
+            <h1>Nos Tracks</h1>
             <p>Découvrez nos dernières sorties et notre catalogue musical</p>
         </section>
 
@@ -28,8 +28,8 @@ function renderAlbum()
                         <p class="artistName">Artiste : Dj Babe</p>
                         <p class="releaseDate">Date de sortie : 01/12/2024</p>
                         <div class="albumTags">
-                            <span class="tag">Bass House</span>
-                            <span class="tag">Techno</span>
+                            <span class="tag">Hard Techno</span>
+                            <span class="tag">Fast Techno</span>
                         </div>
                     </div>
                 </article>
@@ -115,7 +115,7 @@ function renderAlbum()
                         <p class="artistName">Artiste : Dao Brothers</p>
                         <p class="releaseDate">Date de sortie : 11/08/2024</p>
                         <div class="albumTags">
-                            <span class="tag">Tech House</span>
+                            <span class="tag">Bass House</span>
                         </div>
                     </div>
                 </article>
@@ -135,7 +135,7 @@ function renderAlbum()
                         <p class="artistName">Artiste : Fernando Gomez</p>
                         <p class="releaseDate">Date de sortie : 11/05/2024</p>
                         <div class="albumTags">
-                            <span class="tag">Tech House</span>
+                            <span class="tag">Techno</span>
                         </div>
                     </div>
                 </article>
@@ -155,7 +155,7 @@ function renderAlbum()
                         <p class="artistName">Artiste : Red Marshal</p>
                         <p class="releaseDate">Date de sortie : 21/10/2021</p>
                         <div class="albumTags">
-                            <span class="tag">Tech House</span>
+                            <span class="tag">Techno</span>
                         </div>
                     </div>
                 </article>

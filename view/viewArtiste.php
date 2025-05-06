@@ -32,6 +32,7 @@ function renderArtiste()
                 <div class="artistInfo">
                     <h2>Dj Babe</h2>
                     <p>DJ - Producteur</p>
+                    <span class="artistGenre">Hard Techno</span>
                     <span class="artistGenre">Tech House</span>
                 </div>
             </div>
