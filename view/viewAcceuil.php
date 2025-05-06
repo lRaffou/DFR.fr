@@ -30,16 +30,16 @@ function renderAcceuil()
             <div class="releasesGrid">
                 <div class="releaseCard">
                     <div class="releaseImage">
-                        <img src="/img/accueil/Releases-1.png" alt="Red Night - Red Marshal">
+                        <img src="/img/accueil/Releases-1.png" alt="Red Rave - Red Marshal">
                         <div class="releaseOverlay">
-                            <a href="https://open.spotify.com/album/7nDOtP7tieus0W13J4RCho?si=nHIDI_rhTmaytS_X66S-Ig"
+                            <a href="https://dzr.page.link/E5jGMqDgNYxxjR9j6"
                                 class="btnListen">
-                                <i class="fab fa-spotify"></i> Écouter sur Spotify
+                                <i class="fab fa-deezer"></i> Écouter sur Deezer
                             </a>
                         </div>
                     </div>
                     <div class="releaseInfo">
-                        <h3>Red Night</h3>
+                        <h3>Red Rave</h3>
                         <p>Red Marshal</p>
                     </div>
                 </div>

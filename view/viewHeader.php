@@ -47,7 +47,7 @@ function renderHeader()
                                     class="fas fa-video"></i><span>Vidéos</span></a></li>
                         <li><a href="/controller/album.php"
                                 class="<?php echo ($_SERVER['PHP_SELF'] == '/controller/album.php') ? 'active' : ''; ?>"><i
-                                    class="fas fa-compact-disc"></i><span>Albums</span></a></li>
+                                    class="fas fa-compact-disc"></i><span>Tracks</span></a></li>
                     </ul>
                 </section>
             </nav>
@@ -68,7 +68,7 @@ function renderHeader()
                             </li>
                             <li><a href="/controller/video.php" class="navLink"><i class="fas fa-video"></i> Vidéos</a></li>
                             <li><a href="/controller/album.php" class="navLink"><i class="fas fa-compact-disc"></i>
-                                    Albums</a></li>
+                                    Tracks</a></li>
                         </ul>
                     </div>
                     <div class="navbarSocial">
