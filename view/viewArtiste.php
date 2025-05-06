@@ -14,7 +14,7 @@ function renderArtiste()
 
     <article class="artistCard" data-artist="red-marshal">
         <div class="artistImage">
-            <img src="/img/Red_Marshal_1.jpg" alt="Red Marshal">
+            <img src="/img/artistes/artist1.png" alt="Red Marshal">
             <div class="artistOverlay">
                 <div class="artistInfo">
                     <h2>Red Marshal</h2>
@@ -27,7 +27,7 @@ function renderArtiste()
 
     <article class="artistCard" data-artist="dj-babe">
         <div class="artistImage">
-            <img src="/img/DJ_BABE_01.png" alt="Dj Babe">
+            <img src="/img/artistes/artist2.png" alt="Dj Babe">
             <div class="artistOverlay">
                 <div class="artistInfo">
                     <h2>Dj Babe</h2>
@@ -40,7 +40,7 @@ function renderArtiste()
 
     <article class="artistCard" data-artist="fernando">
         <div class="artistImage">
-            <img src="/img/Fernando-détouré.png" alt="Fernando Gomez">
+            <img src="/img/artistes/artist3.png" alt="Fernando Gomez">
             <div class="artistOverlay">
                 <div class="artistInfo">
                     <h2>Fernando Gomez</h2>
@@ -53,7 +53,7 @@ function renderArtiste()
 
     <article class="artistCard" data-artist="dao-brothers">
         <div class="artistImage">
-            <img src="/img/Brothers-détouré.png" alt="Dao Brothers">
+            <img src="/img/artistes/artist4.png" alt="Dao Brothers">
             <div class="artistOverlay">
                 <div class="artistInfo">
                     <h2>Dao Brothers</h2>

@@ -22,7 +22,7 @@ const artistData = {
         name: "Dj Babe",
         role: "DJ - Producteur",
         genre: "Tech House",
-        image: "/img/gallerie/artist2_1on4.jpg",
+        image: "/img/gallerie/artist2_1on4.png",
         bio: [
             "Sophie est une artiste française d'origine vietnamienne, dont le parcours musical a été initié par l'influence de ses frères, eux-mêmes actifs dans les scènes bass house (Dao Brothers) et hard techno (Red Marshal). C'est dans cet environnement familial et musical qu'elle a forgé ses premières inspirations et aspirations artistiques.",
             "Forte de ses connaissances et des multiples influences qui l'entourent, Sophie a développé au fil des années un univers musical qui lui est propre. Forte de son expérience et de sa créativité, elle s'est lancée dans la création d'un album ambitieux, dont la sortie est prévue en 2024.",
@@ -31,7 +31,7 @@ const artistData = {
         spotify:
             "https://open.spotify.com/embed/artist/7o0ucOb1npEkb3qhGFIY3U?utm_source=generator",
         gallery: [
-            "/img/gallerie/artist2_1on4.jpg",
+            "/img/gallerie/artist2_1on4.png",
             "/img/gallerie/artist2_2on4.jpg",
             "/img/gallerie/artist2_3on4.jpg",
             "/img/gallerie/artist2_4on4.jpg",
@@ -41,7 +41,7 @@ const artistData = {
         name: "Fernando Gomez",
         role: "DJ - Producteur",
         genre: "Techno",
-        image: "/img/Fernando-détouré.png",
+        image: "/img/gallerie/artist3_1on4.png",
         bio: [
             "Fernando d'origine espagnol est passionné de musique et de show lumière (Jean-Michel Jarre) depuis son plus jeune âge, il est un fervent amateur de piano et de guitare. À l'adolescence, il décide de se concentrer sur ses styles musicaux de prédilection : le métal et le hard métal.",
             "Durant ses études dans le Nord de la France, ses goûts musicaux évoluent petit à petit vers le hardcore, la hard techno et le hardstyle. À la fin de sa formation, il déménage à Toulouse pour travailler et découvrir le monde de la nuit. Il devient alors technicien son et lumière pour différentes boîtes de nuit de la ville rose.",
@@ -50,7 +50,7 @@ const artistData = {
         spotify:
             "https://open.spotify.com/embed/artist/51UZk9XPK15uZgwQEWE3MK?utm_source=generator",
         gallery: [
-            "/img/Fernando-détouré.png",
+            "/img/gallerie/artist3_1on4.png",
             "/img/gallerie/artist3_2on4.jpg",
             "/img/gallerie/artist3_3on4.jpg",
             "/img/gallerie/artist3_4on4.jpg",
