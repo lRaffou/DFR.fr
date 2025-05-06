@@ -30,46 +30,49 @@ function renderAcceuil()
             <div class="releasesGrid">
                 <div class="releaseCard">
                     <div class="releaseImage">
-                        <img src="/img/Album_Red_Rave.png" alt="Red Rave - Red Marshal">
+                        <img src="/img/accueil/Releases-1.png" alt="Red Night - Red Marshal">
                         <div class="releaseOverlay">
-                            <a href="https://open.spotify.com/intl-fr/album/3qFHJrWeitkjPo1OWmRBHa" class="btnListen">
+                            <a href="https://open.spotify.com/album/7nDOtP7tieus0W13J4RCho?si=nHIDI_rhTmaytS_X66S-Ig"
+                                class="btnListen">
                                 <i class="fab fa-spotify"></i> Écouter sur Spotify
                             </a>
                         </div>
                     </div>
                     <div class="releaseInfo">
-                        <h3>Red Rave</h3>
+                        <h3>Red Night</h3>
                         <p>Red Marshal</p>
                     </div>
                 </div>
 
                 <div class="releaseCard">
                     <div class="releaseImage">
-                        <img src="/img/Into_the_club_DaoBrothers.png" alt="Into the Club - Dao Brothers">
+                        <img src="/img/accueil/Releases-2.png" alt="How Can I - Dj Babe">
                         <div class="releaseOverlay">
-                            <a href="https://open.spotify.com/intl-fr/album/0IvMcp0vjpPsioa70rJ0rB" class="btnListen">
+                            <a href="https://open.spotify.com/album/47Q6yAPK2TYz133M4TPR9E?si=iQh5YQT-Rpax-mlLr6-gGw"
+                                class="btnListen">
                                 <i class="fab fa-spotify"></i> Écouter sur Spotify
                             </a>
                         </div>
                     </div>
                     <div class="releaseInfo">
-                        <h3>Into the Club</h3>
-                        <p>Dao Brothers</p>
+                        <h3>How Can I</h3>
+                        <p>Dj Babe</p>
                     </div>
                 </div>
 
                 <div class="releaseCard">
                     <div class="releaseImage">
-                        <img src="/img/FeelGood_DJBabe.png" alt="Feel Good - DJ Babe">
+                        <img src="/img/accueil/Releases-3.png" alt="Imagination - Fernando Gomez">
                         <div class="releaseOverlay">
-                            <a href="https://open.spotify.com/intl-fr/track/0Jc3ODaHZsJBSvSwQx4Qwm" class="btnListen">
+                            <a href="https://open.spotify.com/album/29j5GKQGMW4TE54vCICzAL?si=_5MrAjIxQVSJShpLealOSA"
+                                class="btnListen">
                                 <i class="fab fa-spotify"></i> Écouter sur Spotify
                             </a>
                         </div>
                     </div>
                     <div class="releaseInfo">
-                        <h3>Feel Good</h3>
-                        <p>DJ Babe</p>
+                        <h3>Imagination</h3>
+                        <p>Fernando Gomez</p>
                     </div>
                 </div>
             </div>
@@ -79,9 +82,11 @@ function renderAcceuil()
         <section class="spotifySection">
             <h2>Écoutez nos artistes</h2>
             <div class="spotifyPlayer">
-                <iframe src="https://open.spotify.com/embed/album/3qFHJrWeitkjPo1OWmRBHa?utm_source=generator&theme=0"
-                    width="100%" height="580" frameborder="0" allowfullscreen=""
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                <iframe style="border-radius:12px"
+                    src="https://open.spotify.com/embed/playlist/4z6XsMTJ8rsbSGyi20bz9T?utm_source=generator" width="100%"
+                    height="652" frameBorder="0" allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"></iframe>
             </div>
         </section>
 
