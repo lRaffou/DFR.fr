@@ -595,8 +595,10 @@ h6 {
 }
 
 .btnEvent {
-    display: inline-block;
-    padding: 0.8rem 1.5rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 0.8rem 1.1rem;
     border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
@@ -901,6 +903,11 @@ h6 {
     font-size: 2rem;
     margin-bottom: 0.5rem;
 }
+.social_artist {
+    display: flex;
+    justify-content:start;
+    gap: 2em;
+}
 
 .artistBio {
     margin-bottom: 2rem;
@@ -976,6 +983,9 @@ h6 {
     .artistProfile img {
         width: 120px;
         height: 120px;
+    }
+    .social_artist {
+        justify-content:center;
     }
 }
 

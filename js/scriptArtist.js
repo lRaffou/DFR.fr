@@ -4,6 +4,10 @@ const artistData = {
         role: "DJ - Producteur",
         genre: ["Hard Techno"],
         image: "/img/Red_Marshal_1.jpg",
+        social_spotify:
+            "https://open.spotify.com/intl-fr/artist/3zpewQ11GYG2ev9Ngdsvi9?si=wlTXdkSHSmenHoVpqnK1nQ",
+        social_instagram:
+            "https://www.instagram.com/redmarshal_official?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
         bio: [
             "Thao Dao est français d'origine vietnamienne. Ses parents sont arrivés en France avant sa naissance, quittant leur pays pour offrir à leurs enfants une vie meilleure. Pour honorer le choix de ses parents, Thao vit sa vie à 100 km/heure. Très vite, il décide de se consacrer à sa véritable passion, celle qui l'a toujours animé et rendu heureux : la musique.",
             "Comme beaucoup de gens de sa génération, Thao est tombé amoureux de la musique électronique avec Daft Punk. Dès lors, il n'a eu de cesse de parfaire sa culture musicale avec The Prodigy, Justice, GESAFFELSTEIN, Laurent Garnier, Jeff Mills, Paul Kalkbrenner, Vitalic Official, REZZ. Il a une véritable passion pour la musique. C'est donc tout naturellement qu'il a commencé à composer en 2010.",
@@ -23,6 +27,10 @@ const artistData = {
         role: "DJ - Producteur",
         genre: "Hard Techno / Tech House",
         image: "/img/gallerie/artist2_1on4.png",
+        social_spotify:
+            "https://open.spotify.com/intl-fr/artist/7o0ucOb1npEkb3qhGFIY3U?si=dq1PgFdSSq24ofIbbC1l4g",
+        social_instagram:
+            "https://www.instagram.com/djbabe31?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
         bio: [
             "Sophie est une artiste française d'origine vietnamienne, dont le parcours musical a été initié par l'influence de ses frères, eux-mêmes actifs dans les scènes bass house (Dao Brothers) et hard techno (Red Marshal). C'est dans cet environnement familial et musical qu'elle a forgé ses premières inspirations et aspirations artistiques.",
             "Forte de ses connaissances et des multiples influences qui l'entourent, Sophie a développé au fil des années un univers musical qui lui est propre. Forte de son expérience et de sa créativité, elle s'est lancée dans la création d'un album ambitieux, dont la sortie est prévue en 2024.",
@@ -42,6 +50,10 @@ const artistData = {
         role: "DJ - Producteur",
         genre: "Techno",
         image: "/img/gallerie/artist3_1on4.png",
+        social_spotify:
+            "https://open.spotify.com/intl-fr/artist/51UZk9XPK15uZgwQEWE3MK?si=gc66aNl4QDeejNgcicuJ6g",
+        social_instagram:
+            "https://www.instagram.com/fernando.gomez._music/?hl=fr",
         bio: [
             "Fernando d'origine espagnol est passionné de musique et de show lumière (Jean-Michel Jarre) depuis son plus jeune âge, il est un fervent amateur de piano et de guitare. À l'adolescence, il décide de se concentrer sur ses styles musicaux de prédilection : le métal et le hard métal.",
             "Durant ses études dans le Nord de la France, ses goûts musicaux évoluent petit à petit vers le hardcore, la hard techno et le hardstyle. À la fin de sa formation, il déménage à Toulouse pour travailler et découvrir le monde de la nuit. Il devient alors technicien son et lumière pour différentes boîtes de nuit de la ville rose.",
@@ -61,6 +73,10 @@ const artistData = {
         role: "DJ - Producteur",
         genre: "Bass House",
         image: "/img/Brothers-détouré.png",
+        social_spotify:
+            "https://open.spotify.com/intl-fr/artist/4FP9ILC4hO3YvOb2R0NIzj?si=7aZaVISoSdyK-6JheqPh8g",
+        social_instagram:
+            "https://www.instagram.com/daobrothers?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
         bio: [
             'Les frères Dao sont des artistes qui produisent de la Bass House, une musique émergente propagée par les artistes français « Malaa " et " DJ SNAKE ». Composé des frères Thao et Yo (nés en 1991 et 1990), le duo français d\'origine vietnamienne se produit à Toulouse.',
             "Dans leur enfance, ils se passionnent pour la musique et le cinéma. Ils se sont rapidement formés et spécialisés dans ces deux domaines. Le style musical de Thao est très sombre avec des basses puissantes, tandis que celui de Yo est groovy et rythmé. Ces différences forment un mélange de sons innovant.",
@@ -72,6 +88,28 @@ const artistData = {
             "/img/Photo_dao_ yo_thao.jpg",
             "/img/meilleur.jpg",
             "/img/Photo_dao_thao.jpg",
+        ],
+    },
+    "zoe-kunter": {
+        name: "Zoé Kunter",
+        role: "DJ - Producteur",
+        genre: "Techno",
+        image: "/img/artist5.png",
+        social_spotify: "",
+        social_instagram:
+            "https://www.instagram.com/zoe_kunter?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+        bio: [
+            "Zoé Kunter grandit à Berlin. Témoin privilégiée et passionnée de la scène techno berlinoise. À seulement huit ans, elle assiste a ses premières parades, dans cette ville riche en culture. Dans cette effervescence naît son amour pour la musique électronique.",
+            "Très tôt, la techno devient pour Zoé bien plus qu’un style musical : un langage, une manière de ressentir et de vivre le monde. Fidèle à ses racines, elle tisse un son dense, hypnotique, traversé par l’esprit underground des origines.",
+            "Au fil des décennies, elle n’a cessé d’évoluer, sans jamais perdre cette flamme. De ses sets émane une énergie vibrante. Elle poursuit son voyage électronique, explorant sans relâche de nouveaux territoires sonores.",
+        ],
+        spotify:
+            "https://open.spotify.com/embed/artist/4FP9ILC4hO3YvOb2R0NIzj?utm_source=generator",
+        gallery: [
+            "/img/gallerie/artist5_1on4.png",
+            "/img/gallerie/artist5_2on4.jpg",
+            "/img/gallerie/artist5_3on4.jpg",
+            "/img/gallerie/artist5_4on4.jpg",
         ],
     },
 };
@@ -96,6 +134,18 @@ document.addEventListener("DOMContentLoaded", function () {
                             <h2>${artist.name}</h2>
                             <p>${artist.role}</p>
                             <span class="artistGenre">${artist.genre}</span>
+                            <div class="social_artist">
+                                ${
+                                    artistId !== "zoe-kunter"
+                                        ? `
+                                    <a href="${artist.social_spotify}"
+                                    class="socialLink" target="_blank"><i class="fab fa-spotify"></i></a>
+                                `
+                                        : ""
+                                }
+                                <a href="${artist.social_instagram}"
+                                class="socialLink" target="_blank"><i class="fab fa-instagram"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -105,12 +155,16 @@ document.addEventListener("DOMContentLoaded", function () {
                     ${artist.bio.map((p) => `<p>${p}</p>`).join("")}
                 </div>
 
-                <div class="artistMusic">
-                    <h3>Écouter</h3>
-                    <iframe style="border-radius:12px" src="${
-                        artist.spotify
-                    }" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                </div>
+                ${
+                    artistId !== "zoe-kunter"
+                        ? `
+                    <div class="artistMusic">
+                        <h3>Écouter</h3>
+                        <iframe style="border-radius:12px" src="${artist.spotify}" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    </div>
+                `
+                        : ""
+                }
 
                 <div class="artistGallery">
                     <h3>Galerie</h3>

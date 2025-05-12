@@ -15,20 +15,20 @@ function renderEvenement()
             <div class="eventContainer">
                 <?php
                 $featuredEvents = [
-                    [
-                        'image' => '/img/nextEvent.jpg',
-                        'alt' => 'Coeur Meurtri - Open Air',
-                        'day' => '10-11',
-                        'month' => 'MAI',
-                        'title' => '🔴 Coeur Meurtri - Open Air 🔴',
-                        'tags' => ['Bass House', 'Techno', 'Hard Techno'],
-                        'description' => '"Cœur Meurtri by DJ Babe" est un événement musical 100% féminin au Port de l\'Embouchure à Toulouse.',
-                        'details' => 'Deux jours de performances exclusives pour célébrer les talents féminins dans l\'électronique !',
-                        'links' => [
-                            ['url' => 'https://fb.me/e/7OXhf42dF', 'text' => 'Plus d\'infos', 'class' => 'btnEvent'],
-                            ['url' => 'https://shotgun.live/fr/events/after-officiel-coeur-meurtri-open-air-2025', 'text' => 'Réserver', 'class' => 'btnEvent btnPrimary']
-                        ]
-                    ],
+                    // [
+                    //     'image' => '/img/nextEvent.jpg',
+                    //     'alt' => 'Coeur Meurtri - Open Air',
+                    //     'day' => '10-11',
+                    //     'month' => 'MAI',
+                    //     'title' => '🔴 Coeur Meurtri - Open Air 🔴',
+                    //     'tags' => ['Bass House', 'Techno', 'Hard Techno'],
+                    //     'description' => '"Cœur Meurtri by DJ Babe" est un événement musical 100% féminin au Port de l\'Embouchure à Toulouse.',
+                    //     'details' => 'Deux jours de performances exclusives pour célébrer les talents féminins dans l\'électronique !',
+                    //     'links' => [
+                    //         ['url' => 'https://fb.me/e/7OXhf42dF', 'text' => 'Plus d\'infos', 'class' => 'btnEvent'],
+                    //         ['url' => 'https://shotgun.live/fr/events/after-officiel-coeur-meurtri-open-air-2025', 'text' => 'Réserver', 'class' => 'btnEvent btnPrimary']
+                    //     ]
+                    // ],
                     [
                         'image' => '/img/nextEvent2.jpg',
                         'alt' => 'The Red Night Off - Édition #5',
