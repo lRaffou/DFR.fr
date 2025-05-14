@@ -78,6 +78,20 @@ function renderArtiste()
                 </div>
             </article>
 
+            <article class="artistCard" data-artist="clarity">
+                <div class="artistImage">
+                    <img src="/img/artistes/artist6.png" alt="Zoé Kunter">
+                    <div class="artistOverlay">
+                        <div class="artistInfo">
+                            <h2>Clarity</h2>
+                            <p>DJ - Producteur</p>
+                            <span class="artistGenre">Hard Techno
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
         </section>
 
         <!-- Modal pour afficher les détails de l'artiste -->

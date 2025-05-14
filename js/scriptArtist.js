@@ -94,7 +94,7 @@ const artistData = {
         name: "Zoé Kunter",
         role: "DJ - Producteur",
         genre: "Techno",
-        image: "/img/artist5.png",
+        image: "/img/artistes/artist5.png",
         social_spotify: "",
         social_instagram:
             "https://www.instagram.com/zoe_kunter?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
@@ -106,10 +106,31 @@ const artistData = {
         spotify:
             "https://open.spotify.com/embed/artist/4FP9ILC4hO3YvOb2R0NIzj?utm_source=generator",
         gallery: [
-            "/img/gallerie/artist5_1on4.png",
+            "/img/gallerie/artist5_1on4.jpg",
             "/img/gallerie/artist5_2on4.jpg",
             "/img/gallerie/artist5_3on4.jpg",
             "/img/gallerie/artist5_4on4.jpg",
+        ],
+    },
+    "clarity": {
+        name: "Clarity",
+        role: "DJ - Producteur",
+        genre: "Hard Techno",
+        image: "/img/artistes/artist6.png",
+        social_spotify: "",
+        social_instagram:
+            "https://www.instagram.com/_clarityy._?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+        bio: [
+            "Clarity est une DJ émergente passionnée qui vient tout juste de se lancer dans le mix.",
+            "Guidée par son amour profond pour la musique électronique, elle explore les platines avec une énergie fraîche et contagieuse, déterminée à faire vibrer chaque set.",
+        ],
+        spotify:
+            "https://open.spotify.com/embed/artist/4FP9ILC4hO3YvOb2R0NIzj?utm_source=generator",
+        gallery: [
+            "/img/gallerie/artist6_1on4.jpg",
+            "/img/gallerie/artist6_2on4.jpg",
+            "/img/gallerie/artist6_3on4.jpg",
+            "/img/gallerie/artist6_4on4.jpg",
         ],
     },
 };
@@ -136,7 +157,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             <span class="artistGenre">${artist.genre}</span>
                             <div class="social_artist">
                                 ${
-                                    artistId !== "zoe-kunter"
+                                    !["zoe-kunter", "clarity"].includes(artistId)
                                         ? `
                                     <a href="${artist.social_spotify}"
                                     class="socialLink" target="_blank"><i class="fab fa-spotify"></i></a>
@@ -156,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
 
                 ${
-                    artistId !== "zoe-kunter"
+                    !["zoe-kunter", "clarity"].includes(artistId)
                         ? `
                     <div class="artistMusic">
                         <h3>Écouter</h3>
