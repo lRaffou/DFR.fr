@@ -13,6 +13,10 @@ function renderVideo()
                 <a href="<?= htmlspecialchars($videos['channel']) ?>" target="_blank" rel="noopener noreferrer">La chaîne DFR</a>
                 <a href="<?= htmlspecialchars($videos['playlist']) ?>" target="_blank" rel="noopener noreferrer">La playlist clips et lives</a>
             </div>
+            <nav class="videoSectionLinks" aria-label="Sections vidéos">
+                <a href="#video-recent">Sorties récentes</a>
+                <a href="#video-collection">Clips et lives</a>
+            </nav>
         </section>
 
         <section class="featuredVideo">
@@ -20,7 +24,7 @@ function renderVideo()
             <div class="videoContainer">
                 <article class="video">
                     <iframe width="560" height="315"
-                        src="https://www.youtube.com/embed/<?= htmlspecialchars($featured['id']) ?>"
+                        src="https://www.youtube.com/embed/<?= htmlspecialchars($featured['id']) ?>?playsinline=1"
                         title="<?= htmlspecialchars($featured['artist'] . ' — ' . $featured['title'] . ' — Audio officiel') ?>"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -35,7 +39,7 @@ function renderVideo()
         </section>
 
         <?php foreach (['recent' => 'Sorties récentes', 'collection' => 'Clips et lives'] as $section => $heading): ?>
-            <section class="videoGallery">
+            <section class="videoGallery" id="video-<?= $section ?>">
                 <h2><?= $heading ?></h2>
                 <div class="videoGrid">
                     <?php foreach ($videos[$section] as $video): ?>
@@ -66,7 +70,10 @@ function renderVideo()
 
         <div id="videoModal" class="modal" role="dialog" aria-modal="true" aria-label="Lecteur vidéo">
             <div class="modalContent">
-                <button type="button" class="closeModal" aria-label="Fermer la vidéo">&times;</button>
+                <div class="videoModalBar">
+                    <a id="modalYoutubeLink" target="_blank" rel="noopener noreferrer">Ouvrir sur YouTube</a>
+                    <button type="button" class="closeModal" aria-label="Fermer la vidéo">&times;</button>
+                </div>
                 <div class="videoContainer">
                     <article class="video">
                         <iframe id="modalVideo" width="560" height="315" title="Vidéo de Dao Family Records"
@@ -74,7 +81,6 @@ function renderVideo()
                             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </article>
                 </div>
-                <p class="videoLinks"><a id="modalYoutubeLink" target="_blank" rel="noopener noreferrer">Ouvrir sur YouTube</a></p>
             </div>
         </div>
     </main>

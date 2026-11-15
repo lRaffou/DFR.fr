@@ -5,6 +5,7 @@ function renderAcceuil()
     $releases = require __DIR__ . '/../model/releases.php';
     $videos = require __DIR__ . '/../model/videos.php';
     $featuredVideo = $videos['recent'][0];
+    $playlistId = '4z6XsMTJ8rsbSGyi20bz9T';
     ob_start();
     ?>
     <main class="mainHome">
@@ -21,7 +22,7 @@ function renderAcceuil()
             </div>
             <div class="heroVideo">
                 <iframe
-                    src="https://www.youtube.com/embed/<?= htmlspecialchars($featuredVideo['id']) ?>"
+                    src="https://www.youtube.com/embed/<?= htmlspecialchars($featuredVideo['id']) ?>?playsinline=1"
                     title="<?= htmlspecialchars($featuredVideo['artist'] . ' — ' . $featuredVideo['title'] . ' — Audio officiel') ?>"
                     referrerpolicy="strict-origin-when-cross-origin"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -29,9 +30,13 @@ function renderAcceuil()
             </div>
         </section>
 
-        <p class="homeVideoCaption"><?= htmlspecialchars($featuredVideo['artist'] . ' — ' . $featuredVideo['title']) ?> · Audio officiel
-            <a href="/controller/video.php">Voir toutes les vidéos</a>
-        </p>
+        <div class="homeVideoCaption">
+            <p><?= htmlspecialchars($featuredVideo['artist'] . ' — ' . $featuredVideo['title']) ?> · Audio officiel</p>
+            <div class="videoLinks">
+                <a href="https://www.youtube.com/watch?v=<?= htmlspecialchars($featuredVideo['id']) ?>" target="_blank" rel="noopener noreferrer">Écouter sur YouTube</a>
+                <a href="/controller/video.php">Toutes les vidéos</a>
+            </div>
+        </div>
 
         <?= renderProjects() ?>
 
@@ -64,9 +69,10 @@ function renderAcceuil()
         <!-- Spotify Section -->
         <section class="spotifySection">
             <h2>Écoutez nos artistes</h2>
+            <p class="catalogLink"><a href="https://open.spotify.com/playlist/<?= $playlistId ?>" target="_blank" rel="noopener noreferrer">Ouvrir la playlist sur Spotify</a></p>
             <div class="spotifyPlayer">
                 <iframe style="border-radius:12px"
-                    src="https://open.spotify.com/embed/playlist/4z6XsMTJ8rsbSGyi20bz9T?utm_source=generator" title="Playlist Dao Family Records sur Spotify" width="100%"
+                    src="https://open.spotify.com/embed/playlist/<?= $playlistId ?>?utm_source=generator" title="Playlist Dao Family Records sur Spotify" width="100%"
                     height="652" frameBorder="0" allowfullscreen=""
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                     loading="lazy"></iframe>

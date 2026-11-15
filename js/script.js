@@ -101,12 +101,13 @@ if (videoCards.length > 0 && modal && modalVideo && closeModal) {
             if (event.target.closest("a")) return;
             activePlayButton = card.querySelector(".playButton");
             const videoId = card.getAttribute("data-video");
-            modalVideo.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            modalVideo.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&playsinline=1`;
             modalVideo.title = card.dataset.title;
             if (modalYoutubeLink) modalYoutubeLink.href = `https://www.youtube.com/watch?v=${videoId}`;
             modal.style.display = "block";
             document.body.classList.add("modalOpen");
-            closeModal.focus();
+            modal.querySelector(".modalContent").scrollTop = 0;
+            closeModal.focus({ preventScroll: true });
         });
     });
 
@@ -117,13 +118,13 @@ if (videoCards.length > 0 && modal && modalVideo && closeModal) {
     modal.addEventListener("keydown", function (event) {
         if (event.key === "Escape") closeVideoModal();
         if (event.key !== "Tab") return;
-        const lastControl = modalYoutubeLink || modalVideo;
-        if (event.shiftKey && document.activeElement === closeModal) {
+        const firstControl = modalYoutubeLink || closeModal;
+        if (event.shiftKey && document.activeElement === firstControl) {
             event.preventDefault();
-            lastControl.focus();
-        } else if (!event.shiftKey && document.activeElement === lastControl) {
+            modalVideo.focus();
+        } else if (!event.shiftKey && document.activeElement === modalVideo) {
             event.preventDefault();
-            closeModal.focus();
+            firstControl.focus();
         }
     });
 }
