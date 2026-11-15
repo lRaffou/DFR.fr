@@ -78,6 +78,16 @@ if (carousel) {
     carousel.addEventListener("touchend", dragStop);
 }
 
+document.querySelectorAll("source[data-album-thumbnail] + img").forEach(image => {
+    const source = image.previousElementSibling;
+    const restoreCover = () => {
+        if (image.currentSrc === source.srcset) source.remove();
+    };
+
+    image.addEventListener("error", restoreCover);
+    if (image.complete && image.naturalWidth === 0) restoreCover();
+});
+
 // Le lecteur intégré est chargé à l’activation. Le lien reste utilisable sans JavaScript.
 document.querySelectorAll("a[data-player-src]").forEach(preview => {
     preview.addEventListener("click", event => {

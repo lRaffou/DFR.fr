@@ -9,6 +9,7 @@ return [
         'lineup' => 'Tilda Massol, Lola et DJ Babe.',
         'image' => '/img/events/coeur-meurtri-la-couleur-2026.jpg',
         'thumbnail' => '/img/events/webp/coeur-meurtri-la-couleur-2026.webp',
+        'mobile_thumbnail' => '/img/events/webp/coeur-meurtri-la-couleur-2026-mobile.webp',
         'url' => 'https://www.instagram.com/coeur_meurtri_by_babe/p/Dekc7RutwfD/',
         'media' => [
             'L’annonce en vidéo' => 'https://www.instagram.com/coeur_meurtri_by_babe/reel/Der0UxkNhLn/',
@@ -22,6 +23,7 @@ return [
         'lineup' => 'DJ Babe, Tilda Massol, Rōssel R, Lola, 5050, Liloy, Lyah, Emèesha b2b Jane.',
         'image' => '/img/events/coeur-meurtri-open-air-2026-gratuit.webp',
         'thumbnail' => '/img/events/webp/coeur-meurtri-open-air-2026-gratuit.webp',
+        'mobile_thumbnail' => '/img/events/webp/coeur-meurtri-open-air-2026-gratuit-mobile.webp',
         'url' => 'https://shotgun.live/fr/events/coeur-meurtri-open-air-2026-gratuit',
         'media' => [
             'Le set de DJ Babe en images' => 'https://www.instagram.com/coeur_meurtri_by_babe/p/DcbN0swjVOO/',
@@ -36,6 +38,7 @@ return [
         'lineup' => 'Vendredi : 3HP, Matt, Alex Cara et Dao Brothers. Samedi : Hiyo, Esmèesha, Greg Saelen et Red Marshal. Danse : Saya Ray et Nissou.',
         'image' => '/img/events/the-red-night-open-air-gratuit.png',
         'thumbnail' => '/img/events/webp/the-red-night-open-air-gratuit.webp',
+        'mobile_thumbnail' => '/img/events/webp/the-red-night-open-air-gratuit-mobile.webp',
         'url' => 'https://shotgun.live/fr/events/the-red-night-open-air-gratuit',
         'media' => [
             'Programme par jour' => 'https://www.instagram.com/the.red.night/p/Dbn_LGtjFUK/',
@@ -50,6 +53,7 @@ return [
         'lineup' => 'Fernando Gomez et Dao Brothers.',
         'image' => '/img/events/the-red-night-off-edition-7.jpg',
         'thumbnail' => '/img/events/webp/the-red-night-off-edition-7.webp',
+        'mobile_thumbnail' => '/img/events/webp/the-red-night-off-edition-7-mobile.webp',
         'url' => 'https://shotgun.live/fr/events/the-red-night-off-edition-7',
     ],
     [
@@ -60,6 +64,7 @@ return [
         'lineup' => 'Hajar, Red Marshal, Tilda Massol, Greg Saelen, Fernando Gomez, Dao Brothers, 3HP, Hiyo. Performance : Nissou.',
         'image' => '/img/events/the-red-night-sushi-techno-2-new-year-2026.png',
         'thumbnail' => '/img/events/webp/the-red-night-sushi-techno-2-new-year-2026.webp',
+        'mobile_thumbnail' => '/img/events/webp/the-red-night-sushi-techno-2-new-year-2026-mobile.webp',
         'url' => 'https://shotgun.live/fr/events/the-red-night-sushi-techno-2-new-year-2026',
     ],
     [
@@ -70,6 +75,7 @@ return [
         'lineup' => 'Zoé Kunter, Fernando Gomez, Dao Brothers, DJ Babe, Red Marshal et Clarity.',
         'image' => '/img/events/the-red-night-off-6.webp',
         'thumbnail' => '/img/events/webp/the-red-night-off-6.webp',
+        'mobile_thumbnail' => '/img/events/webp/the-red-night-off-6-mobile.webp',
         'url' => 'https://shotgun.live/fr/events/the-red-night-off-edition-6',
     ],
     [
@@ -80,6 +86,7 @@ return [
         'lineup' => 'NIVK, Red Marshal et Fernando Gomez.',
         'image' => '/img/nextEvent2.jpg',
         'thumbnail' => '/img/events/webp/nextEvent2.webp',
+        'mobile_thumbnail' => '/img/events/webp/nextEvent2-mobile.webp',
         'url' => 'https://shotgun.live/fr/events/the-red-night-off-edition-5',
         'media' => ['L’annonce sur Instagram' => 'https://www.instagram.com/p/DIvfIeyICU5/'],
     ],
@@ -91,6 +98,7 @@ return [
         'lineup' => 'Fernando Gomez, Tilda Massol et Red Marshal.',
         'image' => '/img/events/the-red-night-off-4.webp',
         'thumbnail' => '/img/events/webp/the-red-night-off-4.webp',
+        'mobile_thumbnail' => '/img/events/webp/the-red-night-off-4-mobile.webp',
         'url' => 'https://shotgun.live/fr/events/the-red-night-off-edition-4',
     ],
     [
@@ -101,6 +109,7 @@ return [
         'lineup' => 'DJ Babe, Zoé Kunter, Anarchy et Attola.',
         'image' => '/img/events/after-officiel-coeur-meurtri-open-air-2025.jpg',
         'thumbnail' => '/img/events/webp/after-officiel-coeur-meurtri-open-air-2025.webp',
+        'mobile_thumbnail' => '/img/events/webp/after-officiel-coeur-meurtri-open-air-2025-mobile.webp',
         'url' => 'https://shotgun.live/fr/events/after-officiel-coeur-meurtri-open-air-2025',
     ],
     [
@@ -111,6 +120,7 @@ return [
         'lineup' => 'Ardente, 5050, DJ Babe et Zoé Kunter.',
         'image' => '/img/events/coeur-meurtri-by-dj-babe-full-house-4.jpg',
         'thumbnail' => '/img/events/webp/coeur-meurtri-by-dj-babe-full-house-4.webp',
+        'mobile_thumbnail' => '/img/events/webp/coeur-meurtri-by-dj-babe-full-house-4-mobile.webp',
         'url' => 'https://shotgun.live/fr/events/coeur-meurtri-by-dj-babe-full-house-4',
     ],
     [
@@ -121,6 +131,7 @@ return [
         'lineup' => 'Michi, Mon.To, Red Marshal et Lysun.',
         'image' => '/img/events/the-red-night-off-3.webp',
         'thumbnail' => '/img/events/webp/the-red-night-off-3.webp',
+        'mobile_thumbnail' => '/img/events/webp/the-red-night-off-3-mobile.webp',
         'url' => 'https://shotgun.live/fr/events/the-red-night-off-full-house-3',
     ],
     [
@@ -131,6 +142,7 @@ return [
         'lineup' => 'MaSo, Petit Castor, DJ Babe et Rōssel R.',
         'image' => '/img/events/coeur-meurtri-full-house-3.webp',
         'thumbnail' => '/img/events/webp/coeur-meurtri-full-house-3.webp',
+        'mobile_thumbnail' => '/img/events/webp/coeur-meurtri-full-house-3-mobile.webp',
         'url' => 'https://shotgun.live/fr/events/coeur-meurtri-by-dj-babe-full-house-3',
     ],
     [
@@ -141,6 +153,7 @@ return [
         'lineup' => 'BRWNS, NIVK, Dodö, KayAa, Curtain et S.A.G.E.',
         'image' => '/img/events/the-red-night-off-2.webp',
         'thumbnail' => '/img/events/webp/the-red-night-off-2.webp',
+        'mobile_thumbnail' => '/img/events/webp/the-red-night-off-2-mobile.webp',
         'url' => 'https://shotgun.live/fr/events/the-red-night-off-full-house-2',
     ],
     [
@@ -150,6 +163,7 @@ return [
         'description' => 'Cœur Meurtri revient au Full House début janvier. DJ Babe partage les platines avec Zoé Kunter, CHIPIE et NNYA STER.',
         'lineup' => 'DJ Babe, Zoé Kunter, CHIPIE et NNYA STER.',
         'image' => '/img/events/coeur-meurtri-full-house-2.webp',
+        'mobile_thumbnail' => '/img/events/webp/coeur-meurtri-full-house-2-mobile.webp',
         'url' => 'https://shotgun.live/fr/events/coeur-meurtri-by-dj-babe-full-house-2',
     ],
     [
@@ -160,6 +174,7 @@ return [
         'lineup' => 'DJ Babe, Tilda Massol, KARLØTA et Zoé Kunter.',
         'image' => '/img/events/coeur-meurtri-full-house-1.webp',
         'thumbnail' => '/img/events/webp/coeur-meurtri-full-house-1.webp',
+        'mobile_thumbnail' => '/img/events/webp/coeur-meurtri-full-house-1-mobile.webp',
         'url' => 'https://shotgun.live/en/events/coeur-meurtri-by-dj-babe-full-house-1',
     ],
     [
@@ -170,6 +185,7 @@ return [
         'lineup' => 'Hemëi, Valles, Lysun et Red Marshal.',
         'image' => '/img/events/the-red-night-off-1.webp',
         'thumbnail' => '/img/events/webp/the-red-night-off-1.webp',
+        'mobile_thumbnail' => '/img/events/webp/the-red-night-off-1-mobile.webp',
         'url' => 'https://shotgun.live/fr/events/the-red-night-off-full-house-1',
     ],
 ];

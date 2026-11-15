@@ -20,6 +20,7 @@ function renderCataloguePagination(array $pagination, string $location): void
 function renderAlbum()
 {
     $releases = require __DIR__ . '/../model/releases.php';
+    $spotifyMobileCovers = require __DIR__ . '/../model/album-mobile-covers.php';
     $pagination = dfrCataloguePage($releases['catalog'], $_GET['page'] ?? 1);
     $releases['catalog'] = $pagination['items'];
     ob_start();
@@ -41,11 +42,26 @@ function renderAlbum()
                 <?php if ($section === 'catalog') { renderCataloguePagination($pagination, 'haut'); } ?>
                 <div class="albumGrid">
                     <?php foreach ($releases[$section] as $release): ?>
+                        <?php
+                        $cover = $release['image'];
+                        $mobileCover = $spotifyMobileCovers[$cover] ?? null;
+                        if (str_starts_with($cover, '/img/albums/webp/')) {
+                            $localThumbnail = '/img/albums/webp/mobile/' . basename($cover);
+                            if (is_file(__DIR__ . '/..' . $localThumbnail)) {
+                                $mobileCover = $localThumbnail;
+                            }
+                        }
+                        ?>
                         <article class="albumCard">
                             <a class="albumImage coverLink" href="<?= htmlspecialchars($release['spotify']) ?>" target="_blank" rel="noopener noreferrer">
-                                <img src="<?= htmlspecialchars($release['image']) ?>"
-                                    alt="<?= htmlspecialchars($release['title'] . ' - ' . $release['artist']) ?>"
-                                    loading="lazy" decoding="async">
+                                <picture>
+                                    <?php if ($mobileCover !== null): ?>
+                                        <source media="(max-width: 540px)" srcset="<?= htmlspecialchars($mobileCover) ?>"<?= isset($spotifyMobileCovers[$cover]) ? ' data-album-thumbnail' : '' ?>>
+                                    <?php endif; ?>
+                                    <img src="<?= htmlspecialchars($cover) ?>"
+                                        alt="<?= htmlspecialchars($release['title'] . ' - ' . $release['artist']) ?>"
+                                        loading="lazy" decoding="async">
+                                </picture>
                             </a>
                             <div class="albumInfo">
                                 <h3><?= htmlspecialchars($release['title']) ?></h3>
