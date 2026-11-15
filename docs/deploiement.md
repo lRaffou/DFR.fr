@@ -70,3 +70,10 @@ fichiers ajoutés manuellement (modèles, pochettes et `data/.htaccess`). Ce pro
 remettait les fichiers suivis dans leur ancienne version avant d'échouer.
 La remise en cohérence utilise une sauvegarde privée du répertoire public,
 puis aligne sa copie Git sur le commit publié. Le JSON généré reste conservé.
+
+Réparation effectuée sur le commit `a89a2b1`, avec sauvegarde privée :
+`/home/u580307023/domains/daofamilyrecords.fr/.dfr-deployments/20261115-featured-git-fix/backup-before.tar.gz`.
+Les deux anciens ZIP de publication ont été déplacés dans ce même dossier.
+La copie serveur n'a plus de modification locale ni de fichier non suivi bloquant.
+Les 42 contrôles PHP passent sur le serveur ; les 68 fiches et le JSON généré
+sont conservés. La copie privée du modèle et ses tests ont aussi été actualisés.
