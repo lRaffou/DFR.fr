@@ -98,7 +98,7 @@ function renderArtiste()
                     <div class="artistOverlay">
                         <div class="artistInfo">
                             <h2>Frenzysax</h2>
-                            <p>Collaboration DFR</p>
+                            <p>Duo · Clarisax et Red Marshal</p>
                             <span class="artistGenre">Musique électronique</span>
                         </div>
                     </div>

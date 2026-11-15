@@ -10,10 +10,11 @@ Les profils suivants ont été fournis et rattachés à DFR par le propriétaire
 - [Frenzysax sur Spotify](https://open.spotify.com/artist/4NqtEeAINDNe0G3FiHbqbs)
 
 Le nom, l’identifiant et le portrait de Frenzysax ont été confirmés par Spotify.
-Le propriétaire a confirmé son classement en collaboration pour « À la une ».
-À sa demande, la carte et la fiche artiste précisent également « Collaboration DFR ».
-Son rôle musical précis et sa biographie restent à compléter avec le propriétaire. Ne
-pas déduire l’identité des personnes de la photo ou une biographie à partir du nom.
+Le propriétaire a précisé que Frenzysax est le duo formé par Clarisax et Red Marshal.
+La carte et la fiche artiste présentent le duo et ses deux membres. Cela remplace
+la mention générique « Collaboration DFR » ; le projet reste dans la catégorie
+collaboration pour « À la une ». Les rôles musicaux et la biographie détaillée
+restent à compléter. Aucun lien entre Clarisax et la fiche Clarity n’a été confirmé.
 
 ## Événements
 

@@ -10,8 +10,8 @@ sur le site. Une fiche est créée par identifiant d'album Spotify, collaboratio
 comprises. « À la une », sur l'accueil et la page Sorties, sélectionne dans cet
 ordre la dernière sortie solo de Red Marshal, la dernière collaboration et la
 dernière sortie d'un autre artiste. Chaque catégorie se renouvelle automatiquement.
-Frenzysax occupe la catégorie collaboration, conformément au classement demandé
-par DFR, même lorsque Spotify ne crédite que son profil. Cette règle est appliquée
+Frenzysax, duo formé par Clarisax et Red Marshal selon le propriétaire, occupe la
+catégorie collaboration même lorsque Spotify ne crédite que son profil. Cette règle est appliquée
 à l’affichage et reste valable après chaque actualisation du catalogue.
 Les autres sorties restent triées par date, par pages de 24. Les dates partielles fournies
 par Spotify restent partielles, sans jour inventé.
