@@ -108,7 +108,9 @@ function renderArtiste()
         <!-- Modal pour afficher les détails de l'artiste -->
         <div id="artistModal" class="artistModal" role="dialog" aria-modal="true" aria-label="Fiche artiste">
             <div class="modalContent">
-                <button type="button" class="closeModal" aria-label="Fermer la fiche artiste">&times;</button>
+                <div class="artistModalBar">
+                    <button type="button" class="closeModal" aria-label="Fermer la fiche artiste">&times;</button>
+                </div>
                 <div id="artistDetailsContainer"></div>
             </div>
         </div>

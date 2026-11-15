@@ -38,8 +38,11 @@ function renderEvenement()
         <section class="eventHero">
             <h1>Nos Événements</h1>
             <p>The Red Night et Cœur Meurtri : les rendez-vous de la famille DFR à Toulouse.</p>
+            <div class="dfrEventJump">
+                <a href="#next-events-title">Prochaines dates</a>
+                <a href="#past-events-title">Archives</a>
+            </div>
         </section>
-        <?= renderProjects(true) ?>
         <section class="dfrEventSection" aria-labelledby="next-events-title">
             <h2 id="next-events-title">Prochains événements</h2>
             <?php if ($calendar['upcoming']): ?>
@@ -54,7 +57,7 @@ function renderEvenement()
                         <div class="dfrShotgunHeading">
                             <h3><?= htmlspecialchars($project['name']) ?></h3>
                             <a href="<?= htmlspecialchars($shotgun) ?>" target="_blank" rel="noopener noreferrer"
-                                aria-label="Ouvrir l’agenda <?= htmlspecialchars($project['name']) ?> sur Shotgun">Sur Shotgun <span aria-hidden="true">↗</span></a>
+                                aria-label="Ouvrir l’agenda <?= htmlspecialchars($project['name']) ?> sur Shotgun">Ouvrir sur Shotgun <span aria-hidden="true">↗</span></a>
                         </div>
                         <iframe src="<?= htmlspecialchars($shotgun . '?embedded=1&ui=dark') ?>"
                             title="Agenda Shotgun de <?= htmlspecialchars($project['name']) ?>" loading="lazy"
@@ -63,6 +66,7 @@ function renderEvenement()
                 <?php endforeach; ?>
             </div>
         </section>
+        <?= renderProjects(true) ?>
         <section class="dfrEventSection" aria-labelledby="past-events-title">
             <div class="dfrSectionHeading">
                 <p class="dfrEyebrow">Les éditions précédentes</p>

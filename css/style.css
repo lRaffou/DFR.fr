@@ -188,15 +188,14 @@ h6 {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     z-index: 1000;
-    padding: 0.5rem 0;
+    padding: 0 env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .menuNav ul {
     list-style: none;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     margin: 0;
     padding: 0;
 }
@@ -218,7 +217,11 @@ h6 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0.5rem 0;
+    justify-content: center;
+    gap: .3rem;
+    min-height: var(--mobile-nav-height, 3.5rem);
+    padding: .25rem .125rem;
+    font-size: 1rem;
     transition: all 0.3s ease;
     position: relative;
     outline: none;
@@ -230,28 +233,28 @@ h6 {
     box-shadow: none !important;
 }
 
-.menuNav a.active {
-    color: #ff0000;
+.menuNav a[aria-current="page"] {
+    color: #ff8484;
 }
 
-.menuNav a.active::after {
+.menuNav a[aria-current="page"]::after {
     content: "";
     position: absolute;
     bottom: 0;
-    width: 100%;
+    width: 2rem;
     height: 2px;
     background-color: #ff0000;
     opacity: 0.8;
 }
 
 .menuNav i {
-    font-size: 1.2em;
-    margin-bottom: 0.3em;
+    font-size: 1.1rem;
     transition: transform 0.3s ease;
 }
 
 .menuNav span {
-    font-size: 0.8em;
+    font-size: clamp(.625rem, 2.8vw, .75rem);
+    line-height: 1.2;
     font-weight: 500;
 }
 
@@ -267,30 +270,39 @@ h6 {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    padding: calc(.6rem + env(safe-area-inset-top, 0px)) 1rem .6rem;
 }
 
-.logoNav img {
-    height: 8vh;
-}
-
-.nameDfrNav {
-    text-transform: uppercase;
-    width: 49%;
-    font-size: 3vw;
-    text-align: center;
-}
-
-.connexionNavTop {
-    width: 49%;
-    display: flex;
-    justify-content: end;
+.mobileBrand {
+    display: inline-flex;
     align-items: center;
+    gap: .55rem;
+    min-height: 44px;
+    color: #fff;
+    text-decoration: none;
 }
 
-.connexionImg {
-    width: 7vw;
-    margin-right: 2vw;
+.mobileBrand img {
+    height: 2rem;
+    width: auto;
+}
+
+.mobileBrand span {
+    font-family: "Montserrat-Bold", sans-serif;
+    text-transform: uppercase;
+    font-size: clamp(.75rem, 3.2vw, .95rem);
+}
+
+@media (width < 1000px) {
+    :root {
+        --mobile-nav-height: 3.5rem;
+        --mobile-nav-space: calc(var(--mobile-nav-height) + 1px + env(safe-area-inset-bottom, 0px));
+        scroll-padding-bottom: calc(var(--mobile-nav-space) + .5rem);
+    }
+
+    body {
+        padding-inline: env(safe-area-inset-left, 0px) env(safe-area-inset-right, 0px);
+    }
 }
 
 @media screen and (min-width: 1000px) {
@@ -1987,7 +1999,7 @@ h6 {
 
 .artistGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
     gap: 2rem;
     margin-bottom: 4rem;
 }
@@ -2750,6 +2762,57 @@ h6 {
     .artistShare { justify-content: center; }
 }
 
+#artistModal {
+    z-index: 1100;
+    overscroll-behavior-y: contain;
+    padding-inline: env(safe-area-inset-left, 0px) env(safe-area-inset-right, 0px);
+}
+
+#artistModal .modalContent { overflow: visible; }
+
+.artistModalBar {
+    position: sticky;
+    top: calc(.5rem + env(safe-area-inset-top, 0px));
+    z-index: 2;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    height: 0;
+    pointer-events: none;
+}
+
+#artistModal .closeModal {
+    position: static;
+    display: grid;
+    place-items: center;
+    margin: -.4rem -.4rem 0 0;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    background: #fff;
+    color: #222;
+    line-height: 1;
+    pointer-events: auto;
+}
+
+#artistModal :focus-visible { outline-color: #9c1212; }
+#artistModal .artistShareButton { min-height: 44px; }
+#artistModal .social_artist { gap: .5rem; }
+#artistModal .social_artist .socialLink { min-width: 44px; min-height: 44px; justify-content: center; }
+
+@media (max-width: 768px) {
+    #artistModal .modalContent {
+        width: calc(100% - 1.5rem);
+        margin: max(.75rem, env(safe-area-inset-top, 0px)) auto max(.75rem, env(safe-area-inset-bottom, 0px));
+    }
+
+    #artistModal .artistProfile { gap: 1.25rem; }
+    #artistModal .artistTitle, #artistModal .artistRelease, #artistModal .artistTextLinks { overflow-wrap: anywhere; }
+    #artistModal .artistMusic iframe { height: 152px; }
+}
+
 /* Les cadrages sont réglés par artiste pour chaque format. */
 [data-artist="red-marshal"] {
     --artist-card-position: 49% 50%;
@@ -2881,11 +2944,14 @@ h6 {
 }
 .dfrProjectLinks a:hover { background: #333; }
 .dfrEventGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+.dfrEventJump { display: flex; justify-content: center; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+.dfrEventJump a { display: inline-flex; align-items: center; min-height: 44px; padding: .5rem .75rem; border: 1px solid #555; border-radius: 8px; color: #fff; text-decoration: none; }
+#next-events-title, #past-events-title { scroll-margin-top: .75rem; }
 .dfrShotgunGrid { margin-top: 1rem; }
 .dfrShotgunAgenda { background: #171717; border: 1px solid #333; border-radius: 12px; overflow: hidden; min-width: 0; }
-.dfrShotgunHeading { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .75rem 1rem; padding: 1rem 1.25rem; }
+.dfrShotgunHeading { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .25rem 1rem; padding: .5rem 1rem; }
 .dfrShotgunHeading h3 { color: #fff; font-size: 1.25rem; margin: 0; }
-.dfrShotgunHeading a { color: #fff; text-decoration: underline; text-underline-offset: .25em; }
+.dfrShotgunHeading a { display: inline-flex; gap: .25rem; align-items: center; min-height: 44px; color: #fff; text-decoration: underline; text-underline-offset: .25em; }
 .dfrShotgunAgenda iframe { display: block; width: 100%; height: 26rem; border: 0; color-scheme: dark; }
 .dfrEventCard { background: #171717; border: 1px solid #333; border-radius: 12px; overflow: hidden; min-width: 0; display: flex; flex-direction: column; }
 .dfrEventPoster { display: block; background: #0c0c0c; }
@@ -2898,10 +2964,28 @@ h6 {
 .dfrEventVenue { font-size: 0.95rem; }
 .dfrEventLineup { font-size: 0.9rem; }
 .dfrEventLinks { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; padding-top: 1rem; margin-top: auto; }
-.dfrEventLinks a { color: #fff; text-decoration: underline; text-underline-offset: 0.3em; line-height: 1.6; }
+.dfrEventLinks a { display: inline-flex; gap: .25rem; align-items: center; min-height: 44px; color: #fff; text-decoration: underline; text-underline-offset: 0.3em; line-height: 1.6; }
 @media (max-width: 700px) {
+    .mainEvent { margin-top: .75rem; }
+    .eventHero { margin-bottom: 1.5rem; }
     .dfrEventGrid { grid-template-columns: 1fr; }
+    .dfrShotgunAgenda iframe { height: 22rem; height: clamp(14rem, 58svh, 24rem); }
     .mainHome > .dfrProjects { padding: 1rem; }
     .dfrProject { padding: 1.5rem; }
     .dfrEventPoster img { height: 280px; }
+}
+
+@media (width < 1000px) {
+    .mainFooter { padding-bottom: calc(2rem + var(--mobile-nav-space)); }
+}
+
+@media (min-width: 1000px) {
+    #next-events-title, #past-events-title { scroll-margin-top: calc(7vh + .75rem); }
+    .navLink { white-space: nowrap; }
+    .navLink[aria-current="page"]::after { width: 100%; }
+}
+
+@media (min-width: 1000px) and (max-width: 1160px) {
+    .navbarMenu ul { gap: 1rem; }
+    .navbarSocial { gap: .875rem; }
 }
