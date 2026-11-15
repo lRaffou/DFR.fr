@@ -17,7 +17,12 @@ function renderEventArchiveCard(array $event, bool $past): string
             <p class="dfrEventVenue"><?= $escape($event['venue']) ?></p>
             <p><?= $escape($event['description']) ?></p>
             <p class="dfrEventLineup"><strong>À l’affiche :</strong> <?= $escape($event['lineup']) ?></p>
-            <a class="dfrEventSource" href="<?= $escape($event['url']) ?>" target="_blank" rel="noopener noreferrer"><?= $past ? 'Voir les infos de cette édition' : 'Voir les informations' ?> <span aria-hidden="true">↗</span></a>
+            <div class="dfrEventLinks">
+                <a href="<?= $escape($event['url']) ?>" target="_blank" rel="noopener noreferrer"><?= $past ? 'Infos de l’édition' : 'Voir les informations' ?> <span aria-hidden="true">↗</span></a>
+                <?php foreach ($event['media'] ?? [] as $label => $url): ?>
+                    <a href="<?= $escape($url) ?>" target="_blank" rel="noopener noreferrer"><?= $escape($label) ?> <span aria-hidden="true">↗</span></a>
+                <?php endforeach; ?>
+            </div>
         </div>
     </article>
     <?php return ob_get_clean();
@@ -50,7 +55,7 @@ function renderEvenement()
             <div class="dfrSectionHeading">
                 <p class="dfrEyebrow">Les éditions précédentes</p>
                 <h2 id="past-events-title">Événements passés</h2>
-                <p>Affiches, lieux et artistes des dernières soirées DFR.</p>
+                <p>Les affiches, programmes et retours en images de The Red Night et Cœur Meurtri.</p>
             </div>
             <div class="dfrEventGrid">
                 <?php foreach ($calendar['past'] as $event) { echo renderEventArchiveCard($event, true); } ?>

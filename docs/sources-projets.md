@@ -36,9 +36,10 @@ Zoé et Clarity utilisent les photos DFR existantes.
 
 ## Événements
 
-Les deux pages organisateurs ne présentent aucune date à venir au moment de la
-vérification : [The Red Night](https://shotgun.live/fr/venues/the-red-night) et
+Au 15 novembre 2026, les deux pages organisateurs affichent un agenda vide :
+[The Red Night](https://shotgun.live/fr/venues/the-red-night) et
 [Cœur Meurtri](https://shotgun.live/fr/venues/c-oe-ur-meurtri-by-dj-babe).
+Les publications Instagram publiques consultées concernent des éditions passées.
 
 Les textes du site résument les informations publiques sans reprendre les longs
 textes promotionnels. Chaque fiche archive renvoie à sa source :
@@ -49,7 +50,11 @@ textes promotionnels. Chaque fiche archive renvoie à sa source :
 - [Sushi/Techno #2](https://shotgun.live/fr/events/the-red-night-sushi-techno-2-new-year-2026) : 31 décembre 2025, 18h–5h le lendemain, Dozo.
 - [Cœur Meurtri, after 2025](https://shotgun.live/fr/events/after-officiel-coeur-meurtri-open-air-2025) : 10 mai à 23h30 jusqu’au 11 à 5h30, Full House.
 - [Cœur Meurtri, Full House #4](https://shotgun.live/fr/events/coeur-meurtri-by-dj-babe-full-house-4) : 8 mars 2025, Full House. Confirme que DJ Babe a fondé le concept.
-- [The Red Night Off #5](https://www.instagram.com/p/DIvfIeyICU5/) : archive déjà présente, date et artistes confirmés sur son affiche locale `img/nextEvent2.jpg` (16 mai 2025).
+- [The Red Night Off #5](https://shotgun.live/fr/events/the-red-night-off-edition-5) : date et artistes corroborés par l’[affiche Instagram](https://www.instagram.com/p/DIvfIeyICU5/). L’heure de début n’est pas affichée sur la fiche car l’en-tête Shotgun et la description diffèrent.
+- [The Red Night Off #1](https://shotgun.live/fr/events/the-red-night-off-full-house-1), [#2](https://shotgun.live/fr/events/the-red-night-off-full-house-2), [#3](https://shotgun.live/fr/events/the-red-night-off-full-house-3), [#4](https://shotgun.live/fr/events/the-red-night-off-edition-4) et [#6](https://shotgun.live/fr/events/the-red-night-off-edition-6) : dates, descriptions, artistes et affiches récupérés sur les fiches organisateur.
+- Cœur Meurtri au Full House [#1](https://shotgun.live/en/events/coeur-meurtri-by-dj-babe-full-house-1), [#2](https://shotgun.live/fr/events/coeur-meurtri-by-dj-babe-full-house-2) et [#3](https://shotgun.live/fr/events/coeur-meurtri-by-dj-babe-full-house-3) : fiches et affiches officielles.
+- [Les Mercredis Collectifs #5](https://www.instagram.com/coeur_meurtri_by_babe/p/Dekc7RutwfD/) : affiche officielle et programme Cœur Meurtri à La Couleur de la Culotte, le 21 octobre 2026 de 21h à 2h. La date et le lieu figurent aussi dans [l’agenda du lieu](https://www.bypass-app.com/evenements/les-mercredis-collectifs-ep-5-cur-meurtri-2026-10-21/).
+- [The Red Night Open Air](https://www.instagram.com/the.red.night/p/Dbn_LGtjFUK/) : programme sur deux jours publié par l’organisateur. [Cœur Meurtri Open Air](https://www.instagram.com/coeur_meurtri_by_babe/p/DcbN0swjVOO/) : images du set de DJ Babe et [retour en vidéo](https://www.instagram.com/coeur_meurtri_by_babe/reel/DcdO5ASt7Kr/).
 
 Les affiches proviennent des médias liés par Shotgun. Les originaux des deux
 miniatures Red Night ont été récupérés sur leur CDN pour préserver la lisibilité.
@@ -59,8 +64,7 @@ selon leur date de fin. Il ne collecte pas automatiquement les nouvelles annonce
 ## Limites de cette vérification
 
 La bio et les quatre publications visibles de Frenzysax ont été consultées.
-Les publications plus anciennes demandent une connexion. TikTok n’a pas fourni
-de contenu lisible via la recherche web et l’intégralité des anciennes éditions
-n’a pas été examinée.
+Les publications Instagram au-delà de la grille publique peuvent demander une
+connexion. TikTok n’a pas fourni de contenu lisible via la recherche web.
 Hiyo est crédité DFR dans deux programmes Shotgun ; attendre le profil confirmé
 avant d’ajouter une fiche artiste.

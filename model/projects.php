@@ -11,7 +11,7 @@ return [
     ],
     'red-night' => [
         'name' => 'The Red Night', 'eyebrow' => 'Les nuits rouges de DFR',
-        'description' => 'Open airs, nuits en club et éditions Sushi/Techno : The Red Night réunit les artistes DFR et la scène toulousaine autour de la house, de la bass house et de la techno.',
+        'description' => 'Au Full House puis au Babylone, les nuits Off font place à la techno et à la hard techno. The Red Night explore aussi la house et la bass house en plein air et mêle DJ sets et cuisine lors des éditions Sushi/Techno.',
         'links' => [
             'Instagram' => 'https://www.instagram.com/the.red.night/',
             'Shotgun' => 'https://shotgun.live/fr/venues/the-red-night',
@@ -19,7 +19,7 @@ return [
     ],
     'coeur-meurtri' => [
         'name' => 'Cœur Meurtri', 'eyebrow' => 'By DJ Babe',
-        'description' => 'Créé par DJ Babe, Cœur Meurtri célèbre le partage et met les femmes à l’honneur sur la scène électronique, avec des soirées en club et des open airs à Toulouse.',
+        'description' => 'DJ Babe lance Cœur Meurtri au Full House en décembre 2024. De la techno en club aux open airs du Ramier et aux soirées à la Couleur de la Culotte, le collectif toulousain programme des femmes aux platines.',
         'links' => [
             'Instagram' => 'https://www.instagram.com/coeur_meurtri_by_babe/',
             'Shotgun' => 'https://shotgun.live/fr/venues/c-oe-ur-meurtri-by-dj-babe',
