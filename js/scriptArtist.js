@@ -73,7 +73,7 @@ const artistData = {
         name: "Fernando Gomez",
         role: "DJ - Producteur",
         genre: "Techno / Hard Techno",
-        image: "/img/artistes/artist3.png",
+        image: "https://i.scdn.co/image/ab6761610000e5ebb7dbded7789bb71036f6b48d",
         social_youtube: "https://www.youtube.com/channel/UCD-H3-hzSU_kbyw_zLg431Q",
         social_spotify: "https://open.spotify.com/artist/51UZk9XPK15uZgwQEWE3MK",
         social_instagram: "https://www.instagram.com/fernando.gomez._music/",
@@ -97,7 +97,7 @@ const artistData = {
         ],
         booking: "daofamilyrecords@gmail.com",
         gallery: [
-            "https://i.scdn.co/image/ab6761610000e5ebb7dbded7789bb71036f6b48d",
+            "/img/artistes/artist3.png",
             "/img/gallerie/artist3_2on4.jpg",
             "/img/gallerie/artist3_3on4.jpg",
             "/img/gallerie/artist3_4on4.jpg",

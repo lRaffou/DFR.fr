@@ -41,7 +41,7 @@ function renderArtiste()
 
             <article class="artistCard" role="button" tabindex="0" aria-haspopup="dialog" data-artist="fernando">
                 <div class="artistImage">
-                    <img src="/img/artistes/artist3.png" alt="Fernando Gomez">
+                    <img src="https://i.scdn.co/image/ab6761610000e5ebb7dbded7789bb71036f6b48d" alt="Fernando Gomez">
                     <div class="artistOverlay">
                         <div class="artistInfo">
                             <h2>Fernando Gomez</h2>
