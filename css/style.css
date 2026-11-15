@@ -1,5 +1,63 @@
 /* Fichier style.css optimisé et nettoyé pour Dao Family Records */
 
+:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 4px;
+}
+
+.albumCard:focus-within .albumOverlay,
+.releaseCard:focus-within .releaseOverlay {
+    opacity: 1;
+}
+
+.catalogLink {
+    max-width: 1200px;
+    margin: 1.5rem auto 0;
+}
+
+.catalogLink a,
+.videoDetails a {
+    color: #fff;
+    text-underline-offset: 0.25em;
+}
+
+button.closeModal,
+button.playButton {
+    border: 0;
+    font: inherit;
+}
+
+button.closeModal {
+    background: transparent;
+    padding: 0.25rem;
+    font-size: 2rem;
+}
+
+.menuNav a:focus-visible {
+    outline: 2px solid #fff;
+}
+
+body.modalOpen {
+    overflow: hidden;
+}
+
+.artistModal {
+    overflow-x: hidden;
+}
+
+.artistModal .social_artist .socialLink {
+    color: #333;
+}
+
+@media (hover: none), (max-width: 768px) {
+    .albumCard .albumOverlay,
+    .releaseCard .releaseOverlay {
+        opacity: 1;
+        top: auto;
+        padding: 0.75rem;
+    }
+}
+
 /* Reset de base et configuration globale */
 * {
     box-sizing: border-box;
@@ -1631,6 +1689,71 @@ h6 {
     color: #ccc;
 }
 
+.video iframe,
+.heroVideo iframe {
+    border: 0;
+}
+
+.videoGallery {
+    margin-bottom: 4rem;
+}
+
+.videoLinks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+    margin-top: 1rem;
+}
+
+.videoHero .videoLinks {
+    justify-content: center;
+}
+
+.videoLinks a,
+.homeVideoCaption a {
+    color: #fff;
+    text-underline-offset: 0.25em;
+}
+
+.homeVideoCaption {
+    margin: 1rem auto 3rem;
+    text-align: center;
+    color: #ccc;
+}
+
+.homeVideoCaption a {
+    display: block;
+    margin-top: 0.75rem;
+}
+
+.videoFormat {
+    display: inline-block;
+    color: #ff9a68;
+    font-size: 0.8rem;
+    margin-bottom: 0.75rem;
+}
+
+.videoDetails .videoExternalLink {
+    margin-top: 1rem;
+}
+
+#videoModal .modalContent {
+    padding: 3.5rem 1rem 1rem;
+    margin: 1rem auto;
+    max-height: calc(100dvh - 2rem);
+    overflow-y: auto;
+    background-color: #111;
+    color: #fff;
+}
+
+#videoModal .closeModal {
+    color: #fff;
+}
+
+#videoModal .videoLinks {
+    padding: 0 1.5rem 1.5rem;
+}
+
 .videoGallery h2 {
     font-family: "Montserrat-Bold";
     font-size: 2rem;
@@ -1694,8 +1817,15 @@ h6 {
     transition: opacity 0.3s ease;
 }
 
-.videoCard:hover .playButton {
+.videoCard:hover .playButton,
+.videoCard:focus-within .playButton {
     opacity: 1;
+}
+
+@media (hover: none), (max-width: 768px) {
+    .videoCard .playButton {
+        opacity: 1;
+    }
 }
 
 .playButton i {

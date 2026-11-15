@@ -11,10 +11,15 @@ function renderEvenement()
         </section>
 
         <section class="featuredEvent">
-            <h2>Prochain Événement</h2>
+            <h2>Prochain événement</h2>
+            <p>Aucune date annoncée pour le moment.</p>
+        </section>
+
+        <section class="featuredEvent">
+            <h2>Événements passés</h2>
             <div class="eventContainer">
                 <?php
-                $featuredEvents = [
+                $pastEvents = [
                     // [
                     //     'image' => '/img/nextEvent.jpg',
                     //     'alt' => 'Coeur Meurtri - Open Air',
@@ -36,16 +41,15 @@ function renderEvenement()
                         'month' => 'MAI',
                         'title' => '🔴 The Red Night Off - Édition #5 🔴',
                         'tags' => ['Bass House', 'Techno', 'Hard Techno'],
-                        'description' => 'Retrouvons-nous au Full House pour la 5e édition de la Red Night avec NIVK, Red Marshal et Fernando Gomez !',
+                        'description' => 'La 5e édition de la Red Night a réuni NIVK, Red Marshal et Fernando Gomez au Full House.',
                         'details' => 'Nuit rouge passion de 1H à 7H au Full House Toulouse.',
                         'links' => [
-                            ['url' => 'https://www.instagram.com/p/DIvfIeyICU5/', 'text' => 'Plus d\'infos', 'class' => 'btnEvent'],
-                            ['url' => 'https://shotgun.live/fr/events/the-red-night-off-edition-5', 'text' => 'Réserver', 'class' => 'btnEvent btnPrimary']
+                            ['url' => 'https://www.instagram.com/p/DIvfIeyICU5/', 'text' => 'Plus d\'infos', 'class' => 'btnEvent']
                         ]
                     ]
                 ];
 
-                foreach ($featuredEvents as $event): ?>
+                foreach ($pastEvents as $event): ?>
                     <article class="eventCard featured">
                         <div class="eventImage">
                             <img src="<?= $event['image'] ?>" alt="<?= $event['alt'] ?>">

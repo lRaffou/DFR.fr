@@ -2,19 +2,20 @@ const artistData = {
     "red-marshal": {
         name: "Red Marshal",
         role: "DJ - Producteur",
-        genre: ["Hard Techno"],
+        genre: "Hard Techno / Hardfonk",
         image: "/img/Red_Marshal_1.jpg",
+        social_youtube: "https://www.youtube.com/@RedMarshal",
         social_spotify:
             "https://open.spotify.com/intl-fr/artist/3zpewQ11GYG2ev9Ngdsvi9?si=wlTXdkSHSmenHoVpqnK1nQ",
         social_instagram:
             "https://www.instagram.com/redmarshal_official?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
         bio: [
             "Thao Dao est français d'origine vietnamienne. Ses parents sont arrivés en France avant sa naissance, quittant leur pays pour offrir à leurs enfants une vie meilleure. Pour honorer le choix de ses parents, Thao vit sa vie à 100 km/heure. Très vite, il décide de se consacrer à sa véritable passion, celle qui l'a toujours animé et rendu heureux : la musique.",
+            "Depuis 2025, Red Marshal développe le hardfonk, un mélange de hard techno et de phonk.",
             "Comme beaucoup de gens de sa génération, Thao est tombé amoureux de la musique électronique avec Daft Punk. Dès lors, il n'a eu de cesse de parfaire sa culture musicale avec The Prodigy, Justice, GESAFFELSTEIN, Laurent Garnier, Jeff Mills, Paul Kalkbrenner, Vitalic Official, REZZ. Il a une véritable passion pour la musique. C'est donc tout naturellement qu'il a commencé à composer en 2010.",
             "Pour parfaire ses sets, il s'est formé pendant deux ans à la production musicale avec Hugo Lemercier du groupe Sociopark. Son style s'affirme, ses sets se précisent et le projet prend forme : Red Marshal est né. Red Marshal produit une techno sombre et puissante, rehaussée par l'esthétique de ses clips (réalisés par son frère Yo Production). La cohérence de son univers, ses productions hypnotiques et son aisance en live font de lui la nouvelle figure techno toulousaine.",
         ],
-        spotify:
-            "https://open.spotify.com/embed/artist/3zpewQ11GYG2ev9Ngdsvi9?utm_source=generator",
+        spotify: "https://open.spotify.com/embed/album/3Geztn2dXF5YyW5TGZpBz8",
         gallery: [
             "/img/Red_Marshal_5.jpg",
             "/img/Red_Marshal_2.jpg",
@@ -28,16 +29,15 @@ const artistData = {
         genre: "Hard Techno / Tech House",
         image: "/img/gallerie/artist2_1on4.png",
         social_spotify:
-            "https://open.spotify.com/intl-fr/artist/7o0ucOb1npEkb3qhGFIY3U?si=dq1PgFdSSq24ofIbbC1l4g",
+            "https://open.spotify.com/intl-fr/artist/5PyJWzxbDt81teQi2ZzL8n",
         social_instagram:
             "https://www.instagram.com/djbabe31?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
         bio: [
             "Sophie est une artiste française d'origine vietnamienne, dont le parcours musical a été initié par l'influence de ses frères, eux-mêmes actifs dans les scènes bass house (Dao Brothers) et hard techno (Red Marshal). C'est dans cet environnement familial et musical qu'elle a forgé ses premières inspirations et aspirations artistiques.",
-            "Forte de ses connaissances et des multiples influences qui l'entourent, Sophie a développé au fil des années un univers musical qui lui est propre. Forte de son expérience et de sa créativité, elle s'est lancée dans la création d'un album ambitieux, dont la sortie est prévue en 2024.",
-            "Cet album, composé de 10 titres soigneusement élaborés, reflète parfaitement son style unique et son évolution en tant qu'artiste. Puissance et groove sont au cœur de cet opus, où chaque titre offre une expérience sonore captivante et immersive. De la fusion de la bass house énergique et des sons hard techno à ses propres expérimentations musicales, Sophie propose un voyage auditif dynamique et enivrant dans son univers musical.",
+            "Sophie a développé au fil des années un univers musical qui lui est propre. Elle partage ses productions depuis 2024, entre bass house et hard techno.",
+            "Puissance et groove sont au cœur de ses productions. Ses collaborations avec Red Marshal comprennent notamment Versus et War House.",
         ],
-        spotify:
-            "https://open.spotify.com/embed/artist/7o0ucOb1npEkb3qhGFIY3U?utm_source=generator",
+        spotify: "https://open.spotify.com/embed/album/6IPoVNmaRQojvGv3gz3txM",
         gallery: [
             "/img/gallerie/artist2_1on4.png",
             "/img/gallerie/artist2_2on4.jpg",
@@ -50,17 +50,17 @@ const artistData = {
         role: "DJ - Producteur",
         genre: "Techno",
         image: "/img/gallerie/artist3_1on4.png",
+        social_youtube: "https://www.youtube.com/channel/UCD-H3-hzSU_kbyw_zLg431Q",
         social_spotify:
             "https://open.spotify.com/intl-fr/artist/51UZk9XPK15uZgwQEWE3MK?si=gc66aNl4QDeejNgcicuJ6g",
         social_instagram:
-            "https://www.instagram.com/fernando.gomez._music/?hl=fr",
+            "https://www.instagram.com/fernando.gomez._music_/",
         bio: [
-            "Fernando d'origine espagnol est passionné de musique et de show lumière (Jean-Michel Jarre) depuis son plus jeune âge, il est un fervent amateur de piano et de guitare. À l'adolescence, il décide de se concentrer sur ses styles musicaux de prédilection : le métal et le hard métal.",
+            "Fernando, d'origine espagnole, est passionné de musique et de show lumière (Jean-Michel Jarre) depuis son plus jeune âge, il est un fervent amateur de piano et de guitare. À l'adolescence, il décide de se concentrer sur ses styles musicaux de prédilection : le métal et le hard métal.",
             "Durant ses études dans le Nord de la France, ses goûts musicaux évoluent petit à petit vers le hardcore, la hard techno et le hardstyle. À la fin de sa formation, il déménage à Toulouse pour travailler et découvrir le monde de la nuit. Il devient alors technicien son et lumière pour différentes boîtes de nuit de la ville rose.",
-            "Lorsque le Covid arrive, il y voit une opportunité pour se mettre au mix. Pour mixer de la techno, il s'inspire de Space 92, Jeff Mills, Carl Cox, Charlotte Witte ...",
+            "Lorsque le Covid arrive, il y voit une opportunité pour se mettre au mix. Pour mixer de la techno, il s'inspire de Space 92, Jeff Mills, Carl Cox, Charlotte de Witte ...",
         ],
-        spotify:
-            "https://open.spotify.com/embed/artist/51UZk9XPK15uZgwQEWE3MK?utm_source=generator",
+        spotify: "https://open.spotify.com/embed/album/1eYn7mzy39m7pvkI3VIhn2",
         gallery: [
             "/img/gallerie/artist3_1on4.png",
             "/img/gallerie/artist3_2on4.jpg",
@@ -73,6 +73,7 @@ const artistData = {
         role: "DJ - Producteur",
         genre: "Bass House",
         image: "/img/Brothers-détouré.png",
+        social_youtube: "https://www.youtube.com/@DaoBrothers",
         social_spotify:
             "https://open.spotify.com/intl-fr/artist/4FP9ILC4hO3YvOb2R0NIzj?si=7aZaVISoSdyK-6JheqPh8g",
         social_instagram:
@@ -81,8 +82,7 @@ const artistData = {
             'Les frères Dao sont des artistes qui produisent de la Bass House, une musique émergente propagée par les artistes français « Malaa " et " DJ SNAKE ». Composé des frères Thao et Yo (nés en 1991 et 1990), le duo français d\'origine vietnamienne se produit à Toulouse.',
             "Dans leur enfance, ils se passionnent pour la musique et le cinéma. Ils se sont rapidement formés et spécialisés dans ces deux domaines. Le style musical de Thao est très sombre avec des basses puissantes, tandis que celui de Yo est groovy et rythmé. Ces différences forment un mélange de sons innovant.",
         ],
-        spotify:
-            "https://open.spotify.com/embed/artist/4FP9ILC4hO3YvOb2R0NIzj?utm_source=generator",
+        spotify: "",
         gallery: [
             "/img/Photo_dao_yo.jpg",
             "/img/Photo_dao_ yo_thao.jpg",
@@ -95,7 +95,7 @@ const artistData = {
         role: "DJ - Producteur",
         genre: "Techno",
         image: "/img/artistes/artist5.png",
-        social_spotify: "",
+        social_spotify: "https://open.spotify.com/artist/6WQRoPuaY9eGi72nNcSXhu",
         social_instagram:
             "https://www.instagram.com/zoe_kunter?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
         bio: [
@@ -103,8 +103,7 @@ const artistData = {
             "Très tôt, la techno devient pour Zoé bien plus qu’un style musical : un langage, une manière de ressentir et de vivre le monde. Fidèle à ses racines, elle tisse un son dense, hypnotique, traversé par l’esprit underground des origines.",
             "Au fil des décennies, elle n’a cessé d’évoluer, sans jamais perdre cette flamme. De ses sets émane une énergie vibrante. Elle poursuit son voyage électronique, explorant sans relâche de nouveaux territoires sonores.",
         ],
-        spotify:
-            "https://open.spotify.com/embed/artist/4FP9ILC4hO3YvOb2R0NIzj?utm_source=generator",
+        spotify: "https://open.spotify.com/embed/album/5ZnEFMEG1NLDYOs02vww6C",
         gallery: [
             "/img/gallerie/artist5_1on4.jpg",
             "/img/gallerie/artist5_2on4.jpg",
@@ -121,11 +120,10 @@ const artistData = {
         social_instagram:
             "https://www.instagram.com/_clarityy._?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
         bio: [
-            "Clarity est une DJ émergente passionnée qui vient tout juste de se lancer dans le mix.",
+            "Clarity est une DJ passionnée de hard techno.",
             "Guidée par son amour profond pour la musique électronique, elle explore les platines avec une énergie fraîche et contagieuse, déterminée à faire vibrer chaque set.",
         ],
-        spotify:
-            "https://open.spotify.com/embed/artist/4FP9ILC4hO3YvOb2R0NIzj?utm_source=generator",
+        spotify: "",
         gallery: [
             "/img/gallerie/artist6_1on4.jpg",
             "/img/gallerie/artist6_2on4.jpg",
@@ -139,10 +137,21 @@ const artistData = {
 document.addEventListener("DOMContentLoaded", function () {
     const artistCards = document.querySelectorAll(".artistCard");
     const modal = document.getElementById("artistModal");
-    const closeModal = document.querySelector(".closeModal");
+    const closeModal = modal?.querySelector(".closeModal");
     const artistDetailsContainer = document.getElementById(
         "artistDetailsContainer"
     );
+
+    if (!modal || !closeModal || !artistDetailsContainer) return;
+
+    let activeCard = null;
+
+    function closeArtistModal() {
+        modal.style.display = "none";
+        document.body.classList.remove("modalOpen");
+        artistDetailsContainer.innerHTML = "";
+        activeCard?.focus();
+    }
 
     function createArtistDetails(artistId) {
         const artist = artistData[artistId];
@@ -156,16 +165,17 @@ document.addEventListener("DOMContentLoaded", function () {
                             <p>${artist.role}</p>
                             <span class="artistGenre">${artist.genre}</span>
                             <div class="social_artist">
+                                ${artist.social_youtube ? `<a href="${artist.social_youtube}" class="socialLink" target="_blank" rel="noopener noreferrer" aria-label="${artist.name} sur YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>` : ""}
                                 ${
-                                    !["zoe-kunter", "clarity"].includes(artistId)
+                                    artist.social_spotify
                                         ? `
                                     <a href="${artist.social_spotify}"
-                                    class="socialLink" target="_blank"><i class="fab fa-spotify"></i></a>
+                                    class="socialLink" target="_blank" rel="noopener noreferrer" aria-label="${artist.name} sur Spotify"><i class="fab fa-spotify"></i></a>
                                 `
                                         : ""
                                 }
                                 <a href="${artist.social_instagram}"
-                                class="socialLink" target="_blank"><i class="fab fa-instagram"></i></a>
+                                class="socialLink" target="_blank" rel="noopener noreferrer" aria-label="${artist.name} sur Instagram"><i class="fab fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>
@@ -177,11 +187,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
 
                 ${
-                    !["zoe-kunter", "clarity"].includes(artistId)
+                    artist.spotify
                         ? `
                     <div class="artistMusic">
                         <h3>Écouter</h3>
-                        <iframe style="border-radius:12px" src="${artist.spotify}" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <iframe style="border-radius:12px" src="${artist.spotify}" title="Écouter ${artist.name} sur Spotify" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                     </div>
                 `
                         : ""
@@ -205,18 +215,37 @@ document.addEventListener("DOMContentLoaded", function () {
     artistCards.forEach((card) => {
         card.addEventListener("click", function () {
             const artistId = this.getAttribute("data-artist");
+            if (!artistData[artistId]) return;
+            activeCard = card;
             artistDetailsContainer.innerHTML = createArtistDetails(artistId);
             modal.style.display = "block";
+            document.body.classList.add("modalOpen");
+            closeModal.focus();
+        });
+        card.addEventListener("keydown", function (event) {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                card.click();
+            }
         });
     });
 
-    closeModal.addEventListener("click", function () {
-        modal.style.display = "none";
+    closeModal.addEventListener("click", closeArtistModal);
+    modal.addEventListener("click", function (event) {
+        if (event.target === modal) closeArtistModal();
     });
-
-    window.addEventListener("click", function (event) {
-        if (event.target === modal) {
-            modal.style.display = "none";
+    modal.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") closeArtistModal();
+        if (event.key !== "Tab") return;
+        const controls = modal.querySelectorAll("button, a[href], iframe");
+        const first = controls[0];
+        const last = controls[controls.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
         }
     });
 });

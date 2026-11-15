@@ -2,3 +2,9 @@
 .DS_Store
 Thumbs.db
 
+# Défense supplémentaire : les secrets Spotify doivent rester hors du site.
+credentials.json
+.dfr-spotify/
+*.log
+.deploy/
+

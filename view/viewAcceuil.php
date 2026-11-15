@@ -1,6 +1,9 @@
 <?php
 function renderAcceuil()
 {
+    $releases = require __DIR__ . '/../model/releases.php';
+    $videos = require __DIR__ . '/../model/videos.php';
+    $featuredVideo = $videos['recent'][0];
     ob_start();
     ?>
     <main class="mainHome">
@@ -17,65 +20,44 @@ function renderAcceuil()
             </div>
             <div class="heroVideo">
                 <iframe
-                    src="https://www.youtube.com/embed/videoseries?si=9n7Tnr8qqOqHir4m&amp;list=PLfGk9MSaVom5-wEtYZ2lM2a99SeHHF6sg"
-                    title="Dao Family Records"
+                    src="https://www.youtube.com/embed/<?= htmlspecialchars($featuredVideo['id']) ?>"
+                    title="<?= htmlspecialchars($featuredVideo['artist'] . ' — ' . $featuredVideo['title'] . ' — Audio officiel') ?>"
+                    referrerpolicy="strict-origin-when-cross-origin"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen></iframe>
             </div>
         </section>
 
-        <!-- Featured Releases Section -->
+        <p class="homeVideoCaption"><?= htmlspecialchars($featuredVideo['artist'] . ' — ' . $featuredVideo['title']) ?> · Audio officiel
+            <a href="/controller/video.php">Voir toutes les vidéos</a>
+        </p>
+
         <section class="featuredReleases">
-            <h2>Dernières Sorties</h2>
+            <h2>À la une</h2>
             <div class="releasesGrid">
-                <div class="releaseCard">
-                    <div class="releaseImage">
-                        <img src="/img/accueil/Releases-1.png" alt="Red Rave - Red Marshal">
-                        <div class="releaseOverlay">
-                            <a href="https://dzr.page.link/E5jGMqDgNYxxjR9j6"
-                                class="btnListen">
-                                <i class="fab fa-deezer"></i> Écouter sur Deezer
-                            </a>
+                <?php foreach ($releases['featured'] as $release): ?>
+                    <article class="releaseCard">
+                        <div class="releaseImage">
+                            <img src="<?= htmlspecialchars($release['image']) ?>"
+                                alt="<?= htmlspecialchars($release['title'] . ' - ' . $release['artist']) ?>"
+                                loading="lazy">
+                            <div class="releaseOverlay">
+                                <a href="<?= htmlspecialchars($release['spotify']) ?>" class="btnListen"
+                                    target="_blank" rel="noopener noreferrer"
+                                    aria-label="<?= htmlspecialchars($release['link_label'] . ' — ' . $release['title'] . ' par ' . $release['artist']) ?>">
+                                    <i class="fab fa-spotify" aria-hidden="true"></i>
+                                    <?= htmlspecialchars($release['link_label']) ?>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="releaseInfo">
-                        <h3>Red Rave</h3>
-                        <p>Red Marshal</p>
-                    </div>
-                </div>
-
-                <div class="releaseCard">
-                    <div class="releaseImage">
-                        <img src="/img/accueil/Releases-2.png" alt="How Can I - Dj Babe">
-                        <div class="releaseOverlay">
-                            <a href="https://open.spotify.com/album/47Q6yAPK2TYz133M4TPR9E?si=iQh5YQT-Rpax-mlLr6-gGw"
-                                class="btnListen">
-                                <i class="fab fa-spotify"></i> Écouter sur Spotify
-                            </a>
+                        <div class="releaseInfo">
+                            <h3><?= htmlspecialchars($release['title']) ?></h3>
+                            <p><?= htmlspecialchars($release['artist']) ?></p>
                         </div>
-                    </div>
-                    <div class="releaseInfo">
-                        <h3>How Can I</h3>
-                        <p>Dj Babe</p>
-                    </div>
-                </div>
-
-                <div class="releaseCard">
-                    <div class="releaseImage">
-                        <img src="/img/accueil/Releases-3.png" alt="Imagination - Fernando Gomez">
-                        <div class="releaseOverlay">
-                            <a href="https://open.spotify.com/album/29j5GKQGMW4TE54vCICzAL?si=_5MrAjIxQVSJShpLealOSA"
-                                class="btnListen">
-                                <i class="fab fa-spotify"></i> Écouter sur Spotify
-                            </a>
-                        </div>
-                    </div>
-                    <div class="releaseInfo">
-                        <h3>Imagination</h3>
-                        <p>Fernando Gomez</p>
-                    </div>
-                </div>
+                    </article>
+                <?php endforeach; ?>
             </div>
+            <p class="catalogLink"><a href="/controller/album.php">Voir toutes les sorties</a></p>
         </section>
 
         <!-- Spotify Section -->
@@ -83,7 +65,7 @@ function renderAcceuil()
             <h2>Écoutez nos artistes</h2>
             <div class="spotifyPlayer">
                 <iframe style="border-radius:12px"
-                    src="https://open.spotify.com/embed/playlist/4z6XsMTJ8rsbSGyi20bz9T?utm_source=generator" width="100%"
+                    src="https://open.spotify.com/embed/playlist/4z6XsMTJ8rsbSGyi20bz9T?utm_source=generator" title="Playlist Dao Family Records sur Spotify" width="100%"
                     height="652" frameBorder="0" allowfullscreen=""
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                     loading="lazy"></iframe>

@@ -5,7 +5,7 @@ include '../view/viewHeader.php';
 include '../view/viewEvenement.php';
 include '../view/viewFooter.php';
 
-echo renderHeader();
+echo renderHeader('Événements | Dao Family Records');
 echo renderEvenement();
 echo renderFooter();
 ?>

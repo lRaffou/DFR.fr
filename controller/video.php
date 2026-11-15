@@ -5,6 +5,6 @@ include '../view/viewHeader.php';
 include '../view/viewVideo.php';
 include '../view/viewFooter.php';
 
-echo renderHeader();
+echo renderHeader('Vidéos | Dao Family Records');
 echo renderVideo();
 echo renderFooter();

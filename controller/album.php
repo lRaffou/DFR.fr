@@ -6,7 +6,7 @@ require_once '../view/viewFooter.php';
 
 function renderAlbumPage()
 {
-    $header = renderHeader();
+    $header = renderHeader('Sorties | Dao Family Records');
     $content = renderAlbum();
     $footer = renderFooter();
 

@@ -1,5 +1,5 @@
 <?php
-function renderHeader()
+function renderHeader($title = 'Dao Family Records')
 {
     ob_start();
     ?>
@@ -10,13 +10,14 @@ function renderHeader()
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/png" href="/img/1logo_simple_dfr_blanc.png">
-        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/style.css?v=<?= filemtime(__DIR__ . '/../css/style.css') ?>">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
             integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <script src="/js/script.js" defer></script>
-        <script src="/js/scriptArtist.js" defer></script>
-        <title>Dao Family Records</title>
+        <script src="/js/script.js?v=<?= filemtime(__DIR__ . '/../js/script.js') ?>" defer></script>
+        <script src="/js/scriptArtist.js?v=<?= filemtime(__DIR__ . '/../js/scriptArtist.js') ?>" defer></script>
+        <meta name="description" content="Dao Family Records, label de musique électronique à Toulouse. Découvrez nos artistes, sorties, clips et événements.">
+        <title><?= htmlspecialchars($title) ?></title>
     </head>
 
     <body>
@@ -38,7 +39,7 @@ function renderHeader()
                                     class="fas fa-home"></i><span>Accueil</span></a></li>
                         <li><a href="/controller/evenement.php"
                                 class="<?php echo ($_SERVER['PHP_SELF'] == '/controller/evenement.php') ? 'active' : ''; ?>"><i
-                                    class="fas fa-calendar-alt"></i><span>Events</span></a></li>
+                                    class="fas fa-calendar-alt"></i><span>Événements</span></a></li>
                         <li><a href="/controller/artiste.php"
                                 class="<?php echo ($_SERVER['PHP_SELF'] == '/controller/artiste.php') ? 'active' : ''; ?>"><i
                                     class="fas fa-music"></i><span>Artistes</span></a></li>
@@ -47,7 +48,7 @@ function renderHeader()
                                     class="fas fa-video"></i><span>Vidéos</span></a></li>
                         <li><a href="/controller/album.php"
                                 class="<?php echo ($_SERVER['PHP_SELF'] == '/controller/album.php') ? 'active' : ''; ?>"><i
-                                    class="fas fa-compact-disc"></i><span>Tracks</span></a></li>
+                                    class="fas fa-compact-disc"></i><span>Sorties</span></a></li>
                     </ul>
                 </section>
             </nav>
@@ -68,15 +69,15 @@ function renderHeader()
                             </li>
                             <li><a href="/controller/video.php" class="navLink"><i class="fas fa-video"></i> Vidéos</a></li>
                             <li><a href="/controller/album.php" class="navLink"><i class="fas fa-compact-disc"></i>
-                                    Tracks</a></li>
+                                    Sorties</a></li>
                         </ul>
                     </div>
                     <div class="navbarSocial">
-                        <a href="https://www.youtube.com/@DaoFamilyRecords" class="socialLink" target="_blank"><i
+                        <a href="https://www.youtube.com/@DaoFamilyRecords" class="socialLink" target="_blank" rel="noopener noreferrer" aria-label="Dao Family Records sur YouTube"><i
                                 class="fab fa-youtube"></i></a>
-                        <a href="https://open.spotify.com/intl-fr/artist/3zpewQ11GYG2ev9Ngdsvi9?si=wlTXdkSHSmenHoVpqnK1nQ"
-                            class="socialLink" target="_blank"><i class="fab fa-spotify"></i></a>
-                        <a href="https://www.instagram.com/dao_family_records" class="socialLink" target="_blank"><i
+                        <a href="https://open.spotify.com/playlist/4z6XsMTJ8rsbSGyi20bz9T"
+                            class="socialLink" target="_blank" rel="noopener noreferrer" aria-label="Playlist Dao Family Records sur Spotify"><i class="fab fa-spotify"></i></a>
+                        <a href="https://www.instagram.com/dao_family_records" class="socialLink" target="_blank" rel="noopener noreferrer" aria-label="Dao Family Records sur Instagram"><i
                                 class="fab fa-instagram"></i></a>
                     </div>
                 </div>

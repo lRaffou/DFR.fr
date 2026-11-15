@@ -1,0 +1,44 @@
+<?php
+
+// Liens et crédits vérifiés sur YouTube le 15 novembre 2026.
+// Les dates ci-dessous sont les dates de sortie indiquées dans les crédits.
+return [
+    'channel' => 'https://www.youtube.com/@DaoFamilyRecords',
+    'playlist' => 'https://www.youtube.com/playlist?list=PLfGk9MSaVom5-wEtYZ2lM2a99SeHHF6sg',
+    'recent' => [
+        ['id' => 'iQKpifgSBDk', 'title' => 'Red Destruction', 'artist' => 'Red Marshal', 'date' => '2026-09-27'],
+        ['id' => 'FcBOqizs8cA', 'title' => 'Versus', 'artist' => 'Red Marshal, Dj Babe', 'date' => '2026-08-09'],
+        ['id' => 'm8B7tsD6ceA', 'title' => 'Discoteca', 'artist' => 'Fernando Gomez', 'date' => '2026-05-29'],
+        ['id' => 'T-WA1L5qk9M', 'title' => 'Paradox', 'artist' => 'Fernando Gomez', 'date' => '2026-04-24'],
+        ['id' => 's4vGBoXP2QU', 'title' => 'Destruction', 'artist' => 'Fernando Gomez', 'date' => '2026-04-17'],
+        ['id' => 'bt2lXCuG5xk', 'title' => 'Morgenbruch', 'artist' => 'Red Marshal, Zoé Kunter', 'date' => '2026-04-12'],
+    ],
+    'collection' => [
+        ['id' => 'eoLwaREoCls', 'title' => 'Un Violeurs Sur Ton Chemin', 'artist' => 'Red Marshal', 'format' => 'Vidéo'],
+        ['id' => 'CJlThSkDbvA', 'title' => 'Above', 'artist' => 'Red Marshal', 'format' => 'Clip officiel'],
+        ['id' => 'xepOSI0yiTk', 'title' => 'Coucou les Congolais — Squid Game 2 (Hard Techno Remix)', 'artist' => 'Red Marshal', 'format' => 'Remix'],
+        ['id' => '1bou4SORFY4', 'title' => 'Acid Japan', 'artist' => 'Red Marshal', 'format' => 'Clip officiel'],
+        ['id' => 'EFj2f6M1IYA', 'title' => 'Brother', 'artist' => 'Red Marshal', 'format' => 'Clip officiel'],
+        ['id' => 'TvbCJdJN5R4', 'title' => 'Follow Me', 'artist' => 'Red Marshal', 'format' => 'Clip officiel'],
+        ['id' => 'MkWbtJhjOVU', 'title' => 'The Darkest Night', 'artist' => 'Red Marshal', 'format' => 'Clip officiel'],
+        ['id' => 'H4wUMWz1wyg', 'title' => 'Warning', 'artist' => 'Red Marshal', 'format' => 'Clip officiel'],
+        ['id' => 'iOs7LpGDoew', 'title' => 'Tokyo Techno', 'artist' => 'Red Marshal', 'format' => 'Clip officiel'],
+        ['id' => 'GdM9Vg8rWgs', 'title' => 'Backstreet', 'artist' => 'Red Marshal', 'format' => 'Clip officiel'],
+        ['id' => 'vD7fkc8rpRw', 'title' => 'Happiness', 'artist' => 'Red Marshal', 'format' => 'Clip officiel'],
+        ['id' => '9M9b8pPfQxw', 'title' => 'Seven Dark', 'artist' => 'Red Marshal', 'format' => 'Clip officiel'],
+        ['id' => '9_wwx_cSg8w', 'title' => 'Earth', 'artist' => 'Red Marshal', 'format' => 'Clip officiel'],
+        ['id' => 'kBEVORZtE7g', 'title' => 'Lost', 'artist' => 'Red Marshal', 'format' => 'Clip officiel'],
+        ['id' => 'aR9arBaYTTU', 'title' => 'The Red Night', 'artist' => 'Red Marshal', 'format' => 'Clip officiel'],
+        ['id' => 'AAEuRLXiaZE', 'title' => 'Port de l’embouchure, Toulouse', 'artist' => 'Red Marshal', 'format' => 'Aftermovie'],
+        ['id' => 'mRf-xqitwe8', 'title' => 'Live on « Pont de Bourret »', 'artist' => 'Red Marshal', 'format' => 'Live'],
+        ['id' => 'dSO9va70v0c', 'title' => 'Dark Power', 'artist' => 'Red Marshal', 'format' => 'Clip officiel'],
+        ['id' => 'QL5o1O7Isb0', 'title' => 'Wanted', 'artist' => 'Red Marshal', 'format' => 'Clip officiel'],
+        ['id' => 'j4EYV1JAKko', 'title' => 'A Cry In The Darkness', 'artist' => 'Red Marshal', 'format' => 'Clip officiel'],
+        ['id' => 'rnPkKmCDbos', 'title' => 'My Eyes', 'artist' => 'Red Marshal', 'format' => 'Clip officiel'],
+        ['id' => 'KiutocisUOs', 'title' => 'Vibes', 'artist' => 'Red Marshal', 'format' => 'Clip officiel'],
+        ['id' => 'OAQrUWTs_cA', 'title' => 'Pleasure', 'artist' => 'Red Marshal', 'format' => 'Clip officiel'],
+        ['id' => 'l4cAX6Nh5T4', 'title' => 'Burning', 'artist' => 'Dao Brothers', 'format' => 'Clip officiel'],
+        ['id' => 'X3FYFQ_Ywd0', 'title' => 'Into The Club', 'artist' => 'Dao Brothers', 'format' => 'Clip officiel'],
+        ['id' => '7eiQKn3ReNw', 'title' => 'Dancing In The House', 'artist' => 'Dao Brothers', 'format' => 'Clip officiel'],
+    ],
+];

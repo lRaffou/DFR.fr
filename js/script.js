@@ -1,6 +1,6 @@
 // Fonction pour envoyer un email
 function send() {
-    window.open("mailto:r.lourenco@outlook.fr");
+    window.open("mailto:Daofamilyrecords@gmail.com");
 }
 
 // Mise à jour automatique de l'année
@@ -82,26 +82,48 @@ if (carousel) {
 const videoCards = document.querySelectorAll(".videoCard");
 const modal = document.getElementById("videoModal");
 const modalVideo = document.getElementById("modalVideo");
-const closeModal = document.querySelector(".closeModal");
+const modalYoutubeLink = document.getElementById("modalYoutubeLink");
+const closeModal = modal?.querySelector(".closeModal");
 
 if (videoCards.length > 0 && modal && modalVideo && closeModal) {
+    let activePlayButton = null;
+
+    function closeVideoModal() {
+        modal.style.display = "none";
+        document.body.classList.remove("modalOpen");
+        modalVideo.removeAttribute("src");
+        modalYoutubeLink?.removeAttribute("href");
+        activePlayButton?.focus();
+    }
+
     videoCards.forEach(card => {
-        card.addEventListener("click", function () {
-            const videoId = this.getAttribute("data-video");
+        card.addEventListener("click", function (event) {
+            if (event.target.closest("a")) return;
+            activePlayButton = card.querySelector(".playButton");
+            const videoId = card.getAttribute("data-video");
             modalVideo.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            modalVideo.title = card.dataset.title;
+            if (modalYoutubeLink) modalYoutubeLink.href = `https://www.youtube.com/watch?v=${videoId}`;
             modal.style.display = "block";
+            document.body.classList.add("modalOpen");
+            closeModal.focus();
         });
     });
 
-    closeModal.addEventListener("click", function () {
-        modal.style.display = "none";
-        modalVideo.src = "";
+    closeModal.addEventListener("click", closeVideoModal);
+    modal.addEventListener("click", function (event) {
+        if (event.target === modal) closeVideoModal();
     });
-
-    window.addEventListener("click", function (event) {
-        if (event.target === modal) {
-            modal.style.display = "none";
-            modalVideo.src = "";
+    modal.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") closeVideoModal();
+        if (event.key !== "Tab") return;
+        const lastControl = modalYoutubeLink || modalVideo;
+        if (event.shiftKey && document.activeElement === closeModal) {
+            event.preventDefault();
+            lastControl.focus();
+        } else if (!event.shiftKey && document.activeElement === lastControl) {
+            event.preventDefault();
+            closeModal.focus();
         }
     });
 }

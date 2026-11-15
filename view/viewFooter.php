@@ -18,7 +18,7 @@ function renderFooter()
                     <li><a href="/controller/evenement.php">Événements</a></li>
                     <li><a href="/controller/artiste.php">Artistes</a></li>
                     <li><a href="/controller/video.php">Vidéos</a></li>
-                    <li><a href="/controller/album.php">Albums</a></li>
+                    <li><a href="/controller/album.php">Sorties</a></li>
                     <li><a href="mailto:Daofamilyrecords@gmail.com">Contactez-nous</a></li>
                 </ul>
             </div>
@@ -31,7 +31,7 @@ function renderFooter()
                         <i class="fab fa-youtube"></i>
                         <span>YouTube</span>
                     </a>
-                    <a href="https://open.spotify.com/intl-fr/artist/3zpewQ11GYG2ev9Ngdsvi9?si=e9_8b3i3RhqHm2_LtLTInw"
+                    <a href="https://open.spotify.com/playlist/4z6XsMTJ8rsbSGyi20bz9T"
                         target="_blank" rel="noopener noreferrer" class="socialLink">
                         <i class="fab fa-spotify"></i>
                         <span>Spotify</span>
@@ -54,7 +54,6 @@ function renderFooter()
         <div class="footerBottom">
             <p class="copyright">
                 Copyright &copy; <span id="year"></span> Dao Family Records. Tous droits réservés.
-                <a href="/mentions-legales" class="legalLink">Mentions légales</a>
             </p>
         </div>
     </footer>
@@ -62,6 +61,8 @@ function renderFooter()
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>
+    </body>
+    </html>
     <?php
     return ob_get_clean();
 }
