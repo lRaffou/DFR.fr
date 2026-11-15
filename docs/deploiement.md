@@ -80,3 +80,22 @@ sont conservés. La copie privée du modèle et ses tests ont aussi été actual
 Un nouvel envoi GitHub (`8aa89f2`) est ensuite arrivé automatiquement sur Hostinger,
 confirmant la réparation. Les outils CLI et les documents d'exploitation sont
 bloqués par la règle du `.htaccess` racine lors des déploiements depuis le dépôt.
+
+## Univers DFR, archives et Frenzysax
+
+Ajout d’une présentation commune du label, de The Red Night et de Cœur Meurtri,
+avec leurs liens Instagram, Shotgun et TikTok. Six éditions Shotgun complètent
+l’archive Red Night Off #5 : sept fiches avec affiches officielles, dates, lieux
+et programmations. Leur classement passé/à venir dépend de la date de fin.
+La fiche Frenzysax utilise le portrait Spotify et les profils fournis.
+
+Contrôles locaux : 25 vérifications du calendrier et des archives, 42 contrôles
+Spotify, syntaxe PHP/JS, cinq pages HTTP 200 et 23 ressources accessibles.
+Le navigateur connecté est indisponible au moment de cette vérification ; la
+vérification visuelle et les publications Instagram restent à reprendre.
+
+Frenzysax est ajouté à `scripts/spotify/config.php` dans le dépôt. **La copie
+privée `dfr-spotify-worker/scripts/spotify/config.php` doit encore être mise à
+jour sur Hostinger et une synchronisation testée.** Le déploiement Git ne met
+pas à jour cette copie privée. Le cron `qptdz2aJH9` n’a pas été modifié.
+Voir [les sources et limites éditoriales](sources-projets.md).

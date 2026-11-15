@@ -25,7 +25,7 @@ const artistData = {
     },
     "dj-babe": {
         name: "Dj Babe",
-        role: "DJ - Producteur",
+        role: "DJ - Productrice",
         genre: "Hard Techno / Tech House",
         image: "/img/gallerie/artist2_1on4.png",
         social_spotify:
@@ -34,6 +34,7 @@ const artistData = {
             "https://www.instagram.com/djbabe31?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
         bio: [
             "Sophie est une artiste française d'origine vietnamienne, dont le parcours musical a été initié par l'influence de ses frères, eux-mêmes actifs dans les scènes bass house (Dao Brothers) et hard techno (Red Marshal). C'est dans cet environnement familial et musical qu'elle a forgé ses premières inspirations et aspirations artistiques.",
+            "Fondatrice de Cœur Meurtri, elle met les femmes à l’honneur sur la scène électronique à travers des soirées en club et des open airs à Toulouse.",
             "Sophie a développé au fil des années un univers musical qui lui est propre. Elle partage ses productions depuis 2024, entre bass house et hard techno.",
             "Puissance et groove sont au cœur de ses productions. Ses collaborations avec Red Marshal comprennent notamment Versus et War House.",
         ],
@@ -131,6 +132,17 @@ const artistData = {
             "/img/gallerie/artist6_4on4.jpg",
         ],
     },
+    "frenzysax": {
+        name: "Frenzysax",
+        role: "Dao Family Records",
+        genre: "Musique électronique",
+        image: "/img/artistes/frenzysax.jpg",
+        social_spotify: "https://open.spotify.com/artist/4NqtEeAINDNe0G3FiHbqbs",
+        social_instagram: "https://www.instagram.com/frenzysax/",
+        bio: ["Frenzysax fait partie de la famille DFR. Retrouvez ses productions sur Spotify et son actualité sur Instagram."],
+        spotify: "https://open.spotify.com/embed/artist/4NqtEeAINDNe0G3FiHbqbs",
+        gallery: [],
+    },
 };
 
 // Gestion ouverture et remplissage modale artistes
@@ -197,7 +209,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         : ""
                 }
 
-                <div class="artistGallery">
+                ${artist.gallery.length ? `<div class="artistGallery">
                     <h3>Galerie</h3>
                     <div class="galleryGrid">
                         ${artist.gallery
@@ -207,7 +219,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             )
                             .join("")}
                     </div>
-                </div>
+                </div>` : ""}
             </div>
         `;
     }

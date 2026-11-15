@@ -2667,3 +2667,76 @@ h6 {
     border-radius: 8px;
     text-underline-offset: 0.25em;
 }
+
+/* Les projets DFR et les archives partagent les mêmes données éditoriales. */
+.dfrProjects, .dfrEventSection {
+    max-width: 1200px;
+    margin: 0 auto 4rem;
+}
+.mainHome > .dfrProjects { padding: 2rem; }
+.dfrSectionHeading { margin-bottom: 1.8rem; }
+.dfrSectionHeading h2, .dfrEventSection > h2 {
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    margin: 0.5rem 0 1rem;
+    color: #fff;
+}
+.dfrSectionHeading > p:last-child { color: #bbb; }
+.dfrEyebrow {
+    color: #ff9d9d;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.6;
+}
+.dfrProjectGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: 1.25rem;
+}
+.dfrProject {
+    border: 1px solid #393939;
+    border-top: 3px solid #ddd;
+    border-radius: 12px;
+    background: #151515;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+.dfrProject--red-night { border-top-color: #ff5151; background: linear-gradient(145deg, #2b1010, #151515); }
+.dfrProject--coeur-meurtri { border-top-color: #da96f3; background: linear-gradient(145deg, #25122d, #151515); }
+.dfrProject--coeur-meurtri .dfrEyebrow { color: #dda4f0; }
+.dfrProject h3 { font-size: 1.65rem; margin: 0.75rem 0 1rem; color: #fff; }
+.dfrProjectDescription { color: #ccc; line-height: 1.7; margin-bottom: 1.5rem; }
+.dfrProjectLinks { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: auto; }
+.dfrProjectLinks a {
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #555;
+    border-radius: 7px;
+    padding: 0.7rem 0.85rem;
+    font-size: 0.9rem;
+}
+.dfrProjectLinks a:hover { background: #333; }
+.dfrNoEvent { background: #171717; border-left: 3px solid #ff5151; padding: 1.5rem; border-radius: 0 10px 10px 0; }
+.dfrNoEvent p { color: #ccc; line-height: 1.6; margin: 0.3rem 0; }
+.dfrNoEvent p:first-child { color: #fff; font-size: 1.1rem; }
+.dfrEventGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+.dfrEventCard { background: #171717; border: 1px solid #333; border-radius: 12px; overflow: hidden; min-width: 0; display: flex; flex-direction: column; }
+.dfrEventPoster { display: block; background: #0c0c0c; }
+.dfrEventPoster img { display: block; width: 100%; height: 300px; object-fit: contain; }
+.dfrEventContent { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+.dfrEventContent h3 { color: #fff; font-size: 1.4rem; margin: 0.5rem 0 1rem; }
+.dfrEventContent > p { color: #ccc; line-height: 1.65; margin-bottom: 0.8rem; }
+.dfrEventContent > .dfrEyebrow { color: #ff9d9d; font-size: 0.75rem; margin: 0; }
+.dfrEventContent > .dfrEventDate { color: #fff; font-weight: bold; margin-bottom: 0.25rem; }
+.dfrEventVenue { font-size: 0.95rem; }
+.dfrEventLineup { font-size: 0.9rem; }
+.dfrEventSource { color: #fff; text-underline-offset: 0.3em; padding-top: 1rem; margin-top: auto; line-height: 1.6; }
+@media (max-width: 700px) {
+    .dfrEventGrid { grid-template-columns: 1fr; }
+    .mainHome > .dfrProjects { padding: 1rem; }
+    .dfrProject { padding: 1.5rem; }
+    .dfrEventPoster img { height: 280px; }
+}

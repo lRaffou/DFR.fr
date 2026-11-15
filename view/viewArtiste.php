@@ -31,7 +31,7 @@ function renderArtiste()
                     <div class="artistOverlay">
                         <div class="artistInfo">
                             <h2>Dj Babe</h2>
-                            <p>DJ - Producteur</p>
+                            <p>DJ - Productrice</p>
                             <span class="artistGenre">Hard Techno</span>
                             <span class="artistGenre">Tech House</span>
                         </div>
@@ -92,6 +92,18 @@ function renderArtiste()
                 </div>
             </article>
 
+            <article class="artistCard" role="button" tabindex="0" aria-haspopup="dialog" data-artist="frenzysax">
+                <div class="artistImage">
+                    <img src="/img/artistes/frenzysax.jpg" alt="Frenzysax" loading="lazy">
+                    <div class="artistOverlay">
+                        <div class="artistInfo">
+                            <h2>Frenzysax</h2>
+                            <p>Dao Family Records</p>
+                            <span class="artistGenre">Musique électronique</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
         </section>
 
         <!-- Modal pour afficher les détails de l'artiste -->

@@ -1,86 +1,61 @@
 <?php
+require_once __DIR__ . '/../model/event-calendar.php';
+require_once __DIR__ . '/../components/projects.php';
+
+function renderEventArchiveCard(array $event, bool $past): string
+{
+    $escape = static fn($value) => htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+    ob_start(); ?>
+    <article class="dfrEventCard">
+        <a class="dfrEventPoster" href="<?= $escape($event['image']) ?>" target="_blank" rel="noopener noreferrer" aria-label="Voir l’affiche : <?= $escape($event['project'] . ' — ' . $event['title']) ?>">
+            <img src="<?= $escape($event['image']) ?>" alt="Affiche <?= $escape($event['project'] . ' — ' . $event['title']) ?>" loading="lazy">
+        </a>
+        <div class="dfrEventContent">
+            <p class="dfrEyebrow"><?= $escape($event['project']) ?> · <?= $past ? 'Archive' : 'À venir / en cours' ?></p>
+            <h3><?= $escape($event['title']) ?></h3>
+            <p class="dfrEventDate"><time datetime="<?= $escape($event['start']) ?>"><?= $escape($event['date']) ?></time></p>
+            <p class="dfrEventVenue"><?= $escape($event['venue']) ?></p>
+            <p><?= $escape($event['description']) ?></p>
+            <p class="dfrEventLineup"><strong>À l’affiche :</strong> <?= $escape($event['lineup']) ?></p>
+            <a class="dfrEventSource" href="<?= $escape($event['url']) ?>" target="_blank" rel="noopener noreferrer"><?= $past ? 'Voir les infos de cette édition' : 'Voir les informations' ?> <span aria-hidden="true">↗</span></a>
+        </div>
+    </article>
+    <?php return ob_get_clean();
+}
+
 function renderEvenement()
 {
-    ob_start();
-    ?>
+    $calendar = dfrEventCalendar(require __DIR__ . '/../model/events.php');
+    ob_start(); ?>
     <main class="mainEvent">
-
         <section class="eventHero">
             <h1>Nos Événements</h1>
-            <p>Découvrez nos prochains événements et revivez nos moments forts</p>
+            <p>The Red Night et Cœur Meurtri : les rendez-vous de la famille DFR à Toulouse.</p>
         </section>
-
-        <section class="featuredEvent">
-            <h2>Prochain événement</h2>
-            <p>Aucune date annoncée pour le moment.</p>
+        <?= renderProjects(true) ?>
+        <section class="dfrEventSection" aria-labelledby="next-events-title">
+            <h2 id="next-events-title">Prochains événements</h2>
+            <?php if (!$calendar['upcoming']): ?>
+                <div class="dfrNoEvent">
+                    <p>Aucune nouvelle date annoncée pour le moment.</p>
+                    <p>Retrouvez les prochaines annonces sur les comptes Instagram et Shotgun de nos deux concepts.</p>
+                </div>
+            <?php else: ?>
+                <div class="dfrEventGrid">
+                    <?php foreach ($calendar['upcoming'] as $event) { echo renderEventArchiveCard($event, false); } ?>
+                </div>
+            <?php endif; ?>
         </section>
-
-        <section class="featuredEvent">
-            <h2>Événements passés</h2>
-            <div class="eventContainer">
-                <?php
-                $pastEvents = [
-                    // [
-                    //     'image' => '/img/nextEvent.jpg',
-                    //     'alt' => 'Coeur Meurtri - Open Air',
-                    //     'day' => '10-11',
-                    //     'month' => 'MAI',
-                    //     'title' => '🔴 Coeur Meurtri - Open Air 🔴',
-                    //     'tags' => ['Bass House', 'Techno', 'Hard Techno'],
-                    //     'description' => '"Cœur Meurtri by DJ Babe" est un événement musical 100% féminin au Port de l\'Embouchure à Toulouse.',
-                    //     'details' => 'Deux jours de performances exclusives pour célébrer les talents féminins dans l\'électronique !',
-                    //     'links' => [
-                    //         ['url' => 'https://fb.me/e/7OXhf42dF', 'text' => 'Plus d\'infos', 'class' => 'btnEvent'],
-                    //         ['url' => 'https://shotgun.live/fr/events/after-officiel-coeur-meurtri-open-air-2025', 'text' => 'Réserver', 'class' => 'btnEvent btnPrimary']
-                    //     ]
-                    // ],
-                    [
-                        'image' => '/img/nextEvent2.jpg',
-                        'alt' => 'The Red Night Off - Édition #5',
-                        'day' => '16',
-                        'month' => 'MAI',
-                        'title' => '🔴 The Red Night Off - Édition #5 🔴',
-                        'tags' => ['Bass House', 'Techno', 'Hard Techno'],
-                        'description' => 'La 5e édition de la Red Night a réuni NIVK, Red Marshal et Fernando Gomez au Full House.',
-                        'details' => 'Nuit rouge passion de 1H à 7H au Full House Toulouse.',
-                        'links' => [
-                            ['url' => 'https://www.instagram.com/p/DIvfIeyICU5/', 'text' => 'Plus d\'infos', 'class' => 'btnEvent']
-                        ]
-                    ]
-                ];
-
-                foreach ($pastEvents as $event): ?>
-                    <article class="eventCard featured">
-                        <div class="eventImage">
-                            <img src="<?= $event['image'] ?>" alt="<?= $event['alt'] ?>">
-                            <div class="eventDate">
-                                <span class="day"><?= $event['day'] ?></span>
-                                <span class="month"><?= $event['month'] ?></span>
-                            </div>
-                        </div>
-                        <div class="eventInfo">
-                            <h3><?= $event['title'] ?></h3>
-                            <div class="eventTags">
-                                <?php foreach ($event['tags'] as $tag): ?>
-                                    <span class="tag"><?= $tag ?></span>
-                                <?php endforeach; ?>
-                            </div>
-                            <p class="eventDescription"><?= $event['description'] ?></p>
-                            <p class="eventDetails"><?= $event['details'] ?></p>
-                            <div class="eventActions">
-                                <?php foreach ($event['links'] as $link): ?>
-                                    <a href="<?= $link['url'] ?>" target="_blank"
-                                        class="<?= $link['class'] ?>"><?= $link['text'] ?></a>
-                                <?php endforeach; ?>
-                            </div>
-                        </div>
-                    </article>
-                <?php endforeach; ?>
+        <section class="dfrEventSection" aria-labelledby="past-events-title">
+            <div class="dfrSectionHeading">
+                <p class="dfrEyebrow">Les éditions précédentes</p>
+                <h2 id="past-events-title">Événements passés</h2>
+                <p>Affiches, lieux et artistes des dernières soirées DFR.</p>
+            </div>
+            <div class="dfrEventGrid">
+                <?php foreach ($calendar['past'] as $event) { echo renderEventArchiveCard($event, true); } ?>
             </div>
         </section>
-
     </main>
-    <?php
-    return ob_get_clean();
+    <?php return ob_get_clean();
 }
-?>

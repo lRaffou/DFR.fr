@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../components/projects.php';
 function renderAcceuil()
 {
     $releases = require __DIR__ . '/../model/releases.php';
@@ -31,6 +32,8 @@ function renderAcceuil()
         <p class="homeVideoCaption"><?= htmlspecialchars($featuredVideo['artist'] . ' — ' . $featuredVideo['title']) ?> · Audio officiel
             <a href="/controller/video.php">Voir toutes les vidéos</a>
         </p>
+
+        <?= renderProjects() ?>
 
         <section class="featuredReleases">
             <h2>À la une</h2>

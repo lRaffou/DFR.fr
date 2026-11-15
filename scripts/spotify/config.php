@@ -11,6 +11,7 @@ return [
         '51UZk9XPK15uZgwQEWE3MK' => 'Fernando Gomez',
         '4FP9ILC4hO3YvOb2R0NIzj' => 'Dao Brothers',
         '6WQRoPuaY9eGi72nNcSXhu' => 'Zoé Kunter',
+        '4NqtEeAINDNe0G3FiHbqbs' => 'Frenzysax',
     ],
     // Exclusions prevent future additions; they never remove existing playlist items.
     'excluded_track_ids' => [],
