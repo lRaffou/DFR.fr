@@ -80,14 +80,16 @@ Avant d'activer la tâche, exécuter une simulation puis vérifier la liste prop
 ```
 
 Exécuter ensuite la même commande avec `--apply`, vérifier son succès, puis créer
-la tâche quotidienne Hostinger à **05:00 UTC**, expression `0 5 * * *` :
+la tâche quotidienne Hostinger à **18:00 UTC**, expression `0 18 * * *`
+(19h à Paris en hiver, 20h en été) :
 
 ```sh
-cd /home/u580307023/domains/daofamilyrecords.fr && /usr/bin/php dfr-spotify-worker/scripts/spotify/console.php sync --state-dir=$PWD/.dfr-spotify --catalogue-file=$PWD/public_html/data/releases.json --apply
+/usr/bin/php /home/u580307023/domains/daofamilyrecords.fr/dfr-spotify-worker/scripts/spotify/hostinger.php
 ```
 
-Cette commande reste sous la limite de 255 caractères de Hostinger ; `$PWD`
-fournit les chemins absolus requis. Vérifier le chemin PHP sur l'hébergement avant de créer la tâche. Aucun cron ne
+Cette commande reste sous la limite de 255 caractères de Hostinger, sans opérateur
+shell ni variable à développer. Le lanceur construit les chemins absolus à partir
+de son emplacement privé. Vérifier le chemin PHP sur l'hébergement avant de créer la tâche. Aucun cron ne
 doit être activé avant la première synchronisation réussie. Le fichier privé
 `last-success.json` donne le dernier succès. La sortie du dernier passage est
 consultable dans hPanel, Tâches Cron, ou via l'API Hostinger `hosting_cron-jobs_output`.
@@ -96,7 +98,8 @@ Spotify impose également une nouvelle autorisation tous les six mois ; le
 renouvellement automatique des jetons d'accès ne prolonge pas cette durée.
 À réception de `invalid_grant`, le script efface les jetons expirés et s'arrête
 avec un message invitant à reconnecter le compte, sans répétition de la demande.
-En cas de quota Spotify, respecter le délai affiché ; la tâche suivante recalculera
+En cas de quota Spotify, le délai est conservé dans `rate-limit.json` hors du site.
+Aucune requête n’est envoyée pendant la pause ; la tâche suivante recalculera
 les ajouts. Une écriture dont le résultat est incertain n'est jamais répétée dans
 la même exécution. Un verrou empêche deux lancements locaux simultanés ; une
 modification manuelle pendant le travail provoque un arrêt si le snapshot change.
@@ -144,7 +147,7 @@ Références : [OAuth PKCE](https://developer.spotify.com/documentation/web-api/
 
 ## Extension au catalogue le 15 novembre 2026
 
-- Cron actif : `qptdz2aJH9`, même horaire `0 5 * * *`, commande ci-dessus.
+- Ancien cron : `qptdz2aJH9`, même horaire `0 5 * * *`.
   Il remplace `19qnu47Khs` ; une seule tâche met à jour playlist et catalogue.
 - Premier import : 60 sorties Spotify et 8 anciennes fiches conservées, soit
   68 fiches uniques réparties sur 3 pages. La playlist reste à 81 titres.
@@ -153,3 +156,17 @@ Références : [OAuth PKCE](https://developer.spotify.com/documentation/web-api/
 - Accueil, pagination, crédits des collaborations et 68 pochettes vérifiés en ligne.
 - Les fichiers privés et les jetons restent hors de la racine publique ; le JSON
   généré (0644) ne contient que les métadonnées publiques.
+
+## Frenzysax et tâche quotidienne actuelle
+
+- Frenzysax (`4NqtEeAINDNe0G3FiHbqbs`) figure dans le dépôt et la configuration
+  privée. `Live The Moment` est présent une seule fois dans la playlist : 82 titres.
+- Le catalogue contient 61 sorties automatiques et 8 fiches historiques, soit 69.
+- Seul cron actif : `qlZINi8abO`, `0 18 * * *`, avec le lanceur privé
+  `hostinger.php` ci-dessus. Il remplace `qptdz2aJH9`.
+- Déclenchement réel du lanceur observé le 15 novembre 2026 à 19:19 UTC ; la pause
+  Spotify est respectée sans appel réseau. La tâche de test a ensuite été retirée.
+- Après le quota reçu pendant l’installation, le programme attend le 16 novembre
+  à 17h UTC au minimum. Le prochain passage est prévu le 16 novembre à 18h UTC
+  (19h à Paris). Les 47 tests hors réseau passent en local et sur Hostinger.
+- Voir [le compte rendu](deploiement.md) pour la sauvegarde et l’import initial.

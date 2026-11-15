@@ -103,8 +103,23 @@ try {
     fails(fn() => $client->request('GET', 'https://evil.example/me'), 'Jeton jamais envoyé à un hôte externe');
     fails(fn() => new PrivateStore(__DIR__), 'Dossier privé dans le site refusé');
     $lock = $store->lock(); fails(fn() => $store->lock(), 'Verrou empêche les exécutions simultanées'); fclose($lock);
+    $store->write('credentials', ['client_id' => 'test-client', 'refresh_token' => 'test-refresh', 'access_token' => 'test', 'expires_at' => time() + 3600]);
+    $requests = 0;
+    $limited = new SpotifyClient($store, static function () use (&$requests) {
+        $requests++; return ['status' => 429, 'data' => [], 'retry_after' => 77502];
+    });
+    fails(fn() => $limited->request('GET', '/me'), 'Un quota long arrête immédiatement la synchronisation');
+    check($requests === 1 && $store->read('rate-limit')['retry_at'] >= time() + 77500, 'Le délai Spotify est conservé entre les exécutions');
+    $store->write('credentials', ['client_id' => 'test-client', 'refresh_token' => 'test-refresh', 'access_token' => 'test', 'expires_at' => 0]);
+    $resumed = new SpotifyClient($store, static function () use (&$requests) { $requests++; return ['status' => 200, 'data' => ['id' => 'user']]; });
+    fails(fn() => $resumed->request('GET', '/me'), 'La prochaine exécution respecte la pause avant de renouveler le jeton');
+    check($requests === 1, 'Aucune requête réseau pendant la pause');
+    $store->write('rate-limit', ['retry_at' => time() - 1]);
+    $store->write('credentials', ['client_id' => 'test-client', 'refresh_token' => 'test-refresh', 'access_token' => 'test', 'expires_at' => time() + 3600]);
+    $ready = new SpotifyClient($store, static fn() => ['status' => 200, 'data' => ['id' => 'user']]);
+    check($ready->request('GET', '/me')['id'] === 'user', 'Les requêtes reprennent après le délai imposé');
 } finally {
-    foreach (['credentials.json', 'sync.lock'] as $name) { if (is_file($temp . '/' . $name)) { unlink($temp . '/' . $name); } }
+    foreach (['credentials.json', 'sync.lock', 'rate-limit.json'] as $name) { if (is_file($temp . '/' . $name)) { unlink($temp . '/' . $name); } }
     rmdir($temp);
 }
 $artistId = str_repeat('a', 22);

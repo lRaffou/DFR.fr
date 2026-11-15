@@ -119,6 +119,11 @@ final class SpotifyClient implements SpotifyGateway
         if (!preg_match('~^/(?:me|artists|albums|tracks|playlists)(?:/|\?|$)~', $path) || str_contains($path, '..')) {
             throw new RuntimeException('Chemin Spotify refusé.');
         }
+        // Persist long quotas across cron runs, before any request or token refresh.
+        $retryAt = (int) ($this->store->read('rate-limit')['retry_at'] ?? 0);
+        if ($retryAt > time()) {
+            throw new RuntimeException('Pause Spotify jusqu’au ' . gmdate(DATE_ATOM, $retryAt) . '. Aucune requête envoyée.');
+        }
         if (($this->tokens['expires_at'] ?? 0) < time() + 60) { $this->refresh(); }
         $refreshed = false;
         for ($attempt = 0; $attempt < 3; $attempt++) {
@@ -129,6 +134,7 @@ final class SpotifyClient implements SpotifyGateway
             // A rejected 429 is safe to retry. Never replay an ambiguous POST/5xx.
             if ($result['status'] === 429) {
                 $wait = max(1, (int) ($result['retry_after'] ?? 1));
+                $this->store->write('rate-limit', ['retry_at' => time() + $wait]);
                 if ($wait > 30 || $attempt === 2) { throw new RuntimeException('Quota Spotify atteint. Attendre au moins ' . $wait . ' secondes avant de relancer.'); }
                 sleep($wait); continue;
             }

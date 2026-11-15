@@ -94,8 +94,39 @@ Spotify, syntaxe PHP/JS, cinq pages HTTP 200 et 23 ressources accessibles.
 Le navigateur connecté est indisponible au moment de cette vérification ; la
 vérification visuelle et les publications Instagram restent à reprendre.
 
-Frenzysax est ajouté à `scripts/spotify/config.php` dans le dépôt. **La copie
-privée `dfr-spotify-worker/scripts/spotify/config.php` doit encore être mise à
-jour sur Hostinger et une synchronisation testée.** Le déploiement Git ne met
-pas à jour cette copie privée. Le cron `qptdz2aJH9` n’a pas été modifié.
+Frenzysax est ajouté à `scripts/spotify/config.php` dans le dépôt et dans la copie
+privée Hostinger. Le déploiement Git ne met pas à jour cette copie privée.
 Voir [les sources et limites éditoriales](sources-projets.md).
+
+## Import Frenzysax terminé
+
+Simulation réussie sur Hostinger : 81 titres présents, un ajout prévu (`Live The
+Moment`, 6 novembre 2026) et 61 sorties automatiques. L’application a ensuite
+reçu un HTTP 429, avec 77502 secondes d’attente. Aucun ajout via cette application
+n’a été tenté après ce refus.
+
+Le titre a été ajouté par le connecteur Spotify. Relecture complète de la playlist
+en deux pages : 82 titres, avec une seule occurrence de Frenzysax. Sa fiche a été
+publiée depuis le cache frais de la simulation, sans nouvel appel réseau, en
+conservant les 60 autres sorties : 61 automatiques, 69 avec les archives manuelles.
+La sélection à la une reste équilibrée : Red Marshal / collaboration / Frenzysax.
+
+Le programme mémorise désormais les délais `Retry-After` dans le dossier privé
+et suspend ses appels, y compris le renouvellement du jeton, pendant la pause.
+47 contrôles hors réseau réussissent en local et sur le serveur. Pour ce quota,
+la reprise est autorisée à partir du 16 novembre 2026 à 17h UTC, avec une marge.
+
+Le lanceur privé `scripts/spotify/hostinger.php` remplace les opérateurs shell
+dans la commande Cron. Son déclenchement par Hostinger a été réellement observé
+le 15 novembre à 19:19 UTC : il a signalé la pause sans requête API. Le test
+temporaire a été supprimé. La seule tâche DFR active est `qlZINi8abO`, à `0 18 * * *`
+(19h à Paris en hiver, 20h en été). Premier passage après le quota : 16 novembre
+à 19h Paris. Elle remplace `qptdz2aJH9`.
+
+Sauvegarde du catalogue précédent et du programme modifié dans
+`.dfr-deployments/20261115-frenzysax-sync`, hors du site public. Les jetons restent
+privés ; seuls des identifiants publics et métadonnées musicales sont publiés.
+
+La clé `dfr-frenzysax-sync-2026-11-15` a été retirée, le statut SSH `INACTIVE`
+a été vérifié dans Hostinger et les trois fichiers de la clé temporaire locale
+ont été supprimés. La synchronisation quotidienne fonctionne sans accès SSH.
