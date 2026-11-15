@@ -238,10 +238,12 @@ document.addEventListener("DOMContentLoaded", function () {
             `<a href="${href}" target="_blank" rel="noopener noreferrer">${label}</a>`
         ).join("");
         return `
-            <div class="artistDetails">
+            <div class="artistDetails" data-artist="${artistId}">
                 <div class="artistHeader">
                     <div class="artistProfile">
-                        <img src="${artist.image}" alt="${artist.name}">
+                        <div class="artistPortrait">
+                            <img src="${artist.image}" alt="${artist.name}">
+                        </div>
                         <div class="artistTitle">
                             <h2>${artist.name}</h2>
                             <p>${artist.role}</p>
