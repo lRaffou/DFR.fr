@@ -5,7 +5,8 @@ include '../view/viewHeader.php';
 include '../view/view404.php';
 include '../view/viewFooter.php';
 
-echo renderHeader();
+http_response_code(404);
+echo renderHeader('Page introuvable | Dao Family Records');
 echo render404();
 echo renderFooter();
 ?>

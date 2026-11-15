@@ -20,23 +20,24 @@ function renderAcceuil()
                     <a href="/controller/artiste.php" class="btnSecondary">Découvrir les artistes</a>
                 </div>
             </div>
-            <div class="heroVideo">
-                <iframe
-                    src="https://www.youtube.com/embed/<?= htmlspecialchars($featuredVideo['id']) ?>?playsinline=1"
-                    title="<?= htmlspecialchars($featuredVideo['artist'] . ' — ' . $featuredVideo['title'] . ' — Audio officiel') ?>"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
+            <div class="heroMedia">
+                <div class="heroVideo">
+                    <iframe
+                        src="https://www.youtube.com/embed/<?= htmlspecialchars($featuredVideo['id']) ?>?playsinline=1"
+                        title="<?= htmlspecialchars($featuredVideo['artist'] . ' — ' . $featuredVideo['title'] . ' — Audio officiel') ?>"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="homeVideoCaption">
+                    <p><?= htmlspecialchars($featuredVideo['artist'] . ' — ' . $featuredVideo['title']) ?> · Audio officiel</p>
+                    <div class="videoLinks">
+                        <a href="https://www.youtube.com/watch?v=<?= htmlspecialchars($featuredVideo['id']) ?>" target="_blank" rel="noopener noreferrer">Écouter sur YouTube</a>
+                        <a href="/controller/video.php">Toutes les vidéos</a>
+                    </div>
+                </div>
             </div>
         </section>
-
-        <div class="homeVideoCaption">
-            <p><?= htmlspecialchars($featuredVideo['artist'] . ' — ' . $featuredVideo['title']) ?> · Audio officiel</p>
-            <div class="videoLinks">
-                <a href="https://www.youtube.com/watch?v=<?= htmlspecialchars($featuredVideo['id']) ?>" target="_blank" rel="noopener noreferrer">Écouter sur YouTube</a>
-                <a href="/controller/video.php">Toutes les vidéos</a>
-            </div>
-        </div>
 
         <?= renderProjects() ?>
 

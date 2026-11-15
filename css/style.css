@@ -306,6 +306,10 @@ h6 {
 }
 
 @media screen and (min-width: 1000px) {
+    :root {
+        --desktop-header-height: clamp(3.75rem, 7vh, 5rem);
+    }
+
     .navMax1000 {
         display: none;
     }
@@ -1183,7 +1187,7 @@ h6 {
     }
     header {
         z-index: 100;
-        height: 7vh;
+        height: var(--desktop-header-height);
         position: sticky;
         top: 0;
         background-color: rgba(0, 0, 0, 0.9);
@@ -1214,7 +1218,7 @@ h6 {
         color: #fff;
     }
     .navbarLogo img {
-        height: 5vh;
+        height: clamp(2rem, 5vh, 3.25rem);
         margin-right: 1rem;
     }
     .navbarLogo span {
@@ -1774,7 +1778,7 @@ h6 {
 }
 
 .homeVideoCaption {
-    margin: 1rem auto 3rem;
+    margin-top: .75rem;
     text-align: center;
     color: #ccc;
 }
@@ -2796,7 +2800,9 @@ h6 {
 }
 
 #catalog,
-.videoGallery {
+.videoGallery,
+#next-events-title,
+#past-events-title {
     scroll-margin-top: .75rem;
 }
 
@@ -2842,8 +2848,10 @@ h6 {
 
 @media (min-width: 1000px) {
     #catalog,
-    .videoGallery {
-        scroll-margin-top: calc(7vh + .75rem);
+    .videoGallery,
+    #next-events-title,
+    #past-events-title {
+        scroll-margin-top: calc(var(--desktop-header-height) + .75rem);
     }
 }
 
@@ -2852,7 +2860,7 @@ h6 {
         grid-template-columns: minmax(0, 1fr);
         gap: 1.25rem;
         min-height: 0;
-        padding: 1.25rem 1rem 0;
+        padding: 1.25rem 1rem 1.5rem;
     }
 
     .heroContent {
@@ -2887,11 +2895,6 @@ h6 {
         min-height: 200px;
         padding-bottom: 0;
         aspect-ratio: 16 / 9;
-    }
-
-    .homeVideoCaption {
-        margin: .75rem auto 1.5rem;
-        padding-inline: 1rem;
     }
 
     .homeVideoCaption .videoLinks,
@@ -3105,6 +3108,7 @@ h6 {
 #artistModal .artistShareButton { min-height: 44px; }
 #artistModal .social_artist { gap: .5rem; }
 #artistModal .social_artist .socialLink { min-width: 44px; min-height: 44px; justify-content: center; }
+#artistModal .artistMusic iframe { height: 152px; }
 
 @media (max-width: 768px) {
     #artistModal .modalContent {
@@ -3114,7 +3118,6 @@ h6 {
 
     #artistModal .artistProfile { gap: 1.25rem; }
     #artistModal .artistTitle, #artistModal .artistRelease, #artistModal .artistTextLinks { overflow-wrap: anywhere; }
-    #artistModal .artistMusic iframe { height: 152px; }
 }
 
 /* Les cadrages sont réglés par artiste pour chaque format. */
@@ -3250,7 +3253,6 @@ h6 {
 .dfrEventGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
 .dfrEventJump { display: flex; justify-content: center; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
 .dfrEventJump a { display: inline-flex; align-items: center; min-height: 44px; padding: .5rem .75rem; border: 1px solid #555; border-radius: 8px; color: #fff; text-decoration: none; }
-#next-events-title, #past-events-title { scroll-margin-top: .75rem; }
 .dfrShotgunGrid { margin-top: 1rem; }
 .dfrShotgunAgenda { background: #171717; border: 1px solid #333; border-radius: 12px; overflow: hidden; min-width: 0; }
 .dfrShotgunHeading { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .25rem 1rem; padding: .5rem 1rem; }
@@ -3283,13 +3285,167 @@ h6 {
     .mainFooter { padding-bottom: calc(2rem + var(--mobile-nav-space)); }
 }
 
+.mainNotFound {
+    padding: clamp(3rem, 9vh, 6rem) 1rem;
+    text-align: center;
+}
+
+.mainNotFound h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.mainNotFound a {
+    display: inline-block;
+    margin-top: 1.5rem;
+}
+
 @media (min-width: 1000px) {
-    #next-events-title, #past-events-title { scroll-margin-top: calc(7vh + .75rem); }
     .navLink { white-space: nowrap; }
     .navLink[aria-current="page"]::after { width: 100%; }
+
+    .mainAlbum,
+    .mainArtist,
+    .mainEvent,
+    .mainVideo {
+        max-width: 1264px;
+        margin: 0 auto;
+        padding: clamp(1.75rem, 3vw, 2.75rem) 2rem 0;
+    }
+
+    .albumHero,
+    .artistHero,
+    .eventHero,
+    .videoHero {
+        margin-bottom: 2rem;
+    }
+
+    .eventHero h1 {
+        font-size: 3rem;
+    }
+
+    .mainHome .heroSection {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: clamp(1.5rem, 3vw, 3rem);
+        max-width: 1264px;
+        min-height: 0;
+        margin-inline: auto;
+        padding: clamp(2.5rem, 5vh, 4rem) 2rem;
+        text-align: left;
+    }
+
+    .heroContent {
+        align-items: start;
+        gap: 1.25rem;
+    }
+
+    .heroContent h1 {
+        font-size: clamp(2.5rem, 4.4vw, 3.75rem);
+    }
+
+    .heroContent p {
+        font-size: 1.25rem;
+        line-height: 1.5;
+    }
+
+    .heroButtons {
+        flex-wrap: wrap;
+        gap: .75rem;
+    }
+
+    .heroButtons a {
+        padding: .875rem 1.125rem;
+    }
+
+    .mainHome > .dfrProjects {
+        max-width: 1264px;
+    }
+
+    .featuredReleases h2::after,
+    .spotifySection h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .albumGrid,
+    .videoGrid {
+        grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+        gap: 1.5rem;
+    }
+
+    #featured .albumGrid,
+    .releasesGrid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.5rem;
+    }
+
+    .albumInfo,
+    .releaseInfo,
+    .videoDetails {
+        padding: 1.125rem;
+    }
+
+    .featuredVideo > .videoContainer {
+        display: grid;
+        grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+        align-items: center;
+        gap: 2rem;
+        max-width: none;
+    }
+
+    .featuredVideo .videoInfo {
+        margin-top: 0;
+    }
+
+    .videoThumbnail {
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
+
+    .videoThumbnail img {
+        display: block;
+    }
+
+    .videoCard .playButton {
+        opacity: 1;
+    }
+
+    .mainFooter {
+        margin-top: 4rem;
+        padding-top: 3.5rem;
+    }
+
+    .footerContent {
+        margin-bottom: 2.5rem;
+    }
 }
 
 @media (min-width: 1000px) and (max-width: 1160px) {
+    .navMin1000 { padding-inline: 1.25rem; }
+    .navbarLogo img { margin-right: .625rem; }
+    .navbarLogo span { font-size: 1rem; }
     .navbarMenu ul { gap: 1rem; }
     .navbarSocial { gap: .875rem; }
+}
+
+@media (min-width: 1200px) {
+    .artistGrid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1.5rem;
+    }
+
+    .artistGrid .artistOverlay {
+        padding: 1.25rem;
+    }
+
+    .dfrEventSection[aria-labelledby="past-events-title"] .dfrEventGrid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .dfrEventSection[aria-labelledby="past-events-title"] .dfrEventPoster img {
+        height: 250px;
+    }
+}
+
+.coverLink:focus-visible {
+    outline-offset: -4px;
 }
