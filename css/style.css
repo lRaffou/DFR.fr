@@ -1059,6 +1059,10 @@ h6 {
     transform: scale(1.05);
 }
 
+.artistGallery .galleryGrid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 180px), 1fr));
+}
+
 @media (max-width: 768px) {
     .modalContent {
         margin: 1rem;

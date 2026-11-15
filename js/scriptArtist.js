@@ -5,18 +5,31 @@ const artistData = {
         genre: "Hard Techno / Hardfonk",
         image: "/img/Red_Marshal_1.jpg",
         social_youtube: "https://www.youtube.com/@RedMarshal",
-        social_spotify:
-            "https://open.spotify.com/intl-fr/artist/3zpewQ11GYG2ev9Ngdsvi9?si=wlTXdkSHSmenHoVpqnK1nQ",
-        social_instagram:
-            "https://www.instagram.com/redmarshal_official?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+        social_spotify: "https://open.spotify.com/artist/3zpewQ11GYG2ev9Ngdsvi9",
+        social_instagram: "https://www.instagram.com/redmarshal_official/",
         bio: [
-            "Thao Dao est français d'origine vietnamienne. Ses parents sont arrivés en France avant sa naissance, quittant leur pays pour offrir à leurs enfants une vie meilleure. Pour honorer le choix de ses parents, Thao vit sa vie à 100 km/heure. Très vite, il décide de se consacrer à sa véritable passion, celle qui l'a toujours animé et rendu heureux : la musique.",
-            "Depuis 2025, Red Marshal développe le hardfonk, un mélange de hard techno et de phonk.",
-            "Comme beaucoup de gens de sa génération, Thao est tombé amoureux de la musique électronique avec Daft Punk. Dès lors, il n'a eu de cesse de parfaire sa culture musicale avec The Prodigy, Justice, GESAFFELSTEIN, Laurent Garnier, Jeff Mills, Paul Kalkbrenner, Vitalic Official, REZZ. Il a une véritable passion pour la musique. C'est donc tout naturellement qu'il a commencé à composer en 2010.",
-            "Pour parfaire ses sets, il s'est formé pendant deux ans à la production musicale avec Hugo Lemercier du groupe Sociopark. Son style s'affirme, ses sets se précisent et le projet prend forme : Red Marshal est né. Red Marshal produit une techno sombre et puissante, rehaussée par l'esthétique de ses clips (réalisés par son frère Yo Production). La cohérence de son univers, ses productions hypnotiques et son aisance en live font de lui la nouvelle figure techno toulousaine.",
+            "Red Marshal est le projet de Thao Dao, DJ et producteur basé à Toulouse. Influencé par Daft Punk, The Prodigy et Gesaffelstein, il développe depuis 2025 le hardfonk, qui mêle hard techno et phonk.",
+            "Avec Red Sunday, il publie une série de 52 morceaux qui s’achève sur Red Destruction. Il collabore avec DJ Babe sur Versus et avec Zoé Kunter sur Morgenbruch. Avec Clarisax, il forme le duo électro et saxophone live Frenzysax.",
         ],
         spotify: "https://open.spotify.com/embed/album/3Geztn2dXF5YyW5TGZpBz8",
+        release: {
+            title: "Red Destruction",
+            cover: "/img/albums/red-destruction.jpg",
+            links: [
+                {label: "Spotify", href: "https://open.spotify.com/album/3Geztn2dXF5YyW5TGZpBz8"},
+                {label: "Apple Music", href: "https://music.apple.com/fr/album/red-destruction-single/6785971400"},
+                {label: "YouTube", href: "https://www.youtube.com/watch?v=iQKpifgSBDk"},
+            ],
+        },
+        moreLinks: [
+            {label: "Red Sunday sur Instagram", href: "https://www.instagram.com/redmarshal_official/reel/Dd3R_xIuGvo/"},
+            {label: "SoundCloud", href: "https://soundcloud.com/redmarshalofficial"},
+            {label: "Facebook", href: "https://www.facebook.com/redmarshalofficial"},
+            {label: "The Red Night sur Shotgun", href: "https://shotgun.live/fr/venues/the-red-night"},
+        ],
+        booking: "daofamilyrecords@gmail.com",
         gallery: [
+            "https://i.scdn.co/image/ab6761610000e5eb5697300e5315295d1a0a81b7",
             "/img/Red_Marshal_5.jpg",
             "/img/Red_Marshal_2.jpg",
             "/img/Red_Marshal_7.jpg",
@@ -24,23 +37,33 @@ const artistData = {
         ],
     },
     "dj-babe": {
-        name: "Dj Babe",
+        name: "DJ Babe",
         role: "DJ - Productrice",
         genre: "Hard Techno / Tech House",
-        image: "/img/gallerie/artist2_1on4.png",
-        social_spotify:
-            "https://open.spotify.com/intl-fr/artist/5PyJWzxbDt81teQi2ZzL8n",
-        social_instagram:
-            "https://www.instagram.com/djbabe31?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+        image: "/img/DJ_BABE_01.png",
+        social_spotify: "https://open.spotify.com/artist/5PyJWzxbDt81teQi2ZzL8n",
+        social_instagram: "https://www.instagram.com/djbabe31/",
         bio: [
-            "Sophie est une artiste française d'origine vietnamienne, dont le parcours musical a été initié par l'influence de ses frères, eux-mêmes actifs dans les scènes bass house (Dao Brothers) et hard techno (Red Marshal). C'est dans cet environnement familial et musical qu'elle a forgé ses premières inspirations et aspirations artistiques.",
-            "Fondatrice de Cœur Meurtri, elle met les femmes à l’honneur sur la scène électronique à travers des soirées en club et des open airs à Toulouse.",
-            "Sophie a développé au fil des années un univers musical qui lui est propre. Elle partage ses productions depuis 2024, entre bass house et hard techno.",
-            "Puissance et groove sont au cœur de ses productions. Ses collaborations avec Red Marshal comprennent notamment Versus et War House.",
+            "DJ Babe est DJ et productrice. Son parcours va de la tech house à la hard techno, avec des titres comme Versus et War House, réalisés avec Red Marshal.",
+            "Fondatrice et résidente de Cœur Meurtri, elle met les femmes à l’honneur dans la scène électronique. Le projet a commencé au Full House de Toulouse en décembre 2024 et se poursuit avec des soirées en club et des open airs.",
         ],
-        spotify: "https://open.spotify.com/embed/album/6IPoVNmaRQojvGv3gz3txM",
+        spotify: "https://open.spotify.com/embed/track/72Bmuh3Krs45UcEAya8zYc",
+        release: {
+            title: "Versus · avec Red Marshal",
+            cover: "/img/albums/versus.jpg",
+            links: [
+                {label: "Spotify", href: "https://open.spotify.com/track/72Bmuh3Krs45UcEAya8zYc"},
+                {label: "YouTube", href: "https://www.youtube.com/watch?v=FcBOqizs8cA"},
+            ],
+        },
+        moreLinks: [
+            {label: "DJ Babe sur TikTok", href: "https://www.tiktok.com/@djbabe615"},
+            {label: "Cœur Meurtri sur Instagram", href: "https://www.instagram.com/coeur_meurtri_by_babe/"},
+            {label: "Open Air Cœur Meurtri 2026", href: "https://www.instagram.com/coeur_meurtri_by_babe/p/DbtlYXlR2zX/"},
+            {label: "Cœur Meurtri sur Shotgun", href: "https://shotgun.live/fr/venues/c-oe-ur-meurtri-by-dj-babe"},
+        ],
         gallery: [
-            "/img/gallerie/artist2_1on4.png",
+            "https://i.scdn.co/image/ab6761610000e5ebbe85419315ecd917a693e08a",
             "/img/gallerie/artist2_2on4.jpg",
             "/img/gallerie/artist2_3on4.jpg",
             "/img/gallerie/artist2_4on4.jpg",
@@ -49,21 +72,32 @@ const artistData = {
     fernando: {
         name: "Fernando Gomez",
         role: "DJ - Producteur",
-        genre: "Techno",
-        image: "/img/gallerie/artist3_1on4.png",
+        genre: "Techno / Hard Techno",
+        image: "/img/artistes/artist3.png",
         social_youtube: "https://www.youtube.com/channel/UCD-H3-hzSU_kbyw_zLg431Q",
-        social_spotify:
-            "https://open.spotify.com/intl-fr/artist/51UZk9XPK15uZgwQEWE3MK?si=gc66aNl4QDeejNgcicuJ6g",
-        social_instagram:
-            "https://www.instagram.com/fernando.gomez._music_/",
+        social_spotify: "https://open.spotify.com/artist/51UZk9XPK15uZgwQEWE3MK",
+        social_instagram: "https://www.instagram.com/fernando.gomez._music/",
         bio: [
-            "Fernando, d'origine espagnole, est passionné de musique et de show lumière (Jean-Michel Jarre) depuis son plus jeune âge, il est un fervent amateur de piano et de guitare. À l'adolescence, il décide de se concentrer sur ses styles musicaux de prédilection : le métal et le hard métal.",
-            "Durant ses études dans le Nord de la France, ses goûts musicaux évoluent petit à petit vers le hardcore, la hard techno et le hardstyle. À la fin de sa formation, il déménage à Toulouse pour travailler et découvrir le monde de la nuit. Il devient alors technicien son et lumière pour différentes boîtes de nuit de la ville rose.",
-            "Lorsque le Covid arrive, il y voit une opportunité pour se mettre au mix. Pour mixer de la techno, il s'inspire de Space 92, Jeff Mills, Carl Cox, Charlotte de Witte ...",
+            "Fernando Gomez est DJ et producteur techno et hard techno à Toulouse. Du piano et de la guitare au métal, il se tourne ensuite vers les musiques électroniques. Il travaille comme technicien son et lumière dans les clubs toulousains avant de passer derrière les platines.",
+            "Il signe notamment Discoteca, Paradox et Destruction. En février 2026, il figure à l’affiche de The Red Night Off #7 au Babylone à Toulouse.",
         ],
         spotify: "https://open.spotify.com/embed/album/1eYn7mzy39m7pvkI3VIhn2",
+        release: {
+            title: "Discoteca",
+            cover: "/img/albums/discoteca.jpg",
+            links: [
+                {label: "Spotify", href: "https://open.spotify.com/album/1eYn7mzy39m7pvkI3VIhn2"},
+                {label: "YouTube", href: "https://www.youtube.com/watch?v=m8B7tsD6ceA"},
+            ],
+        },
+        moreLinks: [
+            {label: "SoundCloud", href: "https://soundcloud.com/fernando-music-91226319"},
+            {label: "Fernando présenté par The Red Night", href: "https://www.instagram.com/the.red.night/reel/DS7SHO5DIXa/"},
+            {label: "Dates sur Shotgun", href: "https://shotgun.live/fr/artists/fernando-music-91226319"},
+        ],
+        booking: "daofamilyrecords@gmail.com",
         gallery: [
-            "/img/gallerie/artist3_1on4.png",
+            "https://i.scdn.co/image/ab6761610000e5ebb7dbded7789bb71036f6b48d",
             "/img/gallerie/artist3_2on4.jpg",
             "/img/gallerie/artist3_3on4.jpg",
             "/img/gallerie/artist3_4on4.jpg",
@@ -71,65 +105,79 @@ const artistData = {
     },
     "dao-brothers": {
         name: "Dao Brothers",
-        role: "DJ - Producteur",
+        role: "Duo de DJs et producteurs",
         genre: "Bass House",
-        image: "/img/Brothers-détouré.png",
+        image: "https://i.scdn.co/image/ab6761610000e5eb4994aa0e261ae445251ef760",
         social_youtube: "https://www.youtube.com/@DaoBrothers",
-        social_spotify:
-            "https://open.spotify.com/intl-fr/artist/4FP9ILC4hO3YvOb2R0NIzj?si=7aZaVISoSdyK-6JheqPh8g",
-        social_instagram:
-            "https://www.instagram.com/daobrothers?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+        social_spotify: "https://open.spotify.com/artist/4FP9ILC4hO3YvOb2R0NIzj",
+        social_instagram: "https://www.instagram.com/daobrothers/",
         bio: [
-            'Les frères Dao sont des artistes qui produisent de la Bass House, une musique émergente propagée par les artistes français « Malaa " et " DJ SNAKE ». Composé des frères Thao et Yo (nés en 1991 et 1990), le duo français d\'origine vietnamienne se produit à Toulouse.',
-            "Dans leur enfance, ils se passionnent pour la musique et le cinéma. Ils se sont rapidement formés et spécialisés dans ces deux domaines. Le style musical de Thao est très sombre avec des basses puissantes, tandis que celui de Yo est groovy et rythmé. Ces différences forment un mélange de sons innovant.",
+            "Thao et Yo Dao forment Dao Brothers, un duo toulousain de bass house. Leurs productions mêlent basses sombres et rythmes dansants, comme sur Acid Conversation et Into the Club.",
+            "En 2026, le duo figure à la programmation de The Red Night Off #7 au Babylone et de l’Open Air au parc des Merlettes.",
         ],
-        spotify: "",
+        spotify: "https://open.spotify.com/embed/album/6NCGuVlBWQ3LR0McsRcQ4K",
+        release: {
+            title: "Acid Conversation",
+            cover: "/img/albums/album5.png",
+            links: [
+                {label: "Spotify", href: "https://open.spotify.com/album/6NCGuVlBWQ3LR0McsRcQ4K"},
+            ],
+        },
+        moreLinks: [
+            {label: "Clip Into the Club", href: "https://www.youtube.com/watch?v=X3FYFQ_Ywd0"},
+            {label: "Facebook", href: "https://www.facebook.com/daobrothers"},
+            {label: "The Red Night Open Air dans Electro News", href: "https://www.instagram.com/electronewsfr/p/DbYflMJDCp2/"},
+        ],
+        booking: "daofamilyrecords@gmail.com",
         gallery: [
             "/img/Photo_dao_yo.jpg",
-            "/img/Photo_dao_ yo_thao.jpg",
+            "/img/Photo_dao_%20yo_thao.jpg",
             "/img/meilleur.jpg",
             "/img/Photo_dao_thao.jpg",
         ],
     },
     "zoe-kunter": {
         name: "Zoé Kunter",
-        role: "DJ - Producteur",
+        role: "DJ",
         genre: "Techno",
-        image: "/img/artistes/artist5.png",
+        image: "/img/gallerie/artist5_1on4.jpg",
         social_spotify: "https://open.spotify.com/artist/6WQRoPuaY9eGi72nNcSXhu",
-        social_instagram:
-            "https://www.instagram.com/zoe_kunter?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+        social_instagram: "https://www.instagram.com/zoe_kunter/",
         bio: [
-            "Zoé Kunter grandit à Berlin. Témoin privilégiée et passionnée de la scène techno berlinoise. À seulement huit ans, elle assiste a ses premières parades, dans cette ville riche en culture. Dans cette effervescence naît son amour pour la musique électronique.",
-            "Très tôt, la techno devient pour Zoé bien plus qu’un style musical : un langage, une manière de ressentir et de vivre le monde. Fidèle à ses racines, elle tisse un son dense, hypnotique, traversé par l’esprit underground des origines.",
-            "Au fil des décennies, elle n’a cessé d’évoluer, sans jamais perdre cette flamme. De ses sets émane une énergie vibrante. Elle poursuit son voyage électronique, explorant sans relâche de nouveaux territoires sonores.",
+            "Zoé Kunter grandit à Berlin, où les parades et la scène techno l’initient à la musique électronique. Ses sets s’inscrivent dans une techno dense et hypnotique.",
+            "À Toulouse, elle figure aux programmations de Cœur Meurtri et de The Red Night au Full House. Elle signe Morgenbruch avec Red Marshal, sorti en avril 2026.",
         ],
-        spotify: "https://open.spotify.com/embed/album/5ZnEFMEG1NLDYOs02vww6C",
+        spotify: "https://open.spotify.com/embed/track/50IXcsPQRULvdQ9O8LyRYK",
+        release: {
+            title: "Morgenbruch · avec Red Marshal",
+            cover: "/img/albums/morgenbruch.jpg",
+            links: [
+                {label: "Spotify", href: "https://open.spotify.com/track/50IXcsPQRULvdQ9O8LyRYK"},
+                {label: "YouTube", href: "https://www.youtube.com/watch?v=bt2lXCuG5xk"},
+            ],
+        },
+        moreLinks: [
+            {label: "Cœur Meurtri au Full House", href: "https://shotgun.live/fr/events/coeur-meurtri-by-dj-babe-full-house-4"},
+        ],
         gallery: [
-            "/img/gallerie/artist5_1on4.jpg",
             "/img/gallerie/artist5_2on4.jpg",
             "/img/gallerie/artist5_3on4.jpg",
-            "/img/gallerie/artist5_4on4.jpg",
         ],
     },
-    "clarity": {
+    clarity: {
         name: "Clarity",
-        role: "DJ - Producteur",
+        role: "DJ",
         genre: "Hard Techno",
-        image: "/img/artistes/artist6.png",
-        social_spotify: "",
-        social_instagram:
-            "https://www.instagram.com/_clarityy._?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+        image: "/img/gallerie/artist6_1on4.jpg",
+        social_instagram: "https://www.instagram.com/_clarityy._/",
         bio: [
-            "Clarity est une DJ passionnée de hard techno.",
-            "Guidée par son amour profond pour la musique électronique, elle explore les platines avec une énergie fraîche et contagieuse, déterminée à faire vibrer chaque set.",
+            "Clarity est une DJ hard techno à Toulouse. Le 20 septembre 2025, elle figure à l’affiche de The Red Night Off #6 au Full House, une nuit consacrée aux artistes de Dao Family Records.",
         ],
-        spotify: "",
+        moreLinks: [
+            {label: "The Red Night Off #6 au Full House", href: "https://shotgun.live/fr/events/the-red-night-off-edition-6"},
+        ],
         gallery: [
-            "/img/gallerie/artist6_1on4.jpg",
             "/img/gallerie/artist6_2on4.jpg",
-            "/img/gallerie/artist6_3on4.jpg",
-            "/img/gallerie/artist6_4on4.jpg",
         ],
     },
     "frenzysax": {
@@ -238,13 +286,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 ${artist.moreLinks ? `
                     <div class="artistBio">
-                        <h3>Suivre le duo</h3>
+                        <h3>À découvrir</h3>
                         <div class="artistTextLinks">${externalLinks(artist.moreLinks)}</div>
                     </div>` : ""}
 
                 ${artist.booking ? `
                     <div class="artistBio">
-                        <h3>Programmer le duo</h3>
+                        <h3>Contact programmation</h3>
                         <div class="artistTextLinks"><a href="mailto:${artist.booking}">${artist.booking}</a></div>
                     </div>` : ""}
 
@@ -254,7 +302,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         ${artist.gallery
                             .map(
                                 (img) =>
-                                    `<div class="galleryItem"><img src="${img}" alt="${artist.name}"></div>`
+                                    `<div class="galleryItem"><img src="${img}" alt="${artist.name}" loading="lazy" decoding="async"></div>`
                             )
                             .join("")}
                     </div>

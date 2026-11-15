@@ -27,10 +27,10 @@ function renderArtiste()
 
             <article class="artistCard" role="button" tabindex="0" aria-haspopup="dialog" data-artist="dj-babe">
                 <div class="artistImage">
-                    <img src="/img/artistes/artist2.png" alt="Dj Babe">
+                    <img src="/img/DJ_BABE_01.png" alt="DJ Babe" loading="lazy">
                     <div class="artistOverlay">
                         <div class="artistInfo">
-                            <h2>Dj Babe</h2>
+                            <h2>DJ Babe</h2>
                             <p>DJ - Productrice</p>
                             <span class="artistGenre">Hard Techno</span>
                             <span class="artistGenre">Tech House</span>
@@ -46,7 +46,7 @@ function renderArtiste()
                         <div class="artistInfo">
                             <h2>Fernando Gomez</h2>
                             <p>DJ - Producteur</p>
-                            <span class="artistGenre">Techno</span>
+                            <span class="artistGenre">Techno / Hard Techno</span>
                         </div>
                     </div>
                 </div>
@@ -54,11 +54,11 @@ function renderArtiste()
 
             <article class="artistCard" role="button" tabindex="0" aria-haspopup="dialog" data-artist="dao-brothers">
                 <div class="artistImage">
-                    <img src="/img/artistes/artist4.png" alt="Dao Brothers">
+                    <img src="https://i.scdn.co/image/ab6761610000e5eb4994aa0e261ae445251ef760" alt="Dao Brothers" loading="lazy">
                     <div class="artistOverlay">
                         <div class="artistInfo">
                             <h2>Dao Brothers</h2>
-                            <p>DJ - Producteur</p>
+                            <p>Duo de DJs et producteurs</p>
                             <span class="artistGenre">Bass House</span>
                         </div>
                     </div>
@@ -67,11 +67,11 @@ function renderArtiste()
 
             <article class="artistCard" role="button" tabindex="0" aria-haspopup="dialog" data-artist="zoe-kunter">
                 <div class="artistImage">
-                    <img src="/img/artistes/artist5.png" alt="Zoé Kunter">
+                    <img src="/img/gallerie/artist5_1on4.jpg" alt="Zoé Kunter" loading="lazy">
                     <div class="artistOverlay">
                         <div class="artistInfo">
                             <h2>Zoé Kunter</h2>
-                            <p>DJ - Producteur</p>
+                            <p>DJ</p>
                             <span class="artistGenre">Techno</span>
                         </div>
                     </div>
@@ -80,13 +80,12 @@ function renderArtiste()
 
             <article class="artistCard" role="button" tabindex="0" aria-haspopup="dialog" data-artist="clarity">
                 <div class="artistImage">
-                    <img src="/img/artistes/artist6.png" alt="Clarity">
+                    <img src="/img/gallerie/artist6_1on4.jpg" alt="Clarity" loading="lazy">
                     <div class="artistOverlay">
                         <div class="artistInfo">
                             <h2>Clarity</h2>
-                            <p>DJ - Producteur</p>
-                            <span class="artistGenre">Hard Techno
-                            </span>
+                            <p>DJ</p>
+                            <span class="artistGenre">Hard Techno</span>
                         </div>
                     </div>
                 </div>

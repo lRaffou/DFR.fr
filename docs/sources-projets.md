@@ -21,6 +21,19 @@ publié avec [leur extrait live](https://www.instagram.com/frenzysax/reel/DfsOaO
 [Apple Music](https://music.apple.com/fr/album/live-the-moment/6830388054?i=6830388055)
 confirme la sortie du single chez Dao Family Records le 6 novembre 2026.
 
+## Fiches des autres artistes
+
+- Red Marshal présente le hardfonk sur [SoundCloud](https://soundcloud.com/redmarshalofficial) et clôt Red Sunday avec [Red Destruction sur Instagram](https://www.instagram.com/redmarshal_official/reel/Dd3R_xIuGvo/).
+- DJ Babe présente l’[Open Air Cœur Meurtri](https://www.instagram.com/coeur_meurtri_by_babe/p/DbtlYXlR2zX/). L’organisateur documente la [première édition](https://shotgun.live/en/events/coeur-meurtri-by-dj-babe-full-house-1) et le rôle de résidente de DJ Babe dans la [quatrième](https://shotgun.live/fr/events/coeur-meurtri-by-dj-babe-full-house-4). Le TikTok personnel est indiqué dans sa bio Instagram.
+- [The Red Night présente Fernando Gomez](https://www.instagram.com/the.red.night/reel/DS7SHO5DIXa/) et confirme son [Instagram](https://www.instagram.com/fernando.gomez._music/), également fourni par le propriétaire. La [fiche Shotgun](https://shotgun.live/fr/artists/fernando-music-91226319) renvoie vers son SoundCloud.
+- [The Red Night Open Air](https://shotgun.live/fr/events/the-red-night-open-air-gratuit) confirme Dao Brothers sur la programmation Bass House. [Electro News](https://www.instagram.com/electronewsfr/p/DbYflMJDCp2/) relaie cette programmation dans une publication en partenariat.
+- Zoé Kunter figure dans la [programmation de Cœur Meurtri](https://shotgun.live/fr/events/after-officiel-coeur-meurtri-open-air-2025) et dans les crédits Spotify de [Morgenbruch](https://open.spotify.com/track/50IXcsPQRULvdQ9O8LyRYK). Son Instagram est privé.
+- Clarity figure à l’affiche de [The Red Night Off #6](https://shotgun.live/fr/events/the-red-night-off-edition-6). Le propriétaire indique qu’il n’a pas de lien d’écoute à ajouter.
+
+Les profils Spotify fournissent les portraits supplémentaires de Red Marshal,
+DJ Babe et Fernando Gomez ainsi que le portrait de Dao Brothers. Les fiches de
+Zoé et Clarity utilisent les photos DFR existantes.
+
 ## Événements
 
 Les deux pages organisateurs ne présentent aucune date à venir au moment de la
