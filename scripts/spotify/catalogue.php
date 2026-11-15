@@ -3,6 +3,31 @@ declare(strict_types=1);
 if (PHP_SAPI !== 'cli') { http_response_code(404); exit; }
 require_once __DIR__ . '/../../model/release-catalogue.php';
 
+function spotifyMobileCover(array $images): ?string
+{
+    $full = $images[0] ?? [];
+    $fullWidth = $full['width'] ?? null;
+    $fullHeight = $full['height'] ?? null;
+    if (!is_int($fullWidth) || !is_int($fullHeight) || $fullWidth < 1 || $fullHeight < 1) {
+        return null;
+    }
+
+    // Les pochettes mobiles s’affichent jusqu’à 106 px. Spotify fournit généralement 300 px.
+    $bestWidth = min(385, $fullWidth);
+    $bestUrl = null;
+    foreach ($images as $image) {
+        $width = $image['width'] ?? null;
+        $height = $image['height'] ?? null;
+        $url = $image['url'] ?? null;
+        if (is_int($width) && is_int($height) && $width >= 256 && $width < $bestWidth && $height > 0
+            && abs($height - $width * ($fullHeight / $fullWidth)) <= 1 && dfrSpotifyImageValid($url)) {
+            $bestWidth = $width;
+            $bestUrl = $url;
+        }
+    }
+    return $bestUrl;
+}
+
 function buildReleaseCatalogue(array $albums, array $tracks, array $config, ?array $previous): array
 {
     $eligible = [];
@@ -33,12 +58,19 @@ function buildReleaseCatalogue(array $albums, array $tracks, array $config, ?arr
         }
         $artists = array_values($artists);
         $names = array_values(array_unique(array_filter(array_column($artists, 'name'), 'is_string')));
+        $images = is_array($album['images'] ?? null) ? $album['images'] : [];
         $clean = dfrCleanRelease([
             'title' => $album['name'], 'artist' => implode(', ', $names), 'artist_ids' => array_column($artists, 'id'),
-            'date' => $album['release_date'] ?? '', 'image' => $album['images'][0]['url'] ?? '',
+            'date' => $album['release_date'] ?? '', 'image' => $images[0]['url'] ?? '',
+            'mobile_image' => spotifyMobileCover($images),
             'spotify' => 'https://open.spotify.com/album/' . $id, 'link_label' => 'Écouter sur Spotify',
         ]);
-        if ($clean !== null) { $indexed[$id] = $clean; }
+        if ($clean === null) { continue; }
+        $old = $indexed[$id] ?? null;
+        if (!isset($clean['mobile_image']) && isset($old['mobile_image']) && $clean['image'] === $old['image']) {
+            $clean['mobile_image'] = $old['mobile_image'];
+        }
+        $indexed[$id] = $clean;
     }
     $releases = array_values($indexed);
     usort($releases, static fn($a, $b) => strcmp($b['date'], $a['date']) ?: strcmp($a['id'], $b['id']));

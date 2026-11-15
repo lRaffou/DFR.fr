@@ -129,10 +129,28 @@ $catalogConfig = $config;
 $catalogConfig['artists'] = [$artistId => 'Artiste DFR'];
 $release = ['id' => $albumId, 'name' => 'Nouvelle sortie', 'release_date' => '2025-06',
     'artists' => [['id' => $artistId, 'name' => 'Artiste DFR']],
-    'images' => [['url' => 'https://i.scdn.co/image/abc123']], 'secret' => 'NEVER-PUBLISH'];
+    'images' => [
+        ['url' => 'https://i.scdn.co/image/cover640', 'width' => 640, 'height' => 640],
+        ['url' => 'https://i.scdn.co/image/cover300', 'width' => 300, 'height' => 300],
+        ['url' => 'https://i.scdn.co/image/cover64', 'width' => 64, 'height' => 64],
+    ], 'secret' => 'NEVER-PUBLISH'];
 $track = song(22, '2025-06', $artistId); $track['album_id'] = $albumId;
 $built = buildReleaseCatalogue([$release, $release], [$track], $catalogConfig, null);
 check(count($built['releases']) === 1 && !str_contains(json_encode($built), 'NEVER-PUBLISH'), 'Catalogue sans doublon et uniquement avec les métadonnées publiques');
+check($built['releases'][0]['image'] === $release['images'][0]['url']
+    && $built['releases'][0]['mobile_image'] === $release['images'][1]['url'],
+    'La miniature Spotify de 300 px est publiée avec la pochette d’origine');
+$incompleteArt = $release;
+$incompleteArt['images'] = [$release['images'][0], $release['images'][2],
+    ['url' => 'https://example.com/image/externe', 'width' => 300, 'height' => 300],
+    ['url' => 'https://i.scdn.co/image/crop300', 'width' => 300, 'height' => 200]];
+check(!isset(buildReleaseCatalogue([$incompleteArt], [$track], $catalogConfig, null)['releases'][0]['mobile_image']),
+    'Une miniature trop petite, recadrée ou externe est ignorée');
+check((buildReleaseCatalogue([$incompleteArt], [$track], $catalogConfig, $built)['releases'][0]['mobile_image'] ?? null)
+    === $release['images'][1]['url'], 'La miniature existante est conservée si la même pochette revient sans taille mobile');
+$incompleteArt['images'][0]['url'] = 'https://i.scdn.co/image/replacement640';
+check(!isset(buildReleaseCatalogue([$incompleteArt], [$track], $catalogConfig, $built)['releases'][0]['mobile_image']),
+    'Le changement de pochette écarte son ancienne miniature');
 check(dfrReleaseDateLabel('2025') === '2025' && dfrReleaseDateLabel('2025-06') === '06/2025'
     && dfrReleaseDateLabel('2025-06-03') === '03/06/2025' && !dfrReleaseDateValid('2025-02-30'), 'Précision des dates conservée sans inventer de jour');
 $unavailableTrack = $track; $unavailableTrack['is_playable'] = false;
@@ -181,7 +199,11 @@ check(array_column($frenzysaxSelection['featured'], 'title') === ['Red Destructi
 $seedCard = $built['releases'][0]; $seedCard['image'] = '/img/accueil/Releases-1.png'; $seedCard['artist'] = 'Artiste DFR, invitée confirmée';
 $merged = dfrMergeReleases(['featured' => [$seedCard], 'catalog' => []], $built);
 check($merged['total'] === 1 && $merged['featured'][0]['image'] === $seedCard['image']
-    && $merged['featured'][0]['artist'] === $seedCard['artist'], 'Fusion sans doublon ni perte de pochette ou de crédit éditorial');
+    && $merged['featured'][0]['artist'] === $seedCard['artist']
+    && !isset($merged['featured'][0]['mobile_image']), 'Fusion sans doublon ni perte de pochette ou de crédit éditorial');
+$badThumbnail = $built['releases'][0];
+$badThumbnail['mobile_image'] = 'https://i.scdn.co.example.org/image/externe';
+check(!isset(dfrCleanRelease($badThumbnail)['mobile_image']), 'Un champ miniature mal formé ne bloque pas la fiche');
 $malicious = $seedCard; $malicious['spotify'] = 'javascript:alert(1)';
 check(dfrCleanRelease($malicious) === null, 'Les liens Spotify externes ou dangereux sont refusés');
 check(dfrCataloguePage(range(1, 49), 999)['items'] === [49] && dfrCataloguePage(range(1, 49), ['bad'])['page'] === 1,
@@ -191,7 +213,8 @@ mkdir($catalogDir);
 $catalogPath = $catalogDir . '/releases.json';
 try {
     publishReleaseCatalogue($catalogPath, $built);
-    check(dfrReadCatalogue($catalogPath)['releases'][0]['id'] === $albumId, 'Publication et lecture du catalogue public');
+    $published = dfrReadCatalogue($catalogPath)['releases'][0];
+    check($published['id'] === $albumId && $published['mobile_image'] === $release['images'][1]['url'], 'Publication et lecture du catalogue public avec miniature');
     $original = file_get_contents($catalogPath);
     fails(fn() => publishReleaseCatalogue($catalogPath, ['schema_version' => 1, 'releases' => [['bad' => true]]]), 'Une publication invalide est arrêtée');
     check(file_get_contents($catalogPath) === $original, 'La dernière version valide est conservée en cas d’échec');

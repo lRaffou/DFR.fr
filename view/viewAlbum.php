@@ -44,7 +44,8 @@ function renderAlbum()
                     <?php foreach ($releases[$section] as $release): ?>
                         <?php
                         $cover = $release['image'];
-                        $mobileCover = $spotifyMobileCovers[$cover] ?? null;
+                        $spotifyMobileCover = $release['mobile_image'] ?? $spotifyMobileCovers[$cover] ?? null;
+                        $mobileCover = $spotifyMobileCover;
                         if (str_starts_with($cover, '/img/albums/webp/')) {
                             $localThumbnail = '/img/albums/webp/mobile/' . basename($cover);
                             if (is_file(__DIR__ . '/..' . $localThumbnail)) {
@@ -56,7 +57,7 @@ function renderAlbum()
                             <a class="albumImage coverLink" href="<?= htmlspecialchars($release['spotify']) ?>" target="_blank" rel="noopener noreferrer">
                                 <picture>
                                     <?php if ($mobileCover !== null): ?>
-                                        <source media="(max-width: 540px)" srcset="<?= htmlspecialchars($mobileCover) ?>"<?= isset($spotifyMobileCovers[$cover]) ? ' data-album-thumbnail' : '' ?>>
+                                        <source media="(max-width: 540px)" srcset="<?= htmlspecialchars($mobileCover) ?>"<?= $spotifyMobileCover !== null ? ' data-album-thumbnail' : '' ?>>
                                     <?php endif; ?>
                                     <img src="<?= htmlspecialchars($cover) ?>"
                                         alt="<?= htmlspecialchars($release['title'] . ' - ' . $release['artist']) ?>"

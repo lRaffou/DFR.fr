@@ -13,6 +13,11 @@ function dfrReleaseDateLabel(string $date): string
     return implode('/', array_reverse(explode('-', $date)));
 }
 
+function dfrSpotifyImageValid(mixed $url): bool
+{
+    return is_string($url) && preg_match('~^https://i\.scdn\.co/image/[A-Za-z0-9]+$~D', $url) === 1;
+}
+
 function dfrCleanRelease(array $release): ?array
 {
     $url = $release['spotify'] ?? '';
@@ -23,16 +28,21 @@ function dfrCleanRelease(array $release): ?array
     if (!dfrReleaseDateValid($release['date']) || $release['date'] > gmdate('Y-m-d') || !is_array($release['artist_ids'] ?? [])) { return null; }
     $image = $release['image'] ?? '';
     if (!is_string($image) || (!preg_match('~^/img/[A-Za-z0-9_./-]+$~D', $image)
-        && !preg_match('~^https://i\.scdn\.co/image/[A-Za-z0-9]+$~D', $image)) || str_contains($image, '..')) {
+        && !dfrSpotifyImageValid($image)) || str_contains($image, '..')) {
         $image = '/img/1logo_simple_dfr_blanc.png';
     }
     $artistIds = array_values(array_filter($release['artist_ids'] ?? [], static fn($id) => is_string($id) && preg_match('/^[A-Za-z0-9]{22}$/D', $id)));
     // Only these public fields may reach the website; never serialize a whole API response.
-    return [
+    $clean = [
         'id' => $match[1], 'title' => $release['title'], 'artist' => $release['artist'], 'artist_ids' => $artistIds,
         'image' => $image, 'date' => $release['date'], 'spotify' => $url,
         'link_label' => ($release['link_label'] ?? '') === 'Écouter sur Spotify' ? 'Écouter sur Spotify' : 'Voir sur Spotify',
     ];
+    $mobileImage = $release['mobile_image'] ?? null;
+    if (dfrSpotifyImageValid($image) && dfrSpotifyImageValid($mobileImage) && $mobileImage !== $image) {
+        $clean['mobile_image'] = $mobileImage;
+    }
+    return $clean;
 }
 
 function dfrReadCatalogue(string $path): ?array
@@ -64,6 +74,7 @@ function dfrMergeReleases(array $seed, ?array $automatic): array
             $clean['artist'] = $indexed[$clean['id']]['artist'];
             if (str_starts_with($indexed[$clean['id']]['image'], '/img/')) {
                 $clean['image'] = $indexed[$clean['id']]['image'];
+                unset($clean['mobile_image']);
             }
         }
         $indexed[$clean['id']] = $clean;
