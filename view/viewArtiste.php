@@ -1,7 +1,7 @@
 <?php
 function renderArtiste()
 {
-    $artistCardSizes = '(min-width: 1264px) 282px, (min-width: 1200px) 23vw, (min-width: 1000px) 30vw, (min-width: 608px) 45vw, calc(100vw - 2rem)';
+    $artistCardSizes = '(min-width: 1264px) 282px, (min-width: 1200px) 23vw, (min-width: 1000px) 30vw, (min-width: 624px) 45vw, calc(100vw - 2rem)';
     ob_start();
     ?>
     <main class="mainArtist">
@@ -15,9 +15,14 @@ function renderArtiste()
 
             <a class="artistCard" href="?artiste=red-marshal" aria-haspopup="dialog" data-artist="red-marshal">
                 <div class="artistImage">
-                    <img src="/img/artistes/webp/red-marshal.webp"
-                        srcset="/img/artistes/webp/red-marshal-640.webp 640w, /img/artistes/webp/red-marshal.webp 1000w"
-                        sizes="<?= $artistCardSizes ?>" alt="Red Marshal" fetchpriority="high">
+                    <picture>
+                        <source media="(max-width: 768px)"
+                            srcset="/img/artistes/webp/red-marshal-640.webp 640w, /img/artistes/webp/red-marshal-mobile.webp 900w"
+                            sizes="<?= $artistCardSizes ?>">
+                        <img src="/img/artistes/webp/red-marshal.webp"
+                            srcset="/img/artistes/webp/red-marshal-640.webp 640w, /img/artistes/webp/red-marshal.webp 1000w"
+                            sizes="<?= $artistCardSizes ?>" alt="Red Marshal" fetchpriority="high">
+                    </picture>
                     <div class="artistOverlay">
                         <div class="artistInfo">
                             <h2>Red Marshal</h2>
@@ -30,9 +35,14 @@ function renderArtiste()
 
             <a class="artistCard" href="?artiste=dj-babe" aria-haspopup="dialog" data-artist="dj-babe">
                 <div class="artistImage">
-                    <img src="/img/artistes/webp/dj-babe.webp"
-                        srcset="/img/artistes/webp/dj-babe-420.webp 420w, /img/artistes/webp/dj-babe.webp 633w"
-                        sizes="<?= $artistCardSizes ?>" alt="DJ Babe" loading="lazy" decoding="async">
+                    <picture>
+                        <source media="(max-width: 768px)"
+                            srcset="/img/artistes/webp/dj-babe-420.webp 420w, /img/artistes/webp/dj-babe-mobile.webp 600w"
+                            sizes="<?= $artistCardSizes ?>">
+                        <img src="/img/artistes/webp/dj-babe.webp"
+                            srcset="/img/artistes/webp/dj-babe-420.webp 420w, /img/artistes/webp/dj-babe.webp 633w"
+                            sizes="<?= $artistCardSizes ?>" alt="DJ Babe" loading="lazy" decoding="async">
+                    </picture>
                     <div class="artistOverlay">
                         <div class="artistInfo">
                             <h2>DJ Babe</h2>
@@ -72,9 +82,14 @@ function renderArtiste()
 
             <a class="artistCard" href="?artiste=zoe-kunter" aria-haspopup="dialog" data-artist="zoe-kunter">
                 <div class="artistImage">
-                    <img src="/img/artistes/webp/zoe-kunter.webp"
-                        srcset="/img/artistes/webp/zoe-kunter-420.webp 420w, /img/artistes/webp/zoe-kunter.webp 775w"
-                        sizes="<?= $artistCardSizes ?>" alt="Zoé Kunter" loading="lazy" decoding="async">
+                    <picture>
+                        <source media="(max-width: 768px)"
+                            srcset="/img/artistes/webp/zoe-kunter-420.webp 420w, /img/artistes/webp/zoe-kunter-mobile.webp 640w"
+                            sizes="<?= $artistCardSizes ?>">
+                        <img src="/img/artistes/webp/zoe-kunter.webp"
+                            srcset="/img/artistes/webp/zoe-kunter-420.webp 420w, /img/artistes/webp/zoe-kunter.webp 775w"
+                            sizes="<?= $artistCardSizes ?>" alt="Zoé Kunter" loading="lazy" decoding="async">
+                    </picture>
                     <div class="artistOverlay">
                         <div class="artistInfo">
                             <h2>Zoé Kunter</h2>
@@ -87,9 +102,14 @@ function renderArtiste()
 
             <a class="artistCard" href="?artiste=clarity" aria-haspopup="dialog" data-artist="clarity">
                 <div class="artistImage">
-                    <img src="/img/artistes/webp/clarity.webp"
-                        srcset="/img/artistes/webp/clarity-420.webp 420w, /img/artistes/webp/clarity.webp 562w"
-                        sizes="<?= $artistCardSizes ?>" alt="Clarity" loading="lazy" decoding="async">
+                    <picture>
+                        <source media="(max-width: 768px)"
+                            srcset="/img/artistes/webp/clarity-420.webp 420w, /img/artistes/webp/clarity-mobile.webp 540w"
+                            sizes="<?= $artistCardSizes ?>">
+                        <img src="/img/artistes/webp/clarity.webp"
+                            srcset="/img/artistes/webp/clarity-420.webp 420w, /img/artistes/webp/clarity.webp 562w"
+                            sizes="<?= $artistCardSizes ?>" alt="Clarity" loading="lazy" decoding="async">
+                    </picture>
                     <div class="artistOverlay">
                         <div class="artistInfo">
                             <h2>Clarity</h2>
@@ -102,9 +122,14 @@ function renderArtiste()
 
             <a class="artistCard" href="?artiste=frenzysax" aria-haspopup="dialog" data-artist="frenzysax">
                 <div class="artistImage">
-                    <img src="/img/artistes/webp/frenzysax.webp"
-                        srcset="/img/artistes/webp/frenzysax-420.webp 420w, /img/artistes/webp/frenzysax.webp 640w"
-                        sizes="<?= $artistCardSizes ?>" alt="Frenzysax" loading="lazy" decoding="async">
+                    <picture>
+                        <source media="(max-width: 768px)"
+                            srcset="/img/artistes/webp/frenzysax-420.webp 420w, /img/artistes/webp/frenzysax-mobile.webp 600w"
+                            sizes="<?= $artistCardSizes ?>">
+                        <img src="/img/artistes/webp/frenzysax.webp"
+                            srcset="/img/artistes/webp/frenzysax-420.webp 420w, /img/artistes/webp/frenzysax.webp 640w"
+                            sizes="<?= $artistCardSizes ?>" alt="Frenzysax" loading="lazy" decoding="async">
+                    </picture>
                     <div class="artistOverlay">
                         <div class="artistInfo">
                             <h2>Frenzysax</h2>
