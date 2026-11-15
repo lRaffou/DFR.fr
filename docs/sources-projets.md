@@ -11,7 +11,8 @@ Les profils suivants ont été fournis et rattachés à DFR par le propriétaire
 
 Le nom, l’identifiant et le portrait de Frenzysax ont été confirmés par Spotify.
 Le propriétaire a confirmé son classement en collaboration pour « À la une ».
-Son rôle précis et sa biographie restent à compléter avec le propriétaire. Ne
+À sa demande, la carte et la fiche artiste précisent également « Collaboration DFR ».
+Son rôle musical précis et sa biographie restent à compléter avec le propriétaire. Ne
 pas déduire l’identité des personnes de la photo ou une biographie à partir du nom.
 
 ## Événements

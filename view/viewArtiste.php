@@ -98,7 +98,7 @@ function renderArtiste()
                     <div class="artistOverlay">
                         <div class="artistInfo">
                             <h2>Frenzysax</h2>
-                            <p>Dao Family Records</p>
+                            <p>Collaboration DFR</p>
                             <span class="artistGenre">Musique électronique</span>
                         </div>
                     </div>
