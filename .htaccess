@@ -1,6 +1,9 @@
 #Activation du rewrite des URL
 RewriteEngine On
 
+# Le dépôt contient aussi les outils CLI et la documentation d'exploitation.
+RewriteRule ^(?:scripts|docs)(?:/|$) - [F,L]
+
 #base du projet (emplacement à partir de la racine du serveur)
 RewriteBase /
 

@@ -77,3 +77,6 @@ Les deux anciens ZIP de publication ont été déplacés dans ce même dossier.
 La copie serveur n'a plus de modification locale ni de fichier non suivi bloquant.
 Les 42 contrôles PHP passent sur le serveur ; les 68 fiches et le JSON généré
 sont conservés. La copie privée du modèle et ses tests ont aussi été actualisés.
+Un nouvel envoi GitHub (`8aa89f2`) est ensuite arrivé automatiquement sur Hostinger,
+confirmant la réparation. Les outils CLI et les documents d'exploitation sont
+bloqués par la règle du `.htaccess` racine lors des déploiements depuis le dépôt.
