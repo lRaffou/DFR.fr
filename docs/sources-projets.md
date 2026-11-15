@@ -58,8 +58,12 @@ textes promotionnels. Chaque fiche archive renvoie à sa source :
 
 Les affiches proviennent des médias liés par Shotgun. Les originaux des deux
 miniatures Red Night ont été récupérés sur leur CDN pour préserver la lisibilité.
-Le site classe automatiquement les fiches saisies en événements à venir ou passés
-selon leur date de fin. Il ne collecte pas automatiquement les nouvelles annonces.
+La section « Prochains événements » affiche les deux agendas officiels Shotgun
+intégrés en mode « Ma page ». Shotgun actualise directement les dates publiques
+et affiche aussi ses dernières éditions passées dans les widgets. DFR conserve
+ses propres fiches d’archives, classées selon leur date de fin. Chaque cadre
+propose un lien direct vers Shotgun si le navigateur bloque son chargement.
+Voir le [guide d’intégration de Shotgun](https://support-pro.shotgun.live/hc/fr/articles/360018503879-Int%C3%A9grer-la-billetterie-Shotgun-sur-votre-site-avec-le-widget).
 
 ## Limites de cette vérification
 

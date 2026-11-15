@@ -2756,10 +2756,13 @@ h6 {
     font-size: 0.9rem;
 }
 .dfrProjectLinks a:hover { background: #333; }
-.dfrNoEvent { background: #171717; border-left: 3px solid #ff5151; padding: 1.5rem; border-radius: 0 10px 10px 0; }
-.dfrNoEvent p { color: #ccc; line-height: 1.6; margin: 0.3rem 0; }
-.dfrNoEvent p:first-child { color: #fff; font-size: 1.1rem; }
 .dfrEventGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+.dfrShotgunGrid { margin-top: 1rem; }
+.dfrShotgunAgenda { background: #171717; border: 1px solid #333; border-radius: 12px; overflow: hidden; min-width: 0; }
+.dfrShotgunHeading { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .75rem 1rem; padding: 1rem 1.25rem; }
+.dfrShotgunHeading h3 { color: #fff; font-size: 1.25rem; margin: 0; }
+.dfrShotgunHeading a { color: #fff; text-decoration: underline; text-underline-offset: .25em; }
+.dfrShotgunAgenda iframe { display: block; width: 100%; height: 26rem; border: 0; color-scheme: dark; }
 .dfrEventCard { background: #171717; border: 1px solid #333; border-radius: 12px; overflow: hidden; min-width: 0; display: flex; flex-direction: column; }
 .dfrEventPoster { display: block; background: #0c0c0c; }
 .dfrEventPoster img { display: block; width: 100%; height: 300px; object-fit: contain; }

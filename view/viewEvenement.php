@@ -31,6 +31,8 @@ function renderEventArchiveCard(array $event, bool $past): string
 function renderEvenement()
 {
     $calendar = dfrEventCalendar(require __DIR__ . '/../model/events.php');
+    $projects = require __DIR__ . '/../model/projects.php';
+    $shotgunProjects = [$projects['red-night'], $projects['coeur-meurtri']];
     ob_start(); ?>
     <main class="mainEvent">
         <section class="eventHero">
@@ -40,16 +42,26 @@ function renderEvenement()
         <?= renderProjects(true) ?>
         <section class="dfrEventSection" aria-labelledby="next-events-title">
             <h2 id="next-events-title">Prochains événements</h2>
-            <?php if (!$calendar['upcoming']): ?>
-                <div class="dfrNoEvent">
-                    <p>Aucune nouvelle date annoncée pour le moment.</p>
-                    <p>Retrouvez les prochaines annonces sur les comptes Instagram et Shotgun de nos deux concepts.</p>
-                </div>
-            <?php else: ?>
+            <?php if ($calendar['upcoming']): ?>
                 <div class="dfrEventGrid">
                     <?php foreach ($calendar['upcoming'] as $event) { echo renderEventArchiveCard($event, false); } ?>
                 </div>
             <?php endif; ?>
+            <div class="dfrEventGrid dfrShotgunGrid">
+                <?php foreach ($shotgunProjects as $project): ?>
+                    <?php $shotgun = $project['links']['Shotgun']; ?>
+                    <article class="dfrShotgunAgenda">
+                        <div class="dfrShotgunHeading">
+                            <h3><?= htmlspecialchars($project['name']) ?></h3>
+                            <a href="<?= htmlspecialchars($shotgun) ?>" target="_blank" rel="noopener noreferrer"
+                                aria-label="Ouvrir l’agenda <?= htmlspecialchars($project['name']) ?> sur Shotgun">Sur Shotgun <span aria-hidden="true">↗</span></a>
+                        </div>
+                        <iframe src="<?= htmlspecialchars($shotgun . '?embedded=1&ui=dark') ?>"
+                            title="Agenda Shotgun de <?= htmlspecialchars($project['name']) ?>" loading="lazy"
+                            sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    </article>
+                <?php endforeach; ?>
+            </div>
         </section>
         <section class="dfrEventSection" aria-labelledby="past-events-title">
             <div class="dfrSectionHeading">
