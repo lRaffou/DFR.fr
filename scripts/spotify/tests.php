@@ -133,6 +133,26 @@ $catalogConfig['excluded_album_ids'] = [$albumId];
 check(buildReleaseCatalogue([$release], [$track], $catalogConfig, $built)['releases'] === [], 'Une exclusion retire aussi une fiche automatique existante');
 $seed = require __DIR__ . '/../../model/releases.seed.php';
 check(dfrMergeReleases($seed, null)['total'] === 13, 'Les 13 fiches initiales restent disponibles sans cache');
+check(array_column(dfrMergeReleases($seed, null)['featured'], 'title') === ['Red Destruction', 'Versus', 'Discoteca'],
+    'À la une réserve une place à Red Marshal, une collaboration et un autre artiste');
+$newSolo = dfrCleanRelease($seed['featured'][0]);
+$newSolo['spotify'] = 'https://open.spotify.com/album/' . str_repeat('d', 22);
+$newSolo['date'] = '2026-10-01'; $newSolo['title'] = 'Nouveau solo';
+$newCollab = dfrCleanRelease($seed['featured'][1]);
+$newCollab['spotify'] = 'https://open.spotify.com/album/' . str_repeat('e', 22);
+$newCollab['date'] = '2026-10-02'; $newCollab['title'] = 'Nouvelle collaboration';
+$newCollab['artist'] = 'Red Marshal';
+$newCollab['artist_ids'] = ['3zpewQ11GYG2ev9Ngdsvi9', '5PyJWzxbDt81teQi2ZzL8n'];
+$newOther = dfrCleanRelease($seed['featured'][2]);
+$newOther['spotify'] = 'https://open.spotify.com/album/' . str_repeat('f', 22);
+$newOther['date'] = '2026-10-03'; $newOther['title'] = 'Nouveau titre Fernando';
+$selection = dfrMergeReleases($seed, ['releases' => [$newSolo, $newCollab, $newOther]]);
+check(array_column($selection['featured'], 'title') === ['Nouveau solo', 'Nouvelle collaboration', 'Nouveau titre Fernando']
+    && $selection['catalog'][0]['title'] === 'Red Destruction'
+    && count(array_unique(array_column(array_merge($selection['featured'], $selection['catalog']), 'id'))) === 16,
+    'Chaque catégorie se renouvelle avec sa dernière sortie, sans perdre ni dupliquer les autres fiches');
+check(count(dfrMergeReleases(['featured' => [], 'catalog' => []], ['releases' => [$newSolo]])['featured']) === 1,
+    'Une catégorie absente ne crée pas de carte vide ou de doublon');
 $seedCard = $built['releases'][0]; $seedCard['image'] = '/img/accueil/Releases-1.png'; $seedCard['artist'] = 'Artiste DFR, invitée confirmée';
 $merged = dfrMergeReleases(['featured' => [$seedCard], 'catalog' => []], $built);
 check($merged['total'] === 1 && $merged['featured'][0]['image'] === $seedCard['image']

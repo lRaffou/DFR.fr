@@ -31,7 +31,9 @@ hors du dépôt.
 
 Le catalogue utilise maintenant la collecte Spotify quotidienne : 60 sorties
 importées, fusionnées avec les anciennes fiches pour afficher 68 sorties uniques.
-Les trois plus récentes alimentent l'accueil. Les autres sont paginées par 24.
+La sélection de l'accueil a ensuite été ajustée : une sortie de Red Marshal,
+une collaboration et un autre artiste, avec la plus récente de chaque catégorie.
+Les autres sorties sont paginées par 24, toujours par date décroissante.
 
 Le programme privé, ses modèles partagés et les fichiers publics ont été mis à
 jour via l'accès SSH temporaire autorisé. Sauvegarde avant installation :
@@ -56,3 +58,15 @@ actualise la playlist et `public_html/data/releases.json`. Voir
 futures publications : il est généré sur le serveur et ignoré par Git.
 La clé temporaire `dfr-catalogue-install-2026-11-15` a été retirée et l'état SSH
 `INACTIVE` a été vérifié après installation.
+
+## Sélection équilibrée à la une
+
+La sélection réserve trois places : dernière sortie solo de Red Marshal, dernière
+collaboration, dernière sortie d'un autre artiste. Elle s'applique à l'accueil
+et à la page Sorties. Les autres fiches restent présentes, sans doublon.
+
+Le journal de déploiement Git Hostinger a révélé un échec de `pull` sur les
+fichiers ajoutés manuellement (modèles, pochettes et `data/.htaccess`). Ce processus
+remettait les fichiers suivis dans leur ancienne version avant d'échouer.
+La remise en cohérence utilise une sauvegarde privée du répertoire public,
+puis aligne sa copie Git sur le commit publié. Le JSON généré reste conservé.

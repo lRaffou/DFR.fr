@@ -70,7 +70,31 @@ function dfrMergeReleases(array $seed, ?array $automatic): array
     }
     $all = array_values($indexed);
     usort($all, static fn($a, $b) => strcmp($b['date'], $a['date']) ?: strcmp($a['id'], $b['id']));
-    return ['featured' => array_slice($all, 0, 3), 'catalog' => array_slice($all, 3), 'total' => count($all)];
+    $featured = dfrFeaturedReleases($all);
+    $featuredIds = array_column($featured, 'id');
+    $catalog = array_values(array_filter($all, static fn($release) => !in_array($release['id'], $featuredIds, true)));
+    return ['featured' => $featured, 'catalog' => $catalog, 'total' => count($all)];
+}
+
+// Input is sorted newest first. Reserve one slot per category, in editorial order.
+function dfrFeaturedReleases(array $sorted): array
+{
+    $slots = ['red_marshal' => null, 'collaboration' => null, 'other_artist' => null];
+    foreach ($sorted as $release) {
+        $names = array_map('trim', explode(',', $release['artist']));
+        $collaboration = count(array_unique($release['artist_ids'])) > 1 || count($names) > 1;
+        $redMarshal = in_array('3zpewQ11GYG2ev9Ngdsvi9', $release['artist_ids'], true)
+            || in_array('red marshal', array_map('strtolower', $names), true);
+        $category = $collaboration ? 'collaboration' : ($redMarshal ? 'red_marshal' : 'other_artist');
+        $slots[$category] ??= $release;
+    }
+    $featured = array_values(array_filter($slots));
+    // Keep up to three cards if a category temporarily has no eligible release.
+    foreach ($sorted as $release) {
+        if (count($featured) >= 3) { break; }
+        if (!in_array($release['id'], array_column($featured, 'id'), true)) { $featured[] = $release; }
+    }
+    return $featured;
 }
 
 function dfrCataloguePage(array $items, mixed $requestedPage, int $size = 24): array

@@ -7,8 +7,10 @@ Clarity sera intégrée quand un profil Spotify aura été confirmé.
 
 Avec `--catalogue-file`, cette même collecte publie aussi les singles, EP et albums
 sur le site. Une fiche est créée par identifiant d'album Spotify, collaborations
-comprises. Les trois sorties les plus récentes apparaissent sur l'accueil et à
-la une ; les autres sont affichées par pages de 24. Les dates partielles fournies
+comprises. « À la une », sur l'accueil et la page Sorties, sélectionne dans cet
+ordre la dernière sortie solo de Red Marshal, la dernière collaboration et la
+dernière sortie d'un autre artiste. Chaque catégorie se renouvelle automatiquement.
+Les autres sorties restent triées par date, par pages de 24. Les dates partielles fournies
 par Spotify restent partielles, sans jour inventé.
 
 Le fichier public `data/releases.json` ne contient que les titres, artistes,
