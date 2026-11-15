@@ -99,7 +99,7 @@ function renderArtiste()
                         <div class="artistInfo">
                             <h2>Frenzysax</h2>
                             <p>Duo · Clarisax et Red Marshal</p>
-                            <span class="artistGenre">Musique électronique</span>
+                            <span class="artistGenre">Électro &amp; saxophone live</span>
                         </div>
                     </div>
                 </div>

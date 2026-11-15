@@ -6,6 +6,7 @@ return [
     'channel' => 'https://www.youtube.com/@DaoFamilyRecords',
     'playlist' => 'https://www.youtube.com/playlist?list=PLfGk9MSaVom5-wEtYZ2lM2a99SeHHF6sg',
     'recent' => [
+        ['id' => 'QDC97j5ewV4', 'title' => 'Live The Moment', 'artist' => 'Frenzysax', 'date' => '2026-11-06'],
         ['id' => 'iQKpifgSBDk', 'title' => 'Red Destruction', 'artist' => 'Red Marshal', 'date' => '2026-09-27'],
         ['id' => 'FcBOqizs8cA', 'title' => 'Versus', 'artist' => 'Red Marshal, Dj Babe', 'date' => '2026-08-09'],
         ['id' => 'm8B7tsD6ceA', 'title' => 'Discoteca', 'artist' => 'Fernando Gomez', 'date' => '2026-05-29'],

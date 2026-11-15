@@ -993,6 +993,38 @@ h6 {
     color: #333;
 }
 
+.artistRelease {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.artistRelease img {
+    width: 7rem;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.artistRelease h4 {
+    margin: 0 0 .5rem;
+    color: #333;
+}
+
+.artistTextLinks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem 1rem;
+}
+
+.artistTextLinks a {
+    color: #333;
+    text-decoration: underline;
+    text-underline-offset: .2em;
+}
+
 .artistGallery {
     margin-bottom: 2rem;
 }

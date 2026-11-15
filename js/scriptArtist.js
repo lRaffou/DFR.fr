@@ -135,12 +135,31 @@ const artistData = {
     "frenzysax": {
         name: "Frenzysax",
         role: "Duo · Clarisax et Red Marshal",
-        genre: "Musique électronique",
+        genre: "Électro & saxophone live",
         image: "/img/artistes/frenzysax.jpg",
+        social_youtube: "https://www.youtube.com/@FrenzySax",
         social_spotify: "https://open.spotify.com/artist/4NqtEeAINDNe0G3FiHbqbs",
         social_instagram: "https://www.instagram.com/frenzysax/",
-        bio: ["Frenzysax est le duo formé par Clarisax et Red Marshal. Retrouvez leurs productions sur Spotify et l’actualité du projet sur Instagram."],
-        spotify: "https://open.spotify.com/embed/artist/4NqtEeAINDNe0G3FiHbqbs",
+        bio: [
+            "Frenzysax réunit Clarisax au saxophone et Red Marshal aux platines. Le duo mêle les rythmes électroniques de Red Marshal au saxophone joué en direct par Clarisax.",
+            "Leur première composition commune, Live The Moment, est sortie le 6 novembre 2026 chez Dao Family Records.",
+        ],
+        spotify: "https://open.spotify.com/embed/track/3ANmS8hNBGrfq52l2igeQ3",
+        release: {
+            title: "Live The Moment",
+            cover: "https://i.scdn.co/image/ab67616d0000b27390d0eeb3e6a3c9cfa09fb4ec",
+            links: [
+                {label: "Spotify", href: "https://open.spotify.com/album/30u1Cqo1BArnSTrdpmdf6K"},
+                {label: "Apple Music", href: "https://music.apple.com/fr/album/live-the-moment/6830388054?i=6830388055"},
+                {label: "YouTube", href: "https://www.youtube.com/watch?v=QDC97j5ewV4"},
+            ],
+        },
+        moreLinks: [
+            {label: "Voir le duo en vidéo", href: "https://www.instagram.com/frenzysax/reel/DfsOaOBuPdh/"},
+            {label: "Clarisax sur Instagram", href: "https://www.instagram.com/clarisaxevents/"},
+            {label: "Red Marshal sur Instagram", href: "https://www.instagram.com/redmarshal_official/"},
+        ],
+        booking: "frenzysax@gmail.com",
         gallery: [],
     },
 };
@@ -167,6 +186,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function createArtistDetails(artistId) {
         const artist = artistData[artistId];
+        const externalLinks = (links) => links.map(({label, href}) =>
+            `<a href="${href}" target="_blank" rel="noopener noreferrer">${label}</a>`
+        ).join("");
         return `
             <div class="artistDetails">
                 <div class="artistHeader">
@@ -198,16 +220,33 @@ document.addEventListener("DOMContentLoaded", function () {
                     ${artist.bio.map((p) => `<p>${p}</p>`).join("")}
                 </div>
 
-                ${
-                    artist.spotify
-                        ? `
+                ${artist.spotify || artist.release ? `
                     <div class="artistMusic">
                         <h3>Écouter</h3>
-                        <iframe style="border-radius:12px" src="${artist.spotify}" title="Écouter ${artist.name} sur Spotify" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                    </div>
-                `
-                        : ""
-                }
+                        ${artist.release ? `
+                        <div class="artistRelease">
+                            <img src="${artist.release.cover}" alt="Pochette de ${artist.release.title}" width="320" height="320" loading="lazy">
+                            <div>
+                                <h4>${artist.release.title}</h4>
+                                <div class="artistTextLinks">${externalLinks(artist.release.links)}</div>
+                            </div>
+                        </div>` : ""}
+                        ${artist.spotify ? `
+                            <iframe style="border-radius:12px" src="${artist.spotify}" title="Écouter ${artist.name} sur Spotify" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        ` : ""}
+                    </div>` : ""}
+
+                ${artist.moreLinks ? `
+                    <div class="artistBio">
+                        <h3>Suivre le duo</h3>
+                        <div class="artistTextLinks">${externalLinks(artist.moreLinks)}</div>
+                    </div>` : ""}
+
+                ${artist.booking ? `
+                    <div class="artistBio">
+                        <h3>Programmer le duo</h3>
+                        <div class="artistTextLinks"><a href="mailto:${artist.booking}">${artist.booking}</a></div>
+                    </div>` : ""}
 
                 ${artist.gallery.length ? `<div class="artistGallery">
                     <h3>Galerie</h3>

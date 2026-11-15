@@ -8,13 +8,18 @@ Les profils suivants ont été fournis et rattachés à DFR par le propriétaire
 - [TikTok Cœur Meurtri](https://www.tiktok.com/@coeur.meurtri8)
 - [Frenzysax sur Instagram](https://www.instagram.com/frenzysax/)
 - [Frenzysax sur Spotify](https://open.spotify.com/artist/4NqtEeAINDNe0G3FiHbqbs)
+- [Chaîne d’artiste Frenzysax](https://www.youtube.com/@FrenzySax)
 
 Le nom, l’identifiant et le portrait de Frenzysax ont été confirmés par Spotify.
 Le propriétaire a précisé que Frenzysax est le duo formé par Clarisax et Red Marshal.
 La carte et la fiche artiste présentent le duo et ses deux membres. Cela remplace
 la mention générique « Collaboration DFR » ; le projet reste dans la catégorie
-collaboration pour « À la une ». Les rôles musicaux et la biographie détaillée
-restent à compléter. Aucun lien entre Clarisax et la fiche Clarity n’a été confirmé.
+collaboration pour « À la une ». Le profil officiel et les [crédits vidéo](https://www.youtube.com/watch?v=QDC97j5ewV4)
+confirment Clarisax au saxophone et Red Marshal aux platines. La fiche utilise
+le portrait et la pochette Spotify du duo, et reprend le contact de réservation
+publié avec [leur extrait live](https://www.instagram.com/frenzysax/reel/DfsOaOBuPdh/).
+[Apple Music](https://music.apple.com/fr/album/live-the-moment/6830388054?i=6830388055)
+confirme la sortie du single chez Dao Family Records le 6 novembre 2026.
 
 ## Événements
 
@@ -40,9 +45,9 @@ selon leur date de fin. Il ne collecte pas automatiquement les nouvelles annonce
 
 ## Limites de cette vérification
 
-Instagram a présenté un écran de connexion et TikTok n’a pas fourni de contenu
-lisible via la recherche web. Le navigateur connecté s’est ensuite interrompu.
-Les publications sociales et l’intégralité des anciennes éditions n’ont donc pas
-été examinées. Les liens restent intégrés tels que fournis par le propriétaire.
+La bio et les quatre publications visibles de Frenzysax ont été consultées.
+Les publications plus anciennes demandent une connexion. TikTok n’a pas fourni
+de contenu lisible via la recherche web et l’intégralité des anciennes éditions
+n’a pas été examinée.
 Hiyo est crédité DFR dans deux programmes Shotgun ; attendre le profil confirmé
 avant d’ajouter une fiche artiste.
