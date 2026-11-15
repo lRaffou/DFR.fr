@@ -8,7 +8,7 @@ function renderEventArchiveCard(array $event, bool $past): string
     ob_start(); ?>
     <article class="dfrEventCard">
         <a class="dfrEventPoster" href="<?= $escape($event['image']) ?>" target="_blank" rel="noopener noreferrer" aria-label="Voir l’affiche : <?= $escape($event['project'] . ' — ' . $event['title']) ?>">
-            <img src="<?= $escape($event['image']) ?>" alt="Affiche <?= $escape($event['project'] . ' — ' . $event['title']) ?>" loading="lazy">
+            <img src="<?= $escape($event['thumbnail'] ?? $event['image']) ?>" alt="Affiche <?= $escape($event['project'] . ' — ' . $event['title']) ?>" loading="lazy" decoding="async">
         </a>
         <div class="dfrEventContent">
             <p class="dfrEyebrow"><?= $escape($event['project']) ?> · <?= $past ? 'Archive' : 'À venir / en cours' ?></p>

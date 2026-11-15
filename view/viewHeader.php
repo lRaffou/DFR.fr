@@ -1,5 +1,5 @@
 <?php
-function renderHeader($title = 'Dao Family Records')
+function renderHeader($title = 'Dao Family Records', bool $includeArtistScript = false)
 {
     $navigation = [
         ['/index.php', 'Accueil', 'fa-home'],
@@ -24,7 +24,9 @@ function renderHeader($title = 'Dao Family Records')
             integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
         <script src="/js/script.js?v=<?= filemtime(__DIR__ . '/../js/script.js') ?>" defer></script>
-        <script src="/js/scriptArtist.js?v=<?= filemtime(__DIR__ . '/../js/scriptArtist.js') ?>" defer></script>
+        <?php if ($includeArtistScript): ?>
+            <script src="/js/scriptArtist.js?v=<?= filemtime(__DIR__ . '/../js/scriptArtist.js') ?>" defer></script>
+        <?php endif; ?>
         <meta name="description" content="Dao Family Records, label de musique électronique à Toulouse. Découvrez nos artistes, sorties, clips et événements.">
         <title><?= htmlspecialchars($title) ?></title>
     </head>

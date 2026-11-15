@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../components/media.php';
 require_once __DIR__ . '/../components/projects.php';
 function renderAcceuil()
 {
@@ -22,12 +23,7 @@ function renderAcceuil()
             </div>
             <div class="heroMedia">
                 <div class="heroVideo">
-                    <iframe
-                        src="https://www.youtube.com/embed/<?= htmlspecialchars($featuredVideo['id']) ?>?playsinline=1"
-                        title="<?= htmlspecialchars($featuredVideo['artist'] . ' — ' . $featuredVideo['title'] . ' — Audio officiel') ?>"
-                        referrerpolicy="strict-origin-when-cross-origin"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe>
+                    <?= renderYouTubePreview($featuredVideo) ?>
                 </div>
                 <div class="homeVideoCaption">
                     <p><?= htmlspecialchars($featuredVideo['artist'] . ' — ' . $featuredVideo['title']) ?> · Audio officiel</p>
@@ -49,7 +45,7 @@ function renderAcceuil()
                         <a class="releaseImage coverLink" href="<?= htmlspecialchars($release['spotify']) ?>" target="_blank" rel="noopener noreferrer">
                             <img src="<?= htmlspecialchars($release['image']) ?>"
                                 alt="<?= htmlspecialchars($release['title'] . ' - ' . $release['artist']) ?>"
-                                loading="lazy">
+                                loading="lazy" decoding="async">
                         </a>
                         <div class="releaseInfo">
                             <h3><?= htmlspecialchars($release['title']) ?></h3>
@@ -72,11 +68,11 @@ function renderAcceuil()
             <h2>Écoutez nos artistes</h2>
             <p class="catalogLink"><a href="https://open.spotify.com/playlist/<?= $playlistId ?>" target="_blank" rel="noopener noreferrer">Ouvrir la playlist sur Spotify</a></p>
             <div class="spotifyPlayer">
-                <iframe style="border-radius:12px"
-                    src="https://open.spotify.com/embed/playlist/<?= $playlistId ?>?utm_source=generator" title="Playlist Dao Family Records sur Spotify" width="100%"
-                    height="652" frameBorder="0" allowfullscreen=""
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                    loading="lazy"></iframe>
+                <a class="spotifyPreview" href="https://open.spotify.com/playlist/<?= $playlistId ?>"
+                    data-player-src="https://open.spotify.com/embed/playlist/<?= $playlistId ?>"
+                    data-player-title="Playlist Dao Family Records sur Spotify"
+                    data-player-allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    target="_blank" rel="noopener noreferrer"><i class="fab fa-spotify" aria-hidden="true"></i> Afficher le lecteur Spotify</a>
             </div>
         </section>
 

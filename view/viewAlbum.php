@@ -45,7 +45,7 @@ function renderAlbum()
                             <a class="albumImage coverLink" href="<?= htmlspecialchars($release['spotify']) ?>" target="_blank" rel="noopener noreferrer">
                                 <img src="<?= htmlspecialchars($release['image']) ?>"
                                     alt="<?= htmlspecialchars($release['title'] . ' - ' . $release['artist']) ?>"
-                                    loading="lazy">
+                                    loading="lazy" decoding="async">
                             </a>
                             <div class="albumInfo">
                                 <h3><?= htmlspecialchars($release['title']) ?></h3>

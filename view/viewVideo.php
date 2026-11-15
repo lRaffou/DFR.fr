@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/../components/media.php';
+
 function renderVideo()
 {
     $videos = require __DIR__ . '/../model/videos.php';
@@ -23,11 +25,7 @@ function renderVideo()
             <h2>À la une</h2>
             <div class="videoContainer">
                 <article class="video">
-                    <iframe width="560" height="315"
-                        src="https://www.youtube.com/embed/<?= htmlspecialchars($featured['id']) ?>?playsinline=1"
-                        title="<?= htmlspecialchars($featured['artist'] . ' — ' . $featured['title'] . ' — Audio officiel') ?>"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <?= renderYouTubePreview($featured) ?>
                 </article>
                 <div class="videoInfo">
                     <span class="videoFormat">Audio officiel</span>
@@ -47,7 +45,7 @@ function renderVideo()
                         <article class="videoCard" data-video="<?= htmlspecialchars($video['id']) ?>" data-title="<?= htmlspecialchars($label) ?>">
                             <div class="videoThumbnail">
                                 <img src="https://img.youtube.com/vi/<?= htmlspecialchars($video['id']) ?>/hqdefault.jpg"
-                                    loading="lazy" width="480" height="360" alt="<?= htmlspecialchars($label) ?>">
+                                    loading="lazy" decoding="async" width="480" height="360" alt="<?= htmlspecialchars($label) ?>">
                                 <button type="button" class="playButton" aria-label="<?= htmlspecialchars('Lire ' . $label) ?>">
                                     <i class="fas fa-play" aria-hidden="true"></i>
                                 </button>

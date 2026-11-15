@@ -5,7 +5,7 @@ include '../view/viewHeader.php';
 include '../view/viewArtiste.php';
 include '../view/viewFooter.php';
 
-echo renderHeader('Artistes | Dao Family Records');
+echo renderHeader('Artistes | Dao Family Records', true);
 echo renderArtiste();
 echo renderFooter();
 ?>

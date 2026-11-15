@@ -3,7 +3,7 @@ const artistData = {
         name: "Red Marshal",
         role: "DJ - Producteur",
         genre: "Hard Techno / Hardfonk",
-        image: "/img/Red_Marshal_1.jpg",
+        image: "/img/artistes/webp/red-marshal-640.webp",
         social_youtube: "https://www.youtube.com/@RedMarshal",
         social_spotify: "https://open.spotify.com/artist/3zpewQ11GYG2ev9Ngdsvi9",
         social_instagram: "https://www.instagram.com/redmarshal_official/",
@@ -14,7 +14,7 @@ const artistData = {
         spotify: "https://open.spotify.com/embed/album/3Geztn2dXF5YyW5TGZpBz8",
         release: {
             title: "Red Destruction",
-            cover: "/img/albums/red-destruction.jpg",
+            cover: "/img/albums/webp/red-destruction.webp",
             links: [
                 {label: "Spotify", href: "https://open.spotify.com/album/3Geztn2dXF5YyW5TGZpBz8"},
                 {label: "Apple Music", href: "https://music.apple.com/fr/album/red-destruction-single/6785971400"},
@@ -30,17 +30,17 @@ const artistData = {
         booking: "daofamilyrecords@gmail.com",
         gallery: [
             {src: "https://i.scdn.co/image/ab6761610000e5eb5697300e5315295d1a0a81b7"},
-            {src: "/img/Red_Marshal_5.jpg"},
-            {src: "/img/Red_Marshal_2.jpg"},
-            {src: "/img/Red_Marshal_7.jpg"},
-            {src: "/img/gallerie/artist1_4on4.jpg", position: "50% 28%"},
+            {src: "/img/gallerie/webp/red-marshal-1.webp"},
+            {src: "/img/gallerie/webp/red-marshal-2.webp"},
+            {src: "/img/gallerie/webp/red-marshal-3.webp"},
+            {src: "/img/gallerie/webp/red-marshal-4.webp", position: "50% 28%"},
         ],
     },
     "dj-babe": {
         name: "DJ Babe",
         role: "DJ - Productrice",
         genre: "Hard Techno / Tech House",
-        image: "/img/DJ_BABE_01.png",
+        image: "/img/artistes/webp/dj-babe-420.webp",
         social_spotify: "https://open.spotify.com/artist/5PyJWzxbDt81teQi2ZzL8n",
         social_instagram: "https://www.instagram.com/djbabe31/",
         bio: [
@@ -50,7 +50,7 @@ const artistData = {
         spotify: "https://open.spotify.com/embed/track/72Bmuh3Krs45UcEAya8zYc",
         release: {
             title: "Versus · avec Red Marshal",
-            cover: "/img/albums/versus.jpg",
+            cover: "/img/albums/webp/versus.webp",
             links: [
                 {label: "Spotify", href: "https://open.spotify.com/track/72Bmuh3Krs45UcEAya8zYc"},
                 {label: "YouTube", href: "https://www.youtube.com/watch?v=FcBOqizs8cA"},
@@ -64,9 +64,9 @@ const artistData = {
         ],
         gallery: [
             {src: "https://i.scdn.co/image/ab6761610000e5ebbe85419315ecd917a693e08a"},
-            {src: "/img/gallerie/artist2_2on4.jpg"},
-            {src: "/img/gallerie/artist2_3on4.jpg"},
-            {src: "/img/gallerie/artist2_4on4.jpg", position: "50% 20%"},
+            {src: "/img/gallerie/webp/dj-babe-1.webp"},
+            {src: "/img/gallerie/webp/dj-babe-2.webp"},
+            {src: "/img/gallerie/webp/dj-babe-3.webp", position: "50% 20%"},
         ],
     },
     fernando: {
@@ -84,7 +84,7 @@ const artistData = {
         spotify: "https://open.spotify.com/embed/album/1eYn7mzy39m7pvkI3VIhn2",
         release: {
             title: "Discoteca",
-            cover: "/img/albums/discoteca.jpg",
+            cover: "/img/albums/webp/discoteca.webp",
             links: [
                 {label: "Spotify", href: "https://open.spotify.com/album/1eYn7mzy39m7pvkI3VIhn2"},
                 {label: "YouTube", href: "https://www.youtube.com/watch?v=m8B7tsD6ceA"},
@@ -97,10 +97,10 @@ const artistData = {
         ],
         booking: "daofamilyrecords@gmail.com",
         gallery: [
-            {src: "/img/artistes/artist3.png"},
-            {src: "/img/gallerie/artist3_2on4.jpg"},
-            {src: "/img/gallerie/artist3_3on4.jpg"},
-            {src: "/img/gallerie/artist3_4on4.jpg"},
+            {src: "/img/gallerie/webp/fernando-gomez-1.webp"},
+            {src: "/img/gallerie/webp/fernando-gomez-2.webp"},
+            {src: "/img/gallerie/webp/fernando-gomez-3.webp"},
+            {src: "/img/gallerie/webp/fernando-gomez-4.webp"},
         ],
     },
     "dao-brothers": {
@@ -118,7 +118,7 @@ const artistData = {
         spotify: "https://open.spotify.com/embed/album/6NCGuVlBWQ3LR0McsRcQ4K",
         release: {
             title: "Acid Conversation",
-            cover: "/img/albums/album5.png",
+            cover: "/img/albums/webp/album5.webp",
             links: [
                 {label: "Spotify", href: "https://open.spotify.com/album/6NCGuVlBWQ3LR0McsRcQ4K"},
             ],
@@ -130,17 +130,17 @@ const artistData = {
         ],
         booking: "daofamilyrecords@gmail.com",
         gallery: [
-            {src: "/img/Photo_dao_yo.jpg", position: "76% 50%"},
-            {src: "/img/Photo_dao_%20yo_thao.jpg", ratio: "4889 / 2898"},
-            {src: "/img/meilleur.jpg"},
-            {src: "/img/Photo_dao_thao.jpg"},
+            {src: "/img/gallerie/webp/dao-brothers-1.webp", position: "76% 50%"},
+            {src: "/img/gallerie/webp/dao-brothers-2.webp", ratio: "4889 / 2898"},
+            {src: "/img/gallerie/webp/dao-brothers-3.webp"},
+            {src: "/img/gallerie/webp/dao-brothers-4.webp"},
         ],
     },
     "zoe-kunter": {
         name: "Zoé Kunter",
         role: "DJ",
         genre: "Techno",
-        image: "/img/gallerie/artist5_1on4.jpg",
+        image: "/img/artistes/webp/zoe-kunter-420.webp",
         social_spotify: "https://open.spotify.com/artist/6WQRoPuaY9eGi72nNcSXhu",
         social_instagram: "https://www.instagram.com/zoe_kunter/",
         bio: [
@@ -150,7 +150,7 @@ const artistData = {
         spotify: "https://open.spotify.com/embed/track/50IXcsPQRULvdQ9O8LyRYK",
         release: {
             title: "Morgenbruch · avec Red Marshal",
-            cover: "/img/albums/morgenbruch.jpg",
+            cover: "/img/albums/webp/morgenbruch.webp",
             links: [
                 {label: "Spotify", href: "https://open.spotify.com/track/50IXcsPQRULvdQ9O8LyRYK"},
                 {label: "YouTube", href: "https://www.youtube.com/watch?v=bt2lXCuG5xk"},
@@ -160,15 +160,15 @@ const artistData = {
             {label: "Cœur Meurtri au Full House", href: "https://shotgun.live/fr/events/coeur-meurtri-by-dj-babe-full-house-4"},
         ],
         gallery: [
-            {src: "/img/gallerie/artist5_2on4.jpg", position: "50% 88%"},
-            {src: "/img/gallerie/artist5_3on4.jpg", position: "50% 83%"},
+            {src: "/img/gallerie/webp/zoe-kunter-1.webp", position: "50% 88%"},
+            {src: "/img/gallerie/webp/zoe-kunter-2.webp", position: "50% 83%"},
         ],
     },
     clarity: {
         name: "Clarity",
         role: "DJ",
         genre: "Hard Techno",
-        image: "/img/gallerie/artist6_1on4.jpg",
+        image: "/img/artistes/webp/clarity-420.webp",
         social_instagram: "https://www.instagram.com/_clarityy._/",
         bio: [
             "Clarity est une DJ hard techno à Toulouse. Le 20 septembre 2025, elle figure à l’affiche de The Red Night Off #6 au Full House, une nuit consacrée aux artistes de Dao Family Records.",
@@ -177,14 +177,14 @@ const artistData = {
             {label: "The Red Night Off #6 au Full House", href: "https://shotgun.live/fr/events/the-red-night-off-edition-6"},
         ],
         gallery: [
-            {src: "/img/gallerie/artist6_2on4.jpg", position: "50% 34%"},
+            {src: "/img/gallerie/webp/clarity-1.webp", position: "50% 34%"},
         ],
     },
     "frenzysax": {
         name: "Frenzysax",
         role: "Duo · Clarisax et Red Marshal",
         genre: "Électro & saxophone live",
-        image: "/img/artistes/frenzysax.jpg",
+        image: "/img/artistes/webp/frenzysax-420.webp",
         social_youtube: "https://www.youtube.com/@FrenzySax",
         social_spotify: "https://open.spotify.com/artist/4NqtEeAINDNe0G3FiHbqbs",
         social_instagram: "https://www.instagram.com/frenzysax/",

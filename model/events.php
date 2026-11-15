@@ -8,6 +8,7 @@ return [
         'description' => 'Cœur Meurtri investit le bar de la place Saint-Pierre pour un mercredi de house, tech house et techno, de 21h à 2h. Trois DJ se succèdent aux platines.',
         'lineup' => 'Tilda Massol, Lola et DJ Babe.',
         'image' => '/img/events/coeur-meurtri-la-couleur-2026.jpg',
+        'thumbnail' => '/img/events/webp/coeur-meurtri-la-couleur-2026.webp',
         'url' => 'https://www.instagram.com/coeur_meurtri_by_babe/p/Dekc7RutwfD/',
         'media' => [
             'L’annonce en vidéo' => 'https://www.instagram.com/coeur_meurtri_by_babe/reel/Der0UxkNhLn/',
@@ -20,6 +21,7 @@ return [
         'description' => 'Deux journées gratuites de 15h30 à 23h30 sur l’île du Ramier, entre house, techno et hard techno. Les DJ se sont succédé au théâtre de Verdure, avec des danseuses sur le set de DJ Babe.',
         'lineup' => 'DJ Babe, Tilda Massol, Rōssel R, Lola, 5050, Liloy, Lyah, Emèesha b2b Jane.',
         'image' => '/img/events/coeur-meurtri-open-air-2026-gratuit.webp',
+        'thumbnail' => '/img/events/webp/coeur-meurtri-open-air-2026-gratuit.webp',
         'url' => 'https://shotgun.live/fr/events/coeur-meurtri-open-air-2026-gratuit',
         'media' => [
             'Le set de DJ Babe en images' => 'https://www.instagram.com/coeur_meurtri_by_babe/p/DcbN0swjVOO/',
@@ -33,6 +35,7 @@ return [
         'description' => 'Deux jours gratuits de house, bass house et tech house au parc des Merlettes. Dao Brothers clôture le vendredi. Le samedi, Red Marshal présente un set composé de ses productions, accompagné de Saya Ray et Nissou.',
         'lineup' => 'Vendredi : 3HP, Matt, Alex Cara et Dao Brothers. Samedi : Hiyo, Esmèesha, Greg Saelen et Red Marshal. Danse : Saya Ray et Nissou.',
         'image' => '/img/events/the-red-night-open-air-gratuit.png',
+        'thumbnail' => '/img/events/webp/the-red-night-open-air-gratuit.webp',
         'url' => 'https://shotgun.live/fr/events/the-red-night-open-air-gratuit',
         'media' => [
             'Programme par jour' => 'https://www.instagram.com/the.red.night/p/Dbn_LGtjFUK/',
@@ -46,6 +49,7 @@ return [
         'description' => 'Après le Full House, la série Off investit le Babylone pour un after à partir de 5h30. Fernando Gomez et Dao Brothers y croisent techno, house et bass house.',
         'lineup' => 'Fernando Gomez et Dao Brothers.',
         'image' => '/img/events/the-red-night-off-edition-7.jpg',
+        'thumbnail' => '/img/events/webp/the-red-night-off-edition-7.webp',
         'url' => 'https://shotgun.live/fr/events/the-red-night-off-edition-7',
     ],
     [
@@ -55,6 +59,7 @@ return [
         'description' => 'Le réveillon au Dozo : deux scènes, sushis, musique électronique et performances, de 18h à 5h.',
         'lineup' => 'Hajar, Red Marshal, Tilda Massol, Greg Saelen, Fernando Gomez, Dao Brothers, 3HP, Hiyo. Performance : Nissou.',
         'image' => '/img/events/the-red-night-sushi-techno-2-new-year-2026.png',
+        'thumbnail' => '/img/events/webp/the-red-night-sushi-techno-2-new-year-2026.webp',
         'url' => 'https://shotgun.live/fr/events/the-red-night-sushi-techno-2-new-year-2026',
     ],
     [
@@ -64,6 +69,7 @@ return [
         'description' => 'Retour au Full House pour l’after officiel de l’Open Air 2025. De 1h à 7h, six projets de Dao Family Records se partagent les platines, de la bass house à la hard techno.',
         'lineup' => 'Zoé Kunter, Fernando Gomez, Dao Brothers, DJ Babe, Red Marshal et Clarity.',
         'image' => '/img/events/the-red-night-off-6.webp',
+        'thumbnail' => '/img/events/webp/the-red-night-off-6.webp',
         'url' => 'https://shotgun.live/fr/events/the-red-night-off-edition-6',
     ],
     [
@@ -73,6 +79,7 @@ return [
         'description' => 'Pour cette cinquième édition au Full House, NIVK représente le collectif Intrusion aux côtés de Red Marshal et Fernando Gomez, entre techno et hard techno.',
         'lineup' => 'NIVK, Red Marshal et Fernando Gomez.',
         'image' => '/img/nextEvent2.jpg',
+        'thumbnail' => '/img/events/webp/nextEvent2.webp',
         'url' => 'https://shotgun.live/fr/events/the-red-night-off-edition-5',
         'media' => ['L’annonce sur Instagram' => 'https://www.instagram.com/p/DIvfIeyICU5/'],
     ],
@@ -83,6 +90,7 @@ return [
         'description' => 'Fernando Gomez ouvre cette quatrième édition au Full House, avant les sets techno de Tilda Massol et Red Marshal.',
         'lineup' => 'Fernando Gomez, Tilda Massol et Red Marshal.',
         'image' => '/img/events/the-red-night-off-4.webp',
+        'thumbnail' => '/img/events/webp/the-red-night-off-4.webp',
         'url' => 'https://shotgun.live/fr/events/the-red-night-off-edition-4',
     ],
     [
@@ -92,6 +100,7 @@ return [
         'description' => 'L’after de l’open air Cœur Meurtri, de 23h30 à 5h30, avec une programmation féminine techno et hard techno.',
         'lineup' => 'DJ Babe, Zoé Kunter, Anarchy et Attola.',
         'image' => '/img/events/after-officiel-coeur-meurtri-open-air-2025.jpg',
+        'thumbnail' => '/img/events/webp/after-officiel-coeur-meurtri-open-air-2025.webp',
         'url' => 'https://shotgun.live/fr/events/after-officiel-coeur-meurtri-open-air-2025',
     ],
     [
@@ -101,6 +110,7 @@ return [
         'description' => 'Une nuit consacrée aux artistes féminines de la scène électronique, avec DJ Babe, fondatrice de Cœur Meurtri.',
         'lineup' => 'Ardente, 5050, DJ Babe et Zoé Kunter.',
         'image' => '/img/events/coeur-meurtri-by-dj-babe-full-house-4.jpg',
+        'thumbnail' => '/img/events/webp/coeur-meurtri-by-dj-babe-full-house-4.webp',
         'url' => 'https://shotgun.live/fr/events/coeur-meurtri-by-dj-babe-full-house-4',
     ],
     [
@@ -110,6 +120,7 @@ return [
         'description' => 'Une troisième nuit techno au Full House, ouverte par Michi et clôturée par Lysun.',
         'lineup' => 'Michi, Mon.To, Red Marshal et Lysun.',
         'image' => '/img/events/the-red-night-off-3.webp',
+        'thumbnail' => '/img/events/webp/the-red-night-off-3.webp',
         'url' => 'https://shotgun.live/fr/events/the-red-night-off-full-house-3',
     ],
     [
@@ -119,6 +130,7 @@ return [
         'description' => 'Pour la troisième soirée du collectif au Full House, MaSo joue en ouverture, aux côtés de Petit Castor, DJ Babe et Rōssel R.',
         'lineup' => 'MaSo, Petit Castor, DJ Babe et Rōssel R.',
         'image' => '/img/events/coeur-meurtri-full-house-3.webp',
+        'thumbnail' => '/img/events/webp/coeur-meurtri-full-house-3.webp',
         'url' => 'https://shotgun.live/fr/events/coeur-meurtri-by-dj-babe-full-house-3',
     ],
     [
@@ -128,6 +140,7 @@ return [
         'description' => 'Pour cette deuxième édition, The Red Night invite le collectif Intrusion au Full House. Six artistes se relaient entre techno minimale et hard techno.',
         'lineup' => 'BRWNS, NIVK, Dodö, KayAa, Curtain et S.A.G.E.',
         'image' => '/img/events/the-red-night-off-2.webp',
+        'thumbnail' => '/img/events/webp/the-red-night-off-2.webp',
         'url' => 'https://shotgun.live/fr/events/the-red-night-off-full-house-2',
     ],
     [
@@ -146,6 +159,7 @@ return [
         'description' => 'La première édition de Cœur Meurtri, imaginée par DJ Babe pour mettre les femmes aux platines, ouvre la série de nuits au Full House.',
         'lineup' => 'DJ Babe, Tilda Massol, KARLØTA et Zoé Kunter.',
         'image' => '/img/events/coeur-meurtri-full-house-1.webp',
+        'thumbnail' => '/img/events/webp/coeur-meurtri-full-house-1.webp',
         'url' => 'https://shotgun.live/en/events/coeur-meurtri-by-dj-babe-full-house-1',
     ],
     [
@@ -155,6 +169,7 @@ return [
         'description' => 'La première Red Night Off au Full House invite Hemëi, venue de Paris pour cette nuit hard techno. Red Marshal assure la clôture.',
         'lineup' => 'Hemëi, Valles, Lysun et Red Marshal.',
         'image' => '/img/events/the-red-night-off-1.webp',
+        'thumbnail' => '/img/events/webp/the-red-night-off-1.webp',
         'url' => 'https://shotgun.live/fr/events/the-red-night-off-full-house-1',
     ],
 ];

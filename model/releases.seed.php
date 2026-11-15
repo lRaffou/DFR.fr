@@ -6,7 +6,7 @@ return [
         [
             'title' => 'Red Destruction',
             'artist' => 'Red Marshal',
-            'image' => '/img/albums/red-destruction.jpg',
+            'image' => '/img/albums/webp/red-destruction.webp',
             'date' => '2026-09-27',
             'spotify' => 'https://open.spotify.com/album/3Geztn2dXF5YyW5TGZpBz8',
             'link_label' => 'Écouter sur Spotify',
@@ -14,7 +14,7 @@ return [
         [
             'title' => 'Versus',
             'artist' => 'Red Marshal, Dj Babe',
-            'image' => '/img/albums/versus.jpg',
+            'image' => '/img/albums/webp/versus.webp',
             'date' => '2026-08-09',
             'spotify' => 'https://open.spotify.com/album/6IPoVNmaRQojvGv3gz3txM',
             'link_label' => 'Écouter sur Spotify',
@@ -22,7 +22,7 @@ return [
         [
             'title' => 'Discoteca',
             'artist' => 'Fernando Gomez',
-            'image' => '/img/albums/discoteca.jpg',
+            'image' => '/img/albums/webp/discoteca.webp',
             'date' => '2026-05-29',
             'spotify' => 'https://open.spotify.com/album/1eYn7mzy39m7pvkI3VIhn2',
             'link_label' => 'Écouter sur Spotify',
@@ -32,7 +32,7 @@ return [
         [
             'title' => 'Destruction',
             'artist' => 'Fernando Gomez',
-            'image' => '/img/albums/destruction.jpg',
+            'image' => '/img/albums/webp/destruction.webp',
             'date' => '2026-04-17',
             'spotify' => 'https://open.spotify.com/album/4333gSanDKPWSsk85kkewB',
             'link_label' => 'Écouter sur Spotify',
@@ -40,7 +40,7 @@ return [
         [
             'title' => 'Morgenbruch',
             'artist' => 'Red Marshal, Zoé Kunter',
-            'image' => '/img/albums/morgenbruch.jpg',
+            'image' => '/img/albums/webp/morgenbruch.webp',
             'date' => '2026-04-12',
             'spotify' => 'https://open.spotify.com/album/5ZnEFMEG1NLDYOs02vww6C',
             'link_label' => 'Écouter sur Spotify',
@@ -48,7 +48,7 @@ return [
         [
             'title' => 'Acid Conversation',
             'artist' => 'Dao Brothers',
-            'image' => '/img/albums/album5.png',
+            'image' => '/img/albums/webp/album5.webp',
             'date' => '2024-10-04',
             'spotify' => 'https://open.spotify.com/album/6NCGuVlBWQ3LR0McsRcQ4K',
             'link_label' => 'Voir sur Spotify',
@@ -56,7 +56,7 @@ return [
         [
             'title' => 'How Can I',
             'artist' => 'Dj Babe',
-            'image' => '/img/albums/album1.png',
+            'image' => '/img/albums/webp/album1.webp',
             'date' => '2024-09-27',
             'spotify' => 'https://open.spotify.com/album/47Q6yAPK2TYz133M4TPR9E',
             'link_label' => 'Voir sur Spotify',
@@ -64,7 +64,7 @@ return [
         [
             'title' => 'Imagination',
             'artist' => 'Fernando Gomez',
-            'image' => '/img/albums/album2.jpg',
+            'image' => '/img/albums/webp/album2.webp',
             'date' => '2024-06-13',
             'spotify' => 'https://open.spotify.com/album/29j5GKQGMW4TE54vCICzAL',
             'link_label' => 'Voir sur Spotify',
@@ -72,7 +72,7 @@ return [
         [
             'title' => 'Feel Good',
             'artist' => 'Dj Babe',
-            'image' => '/img/albums/album4.jpg',
+            'image' => '/img/albums/webp/album4.webp',
             'date' => '2024-05-24',
             'spotify' => 'https://open.spotify.com/album/4wC5FKHW0wgIZDe3sjadRN',
             'link_label' => 'Voir sur Spotify',
@@ -80,7 +80,7 @@ return [
         [
             'title' => 'Darkness',
             'artist' => 'Fernando Gomez',
-            'image' => '/img/albums/album6.png',
+            'image' => '/img/albums/webp/album6.webp',
             'date' => '2024-04-12',
             'spotify' => 'https://open.spotify.com/album/6pm5Thck2Qf4pFGtg4xnGE',
             'link_label' => 'Voir sur Spotify',
@@ -88,7 +88,7 @@ return [
         [
             'title' => 'Red Rave',
             'artist' => 'Red Marshal',
-            'image' => '/img/accueil/Releases-1.png',
+            'image' => '/img/albums/webp/Releases-1.webp',
             'date' => '2024-04-05',
             'spotify' => 'https://open.spotify.com/album/3qFHJrWeitkjPo1OWmRBHa',
             'link_label' => 'Voir l’album sur Spotify',
@@ -96,7 +96,7 @@ return [
         [
             'title' => 'Red Night',
             'artist' => 'Red Marshal',
-            'image' => '/img/albums/album3.jpg',
+            'image' => '/img/albums/webp/album3.webp',
             'date' => '2022-10-07',
             'spotify' => 'https://open.spotify.com/album/7nDOtP7tieus0W13J4RCho',
             'link_label' => 'Voir sur Spotify',
@@ -104,7 +104,7 @@ return [
         [
             'title' => 'My Eyes',
             'artist' => 'Red Marshal',
-            'image' => '/img/albums/album7.png',
+            'image' => '/img/albums/webp/album7.webp',
             'date' => '2021-11-12',
             'spotify' => 'https://open.spotify.com/album/2djAiLCzmUyuqmJ0Fb9Dud',
             'link_label' => 'Voir sur Spotify',

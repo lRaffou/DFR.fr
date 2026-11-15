@@ -1,6 +1,7 @@
 <?php
 function renderArtiste()
 {
+    $artistCardSizes = '(min-width: 1264px) 282px, (min-width: 1200px) 23vw, (min-width: 1000px) 30vw, (min-width: 608px) 45vw, calc(100vw - 2rem)';
     ob_start();
     ?>
     <main class="mainArtist">
@@ -14,7 +15,9 @@ function renderArtiste()
 
             <a class="artistCard" href="?artiste=red-marshal" aria-haspopup="dialog" data-artist="red-marshal">
                 <div class="artistImage">
-                    <img src="/img/artistes/artist1.png" alt="Red Marshal">
+                    <img src="/img/artistes/webp/red-marshal.webp"
+                        srcset="/img/artistes/webp/red-marshal-640.webp 640w, /img/artistes/webp/red-marshal.webp 1000w"
+                        sizes="<?= $artistCardSizes ?>" alt="Red Marshal" fetchpriority="high">
                     <div class="artistOverlay">
                         <div class="artistInfo">
                             <h2>Red Marshal</h2>
@@ -27,7 +30,9 @@ function renderArtiste()
 
             <a class="artistCard" href="?artiste=dj-babe" aria-haspopup="dialog" data-artist="dj-babe">
                 <div class="artistImage">
-                    <img src="/img/DJ_BABE_01.png" alt="DJ Babe" loading="lazy">
+                    <img src="/img/artistes/webp/dj-babe.webp"
+                        srcset="/img/artistes/webp/dj-babe-420.webp 420w, /img/artistes/webp/dj-babe.webp 633w"
+                        sizes="<?= $artistCardSizes ?>" alt="DJ Babe" loading="lazy" decoding="async">
                     <div class="artistOverlay">
                         <div class="artistInfo">
                             <h2>DJ Babe</h2>
@@ -41,7 +46,7 @@ function renderArtiste()
 
             <a class="artistCard" href="?artiste=fernando-gomez" aria-haspopup="dialog" data-artist="fernando">
                 <div class="artistImage">
-                    <img src="https://i.scdn.co/image/ab6761610000e5ebb7dbded7789bb71036f6b48d" alt="Fernando Gomez">
+                    <img src="https://i.scdn.co/image/ab6761610000e5ebb7dbded7789bb71036f6b48d" alt="Fernando Gomez" loading="lazy" decoding="async">
                     <div class="artistOverlay">
                         <div class="artistInfo">
                             <h2>Fernando Gomez</h2>
@@ -54,7 +59,7 @@ function renderArtiste()
 
             <a class="artistCard" href="?artiste=dao-brothers" aria-haspopup="dialog" data-artist="dao-brothers">
                 <div class="artistImage">
-                    <img src="https://i.scdn.co/image/ab6761610000e5eb4994aa0e261ae445251ef760" alt="Dao Brothers" loading="lazy">
+                    <img src="https://i.scdn.co/image/ab6761610000e5eb4994aa0e261ae445251ef760" alt="Dao Brothers" loading="lazy" decoding="async">
                     <div class="artistOverlay">
                         <div class="artistInfo">
                             <h2>Dao Brothers</h2>
@@ -67,7 +72,9 @@ function renderArtiste()
 
             <a class="artistCard" href="?artiste=zoe-kunter" aria-haspopup="dialog" data-artist="zoe-kunter">
                 <div class="artistImage">
-                    <img src="/img/gallerie/artist5_1on4.jpg" alt="Zoé Kunter" loading="lazy">
+                    <img src="/img/artistes/webp/zoe-kunter.webp"
+                        srcset="/img/artistes/webp/zoe-kunter-420.webp 420w, /img/artistes/webp/zoe-kunter.webp 775w"
+                        sizes="<?= $artistCardSizes ?>" alt="Zoé Kunter" loading="lazy" decoding="async">
                     <div class="artistOverlay">
                         <div class="artistInfo">
                             <h2>Zoé Kunter</h2>
@@ -80,7 +87,9 @@ function renderArtiste()
 
             <a class="artistCard" href="?artiste=clarity" aria-haspopup="dialog" data-artist="clarity">
                 <div class="artistImage">
-                    <img src="/img/gallerie/artist6_1on4.jpg" alt="Clarity" loading="lazy">
+                    <img src="/img/artistes/webp/clarity.webp"
+                        srcset="/img/artistes/webp/clarity-420.webp 420w, /img/artistes/webp/clarity.webp 562w"
+                        sizes="<?= $artistCardSizes ?>" alt="Clarity" loading="lazy" decoding="async">
                     <div class="artistOverlay">
                         <div class="artistInfo">
                             <h2>Clarity</h2>
@@ -93,7 +102,9 @@ function renderArtiste()
 
             <a class="artistCard" href="?artiste=frenzysax" aria-haspopup="dialog" data-artist="frenzysax">
                 <div class="artistImage">
-                    <img src="/img/artistes/frenzysax.jpg" alt="Frenzysax" loading="lazy">
+                    <img src="/img/artistes/webp/frenzysax.webp"
+                        srcset="/img/artistes/webp/frenzysax-420.webp 420w, /img/artistes/webp/frenzysax.webp 640w"
+                        sizes="<?= $artistCardSizes ?>" alt="Frenzysax" loading="lazy" decoding="async">
                     <div class="artistOverlay">
                         <div class="artistInfo">
                             <h2>Frenzysax</h2>

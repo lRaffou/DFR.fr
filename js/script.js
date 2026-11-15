@@ -78,6 +78,23 @@ if (carousel) {
     carousel.addEventListener("touchend", dragStop);
 }
 
+// Le lecteur intégré est chargé à l’activation. Le lien reste utilisable sans JavaScript.
+document.querySelectorAll("a[data-player-src]").forEach(preview => {
+    preview.addEventListener("click", event => {
+        if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+
+        const iframe = document.createElement("iframe");
+        iframe.src = preview.dataset.playerSrc;
+        iframe.title = preview.dataset.playerTitle;
+        iframe.allow = preview.dataset.playerAllow;
+        iframe.allowFullscreen = true;
+        iframe.referrerPolicy = "strict-origin-when-cross-origin";
+        preview.replaceWith(iframe);
+        iframe.focus({ preventScroll: true });
+    });
+});
+
 // Modale pour vidéos
 const videoCards = document.querySelectorAll(".videoCard");
 const modal = document.getElementById("videoModal");
