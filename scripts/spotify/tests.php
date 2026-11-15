@@ -168,6 +168,16 @@ check(array_column($selection['featured'], 'title') === ['Nouveau solo', 'Nouvel
     'Chaque catégorie se renouvelle avec sa dernière sortie, sans perdre ni dupliquer les autres fiches');
 check(count(dfrMergeReleases(['featured' => [], 'catalog' => []], ['releases' => [$newSolo]])['featured']) === 1,
     'Une catégorie absente ne crée pas de carte vide ou de doublon');
+$frenzysax = $newOther;
+$frenzysax['spotify'] = 'https://open.spotify.com/album/30u1Cqo1BArnSTrdpmdf6K';
+$frenzysax['title'] = 'Live The Moment'; $frenzysax['date'] = '2026-11-06';
+$frenzysax['artist'] = 'Frenzysax'; $frenzysax['artist_ids'] = ['4NqtEeAINDNe0G3FiHbqbs'];
+$frenzysaxSelection = dfrMergeReleases($seed, ['releases' => [$frenzysax]]);
+check(array_column($frenzysaxSelection['featured'], 'title') === ['Red Destruction', 'Live The Moment', 'Discoteca']
+    && $frenzysaxSelection['featured'][1]['artist'] === 'Frenzysax'
+    && $frenzysaxSelection['total'] === 14
+    && in_array('Versus', array_column($frenzysaxSelection['catalog'], 'title'), true),
+    'Frenzysax occupe la place collaboration sans modifier les crédits ni perdre les autres sorties');
 $seedCard = $built['releases'][0]; $seedCard['image'] = '/img/accueil/Releases-1.png'; $seedCard['artist'] = 'Artiste DFR, invitée confirmée';
 $merged = dfrMergeReleases(['featured' => [$seedCard], 'catalog' => []], $built);
 check($merged['total'] === 1 && $merged['featured'][0]['image'] === $seedCard['image']

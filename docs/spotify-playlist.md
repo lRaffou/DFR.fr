@@ -1,7 +1,7 @@
 # Playlist et catalogue DFR automatiques
 
 La playlist existante `4z6XsMTJ8rsbSGyi20bz9T` reste intégrée au site. Le script CLI
-ajoute les sorties des cinq profils confirmés dans `scripts/spotify/config.php`,
+ajoute les sorties des six profils confirmés dans `scripts/spotify/config.php`,
 y compris les collaborations. Aucun ajout manuel au site n'est nécessaire.
 Clarity sera intégrée quand un profil Spotify aura été confirmé.
 
@@ -10,6 +10,9 @@ sur le site. Une fiche est créée par identifiant d'album Spotify, collaboratio
 comprises. « À la une », sur l'accueil et la page Sorties, sélectionne dans cet
 ordre la dernière sortie solo de Red Marshal, la dernière collaboration et la
 dernière sortie d'un autre artiste. Chaque catégorie se renouvelle automatiquement.
+Frenzysax occupe la catégorie collaboration, conformément au classement demandé
+par DFR, même lorsque Spotify ne crédite que son profil. Cette règle est appliquée
+à l’affichage et reste valable après chaque actualisation du catalogue.
 Les autres sorties restent triées par date, par pages de 24. Les dates partielles fournies
 par Spotify restent partielles, sans jour inventé.
 

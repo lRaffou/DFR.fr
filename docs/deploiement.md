@@ -130,3 +130,10 @@ privés ; seuls des identifiants publics et métadonnées musicales sont publié
 La clé `dfr-frenzysax-sync-2026-11-15` a été retirée, le statut SSH `INACTIVE`
 a été vérifié dans Hostinger et les trois fichiers de la clé temporaire locale
 ont été supprimés. La synchronisation quotidienne fonctionne sans accès SSH.
+
+## Classement éditorial de Frenzysax
+
+À la demande du propriétaire, Frenzysax compte dans la catégorie collaboration.
+La sélection actuelle devient Red Destruction / Live The Moment / Discoteca.
+Les crédits Spotify sont conservés. La règle s’applique lors de l’affichage sur
+l’accueil et les Sorties, y compris après les actualisations automatiques.

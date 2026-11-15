@@ -10,6 +10,7 @@ Les profils suivants ont été fournis et rattachés à DFR par le propriétaire
 - [Frenzysax sur Spotify](https://open.spotify.com/artist/4NqtEeAINDNe0G3FiHbqbs)
 
 Le nom, l’identifiant et le portrait de Frenzysax ont été confirmés par Spotify.
+Le propriétaire a confirmé son classement en collaboration pour « À la une ».
 Son rôle précis et sa biographie restent à compléter avec le propriétaire. Ne
 pas déduire l’identité des personnes de la photo ou une biographie à partir du nom.
 

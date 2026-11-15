@@ -82,7 +82,10 @@ function dfrFeaturedReleases(array $sorted): array
     $slots = ['red_marshal' => null, 'collaboration' => null, 'other_artist' => null];
     foreach ($sorted as $release) {
         $names = array_map('trim', explode(',', $release['artist']));
-        $collaboration = count(array_unique($release['artist_ids'])) > 1 || count($names) > 1;
+        // DFR classes Frenzysax as a collaboration even when Spotify credits one artist.
+        $collaboration = count(array_unique($release['artist_ids'])) > 1 || count($names) > 1
+            || in_array('4NqtEeAINDNe0G3FiHbqbs', $release['artist_ids'], true)
+            || in_array('frenzysax', array_map('strtolower', $names), true);
         $redMarshal = in_array('3zpewQ11GYG2ev9Ngdsvi9', $release['artist_ids'], true)
             || in_array('red marshal', array_map('strtolower', $names), true);
         $category = $collaboration ? 'collaboration' : ($redMarshal ? 'red_marshal' : 'other_artist');
