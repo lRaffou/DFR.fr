@@ -12,7 +12,7 @@ function renderArtiste()
 
         <section class="artistGrid">
 
-            <article class="artistCard" role="button" tabindex="0" aria-haspopup="dialog" data-artist="red-marshal">
+            <a class="artistCard" href="?artiste=red-marshal" aria-haspopup="dialog" data-artist="red-marshal">
                 <div class="artistImage">
                     <img src="/img/artistes/artist1.png" alt="Red Marshal">
                     <div class="artistOverlay">
@@ -23,9 +23,9 @@ function renderArtiste()
                         </div>
                     </div>
                 </div>
-            </article>
+            </a>
 
-            <article class="artistCard" role="button" tabindex="0" aria-haspopup="dialog" data-artist="dj-babe">
+            <a class="artistCard" href="?artiste=dj-babe" aria-haspopup="dialog" data-artist="dj-babe">
                 <div class="artistImage">
                     <img src="/img/DJ_BABE_01.png" alt="DJ Babe" loading="lazy">
                     <div class="artistOverlay">
@@ -37,9 +37,9 @@ function renderArtiste()
                         </div>
                     </div>
                 </div>
-            </article>
+            </a>
 
-            <article class="artistCard" role="button" tabindex="0" aria-haspopup="dialog" data-artist="fernando">
+            <a class="artistCard" href="?artiste=fernando-gomez" aria-haspopup="dialog" data-artist="fernando">
                 <div class="artistImage">
                     <img src="https://i.scdn.co/image/ab6761610000e5ebb7dbded7789bb71036f6b48d" alt="Fernando Gomez">
                     <div class="artistOverlay">
@@ -50,9 +50,9 @@ function renderArtiste()
                         </div>
                     </div>
                 </div>
-            </article>
+            </a>
 
-            <article class="artistCard" role="button" tabindex="0" aria-haspopup="dialog" data-artist="dao-brothers">
+            <a class="artistCard" href="?artiste=dao-brothers" aria-haspopup="dialog" data-artist="dao-brothers">
                 <div class="artistImage">
                     <img src="https://i.scdn.co/image/ab6761610000e5eb4994aa0e261ae445251ef760" alt="Dao Brothers" loading="lazy">
                     <div class="artistOverlay">
@@ -63,9 +63,9 @@ function renderArtiste()
                         </div>
                     </div>
                 </div>
-            </article>
+            </a>
 
-            <article class="artistCard" role="button" tabindex="0" aria-haspopup="dialog" data-artist="zoe-kunter">
+            <a class="artistCard" href="?artiste=zoe-kunter" aria-haspopup="dialog" data-artist="zoe-kunter">
                 <div class="artistImage">
                     <img src="/img/gallerie/artist5_1on4.jpg" alt="Zoé Kunter" loading="lazy">
                     <div class="artistOverlay">
@@ -76,9 +76,9 @@ function renderArtiste()
                         </div>
                     </div>
                 </div>
-            </article>
+            </a>
 
-            <article class="artistCard" role="button" tabindex="0" aria-haspopup="dialog" data-artist="clarity">
+            <a class="artistCard" href="?artiste=clarity" aria-haspopup="dialog" data-artist="clarity">
                 <div class="artistImage">
                     <img src="/img/gallerie/artist6_1on4.jpg" alt="Clarity" loading="lazy">
                     <div class="artistOverlay">
@@ -89,9 +89,9 @@ function renderArtiste()
                         </div>
                     </div>
                 </div>
-            </article>
+            </a>
 
-            <article class="artistCard" role="button" tabindex="0" aria-haspopup="dialog" data-artist="frenzysax">
+            <a class="artistCard" href="?artiste=frenzysax" aria-haspopup="dialog" data-artist="frenzysax">
                 <div class="artistImage">
                     <img src="/img/artistes/frenzysax.jpg" alt="Frenzysax" loading="lazy">
                     <div class="artistOverlay">
@@ -102,7 +102,7 @@ function renderArtiste()
                         </div>
                     </div>
                 </div>
-            </article>
+            </a>
         </section>
 
         <!-- Modal pour afficher les détails de l'artiste -->

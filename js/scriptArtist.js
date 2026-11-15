@@ -223,13 +223,69 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!modal || !closeModal || !artistDetailsContainer) return;
 
+    const sharePage = "https://daofamilyrecords.fr/controller/artiste.php";
+    const slugForCard = (card) => new URL(card.href).searchParams.get("artiste");
+    const cardsBySlug = new Map(Array.from(artistCards, (card) => [slugForCard(card), card]));
     let activeCard = null;
 
-    function closeArtistModal() {
+    function hideArtistModal() {
+        if (!activeCard) return;
         modal.style.display = "none";
         document.body.classList.remove("modalOpen");
         artistDetailsContainer.innerHTML = "";
-        activeCard?.focus();
+        const previousCard = activeCard;
+        activeCard = null;
+        previousCard.focus();
+    }
+
+    function closeArtistModal() {
+        if (!activeCard) return;
+        if (history.state?.dfrArtistModal === true) {
+            hideArtistModal();
+            history.back();
+        } else {
+            const url = new URL(window.location.href);
+            url.searchParams.delete("artiste");
+            history.replaceState(history.state, "", url);
+            hideArtistModal();
+        }
+    }
+
+    function showArtistModal(card) {
+        const artistId = card.dataset.artist;
+        activeCard = card;
+        artistDetailsContainer.innerHTML = createArtistDetails(artistId);
+        modal.style.display = "block";
+        modal.scrollTop = 0;
+        document.body.classList.add("modalOpen");
+        closeModal.focus({preventScroll: true});
+
+        const shareUrl = new URL(card.getAttribute("href"), sharePage).href;
+        const copyButton = modal.querySelector(".artistShareButton");
+        const shareInput = modal.querySelector(".artistShareInput");
+        const shareStatus = modal.querySelector(".artistShareStatus");
+        copyButton.addEventListener("click", async () => {
+            try {
+                await navigator.clipboard.writeText(shareUrl);
+                shareStatus.textContent = "Lien copié.";
+            } catch {
+                shareInput.value = shareUrl;
+                shareInput.hidden = false;
+                shareInput.focus();
+                shareInput.select();
+                shareStatus.textContent = "Sélectionne et copie le lien.";
+            }
+        });
+    }
+
+    function syncArtistModalFromUrl() {
+        const slug = new URL(window.location.href).searchParams.get("artiste");
+        const card = cardsBySlug.get(slug);
+        if (card) {
+            showArtistModal(card);
+        } else {
+            hideArtistModal();
+        }
     }
 
     function createArtistDetails(artistId) {
@@ -260,6 +316,11 @@ document.addEventListener("DOMContentLoaded", function () {
                                 }
                                 <a href="${artist.social_instagram}"
                                 class="socialLink" target="_blank" rel="noopener noreferrer" aria-label="${artist.name} sur Instagram"><i class="fab fa-instagram"></i></a>
+                            </div>
+                            <div class="artistShare">
+                                <button type="button" class="artistShareButton">Copier le lien</button>
+                                <span class="artistShareStatus" role="status"></span>
+                                <input class="artistShareInput" type="text" inputmode="url" readonly hidden aria-label="Lien direct de la fiche">
                             </div>
                         </div>
                     </div>
@@ -316,17 +377,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     artistCards.forEach((card) => {
-        card.addEventListener("click", function () {
-            const artistId = this.getAttribute("data-artist");
-            if (!artistData[artistId]) return;
-            activeCard = card;
-            artistDetailsContainer.innerHTML = createArtistDetails(artistId);
-            modal.style.display = "block";
-            document.body.classList.add("modalOpen");
-            closeModal.focus();
+        card.addEventListener("click", (event) => {
+            if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+            event.preventDefault();
+            const url = new URL(window.location.href);
+            url.searchParams.set("artiste", slugForCard(card));
+            history.pushState({dfrArtistModal: true}, "", url);
+            syncArtistModalFromUrl();
         });
-        card.addEventListener("keydown", function (event) {
-            if (event.key === "Enter" || event.key === " ") {
+        card.addEventListener("keydown", (event) => {
+            if (event.key === " ") {
                 event.preventDefault();
                 card.click();
             }
@@ -340,7 +400,7 @@ document.addEventListener("DOMContentLoaded", function () {
     modal.addEventListener("keydown", function (event) {
         if (event.key === "Escape") closeArtistModal();
         if (event.key !== "Tab") return;
-        const controls = modal.querySelectorAll("button, a[href], iframe");
+        const controls = modal.querySelectorAll("button, a[href], input:not([hidden]), iframe");
         const first = controls[0];
         const last = controls[controls.length - 1];
         if (event.shiftKey && document.activeElement === first) {
@@ -351,4 +411,6 @@ document.addEventListener("DOMContentLoaded", function () {
             first.focus();
         }
     });
+    window.addEventListener("popstate", syncArtistModalFromUrl);
+    syncArtistModalFromUrl();
 });

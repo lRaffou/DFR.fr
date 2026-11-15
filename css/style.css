@@ -2714,6 +2714,42 @@ h6 {
     text-underline-offset: 0.25em;
 }
 
+.artistGrid .artistCard {
+    text-decoration: none;
+}
+
+.artistGrid .artistCard:focus-visible {
+    outline: 3px solid #ff9d9d;
+    outline-offset: 4px;
+}
+
+.artistShare {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .4rem .7rem;
+    margin-top: .75rem;
+}
+
+.artistShareButton {
+    padding: .45rem .75rem;
+    border: 1px solid #333;
+    border-radius: 6px;
+    background: #fff;
+    color: #222;
+    font: inherit;
+    font-size: .9rem;
+    cursor: pointer;
+}
+
+.artistShareButton:hover { background: #f2f2f2; }
+.artistShareStatus { font-size: .85rem; color: #444; }
+.artistShareInput:not([hidden]) { width: 100%; min-width: 0; padding: .35rem; font-size: 1rem; }
+
+@media (max-width: 768px) {
+    .artistShare { justify-content: center; }
+}
+
 /* Les cadrages sont réglés par artiste pour chaque format. */
 [data-artist="red-marshal"] {
     --artist-card-position: 49% 50%;
