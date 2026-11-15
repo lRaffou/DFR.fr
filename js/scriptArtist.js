@@ -29,11 +29,11 @@ const artistData = {
         ],
         booking: "daofamilyrecords@gmail.com",
         gallery: [
-            "https://i.scdn.co/image/ab6761610000e5eb5697300e5315295d1a0a81b7",
-            "/img/Red_Marshal_5.jpg",
-            "/img/Red_Marshal_2.jpg",
-            "/img/Red_Marshal_7.jpg",
-            "/img/gallerie/artist1_4on4.jpg",
+            {src: "https://i.scdn.co/image/ab6761610000e5eb5697300e5315295d1a0a81b7"},
+            {src: "/img/Red_Marshal_5.jpg"},
+            {src: "/img/Red_Marshal_2.jpg"},
+            {src: "/img/Red_Marshal_7.jpg"},
+            {src: "/img/gallerie/artist1_4on4.jpg", position: "50% 28%"},
         ],
     },
     "dj-babe": {
@@ -63,10 +63,10 @@ const artistData = {
             {label: "Cœur Meurtri sur Shotgun", href: "https://shotgun.live/fr/venues/c-oe-ur-meurtri-by-dj-babe"},
         ],
         gallery: [
-            "https://i.scdn.co/image/ab6761610000e5ebbe85419315ecd917a693e08a",
-            "/img/gallerie/artist2_2on4.jpg",
-            "/img/gallerie/artist2_3on4.jpg",
-            "/img/gallerie/artist2_4on4.jpg",
+            {src: "https://i.scdn.co/image/ab6761610000e5ebbe85419315ecd917a693e08a"},
+            {src: "/img/gallerie/artist2_2on4.jpg"},
+            {src: "/img/gallerie/artist2_3on4.jpg"},
+            {src: "/img/gallerie/artist2_4on4.jpg", position: "50% 20%"},
         ],
     },
     fernando: {
@@ -97,10 +97,10 @@ const artistData = {
         ],
         booking: "daofamilyrecords@gmail.com",
         gallery: [
-            "/img/artistes/artist3.png",
-            "/img/gallerie/artist3_2on4.jpg",
-            "/img/gallerie/artist3_3on4.jpg",
-            "/img/gallerie/artist3_4on4.jpg",
+            {src: "/img/artistes/artist3.png"},
+            {src: "/img/gallerie/artist3_2on4.jpg"},
+            {src: "/img/gallerie/artist3_3on4.jpg"},
+            {src: "/img/gallerie/artist3_4on4.jpg"},
         ],
     },
     "dao-brothers": {
@@ -130,10 +130,10 @@ const artistData = {
         ],
         booking: "daofamilyrecords@gmail.com",
         gallery: [
-            "/img/Photo_dao_yo.jpg",
-            "/img/Photo_dao_%20yo_thao.jpg",
-            "/img/meilleur.jpg",
-            "/img/Photo_dao_thao.jpg",
+            {src: "/img/Photo_dao_yo.jpg", position: "76% 50%"},
+            {src: "/img/Photo_dao_%20yo_thao.jpg", ratio: "4889 / 2898"},
+            {src: "/img/meilleur.jpg"},
+            {src: "/img/Photo_dao_thao.jpg"},
         ],
     },
     "zoe-kunter": {
@@ -160,8 +160,8 @@ const artistData = {
             {label: "Cœur Meurtri au Full House", href: "https://shotgun.live/fr/events/coeur-meurtri-by-dj-babe-full-house-4"},
         ],
         gallery: [
-            "/img/gallerie/artist5_2on4.jpg",
-            "/img/gallerie/artist5_3on4.jpg",
+            {src: "/img/gallerie/artist5_2on4.jpg", position: "50% 88%"},
+            {src: "/img/gallerie/artist5_3on4.jpg", position: "50% 83%"},
         ],
     },
     clarity: {
@@ -177,7 +177,7 @@ const artistData = {
             {label: "The Red Night Off #6 au Full House", href: "https://shotgun.live/fr/events/the-red-night-off-edition-6"},
         ],
         gallery: [
-            "/img/gallerie/artist6_2on4.jpg",
+            {src: "/img/gallerie/artist6_2on4.jpg", position: "50% 34%"},
         ],
     },
     "frenzysax": {
@@ -303,8 +303,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="galleryGrid">
                         ${artist.gallery
                             .map(
-                                (img) =>
-                                    `<div class="galleryItem"><img src="${img}" alt="${artist.name}" loading="lazy" decoding="async"></div>`
+                                ({src, position = "center", ratio = "1"}) => `
+                                    <div class="galleryItem" style="--gallery-photo-position: ${position}; --gallery-photo-ratio: ${ratio}">
+                                        <img src="${src}" alt="${artist.name}" loading="lazy" decoding="async">
+                                    </div>`
                             )
                             .join("")}
                     </div>

@@ -1063,6 +1063,16 @@ h6 {
     grid-template-columns: repeat(auto-fill, minmax(min(100%, 180px), 1fr));
 }
 
+.artistGallery .galleryItem {
+    aspect-ratio: var(--gallery-photo-ratio, 1);
+    align-self: start;
+}
+
+.artistGallery .galleryItem img {
+    display: block;
+    object-position: var(--gallery-photo-position, center);
+}
+
 @media (max-width: 768px) {
     .modalContent {
         margin: 1rem;
