@@ -37,22 +37,20 @@ function renderAcceuil()
             <div class="releasesGrid">
                 <?php foreach ($releases['featured'] as $release): ?>
                     <article class="releaseCard">
-                        <div class="releaseImage">
+                        <a class="releaseImage coverLink" href="<?= htmlspecialchars($release['spotify']) ?>" target="_blank" rel="noopener noreferrer">
                             <img src="<?= htmlspecialchars($release['image']) ?>"
                                 alt="<?= htmlspecialchars($release['title'] . ' - ' . $release['artist']) ?>"
                                 loading="lazy">
-                            <div class="releaseOverlay">
+                        </a>
+                        <div class="releaseInfo">
+                            <h3><?= htmlspecialchars($release['title']) ?></h3>
+                            <p><?= htmlspecialchars($release['artist']) ?></p>
                                 <a href="<?= htmlspecialchars($release['spotify']) ?>" class="btnListen"
                                     target="_blank" rel="noopener noreferrer"
                                     aria-label="<?= htmlspecialchars($release['link_label'] . ' — ' . $release['title'] . ' par ' . $release['artist']) ?>">
                                     <i class="fab fa-spotify" aria-hidden="true"></i>
                                     <?= htmlspecialchars($release['link_label']) ?>
                                 </a>
-                            </div>
-                        </div>
-                        <div class="releaseInfo">
-                            <h3><?= htmlspecialchars($release['title']) ?></h3>
-                            <p><?= htmlspecialchars($release['artist']) ?></p>
                         </div>
                     </article>
                 <?php endforeach; ?>

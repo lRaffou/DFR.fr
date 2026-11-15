@@ -7,4 +7,5 @@ credentials.json
 .dfr-spotify/
 *.log
 .deploy/
+/data/releases.json
 

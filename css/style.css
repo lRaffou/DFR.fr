@@ -2611,3 +2611,59 @@ h6 {
         justify-content: center;
     }
 }
+
+/* Catalogue Spotify : pochettes intactes et liens accessibles sans survol. */
+.coverLink {
+    display: block;
+}
+.albumImage.coverLink img,
+.releaseImage.coverLink img {
+    display: block;
+    object-fit: contain;
+    transform: none;
+}
+.albumCard,
+.releaseCard {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+.albumInfo,
+.releaseInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-wrap: anywhere;
+}
+.albumInfo .btnListen,
+.releaseInfo .btnListen {
+    margin-top: auto;
+    padding: 0.8rem 1rem;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #000;
+}
+.albumInfo .releaseDate,
+.releaseInfo p {
+    margin-bottom: 1.25rem;
+}
+.albumHero .catalogCount {
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+.catalogPagination {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem auto 3rem;
+}
+.catalogPagination a {
+    color: #fff;
+    padding: 0.75rem 1rem;
+    background: #222;
+    border-radius: 8px;
+    text-underline-offset: 0.25em;
+}

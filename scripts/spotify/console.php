@@ -2,6 +2,7 @@
 declare(strict_types=1);
 if (PHP_SAPI !== 'cli') { http_response_code(404); exit; }
 require __DIR__ . '/lib.php';
+require __DIR__ . '/catalogue.php';
 umask(0077);
 
 function authorizeSpotify(PrivateStore $store, string $clientId): void
@@ -67,13 +68,13 @@ function authorizeSpotify(PrivateStore $store, string $clientId): void
 try {
     $command = $argv[1] ?? 'help';
     if (!in_array($command, ['authorize', 'sync'], true)) {
-        echo "DFR Spotify\n  php console.php authorize --client-id=ID --state-dir=CHEMIN_PRIVE\n  php console.php sync --state-dir=CHEMIN_PRIVE [--apply]\nSans --apply, aucun titre n'est ajouté.\n";
+        echo "DFR Spotify\n  php console.php authorize --client-id=ID --state-dir=CHEMIN_PRIVE\n  php console.php sync --state-dir=CHEMIN_PRIVE [--catalogue-file=CHEMIN_PUBLIC/releases.json] [--apply]\nSans --apply, la playlist et le catalogue public ne sont pas modifiés.\n";
         exit($command === 'help' ? 0 : 1);
     }
     $options = [];
     foreach (array_slice($argv, 2) as $argument) {
         if ($argument === '--apply') { $options['apply'] = true; continue; }
-        if (preg_match('/^--(state-dir|client-id)=(.+)$/', $argument, $matches)) { $options[$matches[1]] = $matches[2]; continue; }
+        if (preg_match('/^--(state-dir|client-id|catalogue-file)=(.+)$/', $argument, $matches)) { $options[$matches[1]] = $matches[2]; continue; }
         throw new RuntimeException('Option inconnue. Utiliser help.');
     }
     $directory = $options['state-dir'] ?? getenv('DFR_SPOTIFY_STATE_DIR');
@@ -81,6 +82,7 @@ try {
     $store = new PrivateStore($directory);
     $lock = $store->lock();
     if ($command === 'authorize') { authorizeSpotify($store, $options['client-id'] ?? ''); exit(0); }
+    if (isset($options['catalogue-file'])) { validateCatalogueTarget($options['catalogue-file']); }
     $config = require __DIR__ . '/config.php';
     $api = new SpotifyClient($store);
     $profile = $api->request('GET', '/me');
@@ -94,7 +96,8 @@ try {
     $cache = $store->read('catalogue-cache');
     $fingerprint = hash('sha256', json_encode([$config['artists'], $config['market'], $config['owner_id']]));
     if (($cache['fingerprint'] ?? '') !== $fingerprint) { $cache = ['fingerprint' => $fingerprint, 'albums' => []]; }
-    $candidates = discoverTracks($api, $config, $cache['albums']);
+    $albums = [];
+    $candidates = discoverTracks($api, $config, $cache['albums'], $albums);
     $store->write('catalogue-cache', $cache);
     $planned = planTracks($candidates, $existing, $config);
     $report = ['at' => gmdate(DATE_ATOM), 'mode' => isset($options['apply']) ? 'apply' : 'dry-run',
@@ -103,6 +106,12 @@ try {
     ];
     echo count($existing) . ' titres présents ; ' . count($planned) . " ajouts prévus.\n";
     foreach ($planned as $track) { echo $track['release_date'] . ' — ' . $track['name'] . ' — ' . $track['uri'] . "\n"; }
+    $catalogue = null;
+    if (isset($options['catalogue-file'])) {
+        $catalogue = buildReleaseCatalogue($albums, $candidates, $config, dfrReadCatalogue($options['catalogue-file']));
+        $report['catalogue_releases'] = count($catalogue['releases']);
+        echo $report['catalogue_releases'] . " sorties prévues au catalogue automatique.\n";
+    }
     if (isset($options['apply'])) {
         $report['added'] = applyTracks($api, $id, $planned, $playlist['snapshot_id']);
         // Check every requested URI after successful writes. An uncertain result is never replayed here.
@@ -111,6 +120,10 @@ try {
         foreach ($after as $entry) { foreach (trackKeys($entry['item'] ?? $entry['track'] ?? []) as $key) { $confirmed[$key] = true; } }
         foreach ($planned as $track) {
             if (!array_intersect(trackKeys($track), array_keys($confirmed))) { throw new RuntimeException('Ajout non visible après écriture. Relire la playlist avant de relancer.'); }
+        }
+        if ($catalogue !== null) {
+            publishReleaseCatalogue($options['catalogue-file'], $catalogue);
+            echo "Catalogue publié.\n";
         }
         $store->write('last-success', $report);
         echo $report['added'] . " titres ajoutés et vérifiés.\n";

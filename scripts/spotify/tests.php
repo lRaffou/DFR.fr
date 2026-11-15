@@ -2,6 +2,7 @@
 declare(strict_types=1);
 if (PHP_SAPI !== 'cli') { http_response_code(404); exit; }
 require __DIR__ . '/lib.php';
+require __DIR__ . '/catalogue.php';
 
 function check(bool $condition, string $message): void
 {
@@ -106,4 +107,50 @@ try {
     foreach (['credentials.json', 'sync.lock'] as $name) { if (is_file($temp . '/' . $name)) { unlink($temp . '/' . $name); } }
     rmdir($temp);
 }
+$artistId = str_repeat('a', 22);
+$albumId = str_repeat('b', 22);
+$otherAlbumId = str_repeat('c', 22);
+$catalogConfig = $config;
+$catalogConfig['artists'] = [$artistId => 'Artiste DFR'];
+$release = ['id' => $albumId, 'name' => 'Nouvelle sortie', 'release_date' => '2025-06',
+    'artists' => [['id' => $artistId, 'name' => 'Artiste DFR']],
+    'images' => [['url' => 'https://i.scdn.co/image/abc123']], 'secret' => 'NEVER-PUBLISH'];
+$track = song(22, '2025-06', $artistId); $track['album_id'] = $albumId;
+$built = buildReleaseCatalogue([$release, $release], [$track], $catalogConfig, null);
+check(count($built['releases']) === 1 && !str_contains(json_encode($built), 'NEVER-PUBLISH'), 'Catalogue sans doublon et uniquement avec les métadonnées publiques');
+check(dfrReleaseDateLabel('2025') === '2025' && dfrReleaseDateLabel('2025-06') === '06/2025'
+    && dfrReleaseDateLabel('2025-06-03') === '03/06/2025' && !dfrReleaseDateValid('2025-02-30'), 'Précision des dates conservée sans inventer de jour');
+$unavailableTrack = $track; $unavailableTrack['is_playable'] = false;
+check(buildReleaseCatalogue([$release], [$unavailableTrack], $catalogConfig, null)['releases'] === [], 'Pas de nouvelle fiche pour une sortie indisponible');
+$futureRelease = $release; $futureRelease['release_date'] = '2999-01-01';
+check(buildReleaseCatalogue([$futureRelease], [$track], $catalogConfig, null)['releases'] === [], 'Les sorties futures ne sont pas publiées');
+$compilation = $release; $compilation['artists'] = [['id' => 'outside', 'name' => 'Artiste sans rapport']];
+$track['artists'][0]['name'] = 'Artiste DFR';
+check(buildReleaseCatalogue([$compilation], [$track], $catalogConfig, null)['releases'][0]['artist'] === 'Artiste DFR', 'Les compilations créditent les participants concernés');
+$retained = buildReleaseCatalogue([], [], $catalogConfig, $built);
+check(count($retained['releases']) === 1 && $retained['releases'][0]['link_label'] === 'Voir sur Spotify', 'Les sorties historiques restent présentes après leur disparition de Spotify');
+$catalogConfig['excluded_album_ids'] = [$albumId];
+check(buildReleaseCatalogue([$release], [$track], $catalogConfig, $built)['releases'] === [], 'Une exclusion retire aussi une fiche automatique existante');
+$seed = require __DIR__ . '/../../model/releases.seed.php';
+check(dfrMergeReleases($seed, null)['total'] === 13, 'Les 13 fiches initiales restent disponibles sans cache');
+$seedCard = $built['releases'][0]; $seedCard['image'] = '/img/accueil/Releases-1.png'; $seedCard['artist'] = 'Artiste DFR, invitée confirmée';
+$merged = dfrMergeReleases(['featured' => [$seedCard], 'catalog' => []], $built);
+check($merged['total'] === 1 && $merged['featured'][0]['image'] === $seedCard['image']
+    && $merged['featured'][0]['artist'] === $seedCard['artist'], 'Fusion sans doublon ni perte de pochette ou de crédit éditorial');
+$malicious = $seedCard; $malicious['spotify'] = 'javascript:alert(1)';
+check(dfrCleanRelease($malicious) === null, 'Les liens Spotify externes ou dangereux sont refusés');
+check(dfrCataloguePage(range(1, 49), 999)['items'] === [49] && dfrCataloguePage(range(1, 49), ['bad'])['page'] === 1,
+    'Pagination bornée et paramètres invalides tolérés');
+$catalogDir = sys_get_temp_dir() . '/dfr-catalogue-test-' . bin2hex(random_bytes(6));
+mkdir($catalogDir);
+$catalogPath = $catalogDir . '/releases.json';
+try {
+    publishReleaseCatalogue($catalogPath, $built);
+    check(dfrReadCatalogue($catalogPath)['releases'][0]['id'] === $albumId, 'Publication et lecture du catalogue public');
+    $original = file_get_contents($catalogPath);
+    fails(fn() => publishReleaseCatalogue($catalogPath, ['schema_version' => 1, 'releases' => [['bad' => true]]]), 'Une publication invalide est arrêtée');
+    check(file_get_contents($catalogPath) === $original, 'La dernière version valide est conservée en cas d’échec');
+    file_put_contents($catalogPath, '{invalid');
+    check(dfrMergeReleases($seed, dfrReadCatalogue($catalogPath))['total'] === 13, 'Un cache corrompu rétablit le catalogue initial');
+} finally { unlink($catalogPath); rmdir($catalogDir); }
 echo "Tous les tests sont passés.\n";
