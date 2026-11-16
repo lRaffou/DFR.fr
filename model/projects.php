@@ -1,17 +1,5 @@
 <?php
-require_once __DIR__ . '/site.php';
-
-$social = dfrSite()['social'];
 return [
-    'dfr' => [
-        'name' => 'Dao Family Records', 'eyebrow' => 'Le label · Toulouse',
-        'description' => 'Des artistes, des productions et des rendez-vous pour faire vivre la musique électronique, de la house à la hard techno.',
-        'links' => [
-            'Instagram' => $social['Instagram']['url'],
-            'YouTube' => $social['YouTube']['url'],
-            'Nos artistes' => '/controller/artiste.php',
-        ],
-    ],
     'red-night' => [
         'name' => 'The Red Night', 'eyebrow' => 'Les nuits rouges de DFR',
         'summary' => 'Nuits techno, bass house et open airs à Toulouse.',

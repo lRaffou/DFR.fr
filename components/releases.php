@@ -3,14 +3,14 @@ function renderReleaseCard(array $release, bool $catalogue = false, array $spoti
 {
     $prefix = $catalogue ? 'album' : 'release';
     $cover = $release['image'];
-    $mobileCover = $catalogue ? ($release['mobile_image'] ?? $spotifyMobileCovers[$cover] ?? null) : null;
-    $remoteThumbnail = $mobileCover !== null;
-    if ($catalogue && str_starts_with($cover, '/img/albums/webp/')) {
+    $mobileCover = $release['mobile_image'] ?? $spotifyMobileCovers[$cover] ?? null;
+    if (str_starts_with($cover, '/img/albums/webp/')) {
         $localThumbnail = '/img/albums/webp/mobile/' . basename($cover);
         if (is_file(__DIR__ . '/..' . $localThumbnail)) {
             $mobileCover = $localThumbnail;
         }
     }
+    $remoteThumbnail = $mobileCover !== null && str_starts_with($mobileCover, 'https://');
     $spotify = htmlspecialchars($release['spotify']);
     $title = htmlspecialchars($release['title']);
     $artist = htmlspecialchars($release['artist']);
