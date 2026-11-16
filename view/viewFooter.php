@@ -49,6 +49,27 @@ function renderFooter(): string
         </div>
     </footer>
 
+    <dialog id="contactMailDialog" class="contactMailDialog" aria-labelledby="contact-mail-title">
+        <div class="contactMailHeader">
+            <h2 id="contact-mail-title">Écrire par e-mail</h2>
+            <form method="dialog">
+                <button class="contactMailClose" type="submit" aria-label="Fermer le contact" autofocus>&times;</button>
+            </form>
+        </div>
+        <label for="contact-mail-address">Adresse e-mail</label>
+        <div class="contactMailAddressRow">
+            <input id="contact-mail-address" type="text" readonly spellcheck="false">
+            <button type="button" id="contact-mail-copy">Copier l’adresse</button>
+        </div>
+        <p id="contact-mail-status" role="status"></p>
+        <p id="contact-mail-subject" class="contactMailSubject" hidden></p>
+        <div class="contactMailLinks">
+            <a id="contact-mail-gmail" target="_blank" rel="noopener noreferrer">Ouvrir dans Gmail <span aria-hidden="true">↗</span></a>
+            <a id="contact-mail-outlook" target="_blank" rel="noopener noreferrer">Ouvrir dans Outlook.com <span aria-hidden="true">↗</span></a>
+            <a id="contact-mail-native">Ouvrir mon application mail</a>
+        </div>
+    </dialog>
+
     </body>
     </html>
     <?php

@@ -30,10 +30,11 @@ function renderHeader(
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
         <link rel="icon" type="image/png" href="/img/1logo_simple_dfr_blanc.png">
-        <?php foreach (['style.css', 'icons.css', 'site-nav.css', 'footer.css', ...$stylesheets] as $stylesheet): ?>
+        <?php foreach (['style.css', 'icons.css', 'site-nav.css', 'footer.css', 'contact.css', ...$stylesheets] as $stylesheet): ?>
             <link rel="stylesheet" href="/css/<?= $escape($stylesheet) ?>?v=<?= filemtime(__DIR__ . '/../css/' . $stylesheet) ?>">
         <?php endforeach; ?>
         <script src="/js/script.js?v=<?= filemtime(__DIR__ . '/../js/script.js') ?>" defer></script>
+        <script src="/js/contact.js?v=<?= filemtime(__DIR__ . '/../js/contact.js') ?>" defer></script>
         <?php if ($includeArtistScript): ?>
             <script src="/js/scriptArtist.js?v=<?= filemtime(__DIR__ . '/../js/scriptArtist.js') ?>" defer></script>
         <?php endif; ?>

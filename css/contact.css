@@ -1,0 +1,93 @@
+.contactMailDialog {
+    width: min(calc(100% - 2rem), 34rem);
+    max-height: calc(100dvh - 2rem);
+    margin: auto;
+    padding: clamp(1rem, 3vw, 1.5rem);
+    border: 1px solid #4b393c;
+    border-radius: 10px;
+    background: #171717;
+    color: #fff;
+    overflow-wrap: anywhere;
+}
+
+.contactMailDialog::backdrop { background: rgb(0 0 0 / 75%); }
+
+.contactMailHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .75rem;
+    margin-bottom: 1rem;
+}
+
+.contactMailHeader h2 {
+    margin: 0;
+    font-size: clamp(1.25rem, 4vw, 1.65rem);
+    letter-spacing: normal;
+    text-transform: none;
+}
+
+.contactMailHeader h2::after { content: none; }
+
+.contactMailDialog label {
+    display: block;
+    margin-bottom: .35rem;
+    color: #dcdcdc;
+    font-size: .875rem;
+}
+
+.contactMailAddressRow,
+.contactMailLinks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+
+.contactMailDialog input,
+.contactMailDialog button,
+.contactMailLinks a {
+    min-height: 44px;
+    padding: .45rem .7rem;
+    border: 1px solid #605256;
+    border-radius: 6px;
+    background: #252125;
+    color: #fff;
+    font: inherit;
+    font-size: .875rem;
+}
+
+.contactMailDialog input {
+    flex: 1 1 13rem;
+    min-width: 0;
+    background: #101010;
+}
+
+.contactMailDialog button { cursor: pointer; }
+
+.contactMailDialog .contactMailClose {
+    width: 44px;
+    padding: 0;
+    font-size: 1.5rem;
+}
+
+.contactMailDialog button:hover,
+.contactMailLinks a:hover { background: #39252c; }
+
+.contactMailSubject,
+#contact-mail-status {
+    margin-top: .6rem;
+    color: #e1c9cd;
+    font-size: .875rem;
+    line-height: 1.5;
+}
+
+#contact-mail-status:empty { margin-top: 0; }
+
+.contactMailLinks { margin-top: 1rem; }
+
+.contactMailLinks a {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    text-underline-offset: .2em;
+}
