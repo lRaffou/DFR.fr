@@ -77,7 +77,6 @@ return [
             ],
         ],
         'moreLinks' => [
-            ['label' => 'DJ Babe sur TikTok', 'href' => 'https://www.tiktok.com/@djbabe615'],
             ['label' => 'Cœur Meurtri sur Instagram', 'href' => 'https://www.instagram.com/coeur_meurtri_by_babe/'],
             ['label' => 'Open Air Cœur Meurtri 2026', 'href' => 'https://www.instagram.com/coeur_meurtri_by_babe/p/DbtlYXlR2zX/'],
             ['label' => 'Cœur Meurtri sur Shotgun', 'href' => 'https://shotgun.live/fr/venues/c-oe-ur-meurtri-by-dj-babe'],

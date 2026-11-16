@@ -89,7 +89,6 @@ return [
         'thumbnail' => '/img/events/webp/nextEvent2.webp',
         'mobile_thumbnail' => '/img/events/webp/nextEvent2-mobile.webp',
         'url' => 'https://shotgun.live/fr/events/the-red-night-off-edition-5',
-        'media' => ['L’annonce sur Instagram' => 'https://www.instagram.com/p/DIvfIeyICU5/'],
     ],
     [
         'project' => 'The Red Night', 'title' => 'Off #4',
