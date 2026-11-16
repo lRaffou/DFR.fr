@@ -11,17 +11,30 @@ function renderBooking(): string
     $labelMail = $contact . '?subject=' . rawurlencode('Booking ou presse — Dao Family Records');
     ob_start();
     ?>
-    <main class="mainBooking">
-        <section class="bookingHero" aria-labelledby="booking-title">
+    <main class="mainBooking editorialPage">
+        <header class="editorialHeader" aria-labelledby="booking-title">
             <h1 id="booking-title">Booking &amp; Presse</h1>
-            <p>Programmez un artiste DFR ou retrouvez les ressources pour préparer votre annonce.</p>
-            <a class="bookingAction" href="<?= $escape($labelMail) ?>">
-                <i class="fas fa-envelope" aria-hidden="true"></i> Contacter le label
-            </a>
-        </section>
+            <p>Contacts, biographies et visuels des artistes de Dao Family Records.</p>
+        </header>
+
+        <div class="bookingOverview">
+            <section class="bookingContact" aria-labelledby="booking-contact">
+                <h2 id="booking-contact">Contact du label</h2>
+                <a class="bookingAction" href="<?= $escape($labelMail) ?>">
+                    <i class="fas fa-envelope" aria-hidden="true"></i> Contacter le label
+                </a>
+            </section>
+            <section class="bookingNote" aria-labelledby="booking-request">
+                <h2 id="booking-request">Préparer votre demande</h2>
+                <p><strong>Programmation</strong> · Indiquez l’artiste, la date, la ville et le lieu.</p>
+                <p><strong>Presse</strong> · Demandez au label les visuels en haute définition et leurs crédits.</p>
+            </section>
+        </div>
 
         <section aria-labelledby="booking-artists">
-            <h2 id="booking-artists">Contacts artistes</h2>
+            <div class="editorialSectionHeading">
+                <h2 id="booking-artists">Contacts artistes</h2>
+            </div>
             <div class="bookingGrid">
                 <?php foreach ($artists as $id => $artist): ?>
                     <?php
@@ -50,20 +63,15 @@ function renderBooking(): string
                             </div>
                         </div>
                         <div class="bookingLinks">
-                            <a class="bookingAction" href="<?= $escape($bookingMail) ?>" aria-label="<?= $escape('Booking — ' . $name) ?>">Booking</a>
+                            <a class="bookingAction" href="<?= $escape($bookingMail) ?>" aria-label="<?= $escape('Booking — ' . $name) ?>"><i class="fas fa-envelope" aria-hidden="true"></i> Booking</a>
                             <?php if ($pressImage !== null): ?>
-                                <a class="bookingTextLink" href="<?= $escape($pressImage) ?>" target="_blank" rel="noopener noreferrer" aria-label="<?= $escape('Voir le visuel — ' . $name) ?>">Voir le visuel</a>
+                                <a class="bookingTextLink" href="<?= $escape($pressImage) ?>" target="_blank" rel="noopener noreferrer" aria-label="<?= $escape('Voir le visuel — ' . $name) ?>">Voir le visuel <span aria-hidden="true">↗</span></a>
                             <?php endif; ?>
-                            <a class="bookingTextLink" href="<?= $escape($profile) ?>" aria-label="<?= $escape('Fiche complète — ' . $name) ?>">Fiche complète</a>
+                            <a class="bookingTextLink" href="<?= $escape($profile) ?>" aria-label="<?= $escape('Fiche complète — ' . $name) ?>">Fiche complète <span aria-hidden="true">→</span></a>
                         </div>
                     </article>
                 <?php endforeach; ?>
             </div>
-        </section>
-
-        <section class="bookingNote" aria-labelledby="booking-request">
-            <h2 id="booking-request">Préparer votre demande</h2>
-            <p>Pour une programmation, indiquez le nom de l’artiste, la date, la ville et le lieu. Pour une annonce, contactez le label pour les visuels en haute définition et les crédits.</p>
         </section>
     </main>
     <?php

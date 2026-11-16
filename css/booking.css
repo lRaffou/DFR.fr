@@ -1,72 +1,71 @@
-.mainBooking {
-    width: min(100% - 2rem, 74rem);
-    margin: 0 auto;
-    padding: clamp(1.5rem, 5vw, 4rem) 0 1rem;
-}
-
-.bookingHero {
+.bookingOverview {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    align-items: center;
-    gap: .75rem 2rem;
-    padding: clamp(1.25rem, 4vw, 2.75rem);
-    margin-bottom: clamp(2rem, 5vw, 3.5rem);
-    border: 1px solid #452828;
-    border-radius: 16px;
-    background: radial-gradient(ellipse at top right, #371219, #171013 54%, #101010);
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    gap: clamp(.75rem, 2vw, 1.5rem);
+    margin-bottom: clamp(1.5rem, 4vw, 3rem);
 }
 
-.bookingHero h1 {
-    grid-column: 1;
-    margin: 0;
-    font-size: clamp(2rem, 5vw, 3.5rem);
+.bookingContact,
+.bookingNote,
+.bookingCard {
+    min-width: 0;
+    padding: clamp(1rem, 2.25vw, 1.5rem);
+    border: 1px solid #353535;
+    border-radius: 8px;
+    background: #171717;
 }
 
-.bookingHero p {
-    grid-column: 1;
-    max-width: 42rem;
-    color: #ded8d8;
+.bookingContact {
+    border-color: #5f343a;
+    background: linear-gradient(110deg, #2b171e, #171717 85%);
+}
+
+.bookingContact h2,
+.bookingNote h2 {
+    margin-bottom: .75rem;
+    font-size: clamp(1.15rem, 2vw, 1.35rem);
+    letter-spacing: normal;
+    text-transform: none;
+}
+
+.bookingContact h2::after,
+.bookingNote h2::after {
+    content: none;
+}
+
+.bookingNote p {
+    color: #dedede;
+    font-size: .9rem;
     line-height: 1.6;
 }
 
-.bookingHero .bookingAction {
-    grid-column: 2;
-    grid-row: 1 / 3;
-}
-
-.mainBooking h2 {
-    font-size: clamp(1.3rem, 3vw, 1.9rem);
-    margin: 0 0 1rem;
+.bookingNote p + p {
+    margin-top: .45rem;
 }
 
 .bookingGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 29rem), 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(.75rem, 2vw, 1.5rem);
 }
 
 .bookingCard {
     display: grid;
     grid-template-rows: 1fr auto;
-    min-width: 0;
-    padding: clamp(1rem, 2.5vw, 1.5rem);
-    background: #151515;
-    border: 1px solid #383232;
-    border-radius: 13px;
 }
 
 .bookingCardTop {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
     align-items: start;
-    gap: 1rem;
+    gap: clamp(.75rem, 2vw, 1rem);
 }
 
 .bookingPortrait {
     width: clamp(4rem, 18vw, 6.25rem);
     aspect-ratio: 1;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 6px;
     background: #252123;
 }
 
@@ -95,9 +94,11 @@
 .bookingLinks {
     display: flex;
     flex-wrap: wrap;
-    gap: .35rem .875rem;
+    gap: .25rem 1rem;
     align-items: center;
-    margin-top: .9rem;
+    margin-top: .875rem;
+    padding-top: .75rem;
+    border-top: 1px solid #383838;
 }
 
 .bookingAction,
@@ -105,45 +106,40 @@
     display: inline-flex;
     align-items: center;
     min-height: 44px;
-    gap: .5rem;
+    gap: .4rem;
     color: #fff;
+    font-size: .875rem;
     text-underline-offset: .25em;
 }
 
 .bookingAction {
     justify-content: center;
-    padding: .65rem .95rem;
-    background: #a62427;
-    border: 1px solid #cf5054;
-    border-radius: 7px;
+    padding: .55rem .8rem;
+    background: #c92431;
+    border: 1px solid transparent;
+    border-radius: 6px;
     font-weight: bold;
     text-decoration: none;
 }
 
 .bookingAction:hover {
-    background: #be343a;
+    background: #ab2130;
 }
 
-.bookingNote p {
-    color: #ddd;
-    line-height: 1.65;
+.bookingLinks .bookingAction {
+    border-color: #6b3c42;
+    background: #26181c;
 }
 
-.bookingNote {
-    margin-top: 2rem;
-    padding: 1.25rem;
-    border-left: 3px solid #b63033;
-    background: #151212;
+.bookingLinks .bookingAction:hover {
+    background: #3d242d;
 }
 
-@media (max-width: 700px) {
-    .bookingHero {
-        grid-template-columns: 1fr;
-    }
+.bookingTextLink:hover {
+    color: #ff9a9e;
+}
 
-    .bookingHero .bookingAction {
-        grid-column: 1;
-        grid-row: auto;
-        justify-self: start;
-    }
+@media (max-width: 740px) {
+    .bookingOverview,
+    .bookingGrid { grid-template-columns: minmax(0, 1fr); }
 }
