@@ -14,11 +14,10 @@ function renderAcceuil(string $nextEvent)
     ?>
     <main class="mainHome">
 
-        <!-- Hero Section -->
         <section class="heroSection">
             <div class="heroContent">
                 <h1>Dao Family Records</h1>
-                <p>Découvrez l'énergie unique de la musique électronique à travers nos artistes et événements.</p>
+                <p>Label de musique électronique à Toulouse, de la bass house à la hard techno.</p>
                 <div class="heroButtons">
                     <a href="/controller/evenement.php" class="btnPrimary">Voir les événements</a>
                     <a href="/controller/artiste.php" class="btnSecondary">Découvrir les artistes</a>

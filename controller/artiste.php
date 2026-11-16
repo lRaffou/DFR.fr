@@ -25,6 +25,6 @@ foreach ($artists as $id => $artist) {
     break;
 }
 
-echo renderHeader($title, true, $metadata, $profileId === null ? [] : ['artist-profile.css']);
+echo renderHeader($title, true, $metadata, ['artist-profile.css']);
 echo renderArtiste($artists, $profileId);
 echo renderFooter();
