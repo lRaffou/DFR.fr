@@ -97,7 +97,9 @@ document.addEventListener("DOMContentLoaded", function () {
                         <div class="artistTitle">
                             <h2>${name}</h2>
                             <p>${escapeHtml(artist.role)}</p>
-                            <span class="artistGenre">${escapeHtml(artist.genres.join(" / "))}</span>
+                            <div class="artistGenres">
+                                ${artist.genres.map((genre) => `<span class="artistGenre">${escapeHtml(genre)}</span>`).join("")}
+                            </div>
                             <div class="social_artist">
                                 ${artist.social_youtube ? `<a href="${escapeHtml(artist.social_youtube)}" class="socialLink" target="_blank" rel="noopener noreferrer" aria-label="${name} sur YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>` : ""}
                                 ${

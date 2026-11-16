@@ -49,6 +49,10 @@
 .artistPublicContent .artistPublicRole {
     color: #ff9b9b;
     font-family: "Montserrat-Bold", sans-serif;
+    margin-bottom: 0.5rem;
+}
+
+.artistPublicContent .artistGenres {
     margin-bottom: 1.125rem;
 }
 

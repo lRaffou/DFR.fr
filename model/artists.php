@@ -5,7 +5,8 @@ return [
         'name' => 'Red Marshal',
         'role' => 'DJ - Producteur',
         'genres' => [
-            'Hard Techno / Hardfonk',
+            'Hard Techno',
+            'Hardfonk',
         ],
         'image' => '/img/artistes/webp/red-marshal-640.webp',
         'card_image' => [
@@ -92,7 +93,8 @@ return [
         'name' => 'Fernando Gomez',
         'role' => 'DJ - Producteur',
         'genres' => [
-            'Techno / Hard Techno',
+            'Techno',
+            'Hard Techno',
         ],
         'image' => 'https://i.scdn.co/image/ab6761610000e5ebb7dbded7789bb71036f6b48d',
         'slug' => 'fernando-gomez',

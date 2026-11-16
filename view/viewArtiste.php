@@ -25,7 +25,12 @@ function renderArtiste(array $artists, ?string $profileId = null): string
                 </div>
                 <div class="artistPublicContent">
                     <h2 id="artistPublicName"><?= $escape($profile['name']) ?></h2>
-                    <p class="artistPublicRole"><?= $escape($profile['role']) ?> · <?= $escape(implode(' / ', $profile['genres'])) ?></p>
+                    <p class="artistPublicRole"><?= $escape($profile['role']) ?></p>
+                    <div class="artistGenres">
+                        <?php foreach ($profile['genres'] as $genre): ?>
+                            <span class="artistGenre"><?= $escape($genre) ?></span>
+                        <?php endforeach; ?>
+                    </div>
                     <?php foreach ($profile['bio'] as $paragraph): ?>
                         <p><?= $escape($paragraph) ?></p>
                     <?php endforeach; ?>
@@ -74,9 +79,11 @@ function renderArtiste(array $artists, ?string $profileId = null): string
                             <div class="artistInfo">
                                 <h2><?= $escape($artist['name']) ?></h2>
                                 <p><?= $escape($artist['role']) ?></p>
-                                <?php foreach ($artist['genres'] as $genre): ?>
-                                    <span class="artistGenre"><?= $escape($genre) ?></span>
-                                <?php endforeach; ?>
+                                <div class="artistGenres">
+                                    <?php foreach ($artist['genres'] as $genre): ?>
+                                        <span class="artistGenre"><?= $escape($genre) ?></span>
+                                    <?php endforeach; ?>
+                                </div>
                             </div>
                         </div>
                     </div>

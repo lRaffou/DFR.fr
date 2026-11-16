@@ -1003,8 +1003,13 @@ h6 {
     color: #ccc;
 }
 
+.artistGenres {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+}
+
 .artistGenre {
-    display: inline-block;
     padding: 0.25rem 0.75rem;
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 20px;
@@ -1030,6 +1035,14 @@ h6 {
 .artistTitle h2 {
     font-size: 2rem;
     margin-bottom: 0.5rem;
+}
+
+.artistTitle .artistGenres {
+    margin-top: 0.5rem;
+}
+
+.artistTitle .artistGenre {
+    background-color: #eaeaea;
 }
 
 .artistBio,
@@ -1126,6 +1139,7 @@ h6 {
         text-align: center;
     }
 
+    .artistTitle .artistGenres,
     .social_artist {
         justify-content: center;
     }
