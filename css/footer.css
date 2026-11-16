@@ -1,0 +1,122 @@
+.mainFooter {
+    margin-top: clamp(2.5rem, 6vw, 4.5rem);
+    padding-bottom: var(--mobile-nav-space, 0px);
+    border-top: 1px solid #383838;
+    background: #141414;
+}
+
+.footerInner {
+    max-width: 1264px;
+    margin-inline: auto;
+    padding: clamp(1.5rem, 4vw, 2.75rem) clamp(1rem, 3vw, 2rem) 0;
+}
+
+.footerGrid {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 4fr) minmax(0, 4fr);
+    gap: clamp(1.25rem, 4vw, 3rem);
+}
+
+.footerWordmark {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    font-family: "Montserrat-Bold", sans-serif;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    text-transform: uppercase;
+}
+
+.footerWordmark img {
+    flex: none;
+    width: 1.35rem;
+    height: auto;
+}
+
+.footerDescription {
+    max-width: 36ch;
+    margin: .75rem 0 1rem;
+    color: #d0d0d0;
+    font-size: .9rem;
+    line-height: 1.65;
+}
+
+.footerGroup h2 {
+    margin-bottom: .45rem;
+    padding-bottom: .65rem;
+    border-bottom: 1px solid #353535;
+    font-size: .95rem;
+    letter-spacing: normal;
+    text-transform: none;
+}
+
+.footerGroup h2::after {
+    width: 2rem;
+    height: 2px;
+}
+
+.footerNavLinks,
+.footerSocialLinks {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 .65rem;
+    list-style: none;
+}
+
+.footerSocialLinks {
+    gap: .45rem;
+    margin-top: .85rem;
+}
+
+.footerContact,
+.footerGroup a {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    min-height: 44px;
+    color: #ededed;
+    font-size: .85rem;
+    text-decoration: none;
+}
+
+.footerContact,
+.footerSocialLinks a {
+    padding: .5rem .6rem;
+    border: 1px solid #494949;
+    border-radius: 6px;
+    background: #1b1b1b;
+}
+
+.footerContact {
+    display: inline-flex;
+    border-color: #704047;
+    background: #26191d;
+}
+
+.footerContact i,
+.footerSocialLinks i { flex: none; }
+
+.footerContact:hover,
+.footerGroup a:hover { color: #ff9a9e; }
+
+.footerContact:hover,
+.footerSocialLinks a:hover { border-color: #a76168; }
+
+.footerCopyright {
+    margin-top: clamp(1.25rem, 3vw, 2rem);
+    padding: .9rem 0 1.15rem;
+    border-top: 1px solid #353535;
+    color: #b8b8b8;
+    font-size: .78rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 930px) {
+    .footerNavLinks,
+    .footerSocialLinks { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 700px) {
+    .footerGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .footerIdentity { grid-column: 1 / -1; }
+}

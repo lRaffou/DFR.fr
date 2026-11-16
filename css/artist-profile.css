@@ -89,6 +89,13 @@
     color: #fff;
 }
 
+#artistModal .social_artist .socialLink {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.6rem;
+    text-decoration: none;
+}
+
 #artistModal .socialLink:hover,
 #artistModal .artistTextLinks a:hover {
     color: #ff9b9b;

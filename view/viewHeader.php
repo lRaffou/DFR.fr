@@ -12,12 +12,12 @@ function renderHeader(
     $site = dfrSite();
     $navigation = $site['navigation'];
     $booking = $site['booking'];
-    $desktopNavigation = [...$navigation, $booking];
+    $allNavigation = [...$navigation, $booking];
     $currentPath = parse_url($_SERVER['REQUEST_URI'] ?? '/index.php', PHP_URL_PATH);
     if ($currentPath === '/') { $currentPath = '/index.php'; }
     $description = $metadata['description'] ?? 'Dao Family Records, label de musique électronique à Toulouse. Découvrez nos artistes, sorties, clips et événements.';
     $canonical = $metadata['canonical'] ?? null;
-    if ($canonical === null && $_GET === [] && in_array($currentPath, array_column($desktopNavigation, 0), true)) {
+    if ($canonical === null && $_GET === [] && in_array($currentPath, array_column($allNavigation, 0), true)) {
         $canonical = dfrAbsoluteUrl($currentPath === '/index.php' ? '/' : $currentPath);
     }
     $escape = static fn(string $value): string => htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
@@ -30,7 +30,7 @@ function renderHeader(
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
         <link rel="icon" type="image/png" href="/img/1logo_simple_dfr_blanc.png">
-        <?php foreach (['style.css', 'icons.css', ...$stylesheets] as $stylesheet): ?>
+        <?php foreach (['style.css', 'icons.css', 'site-nav.css', 'footer.css', ...$stylesheets] as $stylesheet): ?>
             <link rel="stylesheet" href="/css/<?= $escape($stylesheet) ?>?v=<?= filemtime(__DIR__ . '/../css/' . $stylesheet) ?>">
         <?php endforeach; ?>
         <script src="/js/script.js?v=<?= filemtime(__DIR__ . '/../js/script.js') ?>" defer></script>
@@ -57,48 +57,32 @@ function renderHeader(
 
     <body>
         <header class="siteHeader">
-            <nav class="navMax1000" aria-label="Navigation principale">
-                <div class="navTop">
-                    <a class="mobileBrand" href="/index.php">
-                        <img src="/img/1logo_simple_dfr_blanc.png" alt="">
-                        <span>Dao Family Records</span>
-                    </a>
-                    <a class="mobileBooking" href="<?= $booking[0] ?>"<?= $currentPath === $booking[0] ? ' aria-current="page"' : '' ?>><?= $booking[1] ?></a>
-                </div>
-                <div class="menuNav">
+            <nav class="siteNavigation" aria-label="Navigation principale">
+                <a class="siteBrand" href="/index.php">
+                    <img src="/img/1logo_simple_dfr_blanc.png" alt="" width="193" height="327">
+                    <span>Dao Family Records</span>
+                </a>
+                <a class="siteBooking mobileBooking" href="<?= $escape($booking[0]) ?>"<?= $currentPath === $booking[0] ? ' aria-current="page"' : '' ?>><?= $escape($booking[1]) ?></a>
+                <div class="siteMenu">
                     <ul>
-                        <?php foreach ($navigation as [$path, $label, $icon]): ?>
-                            <li><a href="<?= $path ?>"<?= $currentPath === $path ? ' aria-current="page"' : '' ?>>
-                                <i class="fas <?= $icon ?>" aria-hidden="true"></i><span><?= $label ?></span>
-                            </a></li>
+                        <?php foreach ($allNavigation as [$path, $label, $icon]): ?>
+                            <?php $isBooking = $path === $booking[0]; ?>
+                            <li<?= $isBooking ? ' class="desktopBooking"' : '' ?>>
+                                <a class="<?= $isBooking ? 'siteBooking' : 'siteNavLink' ?>" href="<?= $escape($path) ?>"<?= $currentPath === $path ? ' aria-current="page"' : '' ?>>
+                                    <?php if (!$isBooking): ?><i class="fas <?= $escape($icon) ?>" aria-hidden="true"></i><?php endif; ?>
+                                    <span><?= $escape($label) ?></span>
+                                </a>
+                            </li>
                         <?php endforeach; ?>
                     </ul>
                 </div>
-            </nav>
-            <nav class="navMin1000" aria-label="Navigation principale">
-                <div class="navbarContainer">
-                    <div class="navbarLogo">
-                        <a href="/index.php">
-                            <img class="logoNavMin" src="/img/1logo_simple_dfr_blanc.png" alt="Logo DFR">
-                            <span>Dao Family Records</span>
+                <div class="siteSocial">
+                    <?php foreach (['YouTube', 'Spotify', 'Instagram'] as $platform): ?>
+                        <?php $social = $site['social'][$platform]; ?>
+                        <a href="<?= $escape($social['url']) ?>" target="_blank" rel="noopener noreferrer" aria-label="<?= $escape($social['label']) ?>">
+                            <i class="fab <?= $escape($social['icon']) ?>" aria-hidden="true"></i>
                         </a>
-                    </div>
-                    <div class="navbarMenu">
-                        <ul>
-                            <?php foreach ($desktopNavigation as [$path, $label, $icon]): ?>
-                                <li><a href="<?= $path ?>" class="navLink"<?= $currentPath === $path ? ' aria-current="page"' : '' ?>>
-                                    <i class="fas <?= $icon ?>" aria-hidden="true"></i> <?= $label ?>
-                                </a></li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
-                    <div class="navbarSocial">
-                        <?php foreach (['YouTube', 'Spotify', 'Instagram'] as $platform): ?>
-                            <?php $social = $site['social'][$platform]; ?>
-                            <a href="<?= htmlspecialchars($social['url']) ?>" class="socialLink" target="_blank" rel="noopener noreferrer" aria-label="<?= htmlspecialchars($social['label']) ?>"><i
-                                    class="fab <?= htmlspecialchars($social['icon']) ?>" aria-hidden="true"></i></a>
-                        <?php endforeach; ?>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
             </nav>
         </header>
