@@ -1,11 +1,3 @@
-.albumHero.catalogueHeading {
-    margin: 0 0 1.25rem;
-}
-
-.catalogueHeading h1 {
-    margin-bottom: 0;
-}
-
 .catalogueFilters {
     display: flex;
     flex-wrap: wrap;
@@ -13,7 +5,7 @@
     gap: .75rem 1rem;
     padding: clamp(.9rem, 2.2vw, 1.4rem);
     border: 1px solid #353535;
-    border-radius: 12px;
+    border-radius: 8px;
     background: #171717;
 }
 
@@ -22,7 +14,7 @@
     flex: 1 1 13rem;
     gap: .45rem;
     min-width: min(100%, 13rem);
-    max-width: 24rem;
+    max-width: 20rem;
     font-size: .9rem;
     font-weight: 700;
 }
@@ -95,18 +87,137 @@
     outline-offset: 3px;
 }
 
-.catalogueResults {
-    margin: 1rem 0;
+.catalogueToolbar {
+    margin-top: clamp(1.25rem, 3vw, 2rem);
+}
+
+.catalogueTitle {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: .125rem .875rem;
+}
+
+.catalogueResults,
+.catalogueEmpty {
     color: #d4d4d4;
 }
 
-.catalogueResults + .catalogPagination {
-    margin: 1rem auto;
+.catalogueResults {
+    font-size: .875rem;
+}
+
+.catalogPagination {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: .25rem .75rem;
+    margin: 1.5rem 0 0;
+    font-size: .875rem;
+}
+
+.catalogueToolbar .catalogPagination {
+    margin: 0;
+    justify-content: flex-start;
+}
+
+.catalogPagination a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: #fff;
+    text-underline-offset: .2em;
+}
+
+.catalogPagination a:hover {
+    color: #ff9a9e;
+}
+
+.albumGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 15.5rem), 1fr));
+    gap: clamp(.75rem, 2vw, 1.5rem);
+}
+
+.albumCard {
+    overflow: hidden;
+    border: 1px solid #333;
+    border-radius: 8px;
+    background: #171717;
+}
+
+.albumImage {
+    aspect-ratio: 1;
+    overflow: hidden;
+}
+
+.albumImage img {
+    width: 100%;
+    height: 100%;
+}
+
+.albumInfo {
+    padding: 1rem;
+}
+
+.albumInfo .artistName,
+.albumInfo .releaseDate {
+    color: #cdcdcd;
+    margin-bottom: .45rem;
+}
+
+.albumInfo .releaseDate {
+    margin-bottom: .875rem;
+    font-size: .85rem;
+}
+
+.albumCard--lead {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(0, clamp(7rem, 25vw, 15rem)) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(.875rem, 4vw, 2.75rem);
+    padding: clamp(.75rem, 2vw, 1.375rem);
+    border-color: #523139;
+    background: linear-gradient(110deg, #27141c, #171717 72%);
+}
+
+.albumCard--lead .albumImage { border-radius: 6px; }
+.albumCard--lead .albumInfo { padding: 0; }
+
+.albumCard--lead h3 {
+    font-size: clamp(1.25rem, 3.6vw, 2.75rem);
+    line-height: 1.12;
+}
+
+.albumLeadLabel {
+    margin-bottom: .4rem;
+    color: #ff9fa6;
+    font-size: .75rem;
+    font-weight: bold;
+    letter-spacing: .07em;
+    text-transform: uppercase;
 }
 
 @media (max-width: 640px) {
     .catalogueFilterArtist {
         flex-basis: 100%;
         max-width: none;
+    }
+}
+
+@media (max-width: 540px) {
+    .albumGrid { grid-template-columns: minmax(0, 1fr); }
+    .albumInfo { padding: 0; }
+
+    .albumCard--lead {
+        grid-template-columns: minmax(0, 31%) minmax(0, 1fr);
+        gap: .75rem;
+    }
+
+    .albumInfo .artistName,
+    .albumInfo .releaseDate {
+        margin-bottom: .25rem;
     }
 }

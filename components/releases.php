@@ -1,5 +1,5 @@
 <?php
-function renderReleaseCard(array $release, bool $catalogue = false, array $spotifyMobileCovers = []): string
+function renderReleaseCard(array $release, bool $catalogue = false, array $spotifyMobileCovers = [], bool $lead = false): string
 {
     $prefix = $catalogue ? 'album' : 'release';
     $cover = $release['image'];
@@ -17,18 +17,19 @@ function renderReleaseCard(array $release, bool $catalogue = false, array $spoti
     $listenLabel = htmlspecialchars($release['link_label']);
     ob_start();
     ?>
-    <article class="<?= $prefix ?>Card">
+    <article class="<?= $prefix ?>Card<?= $lead ? ' albumCard--lead' : '' ?>">
         <a class="<?= $prefix ?>Image coverLink" href="<?= $spotify ?>" target="_blank" rel="noopener noreferrer">
             <?php if ($mobileCover !== null): ?>
                 <picture>
                     <source media="(max-width: 540px)" srcset="<?= htmlspecialchars($mobileCover) ?>"<?= $remoteThumbnail ? ' data-album-thumbnail' : '' ?>>
             <?php endif; ?>
-            <img src="<?= htmlspecialchars($cover) ?>" alt="<?= $title ?> - <?= $artist ?>" loading="lazy" decoding="async">
+            <img src="<?= htmlspecialchars($cover) ?>" alt="<?= $title ?> - <?= $artist ?>" <?= $lead ? 'fetchpriority="high"' : 'loading="lazy" decoding="async"' ?>>
             <?php if ($mobileCover !== null): ?>
                 </picture>
             <?php endif; ?>
         </a>
         <div class="<?= $prefix ?>Info">
+            <?php if ($lead): ?><p class="albumLeadLabel">Dernière sortie</p><?php endif; ?>
             <h3><?= $title ?></h3>
             <p<?= $catalogue ? ' class="artistName"' : '' ?>><?= $artist ?></p>
             <?php if ($catalogue): ?>

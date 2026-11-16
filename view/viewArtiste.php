@@ -3,7 +3,7 @@ function renderArtiste(array $artists, ?string $profileId = null): string
 {
     $profile = $profileId === null ? null : $artists[$profileId];
     $escape = static fn(string $value): string => htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
-    $artistCardSizes = '(min-width: 1264px) 282px, (min-width: 1200px) 23vw, (min-width: 1000px) 30vw, (min-width: 624px) 45vw, calc(100vw - 2rem)';
+    $artistCardSizes = '(min-width: 1264px) 282px, (min-width: 1200px) 23vw, (min-width: 900px) 31vw, (min-width: 560px) 46vw, clamp(92px, 28vw, 132px)';
     $heroArtist = array_key_first($artists);
     $profiles = array_map(static function (array $artist): array {
         unset($artist['slug'], $artist['card_image'], $artist['press_bio']);
@@ -11,12 +11,12 @@ function renderArtiste(array $artists, ?string $profileId = null): string
     }, $artists);
     ob_start();
     ?>
-    <main class="mainArtist">
+    <main class="mainArtist editorialPage">
 
-        <section class="artistHero">
-            <h1>Nos Artistes</h1>
-            <p>Découvrez les talents qui font vibrer Dao Family Records</p>
-        </section>
+        <header class="editorialHeader">
+            <h1>Nos artistes</h1>
+            <p>Les DJ, producteurs et duos de Dao Family Records.</p>
+        </header>
 
         <?php if ($profile !== null): ?>
             <article id="artistPublicProfile" class="artistPublicProfile" data-artist="<?= $escape($profileId) ?>" aria-labelledby="artistPublicName">
@@ -71,20 +71,21 @@ function renderArtiste(array $artists, ?string $profileId = null): string
                             <?php if ($cardImage !== null): ?>
                                 srcset="<?= $escape($desktopSrcset) ?>" sizes="<?= $artistCardSizes ?>"
                             <?php endif; ?>
-                            alt="<?= $escape($artist['name']) ?>" <?= $id === $heroArtist ? 'fetchpriority="high"' : 'loading="lazy" decoding="async"' ?>>
+                            alt="" <?= $id === $heroArtist ? 'fetchpriority="high"' : 'loading="lazy" decoding="async"' ?>>
                         <?php if ($cardImage !== null): ?>
                             </picture>
                         <?php endif; ?>
-                        <div class="artistOverlay">
-                            <div class="artistInfo">
-                                <h2><?= $escape($artist['name']) ?></h2>
-                                <p><?= $escape($artist['role']) ?></p>
-                                <div class="artistGenres">
-                                    <?php foreach ($artist['genres'] as $genre): ?>
-                                        <span class="artistGenre"><?= $escape($genre) ?></span>
-                                    <?php endforeach; ?>
-                                </div>
-                            </div>
+                    </div>
+                    <div class="artistInfo">
+                        <div class="artistCardTitle">
+                            <h2><?= $escape($artist['name']) ?></h2>
+                            <span aria-hidden="true">→</span>
+                        </div>
+                        <p><?= $escape($artist['role']) ?></p>
+                        <div class="artistGenres">
+                            <?php foreach ($artist['genres'] as $genre): ?>
+                                <span class="artistGenre"><?= $escape($genre) ?></span>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </a>

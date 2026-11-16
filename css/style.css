@@ -152,6 +152,68 @@ h6 {
     }
 }
 
+.editorialPage {
+    max-width: 1264px;
+    margin-inline: auto;
+    padding: clamp(1.625rem, 4vw, 3.5rem) clamp(1rem, 3vw, 2rem) 0;
+}
+
+.editorialHeader {
+    margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+    padding-bottom: clamp(.875rem, 2vw, 1.5rem);
+    border-bottom: 1px solid #333;
+}
+
+.editorialHeader h1 {
+    margin-bottom: .625rem;
+    font-size: clamp(2rem, 5vw, 3.75rem);
+    line-height: 1.08;
+    letter-spacing: .02em;
+}
+
+.editorialHeader > p {
+    max-width: 62ch;
+    color: #dedede;
+    line-height: 1.6;
+}
+
+.editorialSectionHeading,
+.homeSectionHeading {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 .875rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #333;
+}
+
+:is(.editorialSectionHeading, .homeSectionHeading) h2 {
+    margin: 0;
+    padding-block: .5rem;
+    font-size: clamp(1.3rem, 2.6vw, 2rem);
+    letter-spacing: .035em;
+}
+
+:is(.editorialSectionHeading, .homeSectionHeading) h2::after {
+    width: 2rem;
+    height: 2px;
+}
+
+:is(.editorialSectionHeading, .homeSectionHeading) > a {
+    display: inline-flex;
+    align-items: center;
+    gap: .375rem;
+    min-height: 44px;
+    color: #f4f4f4;
+    font-size: .875rem;
+    text-underline-offset: .22em;
+}
+
+:is(.editorialSectionHeading, .homeSectionHeading) > a:hover {
+    color: #ff9a9e;
+}
+
 /* Navigation personnalisée mobile/tablette */
 .navMin1000 {
     display: none;
@@ -327,38 +389,6 @@ h6 {
     border: 2px solid #fff;
 }
 
-/* Styles pour la page Événements */
-.mainEvent {
-    padding: 1rem;
-    margin-top: 2rem;
-}
-
-.eventHero {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.eventHero h1 {
-    font-family: "Montserrat-Bold";
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    color: #fff;
-}
-
-.eventHero p {
-    font-size: 1.2rem;
-    color: #ccc;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-@media screen and (min-width: 700px) {
-    .eventHero h1 {
-        font-size: 3rem;
-    }
-}
-
 /* Fenêtres vidéo et artiste */
 .modal,
 .artistModal {
@@ -380,7 +410,7 @@ h6 {
     .navMax1000 {
         display: none;
     }
-    header {
+    .siteHeader {
         z-index: 100;
         height: var(--desktop-header-height);
         position: sticky;
@@ -481,66 +511,6 @@ h6 {
 
 }
 
-/* Styles pour la page Albums */
-.mainAlbum {
-    padding: 2rem;
-    margin-top: 2rem;
-}
-
-.albumHero {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.albumHero h1 {
-    font-family: "Montserrat-Bold";
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    color: #fff;
-}
-
-.albumGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.albumCard {
-    background: #1a1a1a;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
-}
-
-.albumCard:hover {
-    transform: translateY(-5px);
-}
-
-.albumImage {
-    position: relative;
-    aspect-ratio: 1;
-    overflow: hidden;
-}
-
-.albumImage img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.albumCard:hover .albumImage img {
-    transform: scale(1.05);
-}
-
-.albumInfo {
-    padding: 1.5rem;
-}
-
 .albumInfo h3,
 .releaseInfo h3 {
     font-size: 1.25rem;
@@ -549,89 +519,10 @@ h6 {
     color: #fff;
 }
 
-.artistName,
-.releaseDate {
-    color: #ccc;
-    margin-bottom: 0.5rem;
-}
-
-/* Media Queries pour la page Albums */
-@media (max-width: 1000px) {
-
-    .albumHero h1 {
-        font-size: 2.5rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .mainAlbum {
-        padding: 1rem;
-    }
-
-    .albumHero h1 {
-        font-size: 2rem;
-    }
-
-    .albumGrid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Styles pour la page Vidéos */
-.mainVideo {
-    padding: 2rem;
-    margin-top: 2rem;
-}
-
-.videoHero {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.videoHero h1 {
-    font-family: "Montserrat-Bold";
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    color: #ffffff;
-}
-
-.videoHero p {
-    font-size: 1.2rem;
-    color: #ccc;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.featuredVideo {
-    margin-bottom: 4rem;
-}
-
-.featuredVideo h2 {
-    font-family: "Montserrat-Bold";
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
-}
-
 .videoContainer {
     position: relative;
     max-width: 1000px;
     margin: 0 auto;
-}
-
-.videoInfo {
-    margin-top: 1.5rem;
-}
-
-.videoInfo h3 {
-    font-family: "Montserrat-Bold";
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.videoInfo p {
-    color: #ccc;
 }
 
 .video iframe {
@@ -644,6 +535,7 @@ h6 {
     display: grid;
     place-items: center;
     background-color: #111;
+    text-decoration: none;
 }
 
 .youtubePreview img {
@@ -673,26 +565,6 @@ h6 {
 .youtubePreview:hover .youtubePreviewPlay,
 .youtubePreview:focus-visible .youtubePreviewPlay {
     background: #dc1724;
-}
-
-.videoGallery {
-    margin-bottom: 4rem;
-}
-
-.videoLinks {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem 1.5rem;
-    margin-top: 1rem;
-}
-
-.videoHero .videoLinks {
-    justify-content: center;
-}
-
-.videoLinks a {
-    color: #fff;
-    text-underline-offset: 0.25em;
 }
 
 .mainVideo .videoContainer .video {
@@ -872,110 +744,6 @@ h6 {
     font-size: 0.9rem;
 }
 
-/* Media Queries pour la page Vidéos */
-@media (max-width: 1000px) {
-    .videoGrid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    }
-
-    .videoHero h1 {
-        font-size: 2.5rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .mainVideo {
-        padding: 1rem;
-    }
-
-    .videoHero h1 {
-        font-size: 2rem;
-    }
-
-    .videoGrid {
-        grid-template-columns: 1fr;
-    }
-
-}
-
-/* Styles pour la page artiste */
-.mainArtist {
-    padding: 2rem;
-    margin-top: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.artistHero {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.artistHero h1 {
-    font-family: "Montserrat-Bold";
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    color: #fff;
-}
-
-.artistHero p {
-    font-size: 1.2rem;
-    color: #ccc;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.artistGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-    gap: 2rem;
-    margin-bottom: 4rem;
-}
-
-.artistCard {
-    position: relative;
-    border-radius: 15px;
-    overflow: hidden;
-    aspect-ratio: 1;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.artistCard:hover {
-    transform: translateY(-10px);
-}
-
-.artistImage {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    aspect-ratio: 1;
-    overflow: hidden;
-}
-
-.artistImage img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.artistOverlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 2rem;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-    color: white;
-}
-
-.artistInfo h2 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
 .artistInfo h2,
 .artistTitle h2,
 .artistPublicContent h2 {
@@ -986,13 +754,6 @@ h6 {
 .artistInfo h2::after,
 .artistTitle h2::after {
     content: none;
-}
-
-.artistInfo p {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-    opacity: 0.9;
-    color: #ccc;
 }
 
 .artistGenres {
@@ -1109,14 +870,6 @@ h6 {
 
 /* Media Queries */
 @media (max-width: 768px) {
-    .mainArtist {
-        padding: 1rem;
-    }
-
-    .artistHero h1 {
-        font-size: 2rem;
-    }
-
     .artistProfile {
         flex-direction: column;
         text-align: center;
@@ -1154,21 +907,24 @@ h6 {
 }
 
 .btnListen {
-    background: #1db954;
-    color: white;
-    padding: 1rem 2rem;
-    border-radius: 30px;
+    align-self: flex-start;
+    min-height: 44px;
+    border: 1px solid #4b4b4b;
+    border-radius: 6px;
+    background: #212121;
+    color: #fff;
     text-decoration: none;
     display: flex;
     align-items: center;
     gap: 0.5rem;
     font-weight: bold;
-    transition: transform 0.3s ease;
 }
 
 .btnListen:hover {
-    transform: scale(1.05);
+    background: #303030;
 }
+
+.btnListen .fa-spotify { color: #31d565; }
 
 /* Footer Styles */
 .mainFooter {
@@ -1344,36 +1100,11 @@ h6 {
 .releaseInfo .btnListen {
     margin-top: auto;
     padding: 0.8rem 1rem;
-    justify-content: center;
-    text-align: center;
     font-size: 0.9rem;
-    color: #000;
 }
-.albumInfo .releaseDate,
 .releaseInfo p {
     margin-bottom: 1.25rem;
 }
-.catalogPagination {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    margin: 2rem auto 3rem;
-}
-.catalogPagination a {
-    color: #fff;
-    padding: 0.75rem 1rem;
-    background: #222;
-    border-radius: 8px;
-    text-underline-offset: 0.25em;
-}
-
-.albumCatalog {
-    max-width: 1200px;
-    margin-inline: auto;
-}
-
 #catalog,
 .videoGallery,
 #next-events-title,
@@ -1397,9 +1128,7 @@ h6 {
     text-decoration: none;
 }
 
-.catalogPagination a,
 .videoSectionLinks a,
-.videoLinks a,
 .videoExternalLink a,
 .videoModalBar a {
     display: inline-flex;
@@ -1413,51 +1142,6 @@ h6 {
     #next-events-title,
     #past-events-title {
         scroll-margin-top: calc(var(--desktop-header-height) + .75rem);
-    }
-}
-
-@media (max-width: 768px) {
-    .videoHero .videoLinks {
-        column-gap: 1rem;
-        row-gap: 0;
-    }
-
-    .mainAlbum,
-    .mainVideo {
-        margin-top: .75rem;
-    }
-
-    .albumHero,
-    .videoHero,
-    .featuredVideo,
-    .videoGallery {
-        margin-bottom: 1.5rem;
-    }
-
-    .videoHero p {
-        font-size: 1rem;
-    }
-
-    .featuredVideo h2,
-    .videoGallery h2 {
-        font-size: 1.5rem;
-        margin-bottom: .75rem;
-    }
-
-    .albumGrid,
-    .videoGrid {
-        grid-template-columns: repeat(auto-fit, minmax(min(100%, 265px), 1fr));
-        gap: .75rem;
-    }
-
-    .catalogPagination {
-        gap: .25rem;
-        font-size: .875rem;
-    }
-
-    .catalogPagination a {
-        padding: .5rem .25rem;
-        font-size: inherit;
     }
 }
 
@@ -1500,8 +1184,6 @@ h6 {
 
     .albumInfo .btnListen,
     .releaseInfo .btnListen {
-        align-self: start;
-        min-height: 44px;
         margin-top: .25rem;
         padding: .375rem .75rem;
     }
@@ -1519,10 +1201,6 @@ h6 {
     .videoDetails .videoExternalLink {
         margin: 0;
     }
-}
-
-.artistGrid .artistCard {
-    text-decoration: none;
 }
 
 .artistGrid .artistCard:focus-visible {
@@ -1696,13 +1374,6 @@ h6 {
     max-width: 1200px;
     margin: 0 auto 4rem;
 }
-.dfrSectionHeading { margin-bottom: 1.8rem; }
-.dfrSectionHeading h2, .dfrEventSection > h2 {
-    font-size: clamp(1.6rem, 3vw, 2.4rem);
-    margin: 0.5rem 0 1rem;
-    color: #fff;
-}
-.dfrSectionHeading > p:last-child { color: #bbb; }
 .dfrEyebrow {
     color: #ff9d9d;
     font-size: 0.8rem;
@@ -1760,8 +1431,6 @@ h6 {
 .dfrEventLinks { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; padding-top: 1rem; margin-top: auto; }
 .dfrEventLinks a { display: inline-flex; gap: .25rem; align-items: center; min-height: 44px; color: #fff; text-decoration: underline; text-underline-offset: 0.3em; line-height: 1.6; }
 @media (max-width: 700px) {
-    .mainEvent { margin-top: .75rem; }
-    .eventHero { margin-bottom: 1.5rem; }
     .dfrEventGrid { grid-template-columns: 1fr; }
     .dfrShotgunAgenda iframe { height: 22rem; height: clamp(14rem, 58svh, 24rem); }
     .dfrProject { padding: 1.5rem; }
@@ -1790,63 +1459,6 @@ h6 {
     .navLink { white-space: nowrap; }
     .navLink[aria-current="page"]::after { width: 100%; }
 
-    .mainAlbum,
-    .mainArtist,
-    .mainEvent,
-    .mainVideo {
-        max-width: 1264px;
-        margin: 0 auto;
-        padding: clamp(1.75rem, 3vw, 2.75rem) 2rem 0;
-    }
-
-    .albumHero,
-    .artistHero,
-    .eventHero,
-    .videoHero {
-        margin-bottom: 2rem;
-    }
-
-    .eventHero h1 {
-        font-size: 3rem;
-    }
-
-    .albumGrid,
-    .videoGrid {
-        grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-        gap: 1.5rem;
-    }
-
-    .albumInfo,
-    .releaseInfo,
-    .videoDetails {
-        padding: 1.125rem;
-    }
-
-    .featuredVideo > .videoContainer {
-        display: grid;
-        grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-        align-items: center;
-        gap: 2rem;
-        max-width: none;
-    }
-
-    .featuredVideo .videoInfo {
-        margin-top: 0;
-    }
-
-    .videoThumbnail {
-        height: auto;
-        aspect-ratio: 16 / 9;
-    }
-
-    .videoThumbnail img {
-        display: block;
-    }
-
-    .videoCard .playButton {
-        opacity: 1;
-    }
-
     .mainFooter {
         margin-top: 4rem;
         padding-top: 3.5rem;
@@ -1868,15 +1480,6 @@ h6 {
 }
 
 @media (min-width: 1200px) {
-    .artistGrid {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 1.5rem;
-    }
-
-    .artistGrid .artistOverlay {
-        padding: 1.25rem;
-    }
-
     .dfrEventSection[aria-labelledby="past-events-title"] .dfrEventGrid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }

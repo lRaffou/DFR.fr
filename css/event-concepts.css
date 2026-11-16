@@ -1,6 +1,27 @@
+.mainEvent .dfrEventSection {
+    margin-bottom: clamp(2.75rem, 5vw, 4.5rem);
+}
+
+.editorialHeader .dfrEventJump {
+    justify-content: flex-start;
+    margin-top: .75rem;
+}
+
+.editorialHeader .dfrEventJump a {
+    border-color: #685055;
+    border-radius: 6px;
+    font-size: .9rem;
+}
+
+.editorialHeader .dfrEventJump a:hover,
+.dfrEventDetails > summary:hover {
+    background: #262126;
+}
+
 .dfrEventConcept {
     padding: 0;
     overflow: hidden;
+    border-radius: 8px;
     scroll-margin-top: .75rem;
 }
 
@@ -8,7 +29,49 @@
     display: flex;
     flex: 1;
     flex-direction: column;
-    padding: clamp(1rem, 3vw, 2rem);
+    padding: clamp(1rem, 2vw, 1.5rem);
+}
+
+.dfrEventConceptHeading {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+    gap: clamp(.875rem, 2vw, 1.5rem);
+    margin-bottom: 1rem;
+}
+
+.dfrEventConceptHeading h3 {
+    margin: .5rem 0 .75rem;
+    font-size: clamp(1.2rem, 2.3vw, 1.75rem);
+    overflow-wrap: anywhere;
+}
+
+.dfrEventConceptHeading .dfrProjectDescription {
+    margin: 0;
+    font-size: .9rem;
+    line-height: 1.6;
+}
+
+.dfrEventConceptPoster {
+    display: grid;
+    gap: .4rem;
+    width: clamp(82px, 12vw, 124px);
+    padding: .35rem;
+    border: 1px solid #5e4a58;
+    border-radius: 6px;
+    background: #161216;
+    color: #efe4eb;
+    font-size: .68rem;
+    line-height: 1.4;
+    text-align: center;
+    text-underline-offset: .18em;
+}
+
+.dfrEventConceptPoster img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: contain;
 }
 
 .dfrEventConcept .dfrProjectLinks a {
@@ -18,10 +81,123 @@
     min-height: 44px;
 }
 
+.dfrEventConcept .dfrProjectLinks a:first-child {
+    border-color: #c47077;
+    background: #3d2228;
+}
+
+.dfrEventConcept.dfrProject--coeur-meurtri .dfrProjectLinks a:first-child {
+    border-color: #b987c9;
+    background: #3b2544;
+}
+
+.dfrEventConcept .dfrProjectLinks a:first-child:hover {
+    background: #563542;
+}
+
 .dfrEventConcept > .dfrShotgunAgenda {
     border: 0;
     border-top: 1px solid #393939;
     border-radius: 0;
+}
+
+.dfrEventArchiveGrid {
+    align-items: start;
+}
+
+.dfrEventCard {
+    --event-accent: #ff9d9d;
+    border-radius: 8px;
+}
+
+.dfrEventCard[data-project="Cœur Meurtri"] {
+    --event-accent: #dda4f0;
+}
+
+.dfrEventPoster:focus-visible {
+    outline-offset: -4px;
+}
+
+.dfrEventCard .dfrEventContent {
+    padding: 1rem 1rem .5rem;
+}
+
+.dfrEventCard .dfrEventContent > .dfrEyebrow {
+    color: var(--event-accent);
+}
+
+.dfrEventCard .dfrEventContent h3 {
+    margin: .4rem 0 .65rem;
+    font-size: clamp(1rem, 2vw, 1.35rem);
+    overflow-wrap: anywhere;
+}
+
+.dfrEventCard .dfrEventVenue {
+    margin-bottom: .15rem;
+}
+
+.dfrEventCard .dfrEventLinks {
+    gap: .125rem .75rem;
+    padding-top: 0;
+}
+
+.dfrEventDetails {
+    border-top: 1px solid #393939;
+}
+
+.dfrEventDetails > summary {
+    min-height: 44px;
+    padding: .65rem 1rem;
+    cursor: pointer;
+    font-size: .86rem;
+    line-height: 1.5;
+}
+
+.dfrEventDetails > summary::marker {
+    color: var(--event-accent);
+}
+
+.dfrEventDetails > summary:focus-visible {
+    outline-offset: -4px;
+}
+
+.dfrEventDetailsBody {
+    padding: .25rem 1rem 1rem;
+    color: #d5d5d5;
+    font-size: .9rem;
+    line-height: 1.65;
+}
+
+.dfrEventDetailsBody .dfrEventLineup {
+    margin-top: .625rem;
+}
+
+@media (max-width: 900px) {
+    .dfrShotgunGrid { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 540px) {
+    .dfrEventCard {
+        display: grid;
+        grid-template-columns: minmax(0, 7.5rem) minmax(0, 1fr);
+    }
+
+    .dfrEventCard .dfrEventPoster {
+        align-self: start;
+        margin: .75rem 0 0 .75rem;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+    .dfrEventCard .dfrEventPoster img {
+        height: auto;
+        aspect-ratio: 4 / 5;
+    }
+
+    .dfrEventCard .dfrEventContent { padding: .75rem .75rem .25rem; }
+    .dfrEventCard .dfrEventContent p { font-size: .8rem; }
+    .dfrEventCard .dfrEventLinks a { font-size: .8rem; }
+    .dfrEventDetails { grid-column: 1 / -1; }
 }
 
 @media (min-width: 1000px) {

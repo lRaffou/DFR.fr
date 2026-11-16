@@ -92,39 +92,6 @@
     margin: 0 0 clamp(2.5rem, 5vw, 4.5rem);
 }
 
-.homeSectionHeading {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0 .875rem;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid #333;
-}
-
-.homeSectionHeading h2 {
-    margin: 0;
-    padding-block: .5rem;
-    font-size: clamp(1.3rem, 2.6vw, 2rem);
-    letter-spacing: .035em;
-}
-
-.homeSectionHeading h2::after {
-    width: 2rem;
-    height: 2px;
-}
-
-.homeSectionHeading > a {
-    display: inline-flex;
-    align-items: center;
-    gap: .375rem;
-    min-height: 44px;
-    color: #f4f4f4;
-    font-size: .875rem;
-    text-underline-offset: .22em;
-}
-
-.homeSectionHeading > a:hover,
 .homeVideoInfo a:hover {
     color: #ff9a9e;
 }
@@ -169,25 +136,6 @@
 .releaseInfo p,
 .homeVideoInfo p {
     color: #cdcdcd;
-}
-
-.releaseInfo .btnListen {
-    align-self: flex-start;
-    justify-content: flex-start;
-    border: 1px solid #4b4b4b;
-    border-radius: 6px;
-    background: #212121;
-    color: #fff;
-    text-align: left;
-}
-
-.releaseInfo .btnListen:hover {
-    background: #303030;
-    transform: none;
-}
-
-.releaseInfo .fa-spotify {
-    color: #31d565;
 }
 
 .homeVideoPlayer {

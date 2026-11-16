@@ -56,7 +56,7 @@ function renderHeader(
     </head>
 
     <body>
-        <header>
+        <header class="siteHeader">
             <nav class="navMax1000" aria-label="Navigation principale">
                 <div class="navTop">
                     <a class="mobileBrand" href="/index.php">

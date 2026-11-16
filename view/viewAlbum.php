@@ -47,13 +47,16 @@ function renderAlbum()
     usort($catalogue, static fn(array $a, array $b): int => strcmp($b['date'], $a['date']) ?: strcmp($a['id'], $b['id']));
     $count = count($catalogue);
     $pagination = dfrCataloguePage($catalogue, $_GET['page'] ?? 1);
+    $showLatest = $filters === [] && $pagination['page'] === 1;
+    $catalogueTitle = $artist !== '' ? $artists[$artist]['name'] : 'Catalogue';
     ob_start();
     ?>
-    <main class="mainAlbum">
+    <main class="mainAlbum editorialPage">
         <section class="albumCatalog" id="catalog" aria-labelledby="catalogue-title">
-            <div class="albumHero catalogueHeading">
+            <header class="editorialHeader">
                 <h1 id="catalogue-title">Nos sorties</h1>
-            </div>
+                <p>Singles, EP et albums, du plus récent au plus ancien.</p>
+            </header>
             <form class="catalogueFilters" method="get" action="/controller/album.php#catalog" aria-label="Filtres du catalogue">
                 <label class="catalogueFilterArtist" for="catalogue-artist">
                     <span>Artiste</span>
@@ -75,14 +78,19 @@ function renderAlbum()
                     <?php endif; ?>
                 </div>
             </form>
-            <?php if ($count === 0): ?>
-                <p class="catalogueResults">Aucune sortie ne correspond à cette sélection.</p>
-            <?php else: ?>
-                <p class="catalogueResults"><?= $count ?> sortie<?= $count > 1 ? 's' : '' ?></p>
+            <div class="editorialSectionHeading catalogueToolbar">
+                <div class="catalogueTitle">
+                    <h2><?= htmlspecialchars($catalogueTitle) ?></h2>
+                    <p class="catalogueResults"><?= $count ?> sortie<?= $count > 1 ? 's' : '' ?></p>
+                </div>
                 <?php renderCataloguePagination($pagination, 'haut', $filters); ?>
+            </div>
+            <?php if ($count === 0): ?>
+                <p class="catalogueEmpty">Aucune sortie ne correspond à cette sélection.</p>
+            <?php else: ?>
                 <div class="albumGrid">
-                    <?php foreach ($pagination['items'] as $release): ?>
-                        <?= renderReleaseCard($release, true, $spotifyMobileCovers) ?>
+                    <?php foreach ($pagination['items'] as $index => $release): ?>
+                        <?= renderReleaseCard($release, true, $spotifyMobileCovers, lead: $showLatest && $index === 0) ?>
                     <?php endforeach; ?>
                 </div>
                 <?php renderCataloguePagination($pagination, 'bas', $filters); ?>

@@ -5,6 +5,7 @@ function renderVideo()
 {
     $videos = require __DIR__ . '/../model/videos.php';
     $featured = $videos['recent'][0];
+    $escape = static fn(string $value): string => htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
     $galleries = [];
     foreach (['recent' => 'Sorties récentes', 'collection' => 'Clips et lives'] as $section => $heading) {
         $items = array_filter($videos[$section], static fn(array $video): bool => $video['id'] !== $featured['id']);
@@ -14,14 +15,10 @@ function renderVideo()
     }
     ob_start();
     ?>
-    <main class="mainVideo">
-        <section class="videoHero">
+    <main class="mainVideo editorialPage">
+        <header class="editorialHeader">
             <h1>Nos vidéos</h1>
-            <p>Les clips, les lives et les audios officiels des artistes du label</p>
-            <div class="videoLinks">
-                <a href="<?= htmlspecialchars($videos['channel']) ?>" target="_blank" rel="noopener noreferrer">La chaîne DFR</a>
-                <a href="<?= htmlspecialchars($videos['playlist']) ?>" target="_blank" rel="noopener noreferrer">La playlist clips et lives</a>
-            </div>
+            <p>Les clips, les lives et les audios officiels du label.</p>
             <?php if ($galleries): ?>
                 <nav class="videoSectionLinks" aria-label="Sections vidéos">
                     <?php foreach ($galleries as $section => $gallery): ?>
@@ -29,46 +26,52 @@ function renderVideo()
                     <?php endforeach; ?>
                 </nav>
             <?php endif; ?>
-        </section>
+        </header>
 
-        <section class="featuredVideo">
-            <h2>À la une</h2>
-            <div class="videoContainer">
-                <article class="video">
-                    <?= renderYouTubePreview($featured) ?>
-                </article>
-                <div class="videoInfo">
-                    <span class="videoFormat">Audio officiel</span>
-                    <h3><?= htmlspecialchars($featured['title']) ?></h3>
-                    <p><?= htmlspecialchars($featured['artist']) ?> · Sortie le <time datetime="<?= $featured['date'] ?>"><?= (new DateTimeImmutable($featured['date']))->format('d/m/Y') ?></time></p>
-                    <p class="videoLinks"><a href="https://www.youtube.com/watch?v=<?= htmlspecialchars($featured['id']) ?>" target="_blank" rel="noopener noreferrer">Écouter sur YouTube</a></p>
-                </div>
+        <section class="videoFeature" aria-labelledby="featured-video-title">
+            <div class="editorialSectionHeading">
+                <h2 id="featured-video-title">À la une</h2>
+                <a href="<?= $escape($videos['channel']) ?>" target="_blank" rel="noopener noreferrer">Chaîne YouTube DFR <span aria-hidden="true">↗</span></a>
             </div>
+            <article class="videoFeaturePanel">
+                <div class="videoFeatureMedia"><?= renderYouTubePreview($featured) ?></div>
+                <div class="videoFeatureCopy">
+                    <p class="videoFormat">Audio officiel</p>
+                    <h3><?= $escape($featured['title']) ?></h3>
+                    <p class="videoCredits"><?= $escape($featured['artist']) ?> · Sortie le <time datetime="<?= $escape($featured['date']) ?>"><?= (new DateTimeImmutable($featured['date']))->format('d/m/Y') ?></time></p>
+                    <a class="videoFeatureLink" href="https://www.youtube.com/watch?v=<?= rawurlencode($featured['id']) ?>" target="_blank" rel="noopener noreferrer">Écouter sur YouTube <span aria-hidden="true">↗</span></a>
+                </div>
+            </article>
         </section>
 
         <?php foreach ($galleries as $section => $gallery): ?>
-            <section class="videoGallery" id="video-<?= $section ?>">
-                <h2><?= $gallery['heading'] ?></h2>
+            <section class="videoGallery" id="video-<?= $section ?>" aria-labelledby="video-<?= $section ?>-title">
+                <div class="editorialSectionHeading">
+                    <h2 id="video-<?= $section ?>-title"><?= $gallery['heading'] ?></h2>
+                    <?php if ($section === 'collection'): ?>
+                        <a href="<?= $escape($videos['playlist']) ?>" target="_blank" rel="noopener noreferrer">Playlist clips et lives <span aria-hidden="true">↗</span></a>
+                    <?php endif; ?>
+                </div>
                 <div class="videoGrid">
                     <?php foreach ($gallery['items'] as $video): ?>
                         <?php $label = $video['artist'] . ' — ' . $video['title']; ?>
-                        <article class="videoCard" data-video="<?= htmlspecialchars($video['id']) ?>" data-title="<?= htmlspecialchars($label) ?>">
+                        <article class="videoCard" data-video="<?= $escape($video['id']) ?>" data-title="<?= $escape($label) ?>">
                             <div class="videoThumbnail">
-                                <img src="https://img.youtube.com/vi/<?= htmlspecialchars($video['id']) ?>/hqdefault.jpg"
-                                    loading="lazy" decoding="async" width="480" height="360" alt="<?= htmlspecialchars($label) ?>">
-                                <button type="button" class="playButton" aria-label="<?= htmlspecialchars('Lire ' . $label) ?>">
+                                <img src="https://img.youtube.com/vi/<?= rawurlencode($video['id']) ?>/hqdefault.jpg"
+                                    loading="lazy" decoding="async" width="480" height="360" alt="">
+                                <button type="button" class="playButton" aria-label="<?= $escape('Lire ' . $label) ?>">
                                     <i class="fas fa-play" aria-hidden="true"></i>
                                 </button>
                             </div>
                             <div class="videoDetails">
-                                <span class="videoFormat"><?= htmlspecialchars($video['format'] ?? 'Audio officiel') ?></span>
-                                <h3><?= htmlspecialchars($video['title']) ?></h3>
-                                <p><?= htmlspecialchars($video['artist']) ?></p>
+                                <span class="videoFormat"><?= $escape($video['format'] ?? 'Audio officiel') ?></span>
+                                <h3><?= $escape($video['title']) ?></h3>
+                                <p><?= $escape($video['artist']) ?></p>
                                 <?php if (isset($video['date'])): ?>
-                                    <p>Sortie le <time datetime="<?= $video['date'] ?>"><?= (new DateTimeImmutable($video['date']))->format('d/m/Y') ?></time></p>
+                                    <p>Sortie le <time datetime="<?= $escape($video['date']) ?>"><?= (new DateTimeImmutable($video['date']))->format('d/m/Y') ?></time></p>
                                 <?php endif; ?>
-                                <p class="videoExternalLink"><a href="https://www.youtube.com/watch?v=<?= htmlspecialchars($video['id']) ?>"
-                                    target="_blank" rel="noopener noreferrer" aria-label="<?= htmlspecialchars('Voir ' . $label . ' sur YouTube') ?>">Voir sur YouTube</a></p>
+                                <p class="videoExternalLink"><a href="https://www.youtube.com/watch?v=<?= rawurlencode($video['id']) ?>"
+                                    target="_blank" rel="noopener noreferrer" aria-label="<?= $escape('Voir ' . $label . ' sur YouTube') ?>">Voir sur YouTube <span aria-hidden="true">↗</span></a></p>
                             </div>
                         </article>
                     <?php endforeach; ?>
