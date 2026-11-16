@@ -165,7 +165,7 @@ check(count($retained['releases']) === 1 && $retained['releases'][0]['link_label
 $catalogConfig['excluded_album_ids'] = [$albumId];
 check(buildReleaseCatalogue([$release], [$track], $catalogConfig, $built)['releases'] === [], 'Une exclusion retire aussi une fiche automatique existante');
 $seed = require __DIR__ . '/../../model/releases.seed.php';
-check(dfrMergeReleases($seed, null)['total'] === 13, 'Les 13 fiches initiales restent disponibles sans cache');
+check(dfrMergeReleases($seed, null)['total'] === 18, 'Les 18 fiches éditoriales restent disponibles sans cache');
 check(array_column(dfrMergeReleases($seed, null)['featured'], 'title') === ['Red Destruction', 'Versus', 'Discoteca'],
     'À la une réserve une place à Red Marshal, une collaboration et un autre artiste');
 $newSolo = dfrCleanRelease($seed['featured'][0]);
@@ -182,7 +182,7 @@ $newOther['date'] = '2026-10-03'; $newOther['title'] = 'Nouveau titre Fernando';
 $selection = dfrMergeReleases($seed, ['releases' => [$newSolo, $newCollab, $newOther]]);
 check(array_column($selection['featured'], 'title') === ['Nouveau solo', 'Nouvelle collaboration', 'Nouveau titre Fernando']
     && $selection['catalog'][0]['title'] === 'Red Destruction'
-    && count(array_unique(array_column(array_merge($selection['featured'], $selection['catalog']), 'id'))) === 16,
+    && count(array_unique(array_column(array_merge($selection['featured'], $selection['catalog']), 'id'))) === 21,
     'Chaque catégorie se renouvelle avec sa dernière sortie, sans perdre ni dupliquer les autres fiches');
 check(count(dfrMergeReleases(['featured' => [], 'catalog' => []], ['releases' => [$newSolo]])['featured']) === 1,
     'Une catégorie absente ne crée pas de carte vide ou de doublon');
@@ -193,7 +193,7 @@ $frenzysax['artist'] = 'Frenzysax'; $frenzysax['artist_ids'] = ['4NqtEeAINDNe0G3
 $frenzysaxSelection = dfrMergeReleases($seed, ['releases' => [$frenzysax]]);
 check(array_column($frenzysaxSelection['featured'], 'title') === ['Red Destruction', 'Live The Moment', 'Discoteca']
     && $frenzysaxSelection['featured'][1]['artist'] === 'Frenzysax'
-    && $frenzysaxSelection['total'] === 14
+    && $frenzysaxSelection['total'] === 19
     && in_array('Versus', array_column($frenzysaxSelection['catalog'], 'title'), true),
     'Frenzysax occupe la place collaboration sans modifier les crédits ni perdre les autres sorties');
 $seedCard = $built['releases'][0]; $seedCard['image'] = '/img/albums/webp/Releases-1.webp'; $seedCard['artist'] = 'Artiste DFR, invitée confirmée';
@@ -219,6 +219,6 @@ try {
     fails(fn() => publishReleaseCatalogue($catalogPath, ['schema_version' => 1, 'releases' => [['bad' => true]]]), 'Une publication invalide est arrêtée');
     check(file_get_contents($catalogPath) === $original, 'La dernière version valide est conservée en cas d’échec');
     file_put_contents($catalogPath, '{invalid');
-    check(dfrMergeReleases($seed, dfrReadCatalogue($catalogPath))['total'] === 13, 'Un cache corrompu rétablit le catalogue initial');
+    check(dfrMergeReleases($seed, dfrReadCatalogue($catalogPath))['total'] === 18, 'Un cache corrompu rétablit le catalogue initial');
 } finally { unlink($catalogPath); rmdir($catalogDir); }
 echo "Tous les tests sont passés.\n";
