@@ -11,6 +11,7 @@ function dfrSite(): array
             ['/controller/video.php', 'Vidéos', 'fa-video'],
             ['/controller/album.php', 'Sorties', 'fa-compact-disc'],
         ],
+        'booking' => ['/controller/booking.php', 'Booking', 'fa-briefcase'],
         'contact' => 'mailto:Daofamilyrecords@gmail.com',
         'social' => [
             'YouTube' => [

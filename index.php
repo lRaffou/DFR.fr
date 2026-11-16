@@ -1,8 +1,10 @@
 <?php
+require __DIR__ . '/components/next-event.php';
 require __DIR__ . '/view/viewHeader.php';
 require __DIR__ . '/view/viewAcceuil.php';
 require __DIR__ . '/view/viewFooter.php';
 
-echo renderHeader();
-echo renderAcceuil();
+$nextEvent = renderNextDfrEvent(require __DIR__ . '/model/events.php');
+echo renderHeader(stylesheets: $nextEvent === '' ? [] : ['next-event.css']);
+echo renderAcceuil($nextEvent);
 echo renderFooter();

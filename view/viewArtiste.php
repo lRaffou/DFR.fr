@@ -1,7 +1,7 @@
 <?php
-function renderArtiste()
+function renderArtiste(array $artists, ?string $profileId = null): string
 {
-    $artists = require __DIR__ . '/../model/artists.php';
+    $profile = $profileId === null ? null : $artists[$profileId];
     $escape = static fn(string $value): string => htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
     $artistCardSizes = '(min-width: 1264px) 282px, (min-width: 1200px) 23vw, (min-width: 1000px) 30vw, (min-width: 624px) 45vw, calc(100vw - 2rem)';
     $heroArtist = array_key_first($artists);
@@ -17,6 +17,34 @@ function renderArtiste()
             <h1>Nos Artistes</h1>
             <p>Découvrez les talents qui font vibrer Dao Family Records</p>
         </section>
+
+        <?php if ($profile !== null): ?>
+            <article id="artistPublicProfile" class="artistPublicProfile" data-artist="<?= $escape($profileId) ?>" aria-labelledby="artistPublicName">
+                <div class="artistPublicPortrait">
+                    <img src="<?= $escape($profile['image']) ?>" alt="Portrait de <?= $escape($profile['name']) ?>" decoding="async">
+                </div>
+                <div class="artistPublicContent">
+                    <h2 id="artistPublicName"><?= $escape($profile['name']) ?></h2>
+                    <p class="artistPublicRole"><?= $escape($profile['role']) ?> · <?= $escape(implode(' / ', $profile['genres'])) ?></p>
+                    <?php foreach ($profile['bio'] as $paragraph): ?>
+                        <p><?= $escape($paragraph) ?></p>
+                    <?php endforeach; ?>
+                    <div class="artistPublicLinks">
+                        <?php if (!empty($profile['social_spotify'])): ?>
+                            <a href="<?= $escape($profile['social_spotify']) ?>" target="_blank" rel="noopener noreferrer">Spotify</a>
+                        <?php endif; ?>
+                        <?php if (!empty($profile['social_youtube'])): ?>
+                            <a href="<?= $escape($profile['social_youtube']) ?>" target="_blank" rel="noopener noreferrer">YouTube</a>
+                        <?php endif; ?>
+                        <a href="<?= $escape($profile['social_instagram']) ?>" target="_blank" rel="noopener noreferrer">Instagram</a>
+                        <?php if (!empty($profile['social_spotify']) || !empty($profile['release'])): ?>
+                            <a href="/controller/album.php?artiste=<?= $escape(rawurlencode($profile['slug'] ?? $profileId)) ?>#catalog">Toutes ses sorties</a>
+                        <?php endif; ?>
+                        <a href="/controller/booking.php">Booking &amp; Presse</a>
+                    </div>
+                </div>
+            </article>
+        <?php endif; ?>
 
         <section class="artistGrid">
             <?php foreach ($artists as $id => $artist): ?>

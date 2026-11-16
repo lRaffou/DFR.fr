@@ -1,0 +1,176 @@
+.mainBooking {
+    width: min(100% - 2rem, 74rem);
+    margin: 0 auto;
+    padding: clamp(1.5rem, 5vw, 4rem) 0 1rem;
+}
+
+.bookingHero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: .75rem 2rem;
+    padding: clamp(1.25rem, 4vw, 2.75rem);
+    margin-bottom: clamp(2rem, 5vw, 3.5rem);
+    border: 1px solid #452828;
+    border-radius: 16px;
+    background: radial-gradient(ellipse at top right, #371219, #171013 54%, #101010);
+}
+
+.bookingHero h1 {
+    grid-column: 1;
+    margin: 0;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+.bookingHero p {
+    grid-column: 1;
+    max-width: 42rem;
+    color: #ded8d8;
+    line-height: 1.6;
+}
+
+.bookingHero .bookingAction {
+    grid-column: 2;
+    grid-row: 1 / 3;
+}
+
+.mainBooking h2 {
+    font-size: clamp(1.3rem, 3vw, 1.9rem);
+    margin: 0 0 1rem;
+}
+
+.bookingGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 29rem), 1fr));
+    gap: 1rem;
+    align-items: start;
+}
+
+.bookingCard {
+    min-width: 0;
+    padding: clamp(1rem, 2.5vw, 1.5rem);
+    background: #151515;
+    border: 1px solid #383232;
+    border-radius: 13px;
+}
+
+.bookingCardTop {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 1rem;
+}
+
+.bookingPortrait {
+    width: clamp(4rem, 18vw, 6.25rem);
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #252123;
+}
+
+.bookingPortrait img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: var(--artist-card-position, center);
+    transform: scale(var(--artist-card-scale, 1));
+    transform-origin: var(--artist-card-origin, center);
+}
+
+.bookingCard h3 {
+    margin: 0 0 .3rem;
+    font-size: clamp(1.08rem, 2.5vw, 1.35rem);
+    line-height: 1.2;
+}
+
+.bookingRole,
+.bookingGenre {
+    color: #ddd;
+    line-height: 1.45;
+    font-size: .875rem;
+}
+
+.bookingGenre {
+    margin-top: .15rem;
+    color: #ffb4b2;
+}
+
+.bookingLinks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .35rem .875rem;
+    align-items: center;
+    margin-top: .9rem;
+}
+
+.bookingAction,
+.bookingTextLink,
+.bookingPress summary {
+    min-height: 44px;
+}
+
+.bookingAction,
+.bookingTextLink {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    color: #fff;
+    text-underline-offset: .25em;
+}
+
+.bookingAction {
+    justify-content: center;
+    padding: .65rem .95rem;
+    background: #a62427;
+    border: 1px solid #cf5054;
+    border-radius: 7px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.bookingAction:hover {
+    background: #be343a;
+}
+
+.bookingPress {
+    margin-top: .6rem;
+    border-top: 1px solid #3b3636;
+}
+
+.bookingPress summary {
+    padding: .7rem 0;
+    cursor: pointer;
+    color: #f5eeee;
+    line-height: 1.4;
+}
+
+.bookingPress p,
+.bookingNote p {
+    color: #ddd;
+    line-height: 1.65;
+}
+
+.bookingPress .bookingLinks {
+    margin-top: .15rem;
+}
+
+.bookingNote {
+    margin-top: 2rem;
+    padding: 1.25rem;
+    border-left: 3px solid #b63033;
+    background: #151212;
+}
+
+@media (max-width: 700px) {
+    .bookingHero {
+        grid-template-columns: 1fr;
+    }
+
+    .bookingHero .bookingAction {
+        grid-column: 1;
+        grid-row: auto;
+        justify-self: start;
+    }
+}

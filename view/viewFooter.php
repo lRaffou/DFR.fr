@@ -17,7 +17,7 @@ function renderFooter(): string
             <div class="footerSection">
                 <h3>Navigation</h3>
                 <ul class="footerLinks">
-                    <?php foreach ($site['navigation'] as [$path, $label]): ?>
+                    <?php foreach ([...$site['navigation'], $site['booking']] as [$path, $label]): ?>
                         <li><a href="<?= htmlspecialchars($path) ?>"><?= htmlspecialchars($label) ?></a></li>
                     <?php endforeach; ?>
                     <li><a href="<?= htmlspecialchars($site['contact']) ?>">Contactez-nous</a></li>

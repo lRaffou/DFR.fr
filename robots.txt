@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://daofamilyrecords.fr/sitemap.php

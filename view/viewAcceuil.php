@@ -3,7 +3,7 @@ require_once __DIR__ . '/../components/media.php';
 require_once __DIR__ . '/../components/projects.php';
 require_once __DIR__ . '/../components/releases.php';
 require_once __DIR__ . '/../model/site.php';
-function renderAcceuil()
+function renderAcceuil(string $nextEvent)
 {
     $releases = require __DIR__ . '/../model/releases.php';
     $videos = require __DIR__ . '/../model/videos.php';
@@ -38,6 +38,7 @@ function renderAcceuil()
             </div>
         </section>
 
+        <?= $nextEvent ?>
         <?= renderProjects(require __DIR__ . '/../model/projects.php') ?>
 
         <section class="featuredReleases">

@@ -255,9 +255,28 @@ h6 {
 
 .navTop {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    gap: .5rem;
     align-items: center;
     padding: calc(.6rem + env(safe-area-inset-top, 0px)) 1rem .6rem;
+}
+
+.mobileBooking {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: .3rem .6rem;
+    color: #fff;
+    border: 1px solid #6d3333;
+    border-radius: 7px;
+    font-size: .8125rem;
+    text-decoration: none;
+    flex: none;
+}
+
+.mobileBooking[aria-current="page"],
+.mobileBooking:hover {
+    background: #6d2429;
 }
 
 .mobileBrand {
@@ -2224,12 +2243,14 @@ h6 {
     }
 }
 
-@media (min-width: 1000px) and (max-width: 1160px) {
-    .navMin1000 { padding-inline: 1.25rem; }
+@media (min-width: 1000px) and (max-width: 1240px) {
+    .navMin1000 { padding-inline: 1rem; }
     .navbarLogo img { margin-right: .625rem; }
-    .navbarLogo span { font-size: 1rem; }
-    .navbarMenu ul { gap: 1rem; }
-    .navbarSocial { gap: .875rem; }
+    .navbarLogo span { font-size: .9375rem; }
+    .navbarMenu ul { gap: .75rem; }
+    .navLink { font-size: .875rem; }
+    .navLink i { margin-right: .35rem; }
+    .navbarSocial { gap: .75rem; }
 }
 
 @media (min-width: 1200px) {

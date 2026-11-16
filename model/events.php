@@ -1,5 +1,6 @@
 <?php
 // Les dates, affiches et retours en images viennent des annonces des organisateurs.
+// L’accueil affiche la première date confirmée jusqu’à son heure de fin.
 return [
     [
         'project' => 'Cœur Meurtri', 'title' => 'Les Mercredis Collectifs #5',

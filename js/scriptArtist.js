@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "artistDetailsContainer"
     );
     const artistDataElement = document.getElementById("artistData");
+    const publicProfile = document.getElementById("artistPublicProfile");
 
     if (!modal || !closeModal || !artistDetailsContainer || !artistDataElement) return;
 
@@ -44,7 +45,8 @@ document.addEventListener("DOMContentLoaded", function () {
     function showArtistModal(card) {
         const artistId = card.dataset.artist;
         activeCard = card;
-        artistDetailsContainer.innerHTML = createArtistDetails(artistId);
+        artistDetailsContainer.innerHTML = createArtistDetails(artistId, slugForCard(card));
+        if (publicProfile) publicProfile.hidden = true;
         modal.style.display = "block";
         modal.scrollTop = 0;
         document.body.classList.add("modalOpen");
@@ -78,12 +80,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    function createArtistDetails(artistId) {
+    function createArtistDetails(artistId, slug) {
         const artist = artistData[artistId];
         const externalLinks = (links) => links.map(({label, href}) =>
             `<a href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(label)}</a>`
         ).join("");
         const name = escapeHtml(artist.name);
+        const catalogueLink = `<a href="/controller/album.php?artiste=${encodeURIComponent(slug)}#catalog">Toutes ses sorties</a>`;
         return `
             <div class="artistDetails" data-artist="${escapeHtml(artistId)}">
                 <div class="artistHeader">
@@ -130,9 +133,9 @@ document.addEventListener("DOMContentLoaded", function () {
                             <img src="${escapeHtml(artist.release.cover)}" alt="Pochette de ${escapeHtml(artist.release.title)}" width="320" height="320" loading="lazy">
                             <div>
                                 <h4>${escapeHtml(artist.release.title)}</h4>
-                                <div class="artistTextLinks">${externalLinks(artist.release.links)}</div>
+                                <div class="artistTextLinks">${externalLinks(artist.release.links)}${catalogueLink}</div>
                             </div>
-                        </div>` : ""}
+                        </div>` : `<p class="artistTextLinks">${catalogueLink}</p>`}
                         ${artist.spotify ? `
                             <iframe style="border-radius:12px" src="${escapeHtml(artist.spotify)}" title="Écouter ${name} sur Spotify" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                         ` : ""}
