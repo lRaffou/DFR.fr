@@ -28,11 +28,27 @@ function spotifyMobileCover(array $images): ?string
     return $bestUrl;
 }
 
-function buildReleaseCatalogue(array $albums, array $tracks, array $config, ?array $previous): array
+function buildReleaseCatalogue(array $albums, array $tracks, array $config, ?array $previous, array $playlistItems = []): array
 {
+    $albums = array_column($albums, null, 'id');
     $eligible = [];
     foreach ($tracks as $track) {
         if (eligibleTrack($track, $config)) { $eligible[$track['album_id']][] = $track; }
+    }
+    // Playlist items already include track credits and album metadata, even when absent from artist listings.
+    foreach ($playlistItems as $entry) {
+        $track = $entry['item'] ?? $entry['track'] ?? null;
+        if (!is_array($track) || ($entry['is_local'] ?? false)) { continue; }
+        $album = $track['album'] ?? null;
+        $id = $album['id'] ?? '';
+        if (!is_string($id) || !preg_match('/^[A-Za-z0-9]{22}$/D', $id) || empty($album['name'])
+            || !is_string($album['release_date'] ?? null) || !dfrReleaseDateValid($album['release_date'])
+            || !empty($album['restrictions'])) { continue; }
+        $track['album_id'] = $id;
+        $track['release_date'] = $album['release_date'];
+        if (!eligibleTrack($track, $config)) { continue; }
+        $albums[$id] ??= $album;
+        $eligible[$id][] = $track;
     }
     $indexed = [];
     foreach ($previous['releases'] ?? [] as $release) {
@@ -47,7 +63,7 @@ function buildReleaseCatalogue(array $albums, array $tracks, array $config, ?arr
         if (empty($eligible[$id]) || !empty($album['restrictions']) || empty($album['name'])) { continue; }
         $artists = $album['artists'] ?? [];
         // Credit appearances to the performers, not an unrelated compilation's artist list.
-        if (!array_intersect(array_column($artists, 'id'), array_keys($config['artists']))) {
+        if (!array_intersect(array_column($artists, 'id'), spotifyArtistIds($config))) {
             $artists = [];
         }
         $artists = array_column($artists, null, 'id');

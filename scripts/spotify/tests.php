@@ -162,6 +162,45 @@ $track['artists'][0]['name'] = 'Artiste DFR';
 check(buildReleaseCatalogue([$compilation], [$track], $catalogConfig, null)['releases'][0]['artist'] === 'Artiste DFR', 'Les compilations créditent les participants concernés');
 $retained = buildReleaseCatalogue([], [], $catalogConfig, $built);
 check(count($retained['releases']) === 1 && $retained['releases'][0]['link_label'] === 'Voir sur Spotify', 'Les sorties historiques restent présentes après leur disparition de Spotify');
+
+$legacyArtistId = str_repeat('l', 22);
+$playlistConfig = $catalogConfig;
+$playlistConfig['artist_aliases'] = [$legacyArtistId => 'Artiste DFR'];
+$playlistAlbum = array_replace($release, ['id' => $otherAlbumId, 'name' => 'Single oublié', 'release_date' => '2024-07',
+    'artists' => [['id' => $legacyArtistId, 'name' => 'Artiste DFR']]]);
+$playlistTrack = song(23, '2024-07', $legacyArtistId, 'FR789');
+unset($playlistTrack['album_id'], $playlistTrack['release_date']);
+$playlistTrack['album'] = $playlistAlbum;
+$playlistTrack['artists'][0]['name'] = 'Artiste DFR';
+$playlistOnly = buildReleaseCatalogue([$release], [$track], $playlistConfig, null, [['item' => $playlistTrack]]);
+check(array_column($playlistOnly['releases'], 'id') === [$albumId, $otherAlbumId]
+    && $playlistOnly['releases'][1]['date'] === '2024-07'
+    && $playlistOnly['releases'][1]['mobile_image'] === $playlistAlbum['images'][1]['url'],
+    'Un single oublié, crédité à un ancien profil, rejoint les sorties détectées dans les discographies');
+
+$playlistCollab = $track;
+$playlistCollab['album'] = array_replace($release, ['name' => 'Libellé de la playlist']);
+$playlistCollab['artists'][] = ['id' => str_repeat('i', 22), 'name' => 'Invitée'];
+$bothSources = buildReleaseCatalogue([$release], [$track], $playlistConfig, null, [['track' => $playlistCollab]]);
+check(count($bothSources['releases']) === 1 && $bothSources['releases'][0]['title'] === $release['name']
+    && str_contains($bothSources['releases'][0]['artist'], 'Invitée'),
+    'Le format de playlist historique complète les crédits sans dupliquer une fiche de discographie');
+
+$unrelated = $playlistTrack;
+$unrelated['artists'][0]['id'] = str_repeat('x', 22);
+$unavailableItem = array_replace($playlistTrack, ['is_playable' => false]);
+$upcomingItem = array_replace($playlistTrack, ['album' => array_replace($playlistAlbum, ['release_date' => '2999-01-01'])]);
+check(buildReleaseCatalogue([], [], $playlistConfig, null, [['item' => $unrelated], ['item' => $unavailableItem],
+    ['item' => $upcomingItem], ['is_local' => true, 'item' => $playlistTrack], ['item' => null], ['item' => $track]])['releases'] === [],
+    'Le repli ignore les homonymes, titres indisponibles, sorties futures, entrées locales et métadonnées absentes');
+
+$blockedPlaylistItem = [['item' => $playlistTrack]];
+foreach (['excluded_track_ids' => [$playlistTrack['id']], 'excluded_album_ids' => [$otherAlbumId], 'excluded_isrcs' => ['fr789']] as $key => $excludedIds) {
+    $blockedConfig = array_replace($playlistConfig, [$key => $excludedIds]);
+    check(buildReleaseCatalogue([], [], $blockedConfig, null, $blockedPlaylistItem)['releases'] === [],
+        'Le repli playlist respecte l’exclusion ' . $key);
+}
+
 $catalogConfig['excluded_album_ids'] = [$albumId];
 check(buildReleaseCatalogue([$release], [$track], $catalogConfig, $built)['releases'] === [], 'Une exclusion retire aussi une fiche automatique existante');
 $seed = require __DIR__ . '/../../model/releases.seed.php';

@@ -171,12 +171,17 @@ function trackKeys(array $track): array
     return $keys;
 }
 
+function spotifyArtistIds(array $config): array
+{
+    return array_keys($config['artists'] + ($config['artist_aliases'] ?? []));
+}
+
 function eligibleTrack(array $track, array $config): bool
 {
     if (!preg_match('/^spotify:track:[A-Za-z0-9]{22}$/', $track['uri'] ?? '') || ($track['is_local'] ?? false)) { return false; }
     if (($track['is_playable'] ?? true) === false || !empty($track['restrictions'])) { return false; }
     if (($track['release_date'] ?? '2999') > gmdate('Y-m-d')) { return false; }
-    if (!array_intersect(array_column($track['artists'] ?? [], 'id'), array_keys($config['artists']))) { return false; }
+    if (!array_intersect(array_column($track['artists'] ?? [], 'id'), spotifyArtistIds($config))) { return false; }
     return !in_array($track['id'] ?? '', $config['excluded_track_ids'], true)
         && !in_array($track['album_id'] ?? '', $config['excluded_album_ids'], true)
         && (empty($track['external_ids']['isrc']) || !in_array(strtoupper($track['external_ids']['isrc']), array_map('strtoupper', $config['excluded_isrcs']), true));
@@ -205,7 +210,8 @@ function discoverTracks(SpotifyGateway $api, array $config, array &$cache, ?arra
 {
     $albums = []; $tracks = [];
     $market = rawurlencode($config['market']);
-    foreach (array_keys($config['artists']) as $id) {
+    $artistIds = spotifyArtistIds($config);
+    foreach ($artistIds as $id) {
         foreach (spotifyPages($api, '/artists/' . $id . '/albums?include_groups=album,single,appears_on,compilation&market=' . $market . '&limit=10') as $album) {
             if (!in_array($album['id'], $config['excluded_album_ids'], true)) { $albums[$album['id']] = $album; }
         }
@@ -216,7 +222,7 @@ function discoverTracks(SpotifyGateway $api, array $config, array &$cache, ?arra
         if (($entry['at'] ?? 0) < time() - $config['cache_seconds']) {
             $albumTracks = [];
             foreach (spotifyPages($api, '/albums/' . $id . '/tracks?market=' . $market . '&limit=50') as $track) {
-                if (!array_intersect(array_column($track['artists'] ?? [], 'id'), array_keys($config['artists']))) { continue; }
+                if (!array_intersect(array_column($track['artists'] ?? [], 'id'), $artistIds)) { continue; }
                 // Full track metadata supplies ISRC for album/single deduplication.
                 $albumTracks[] = $api->request('GET', '/tracks/' . $track['id'] . '?market=' . $market);
             }

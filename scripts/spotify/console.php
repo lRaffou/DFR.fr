@@ -97,8 +97,12 @@ try {
     $fingerprint = hash('sha256', json_encode([$config['artists'], $config['market'], $config['owner_id']]));
     if (($cache['fingerprint'] ?? '') !== $fingerprint) { $cache = ['fingerprint' => $fingerprint, 'albums' => []]; }
     $albums = [];
-    $candidates = discoverTracks($api, $config, $cache['albums'], $albums);
-    $store->write('catalogue-cache', $cache);
+    try {
+        $candidates = discoverTracks($api, $config, $cache['albums'], $albums);
+    } finally {
+        // Retain completed album reads if Spotify rate-limits a later request.
+        $store->write('catalogue-cache', $cache);
+    }
     $planned = planTracks($candidates, $existing, $config);
     $report = ['at' => gmdate(DATE_ATOM), 'mode' => isset($options['apply']) ? 'apply' : 'dry-run',
         'playlist_id' => $id, 'existing' => count($existing), 'candidates' => count($candidates),
@@ -108,22 +112,25 @@ try {
     foreach ($planned as $track) { echo $track['release_date'] . ' — ' . $track['name'] . ' — ' . $track['uri'] . "\n"; }
     $catalogue = null;
     if (isset($options['catalogue-file'])) {
-        $catalogue = buildReleaseCatalogue($albums, $candidates, $config, dfrReadCatalogue($options['catalogue-file']));
+        $catalogue = buildReleaseCatalogue($albums, $candidates, $config, dfrReadCatalogue($options['catalogue-file']), $existing);
         $report['catalogue_releases'] = count($catalogue['releases']);
         echo $report['catalogue_releases'] . " sorties prévues au catalogue automatique.\n";
     }
     if (isset($options['apply'])) {
-        $report['added'] = applyTracks($api, $id, $planned, $playlist['snapshot_id']);
-        // Check every requested URI after successful writes. An uncertain result is never replayed here.
-        $after = spotifyPages($api, '/playlists/' . $id . '/items?market=' . $config['market'] . '&limit=50');
-        $confirmed = [];
-        foreach ($after as $entry) { foreach (trackKeys($entry['item'] ?? $entry['track'] ?? []) as $key) { $confirmed[$key] = true; } }
-        foreach ($planned as $track) {
-            if (!array_intersect(trackKeys($track), array_keys($confirmed))) { throw new RuntimeException('Ajout non visible après écriture. Relire la playlist avant de relancer.'); }
-        }
+        // A playlist write failure should not discard a catalogue built from successful reads.
         if ($catalogue !== null) {
             publishReleaseCatalogue($options['catalogue-file'], $catalogue);
             echo "Catalogue publié.\n";
+        }
+        $report['added'] = applyTracks($api, $id, $planned, $playlist['snapshot_id']);
+        if ($planned !== []) {
+            // Check every requested URI after successful writes. An uncertain result is never replayed here.
+            $after = spotifyPages($api, '/playlists/' . $id . '/items?market=' . $config['market'] . '&limit=50');
+            $confirmed = [];
+            foreach ($after as $entry) { foreach (trackKeys($entry['item'] ?? $entry['track'] ?? []) as $key) { $confirmed[$key] = true; } }
+            foreach ($planned as $track) {
+                if (!array_intersect(trackKeys($track), array_keys($confirmed))) { throw new RuntimeException('Ajout non visible après écriture. Relire la playlist avant de relancer.'); }
+            }
         }
         $store->write('last-success', $report);
         echo $report['added'] . " titres ajoutés et vérifiés.\n";

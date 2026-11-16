@@ -18,8 +18,8 @@ par Spotify restent partielles, sans jour inventé.
 
 Le fichier public `data/releases.json` ne contient que les titres, artistes,
 dates, liens et URL des pochettes. Il est remplacé atomiquement après une collecte
-et une vérification réussies. Une panne de Spotify conserve la dernière version.
-Si le fichier manque ou est corrompu, les 13 fiches initiales de
+réussie, indépendamment des ajouts à la playlist. Un échec de la collecte conserve la dernière version.
+Si le fichier manque ou est corrompu, les fiches éditoriales de
 `model/releases.seed.php` restent affichées. Les fiches historiques sont conservées
 si Spotify cesse de les renvoyer, avec le lien « Voir sur Spotify ».
 Les pochettes locales et les crédits éditoriaux (featurings confirmés) des fiches
@@ -27,8 +27,12 @@ initiales sont conservés lors de la fusion. Les nouvelles fiches incluent les
 artistes crédités sur l'album et sur ses morceaux concernés.
 Le JSON généré est ignoré par Git : il doit être conservé lors des déploiements.
 
-Le script parcourt albums, singles, compilations et participations, puis ne garde
-que les morceaux créditant au moins un artiste configuré. Il exclut les morceaux
+Le script parcourt albums, singles, compilations et participations. Le catalogue
+utilise aussi les sorties des morceaux présents dans la playlist DFR, même lorsque
+Spotify les omet des discographies. Les deux sources fusionnent par identifiant
+Spotify de la sortie. Les profils actifs et l’ancien profil confirmé de DJ Babe
+sont reconnus par leur identifiant. Le script ne garde que les morceaux créditant
+au moins un artiste configuré. Il exclut les morceaux
 signalés indisponibles pour le marché demandé (le pays du compte Spotify prévaut),
 les sorties futures et les exclusions explicites. Ce filtre porte sur les artistes,
 pas sur le label de distribution : un titre publié ailleurs peut donc être inclus.
@@ -64,36 +68,32 @@ ne lit aucun mot de passe et n'affiche jamais les jetons.
 
 ## Installation Hostinger
 
-Le programme est installé séparément du site public, dans
-`/home/u580307023/domains/daofamilyrecords.fr/dfr-spotify-worker/scripts/spotify/`.
-Y transférer les fichiers PHP de `scripts/spotify/` par SFTP. Copier aussi
-`model/release-catalogue.php` et `model/releases.seed.php` dans
-`dfr-spotify-worker/model/` (le second sert aux tests). Créer un dossier privé,
-**hors de public_html et du dossier du programme** :
-`/home/u580307023/domains/daofamilyrecords.fr/.dfr-spotify` (droits 0700).
+Hostinger déploie le programme `scripts/spotify/` avec le site depuis GitHub.
+Le serveur bloque ce dossier par HTTP dans `.htaccess` et les scripts exigent
+PHP en ligne de commande. Les données privées restent dans
+`/home/u580307023/domains/daofamilyrecords.fr/.dfr-spotify`, hors de `public_html`
+(droits 0700).
 Transférer `credentials.json` par SFTP ou le gestionnaire de fichiers sécurisé de
 Hostinger dans ce dossier (droits 0600). Ne pas utiliser une URL publique de transfert.
 
 Créer `public_html/data/` en 0755 et y installer `data/.htaccess`. Installer les
 modèles, vues et CSS du site avant la première publication du catalogue.
-Avant d'activer la tâche, exécuter une simulation puis vérifier la liste proposée :
+Pour une simulation, lancer la commande suivante et vérifier la liste proposée.
 
 ```sh
-/usr/bin/php /home/u580307023/domains/daofamilyrecords.fr/dfr-spotify-worker/scripts/spotify/console.php sync --state-dir=/home/u580307023/domains/daofamilyrecords.fr/.dfr-spotify --catalogue-file=/home/u580307023/domains/daofamilyrecords.fr/public_html/data/releases.json
+/usr/bin/php /home/u580307023/domains/daofamilyrecords.fr/public_html/scripts/spotify/hostinger.php --dry-run
 ```
 
-Exécuter ensuite la même commande avec `--apply`, vérifier son succès, puis créer
-la tâche quotidienne Hostinger à **18:00 UTC**, expression `0 18 * * *`
-(19h à Paris en hiver, 20h en été) :
+La tâche quotidienne Hostinger à **18:00 UTC** (19 h à Paris en hiver, 20 h en
+été) utilise l’expression `0 18 * * *` et la commande suivante.
 
 ```sh
-/usr/bin/php /home/u580307023/domains/daofamilyrecords.fr/dfr-spotify-worker/scripts/spotify/hostinger.php
+/usr/bin/php /home/u580307023/domains/daofamilyrecords.fr/public_html/scripts/spotify/hostinger.php
 ```
 
 Cette commande reste sous la limite de 255 caractères de Hostinger, sans opérateur
-shell ni variable à développer. Le lanceur construit les chemins absolus à partir
-de son emplacement privé. Vérifier le chemin PHP sur l'hébergement avant de créer la tâche. Aucun cron ne
-doit être activé avant la première synchronisation réussie. Le fichier privé
+shell ni variable à développer. Le lanceur retrouve le dossier privé à partir de
+son emplacement. Le fichier privé
 `last-success.json` donne le dernier succès. La sortie du dernier passage est
 consultable dans hPanel, Tâches Cron, ou via l'API Hostinger `hosting_cron-jobs_output`.
 En cas de révocation ou d'expiration de l'abonnement Premium, reconnecter le compte.

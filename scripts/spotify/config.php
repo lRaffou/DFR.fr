@@ -13,6 +13,8 @@ return [
         '6WQRoPuaY9eGi72nNcSXhu' => 'Zoé Kunter',
         '4NqtEeAINDNe0G3FiHbqbs' => 'Frenzysax',
     ],
+    // Titres historiques publiés avant le changement de profil Spotify.
+    'artist_aliases' => ['7o0ucOb1npEkb3qhGFIY3U' => 'DJ Babe'],
     // Exclusions prevent future additions; they never remove existing playlist items.
     'excluded_track_ids' => [],
     'excluded_album_ids' => [],
