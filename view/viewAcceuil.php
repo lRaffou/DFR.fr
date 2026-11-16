@@ -1,12 +1,16 @@
 <?php
+require_once __DIR__ . '/../components/artist-modal.php';
 require_once __DIR__ . '/../components/media.php';
 require_once __DIR__ . '/../components/projects.php';
 require_once __DIR__ . '/../components/releases.php';
+require_once __DIR__ . '/../model/seo.php';
 require_once __DIR__ . '/../model/site.php';
 function renderAcceuil(string $nextEvent)
 {
     $releases = require __DIR__ . '/../model/releases.php';
     $videos = require __DIR__ . '/../model/videos.php';
+    $featuredArtistId = 'red-marshal';
+    $featuredArtist = (require __DIR__ . '/../model/artists.php')[$featuredArtistId];
     $videoSelection = [$videos['recent'][0]];
     foreach ($videos['collection'] as $video) {
         if ($video['id'] === 'AAEuRLXiaZE') {
@@ -30,9 +34,11 @@ function renderAcceuil(string $nextEvent)
                     <a href="/controller/evenement.php" class="btnSecondary">Voir les événements</a>
                 </div>
             </div>
-            <a class="homeArtistFeature" href="/controller/artiste.php?artiste=red-marshal" aria-label="Découvrir Red Marshal">
+            <a class="homeArtistFeature" href="<?= htmlspecialchars(dfrArtistPath($featuredArtistId, $featuredArtist)) ?>"
+                aria-label="<?= htmlspecialchars('Découvrir ' . $featuredArtist['name']) ?>" aria-haspopup="dialog"
+                data-artist-modal data-artist="<?= htmlspecialchars($featuredArtistId) ?>">
                 <img src="/img/gallerie/webp/red-marshal-2.webp" alt="" width="840" height="473" fetchpriority="high">
-                <span>Red Marshal <span aria-hidden="true">→</span></span>
+                <span><?= htmlspecialchars($featuredArtist['name']) ?> <span aria-hidden="true">→</span></span>
             </a>
         </section>
 
@@ -84,6 +90,7 @@ function renderAcceuil(string $nextEvent)
 
         <?= renderHomeProjects(require __DIR__ . '/../model/projects.php') ?>
 
+        <?php renderArtistModal([$featuredArtistId => $featuredArtist]); ?>
     </main>
     <?php
     return ob_get_clean();
