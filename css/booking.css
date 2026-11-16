@@ -43,10 +43,11 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 29rem), 1fr));
     gap: 1rem;
-    align-items: start;
 }
 
 .bookingCard {
+    display: grid;
+    grid-template-rows: 1fr auto;
     min-width: 0;
     padding: clamp(1rem, 2.5vw, 1.5rem);
     background: #151515;
@@ -57,7 +58,7 @@
 .bookingCardTop {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
-    align-items: center;
+    align-items: start;
     gap: 1rem;
 }
 
@@ -85,16 +86,10 @@
     line-height: 1.2;
 }
 
-.bookingRole,
-.bookingGenre {
+.bookingBio {
     color: #ddd;
-    line-height: 1.45;
+    line-height: 1.55;
     font-size: .875rem;
-}
-
-.bookingGenre {
-    margin-top: .15rem;
-    color: #ffb4b2;
 }
 
 .bookingLinks {
@@ -106,15 +101,10 @@
 }
 
 .bookingAction,
-.bookingTextLink,
-.bookingPress summary {
-    min-height: 44px;
-}
-
-.bookingAction,
 .bookingTextLink {
     display: inline-flex;
     align-items: center;
+    min-height: 44px;
     gap: .5rem;
     color: #fff;
     text-underline-offset: .25em;
@@ -134,26 +124,9 @@
     background: #be343a;
 }
 
-.bookingPress {
-    margin-top: .6rem;
-    border-top: 1px solid #3b3636;
-}
-
-.bookingPress summary {
-    padding: .7rem 0;
-    cursor: pointer;
-    color: #f5eeee;
-    line-height: 1.4;
-}
-
-.bookingPress p,
 .bookingNote p {
     color: #ddd;
     line-height: 1.65;
-}
-
-.bookingPress .bookingLinks {
-    margin-top: .15rem;
 }
 
 .bookingNote {

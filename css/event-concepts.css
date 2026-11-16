@@ -1,0 +1,31 @@
+.dfrEventConcept {
+    padding: 0;
+    overflow: hidden;
+    scroll-margin-top: .75rem;
+}
+
+.dfrEventConceptIntro {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: clamp(1rem, 3vw, 2rem);
+}
+
+.dfrEventConcept .dfrProjectLinks a {
+    display: inline-flex;
+    align-items: center;
+    gap: .25rem;
+    min-height: 44px;
+}
+
+.dfrEventConcept > .dfrShotgunAgenda {
+    border: 0;
+    border-top: 1px solid #393939;
+    border-radius: 0;
+}
+
+@media (min-width: 1000px) {
+    .dfrEventConcept {
+        scroll-margin-top: calc(var(--desktop-header-height) + .75rem);
+    }
+}

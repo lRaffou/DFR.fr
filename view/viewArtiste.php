@@ -6,7 +6,7 @@ function renderArtiste(array $artists, ?string $profileId = null): string
     $artistCardSizes = '(min-width: 1264px) 282px, (min-width: 1200px) 23vw, (min-width: 1000px) 30vw, (min-width: 624px) 45vw, calc(100vw - 2rem)';
     $heroArtist = array_key_first($artists);
     $profiles = array_map(static function (array $artist): array {
-        unset($artist['slug'], $artist['card_image']);
+        unset($artist['slug'], $artist['card_image'], $artist['press_bio']);
         return $artist;
     }, $artists);
     ob_start();

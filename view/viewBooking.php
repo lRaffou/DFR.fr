@@ -38,13 +38,6 @@ function renderBooking(): string
                             }
                         }
                     }
-                    $video = null;
-                    foreach ($artist['release']['links'] ?? [] as $link) {
-                        if ($link['label'] === 'YouTube') {
-                            $video = $link['href'];
-                            break;
-                        }
-                    }
                     ?>
                     <article class="bookingCard" data-artist="<?= $escape($id) ?>" aria-labelledby="booking-<?= $escape($id) ?>">
                         <div class="bookingCardTop">
@@ -53,30 +46,16 @@ function renderBooking(): string
                             </div>
                             <div>
                                 <h3 id="booking-<?= $escape($id) ?>"><?= $escape($name) ?></h3>
-                                <p class="bookingRole"><?= $escape($artist['role']) ?></p>
-                                <p class="bookingGenre"><?= $escape(implode(' · ', $artist['genres'])) ?></p>
+                                <p class="bookingBio"><?= $escape($artist['press_bio']) ?></p>
                             </div>
                         </div>
                         <div class="bookingLinks">
                             <a class="bookingAction" href="<?= $escape($bookingMail) ?>" aria-label="<?= $escape('Booking — ' . $name) ?>">Booking</a>
-                            <a class="bookingTextLink" href="<?= $escape($profile) ?>" aria-label="<?= $escape('Fiche artiste — ' . $name) ?>">Fiche artiste</a>
+                            <?php if ($pressImage !== null): ?>
+                                <a class="bookingTextLink" href="<?= $escape($pressImage) ?>" target="_blank" rel="noopener noreferrer" aria-label="<?= $escape('Voir le visuel — ' . $name) ?>">Voir le visuel</a>
+                            <?php endif; ?>
+                            <a class="bookingTextLink" href="<?= $escape($profile) ?>" aria-label="<?= $escape('Fiche complète — ' . $name) ?>">Fiche complète</a>
                         </div>
-                        <details class="bookingPress">
-                            <summary>Bio et ressources presse</summary>
-                            <p><?= $escape($artist['bio'][0]) ?></p>
-                            <div class="bookingLinks">
-                                <?php if ($pressImage !== null): ?>
-                                    <a class="bookingTextLink" href="<?= $escape($pressImage) ?>" target="_blank" rel="noopener noreferrer">Voir le visuel</a>
-                                <?php endif; ?>
-                                <?php if ($video !== null): ?>
-                                    <a class="bookingTextLink" href="<?= $escape($video) ?>" target="_blank" rel="noopener noreferrer">Voir sur YouTube</a>
-                                <?php elseif (isset($artist['social_youtube'])): ?>
-                                    <a class="bookingTextLink" href="<?= $escape($artist['social_youtube']) ?>" target="_blank" rel="noopener noreferrer">Chaîne YouTube</a>
-                                <?php elseif (isset($artist['social_spotify'])): ?>
-                                    <a class="bookingTextLink" href="<?= $escape($artist['social_spotify']) ?>" target="_blank" rel="noopener noreferrer">Écouter sur Spotify</a>
-                                <?php endif; ?>
-                            </div>
-                        </details>
                     </article>
                 <?php endforeach; ?>
             </div>

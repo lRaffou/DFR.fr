@@ -16,6 +16,7 @@ return [
         'social_youtube' => 'https://www.youtube.com/@RedMarshal',
         'social_spotify' => 'https://open.spotify.com/artist/3zpewQ11GYG2ev9Ngdsvi9',
         'social_instagram' => 'https://www.instagram.com/redmarshal_official/',
+        'press_bio' => 'À Toulouse, Red Marshal développe le hardfonk, un mélange de hard techno et de phonk. Sa série Red Sunday réunit 52 morceaux.',
         'bio' => [
             'Red Marshal est le projet de Thao Dao, DJ et producteur basé à Toulouse. Influencé par Daft Punk, The Prodigy et Gesaffelstein, il développe depuis 2025 le hardfonk, qui mêle hard techno et phonk.',
             'Avec Red Sunday, il publie une série de 52 morceaux qui s’achève sur Red Destruction. Il collabore avec DJ Babe sur Versus et avec Zoé Kunter sur Morgenbruch. Avec Clarisax, il forme le duo électro et saxophone live Frenzysax.',
@@ -60,6 +61,7 @@ return [
         ],
         'social_spotify' => 'https://open.spotify.com/artist/5PyJWzxbDt81teQi2ZzL8n',
         'social_instagram' => 'https://www.instagram.com/djbabe31/',
+        'press_bio' => 'DJ Babe navigue entre tech house et hard techno. Elle a fondé Cœur Meurtri, un projet qui met les femmes à l’honneur sur la scène électronique toulousaine.',
         'bio' => [
             'DJ Babe est DJ et productrice. Son parcours va de la tech house à la hard techno, avec des titres comme Versus et War House, réalisés avec Red Marshal.',
             'Fondatrice et résidente de Cœur Meurtri, elle met les femmes à l’honneur dans la scène électronique. Le projet a commencé au Full House de Toulouse en décembre 2024 et se poursuit avec des soirées en club et des open airs.',
@@ -97,6 +99,7 @@ return [
         'social_youtube' => 'https://www.youtube.com/channel/UCD-H3-hzSU_kbyw_zLg431Q',
         'social_spotify' => 'https://open.spotify.com/artist/51UZk9XPK15uZgwQEWE3MK',
         'social_instagram' => 'https://www.instagram.com/fernando.gomez._music/',
+        'press_bio' => 'Fernando Gomez joue et produit de la techno et de la hard techno à Toulouse. Parmi ses sorties figurent Discoteca et Paradox.',
         'bio' => [
             'Fernando Gomez est DJ et producteur techno et hard techno à Toulouse. Du piano et de la guitare au métal, il se tourne ensuite vers les musiques électroniques. Il travaille comme technicien son et lumière dans les clubs toulousains avant de passer derrière les platines.',
             'Il signe notamment Discoteca, Paradox et Destruction. En février 2026, il figure à l’affiche de The Red Night Off #7 au Babylone à Toulouse.',
@@ -133,6 +136,7 @@ return [
         'social_youtube' => 'https://www.youtube.com/@DaoBrothers',
         'social_spotify' => 'https://open.spotify.com/artist/4FP9ILC4hO3YvOb2R0NIzj',
         'social_instagram' => 'https://www.instagram.com/daobrothers/',
+        'press_bio' => 'Thao et Yo Dao forment un duo toulousain de bass house. Basses sombres et rythmes dansants se retrouvent sur des titres comme Into the Club.',
         'bio' => [
             'Thao et Yo Dao forment Dao Brothers, un duo toulousain de bass house. Leurs productions mêlent basses sombres et rythmes dansants, comme sur Acid Conversation et Into the Club.',
             'En 2026, le duo figure à la programmation de The Red Night Off #7 au Babylone et de l’Open Air au parc des Merlettes.',
@@ -172,6 +176,7 @@ return [
         ],
         'social_spotify' => 'https://open.spotify.com/artist/6WQRoPuaY9eGi72nNcSXhu',
         'social_instagram' => 'https://www.instagram.com/zoe_kunter/',
+        'press_bio' => 'Marquée par la scène berlinoise, Zoé Kunter joue une techno dense et hypnotique. Elle cosigne Morgenbruch avec Red Marshal.',
         'bio' => [
             'Zoé Kunter grandit à Berlin, où les parades et la scène techno l’initient à la musique électronique. Ses sets s’inscrivent dans une techno dense et hypnotique.',
             'À Toulouse, elle figure aux programmations de Cœur Meurtri et de The Red Night au Full House. Elle signe Morgenbruch avec Red Marshal, sorti en avril 2026.',
@@ -206,6 +211,7 @@ return [
             'mobile' => ['src' => '/img/artistes/webp/clarity-mobile.webp', 'width' => 540],
         ],
         'social_instagram' => 'https://www.instagram.com/_clarityy._/',
+        'press_bio' => 'DJ hard techno à Toulouse, Clarity a été programmée au Full House lors de The Red Night Off #6.',
         'bio' => [
             'Clarity est une DJ hard techno à Toulouse. Le 20 septembre 2025, elle figure à l’affiche de The Red Night Off #6 au Full House, une nuit consacrée aux artistes de Dao Family Records.',
         ],
@@ -231,6 +237,7 @@ return [
         'social_youtube' => 'https://www.youtube.com/@FrenzySax',
         'social_spotify' => 'https://open.spotify.com/artist/4NqtEeAINDNe0G3FiHbqbs',
         'social_instagram' => 'https://www.instagram.com/frenzysax/',
+        'press_bio' => 'En live, Clarisax joue du saxophone sur les rythmes électroniques de Red Marshal. Le duo a sorti son premier titre, Live The Moment, chez Dao Family Records.',
         'bio' => [
             'Frenzysax réunit Clarisax au saxophone et Red Marshal aux platines. Le duo mêle les rythmes électroniques de Red Marshal au saxophone joué en direct par Clarisax.',
             'Leur première composition commune, Live The Moment, est sortie le 6 novembre 2026 chez Dao Family Records.',

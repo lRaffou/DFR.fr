@@ -14,6 +14,7 @@ return [
     ],
     'red-night' => [
         'name' => 'The Red Night', 'eyebrow' => 'Les nuits rouges de DFR',
+        'summary' => 'Nuits techno, bass house et open airs à Toulouse.',
         'description' => 'Au Full House puis au Babylone, les nuits Off font place à la techno et à la hard techno. The Red Night explore aussi la house et la bass house en plein air et mêle DJ sets et cuisine lors des éditions Sushi/Techno.',
         'links' => [
             'Instagram' => 'https://www.instagram.com/the.red.night/',
@@ -22,6 +23,7 @@ return [
     ],
     'coeur-meurtri' => [
         'name' => 'Cœur Meurtri', 'eyebrow' => 'By DJ Babe',
+        'summary' => 'Soirées et open airs qui mettent les femmes à l’honneur sur la scène électronique.',
         'description' => 'DJ Babe lance Cœur Meurtri au Full House en décembre 2024. De la techno en club aux open airs du Ramier et aux soirées à la Couleur de la Culotte, le collectif toulousain programme des femmes aux platines.',
         'links' => [
             'Instagram' => 'https://www.instagram.com/coeur_meurtri_by_babe/',

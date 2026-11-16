@@ -5,6 +5,13 @@ function renderVideo()
 {
     $videos = require __DIR__ . '/../model/videos.php';
     $featured = $videos['recent'][0];
+    $galleries = [];
+    foreach (['recent' => 'Sorties récentes', 'collection' => 'Clips et lives'] as $section => $heading) {
+        $items = array_filter($videos[$section], static fn(array $video): bool => $video['id'] !== $featured['id']);
+        if ($items) {
+            $galleries[$section] = ['heading' => $heading, 'items' => $items];
+        }
+    }
     ob_start();
     ?>
     <main class="mainVideo">
@@ -15,10 +22,13 @@ function renderVideo()
                 <a href="<?= htmlspecialchars($videos['channel']) ?>" target="_blank" rel="noopener noreferrer">La chaîne DFR</a>
                 <a href="<?= htmlspecialchars($videos['playlist']) ?>" target="_blank" rel="noopener noreferrer">La playlist clips et lives</a>
             </div>
-            <nav class="videoSectionLinks" aria-label="Sections vidéos">
-                <a href="#video-recent">Sorties récentes</a>
-                <a href="#video-collection">Clips et lives</a>
-            </nav>
+            <?php if ($galleries): ?>
+                <nav class="videoSectionLinks" aria-label="Sections vidéos">
+                    <?php foreach ($galleries as $section => $gallery): ?>
+                        <a href="#video-<?= $section ?>"><?= $gallery['heading'] ?></a>
+                    <?php endforeach; ?>
+                </nav>
+            <?php endif; ?>
         </section>
 
         <section class="featuredVideo">
@@ -36,11 +46,11 @@ function renderVideo()
             </div>
         </section>
 
-        <?php foreach (['recent' => 'Sorties récentes', 'collection' => 'Clips et lives'] as $section => $heading): ?>
+        <?php foreach ($galleries as $section => $gallery): ?>
             <section class="videoGallery" id="video-<?= $section ?>">
-                <h2><?= $heading ?></h2>
+                <h2><?= $gallery['heading'] ?></h2>
                 <div class="videoGrid">
-                    <?php foreach ($videos[$section] as $video): ?>
+                    <?php foreach ($gallery['items'] as $video): ?>
                         <?php $label = $video['artist'] . ' — ' . $video['title']; ?>
                         <article class="videoCard" data-video="<?= htmlspecialchars($video['id']) ?>" data-title="<?= htmlspecialchars($label) ?>">
                             <div class="videoThumbnail">

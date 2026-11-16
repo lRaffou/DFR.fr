@@ -1,3 +1,11 @@
+.albumHero.catalogueHeading {
+    margin: 0 0 1.25rem;
+}
+
+.catalogueHeading h1 {
+    margin-bottom: 0;
+}
+
 .catalogueFilters {
     display: flex;
     flex-wrap: wrap;

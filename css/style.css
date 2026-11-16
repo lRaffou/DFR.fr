@@ -509,20 +509,6 @@ h6 {
     color: #fff;
 }
 
-.albumHero p {
-    font-size: 1.2rem;
-    color: #ccc;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.albumCatalog h2 {
-    font-family: "Montserrat-Bold";
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
-}
-
 .albumGrid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -1545,10 +1531,6 @@ h6 {
 .releaseInfo p {
     margin-bottom: 1.25rem;
 }
-.albumHero .catalogCount {
-    margin-top: 1rem;
-    font-size: 1rem;
-}
 .catalogPagination {
     display: flex;
     flex-wrap: wrap;
@@ -1568,18 +1550,6 @@ h6 {
 .albumCatalog {
     max-width: 1200px;
     margin-inline: auto;
-}
-
-.albumCatalog + .albumCatalog {
-    margin-top: 2rem;
-}
-
-.albumHero .catalogLink {
-    margin-top: .25rem;
-}
-
-.albumCatalog > h2 + .catalogPagination {
-    margin: 0 0 1rem;
 }
 
 #catalog,
@@ -1741,12 +1711,10 @@ h6 {
         margin-bottom: 1.5rem;
     }
 
-    .albumHero p,
     .videoHero p {
         font-size: 1rem;
     }
 
-    .albumCatalog h2,
     .featuredVideo h2,
     .videoGallery h2 {
         font-size: 1.5rem;
@@ -2079,9 +2047,6 @@ h6 {
 .dfrEventJump a { display: inline-flex; align-items: center; min-height: 44px; padding: .5rem .75rem; border: 1px solid #555; border-radius: 8px; color: #fff; text-decoration: none; }
 .dfrShotgunGrid { margin-top: 1rem; }
 .dfrShotgunAgenda { background: #171717; border: 1px solid #333; border-radius: 12px; overflow: hidden; min-width: 0; }
-.dfrShotgunHeading { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .25rem 1rem; padding: .5rem 1rem; }
-.dfrShotgunHeading h3 { color: #fff; font-size: 1.25rem; margin: 0; }
-.dfrShotgunHeading a { display: inline-flex; gap: .25rem; align-items: center; min-height: 44px; color: #fff; text-decoration: underline; text-underline-offset: .25em; }
 .dfrShotgunAgenda iframe { display: block; width: 100%; height: 26rem; border: 0; color-scheme: dark; }
 .dfrEventCard { background: #171717; border: 1px solid #333; border-radius: 12px; overflow: hidden; min-width: 0; display: flex; flex-direction: column; }
 .dfrEventPoster { display: block; background: #0c0c0c; }
@@ -2196,7 +2161,6 @@ h6 {
         gap: 1.5rem;
     }
 
-    #featured .albumGrid,
     .releasesGrid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 1.5rem;

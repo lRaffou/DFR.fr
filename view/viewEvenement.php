@@ -37,7 +37,8 @@ function renderEvenement()
 {
     $calendar = dfrEventCalendar(require __DIR__ . '/../model/events.php');
     $projects = require __DIR__ . '/../model/projects.php';
-    $shotgunProjects = [$projects['red-night'], $projects['coeur-meurtri']];
+    $shotgunProjects = array_filter($projects, static fn(array $project) => isset($project['links']['Shotgun']));
+    $escape = static fn(string $value): string => htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
     ob_start(); ?>
     <main class="mainEvent">
         <section class="eventHero">
@@ -56,25 +57,29 @@ function renderEvenement()
                 </div>
             <?php endif; ?>
             <div class="dfrEventGrid dfrShotgunGrid">
-                <?php foreach ($shotgunProjects as $project): ?>
-                    <?php $shotgun = $project['links']['Shotgun']; ?>
-                    <article class="dfrShotgunAgenda">
-                        <div class="dfrShotgunHeading">
-                            <h3><?= htmlspecialchars($project['name']) ?></h3>
-                            <a href="<?= htmlspecialchars($shotgun) ?>" target="_blank" rel="noopener noreferrer"
-                                aria-label="Ouvrir l’agenda <?= htmlspecialchars($project['name']) ?> sur Shotgun">Ouvrir sur Shotgun <span aria-hidden="true">↗</span></a>
+                <?php foreach ($shotgunProjects as $id => $project): ?>
+                    <?php
+                    $shotgun = $project['links']['Shotgun'];
+                    $links = ['Ouvrir sur Shotgun' => $shotgun] + array_diff_key($project['links'], ['Shotgun' => true]);
+                    ?>
+                    <article class="dfrProject dfrProject--<?= $escape($id) ?> dfrEventConcept" id="<?= $escape($id) ?>" aria-labelledby="<?= $escape($id) ?>-title">
+                        <div class="dfrEventConceptIntro">
+                            <p class="dfrEyebrow"><?= $escape($project['eyebrow']) ?></p>
+                            <h3 id="<?= $escape($id) ?>-title"><?= $escape($project['name']) ?></h3>
+                            <p class="dfrProjectDescription"><?= $escape($project['description']) ?></p>
+                            <?php renderProjectLinks($links, $project['name']); ?>
                         </div>
-                        <iframe src="<?= htmlspecialchars($shotgun . '?embedded=1&ui=dark') ?>"
-                            title="Agenda Shotgun de <?= htmlspecialchars($project['name']) ?>" loading="lazy"
-                            sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                        <div class="dfrShotgunAgenda">
+                            <iframe src="<?= $escape($shotgun . '?embedded=1&ui=dark') ?>"
+                                title="Agenda Shotgun de <?= $escape($project['name']) ?>" loading="lazy"
+                                sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                        </div>
                     </article>
                 <?php endforeach; ?>
             </div>
         </section>
-        <?= renderProjects($projects, true) ?>
         <section class="dfrEventSection" aria-labelledby="past-events-title">
             <div class="dfrSectionHeading">
-                <p class="dfrEyebrow">Les éditions précédentes</p>
                 <h2 id="past-events-title">Événements passés</h2>
                 <p>Les affiches, programmes et retours en images de The Red Night et Cœur Meurtri.</p>
             </div>

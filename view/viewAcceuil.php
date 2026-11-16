@@ -39,7 +39,7 @@ function renderAcceuil(string $nextEvent)
         </section>
 
         <?= $nextEvent ?>
-        <?= renderProjects(require __DIR__ . '/../model/projects.php') ?>
+        <?= renderHomeProjects(require __DIR__ . '/../model/projects.php') ?>
 
         <section class="featuredReleases">
             <h2>À la une</h2>

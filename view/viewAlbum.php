@@ -33,45 +33,27 @@ function renderAlbum()
     if ($artist !== '') { $filters['artiste'] = $artist; }
     if ($collaborations) { $filters['collaborations'] = '1'; }
 
-    $catalogue = $releases['catalog'];
+    $catalogue = array_merge($releases['featured'], $releases['catalog']);
     if ($filters) {
         $selectedArtist = $artists[$artist] ?? null;
         $catalogue = array_values(array_filter(
-            array_merge($releases['featured'], $catalogue),
+            $catalogue,
             static fn(array $release): bool =>
                 ($selectedArtist === null || dfrCatalogueMatchesArtist($release, $selectedArtist))
                 && (!$collaborations || dfrCatalogueIsCollaboration($release, $artists['frenzysax']))
         ));
-        usort($catalogue, static fn(array $a, array $b): int => strcmp($b['date'], $a['date']) ?: strcmp($a['id'], $b['id']));
     }
+
+    usort($catalogue, static fn(array $a, array $b): int => strcmp($b['date'], $a['date']) ?: strcmp($a['id'], $b['id']));
     $count = count($catalogue);
     $pagination = dfrCataloguePage($catalogue, $_GET['page'] ?? 1);
-    $showFeatured = !$filters && $pagination['page'] === 1 && $releases['featured'];
     ob_start();
     ?>
     <main class="mainAlbum">
-        <section class="albumHero">
-            <h1>Nos sorties</h1>
-            <p>Découvrez les sorties du label et notre catalogue musical</p>
-            <p class="catalogCount"><?= $releases['total'] ?> sorties à découvrir</p>
-            <?php if ($showFeatured): ?>
-                <p class="catalogLink"><a href="#catalog">Aller au catalogue</a></p>
-            <?php endif; ?>
-        </section>
-
-        <?php if ($showFeatured): ?>
-            <section class="albumCatalog" id="featured">
-                <h2>À la une</h2>
-                <div class="albumGrid">
-                    <?php foreach ($releases['featured'] as $release): ?>
-                        <?= renderReleaseCard($release, true, $spotifyMobileCovers) ?>
-                    <?php endforeach; ?>
-                </div>
-            </section>
-        <?php endif; ?>
-
-        <section class="albumCatalog" id="catalog">
-            <h2>Notre catalogue</h2>
+        <section class="albumCatalog" id="catalog" aria-labelledby="catalogue-title">
+            <div class="albumHero catalogueHeading">
+                <h1 id="catalogue-title">Nos sorties</h1>
+            </div>
             <form class="catalogueFilters" method="get" action="/controller/album.php#catalog" aria-label="Filtres du catalogue">
                 <label class="catalogueFilterArtist" for="catalogue-artist">
                     <span>Artiste</span>
