@@ -1,6 +1,6 @@
 // Gestion ouverture et remplissage modale artistes
 document.addEventListener("DOMContentLoaded", function () {
-    const artistCards = document.querySelectorAll(".artistCard");
+    const artistLinks = document.querySelectorAll("a[data-artist-modal]");
     const modal = document.getElementById("artistModal");
     const closeModal = modal?.querySelector(".closeModal");
     const artistDetailsContainer = document.getElementById(
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const escapeHtml = (value) => value.replace(/[&<>"']/g, (character) => htmlEntities[character]);
     const sharePage = "https://daofamilyrecords.fr/controller/artiste.php";
     const slugForCard = (card) => new URL(card.href).searchParams.get("artiste");
-    const cardsBySlug = new Map(Array.from(artistCards, (card) => [slugForCard(card), card]));
+    const cardsBySlug = new Map(Array.from(artistLinks, (card) => [slugForCard(card), card]));
     let activeCard = null;
 
     function hideArtistModal() {
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
         artistDetailsContainer.innerHTML = "";
         const previousCard = activeCard;
         activeCard = null;
-        previousCard.focus();
+        previousCard.focus({preventScroll: true});
     }
 
     function closeArtistModal() {
@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
     }
 
-    artistCards.forEach((card) => {
+    artistLinks.forEach((card) => {
         card.addEventListener("click", (event) => {
             if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
             event.preventDefault();

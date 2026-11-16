@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../model/site.php';
 require_once __DIR__ . '/../model/seo.php';
+require_once __DIR__ . '/../components/artist-modal.php';
 
 function renderBooking(): string
 {
@@ -67,12 +68,15 @@ function renderBooking(): string
                             <?php if ($pressImage !== null): ?>
                                 <a class="bookingTextLink" href="<?= $escape($pressImage) ?>" target="_blank" rel="noopener noreferrer" aria-label="<?= $escape('Voir le visuel — ' . $name) ?>">Voir le visuel <span aria-hidden="true">↗</span></a>
                             <?php endif; ?>
-                            <a class="bookingTextLink" href="<?= $escape($profile) ?>" aria-label="<?= $escape('Fiche complète — ' . $name) ?>">Fiche complète <span aria-hidden="true">→</span></a>
+                            <a class="bookingTextLink" href="<?= $escape($profile) ?>" aria-label="<?= $escape('Fiche complète — ' . $name) ?>"
+                                aria-haspopup="dialog" data-artist-modal data-artist="<?= $escape($id) ?>">Fiche complète <span aria-hidden="true">→</span></a>
                         </div>
                     </article>
                 <?php endforeach; ?>
             </div>
         </section>
+
+        <?php renderArtistModal($artists); ?>
     </main>
     <?php
     return ob_get_clean();

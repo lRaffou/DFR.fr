@@ -1,14 +1,12 @@
 <?php
+require_once __DIR__ . '/../components/artist-modal.php';
+
 function renderArtiste(array $artists, ?string $profileId = null): string
 {
     $profile = $profileId === null ? null : $artists[$profileId];
     $escape = static fn(string $value): string => htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
     $artistCardSizes = '(min-width: 1264px) 282px, (min-width: 1200px) 23vw, (min-width: 900px) 31vw, (min-width: 560px) 46vw, clamp(92px, 28vw, 132px)';
     $heroArtist = array_key_first($artists);
-    $profiles = array_map(static function (array $artist): array {
-        unset($artist['slug'], $artist['card_image'], $artist['press_bio']);
-        return $artist;
-    }, $artists);
     ob_start();
     ?>
     <main class="mainArtist editorialPage">
@@ -61,7 +59,7 @@ function renderArtiste(array $artists, ?string $profileId = null): string
                     $desktopSrcset = $baseSrcset . $cardImage['desktop']['src'] . ' ' . $cardImage['desktop']['width'] . 'w';
                 }
                 ?>
-                <a class="artistCard" href="?artiste=<?= $escape($artist['slug'] ?? $id) ?>" aria-haspopup="dialog" data-artist="<?= $escape($id) ?>">
+                <a class="artistCard" href="?artiste=<?= $escape($artist['slug'] ?? $id) ?>" aria-haspopup="dialog" data-artist-modal data-artist="<?= $escape($id) ?>">
                     <div class="artistImage">
                         <?php if ($cardImage !== null): ?>
                             <picture>
@@ -92,16 +90,7 @@ function renderArtiste(array $artists, ?string $profileId = null): string
             <?php endforeach; ?>
         </section>
 
-        <div id="artistModal" class="artistModal" role="dialog" aria-modal="true" aria-label="Fiche artiste">
-            <div class="modalContent">
-                <div class="artistModalBar">
-                    <button type="button" class="closeModal" aria-label="Fermer la fiche artiste">&times;</button>
-                </div>
-                <div id="artistDetailsContainer"></div>
-            </div>
-        </div>
-
-        <script type="application/json" id="artistData"><?= json_encode($profiles, JSON_THROW_ON_ERROR | JSON_HEX_TAG | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) ?></script>
+        <?php renderArtistModal($artists); ?>
     </main>
     <?php
     return ob_get_clean();
