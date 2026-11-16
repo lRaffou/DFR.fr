@@ -1,12 +1,15 @@
 <?php
 require_once __DIR__ . '/../components/media.php';
 require_once __DIR__ . '/../components/projects.php';
+require_once __DIR__ . '/../components/releases.php';
+require_once __DIR__ . '/../model/site.php';
 function renderAcceuil()
 {
     $releases = require __DIR__ . '/../model/releases.php';
     $videos = require __DIR__ . '/../model/videos.php';
     $featuredVideo = $videos['recent'][0];
-    $playlistId = '4z6XsMTJ8rsbSGyi20bz9T';
+    $site = dfrSite();
+    $playlistUrl = htmlspecialchars($site['social']['Spotify']['url']);
     ob_start();
     ?>
     <main class="mainHome">
@@ -35,29 +38,13 @@ function renderAcceuil()
             </div>
         </section>
 
-        <?= renderProjects() ?>
+        <?= renderProjects(require __DIR__ . '/../model/projects.php') ?>
 
         <section class="featuredReleases">
             <h2>À la une</h2>
             <div class="releasesGrid">
                 <?php foreach ($releases['featured'] as $release): ?>
-                    <article class="releaseCard">
-                        <a class="releaseImage coverLink" href="<?= htmlspecialchars($release['spotify']) ?>" target="_blank" rel="noopener noreferrer">
-                            <img src="<?= htmlspecialchars($release['image']) ?>"
-                                alt="<?= htmlspecialchars($release['title'] . ' - ' . $release['artist']) ?>"
-                                loading="lazy" decoding="async">
-                        </a>
-                        <div class="releaseInfo">
-                            <h3><?= htmlspecialchars($release['title']) ?></h3>
-                            <p><?= htmlspecialchars($release['artist']) ?></p>
-                                <a href="<?= htmlspecialchars($release['spotify']) ?>" class="btnListen"
-                                    target="_blank" rel="noopener noreferrer"
-                                    aria-label="<?= htmlspecialchars($release['link_label'] . ' — ' . $release['title'] . ' par ' . $release['artist']) ?>">
-                                    <i class="fab fa-spotify" aria-hidden="true"></i>
-                                    <?= htmlspecialchars($release['link_label']) ?>
-                                </a>
-                        </div>
-                    </article>
+                    <?= renderReleaseCard($release) ?>
                 <?php endforeach; ?>
             </div>
             <p class="catalogLink"><a href="/controller/album.php">Voir toutes les sorties</a></p>
@@ -66,10 +53,10 @@ function renderAcceuil()
         <!-- Spotify Section -->
         <section class="spotifySection">
             <h2>Écoutez nos artistes</h2>
-            <p class="catalogLink"><a href="https://open.spotify.com/playlist/<?= $playlistId ?>" target="_blank" rel="noopener noreferrer">Ouvrir la playlist sur Spotify</a></p>
+            <p class="catalogLink"><a href="<?= $playlistUrl ?>" target="_blank" rel="noopener noreferrer">Ouvrir la playlist sur Spotify</a></p>
             <div class="spotifyPlayer">
-                <a class="spotifyPreview" href="https://open.spotify.com/playlist/<?= $playlistId ?>"
-                    data-player-src="https://open.spotify.com/embed/playlist/<?= $playlistId ?>"
+                <a class="spotifyPreview" href="<?= $playlistUrl ?>"
+                    data-player-src="https://open.spotify.com/embed/playlist/<?= DFR_SPOTIFY_PLAYLIST ?>"
                     data-player-title="Playlist Dao Family Records sur Spotify"
                     data-player-allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                     target="_blank" rel="noopener noreferrer"><i class="fab fa-spotify" aria-hidden="true"></i> Afficher le lecteur Spotify</a>

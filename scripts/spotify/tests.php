@@ -196,7 +196,7 @@ check(array_column($frenzysaxSelection['featured'], 'title') === ['Red Destructi
     && $frenzysaxSelection['total'] === 14
     && in_array('Versus', array_column($frenzysaxSelection['catalog'], 'title'), true),
     'Frenzysax occupe la place collaboration sans modifier les crédits ni perdre les autres sorties');
-$seedCard = $built['releases'][0]; $seedCard['image'] = '/img/accueil/Releases-1.png'; $seedCard['artist'] = 'Artiste DFR, invitée confirmée';
+$seedCard = $built['releases'][0]; $seedCard['image'] = '/img/albums/webp/Releases-1.webp'; $seedCard['artist'] = 'Artiste DFR, invitée confirmée';
 $merged = dfrMergeReleases(['featured' => [$seedCard], 'catalog' => []], $built);
 check($merged['total'] === 1 && $merged['featured'][0]['image'] === $seedCard['image']
     && $merged['featured'][0]['artist'] === $seedCard['artist']

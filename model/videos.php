@@ -1,9 +1,10 @@
 <?php
+require_once __DIR__ . '/site.php';
 
 // Liens et crédits vérifiés sur YouTube le 15 novembre 2026.
 // Les dates ci-dessous sont les dates de sortie indiquées dans les crédits.
 return [
-    'channel' => 'https://www.youtube.com/@DaoFamilyRecords',
+    'channel' => dfrSite()['social']['YouTube']['url'],
     'playlist' => 'https://www.youtube.com/playlist?list=PLfGk9MSaVom5-wEtYZ2lM2a99SeHHF6sg',
     'recent' => [
         ['id' => 'QDC97j5ewV4', 'title' => 'Live The Moment', 'artist' => 'Frenzysax', 'date' => '2026-11-06'],

@@ -1,9 +1,7 @@
 <?php
-// Suppression de session_start() car nous n'avons plus besoin de gérer les sessions
-
-include '../view/viewHeader.php';
-include '../view/viewVideo.php';
-include '../view/viewFooter.php';
+require __DIR__ . '/../view/viewHeader.php';
+require __DIR__ . '/../view/viewVideo.php';
+require __DIR__ . '/../view/viewFooter.php';
 
 echo renderHeader('Vidéos | Dao Family Records');
 echo renderVideo();

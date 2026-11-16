@@ -1,20 +1,6 @@
-#Activation du rewrite des URL
 RewriteEngine On
 
 # Le dépôt contient aussi les outils CLI et la documentation d'exploitation.
 RewriteRule ^(?:scripts|docs)(?:/|$) - [F,L]
 
-#base du projet (emplacement à partir de la racine du serveur)
-RewriteBase /
-
-#si ce n'est pas un répertoire
-RewriteCond %{REQUEST_FILENAME} !-d
-
-# Si ce n'est pas un fichier
-RewriteCond %{REQUEST_FILENAME} !-f
-
-RewriteCond %{REQUEST_URI} !.*\.js$
-
-
-# Désigner le fichier routeur
-RewriteRule ^(.+)$ index.php [QSA,L]
+ErrorDocument 404 /controller/404.php

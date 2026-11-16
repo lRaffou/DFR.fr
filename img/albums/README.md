@@ -1,17 +1,5 @@
-# Dossier des Albums
+# Pochettes des sorties
 
-Ce dossier contient les pochettes d'albums de Dao Family Records.
-
-## Structure des fichiers
-
--   Les images doivent être au format JPG ou PNG
--   Les noms des fichiers doivent correspondre aux références dans `data/albums.php`
--   Taille recommandée : 1000x1000 pixels minimum
--   Poids maximum recommandé : 1MB
-
-## Images actuelles
-
--   album1.jpg (Red Rave)
--   album2.jpg (Imagination)
--   album3.jpg (DJ BABE Event)
--   album4.jpg (Feel Good)
+Les pochettes éditoriales sont déclarées dans [le catalogue de départ](../../model/releases.seed.php).
+La version principale se trouve dans `webp/` et sa variante mobile dans `webp/mobile/`, sous le même nom.
+Les pochettes du catalogue automatique utilisent les tailles fournies par Spotify.

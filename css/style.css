@@ -5,11 +5,6 @@
     outline-offset: 4px;
 }
 
-.albumCard:focus-within .albumOverlay,
-.releaseCard:focus-within .releaseOverlay {
-    opacity: 1;
-}
-
 .catalogLink {
     max-width: 1200px;
     margin: 1.5rem auto 0;
@@ -28,9 +23,10 @@ button.playButton {
 }
 
 button.closeModal {
-    background: transparent;
-    padding: 0.25rem;
+    position: static;
     font-size: 2rem;
+    cursor: pointer;
+    z-index: 1001;
 }
 
 .menuNav a:focus-visible {
@@ -41,21 +37,8 @@ body.modalOpen {
     overflow: hidden;
 }
 
-.artistModal {
-    overflow-x: hidden;
-}
-
 .artistModal .social_artist .socialLink {
     color: #333;
-}
-
-@media (hover: none), (max-width: 768px) {
-    .albumCard .albumOverlay,
-    .releaseCard .releaseOverlay {
-        opacity: 1;
-        top: auto;
-        padding: 0.75rem;
-    }
 }
 
 /* Reset de base et configuration globale */
@@ -314,22 +297,11 @@ h6 {
         --desktop-header-height: clamp(3.75rem, 7vh, 5rem);
     }
 
-    .navMax1000 {
-        display: none;
-    }
-
-    .navMin1000 {
-        display: block;
-    }
-
     .menuNav {
         display: none;
     }
 }
 
-/* ------------------------------------End-NavBar-définitive------------------------------------*/
-
-/* ------------------------------------Start-Iframe-définitif------------------------------------*/
 .video {
     position: relative;
     padding-bottom: 56.25%; /* 16:9 */
@@ -344,178 +316,6 @@ h6 {
     height: 100%;
     border: 2px solid #fff;
 }
-/* ------------------------------------End-Iframe-définitif------------------------------------*/
-/* ------------------------------------Start-Wrapper-définitif------------------------------------*/
-/* Carousel */
-.wrapper {
-    max-width: 1200px;
-    margin: auto;
-    position: relative;
-    overflow: hidden;
-}
-
-.carousel {
-    display: flex;
-    gap: 14px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-}
-
-.carousel img {
-    height: 340px;
-    width: auto;
-    object-fit: contain;
-    flex-shrink: 0;
-}
-
-.carousel img:first-child {
-    margin-left: 0;
-}
-
-.carousel.dragging {
-    cursor: grabbing;
-    scroll-behavior: auto;
-}
-
-.carousel.dragging img {
-    pointer-events: none;
-}
-
-.wrapper i {
-    font-size: 1.5rem;
-    width: 46px;
-    height: 46px;
-    line-height: 46px;
-    text-align: center;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-}
-
-.wrapper i:first-child {
-    left: 10px;
-    display: none;
-}
-
-.wrapper i:last-child {
-    right: 10px;
-}
-
-@media screen and (min-width: 700px) {
-    .carousel img {
-        height: 430px;
-    }
-}
-
-/* ------------------------------------End-Wrapper-définitif------------------------------------*/
-
-/* ------------------------------------Start-Album-définitif------------------------------------*/
-/* Albums Grid */
-.featuredReleases {
-    padding: 4rem 2rem;
-    background-color: #111;
-}
-
-.featuredReleases h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: #fff;
-}
-
-.releasesGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.releaseCard {
-    background: #1a1a1a;
-    border-radius: 15px;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-}
-
-.releaseCard:hover {
-    transform: translateY(-10px);
-}
-
-.releaseImage {
-    position: relative;
-    aspect-ratio: 1;
-    overflow: hidden;
-}
-
-.releaseImage img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.releaseCard:hover .releaseImage img {
-    transform: scale(1.05);
-}
-
-.releaseOverlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.releaseCard:hover .releaseOverlay {
-    opacity: 1;
-}
-
-.btnListen {
-    background: #1db954;
-    color: white;
-    padding: 1rem 2rem;
-    border-radius: 30px;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: bold;
-    transition: transform 0.3s ease;
-}
-
-.btnListen:hover {
-    transform: scale(1.05);
-}
-
-.releaseInfo {
-    padding: 1.5rem;
-}
-
-.releaseInfo h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: #fff;
-}
-
-.releaseInfo p {
-    color: #ccc;
-}
-
-/* ------------------------------------End-Album-définitif------------------------------------*/
-
-
-/* ------------------------------------Start-Events-Page-définitif------------------------------------*/
 
 /* Styles pour la page Événements */
 .mainEvent {
@@ -543,392 +343,14 @@ h6 {
     margin: 0 auto;
 }
 
-.featuredEvent {
-    margin-bottom: 4rem;
-}
-
-.featuredEvent h2 {
-    font-family: "Montserrat-Bold";
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
-}
-
-.eventContainer {
-    max-width: 1600px;
-    margin: 0 auto;
-}
-
-.eventCard {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    background-color: #1a1a1a;
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); */
-    /* transition: transform 0.3s ease; */
-    border-radius: 20px;
-    overflow: hidden;
-
-}
-
-.eventCard.featured {
-    display: grid;
-    grid-template: 1fr 1fr;
-    padding: 2rem;
-    margin-bottom: 3rem;
-}
-
-.eventImage {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    min-height: 450px;
-    overflow: hidden;
-}
-
-.eventImage img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.eventCard:hover .eventImage img {
-    transform: scale(1.05);
-}
-
-.eventDate {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: rgba(255, 85, 0, 0.9);
-    padding: 1rem;
-    border-radius: 10px;
-    text-align: center;
-    color: white;
-}
-
-.eventDate .day {
-    display: block;
-    font-size: 1.5rem;
-    font-weight: bold;
-    line-height: 1;
-}
-
-.eventDate .month {
-    display: block;
-    font-size: 1rem;
-    text-transform: uppercase;
-}
-
-.eventInfo {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    gap: 1rem;
-}
-
-.eventInfo p {
-    color: #ccc;
-    line-height: 1.6;
-}
-
-.eventInfo h3 {
-    font-family: "Montserrat-Bold";
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-}
-
-.eventTags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-.tag {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-}
-
-
-
-.eventDescription {
-    margin-bottom: 1rem;
-    line-height: 1.6;
-}
-
-.eventDetails {
-    color: #ccc;
-    margin-bottom: 1.5rem;
-}
-
-.eventActions {
-    display: flex;
-    gap: 1rem;
-}
-
-.btnEvent {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    padding: 0.8rem 1.1rem;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-
-.btnEvent:not(.btnPrimary) {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: white;
-}
-
-.btnEvent.btnPrimary {
-    background-color: #ff5500;
-    color: white;
-}
-
-.btnEvent:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
 @media screen and (min-width: 700px) {
     .eventHero h1 {
         font-size: 3rem;
     }
 }
 
-
-
-/* ------------------------------------End-Events-Page-définitif------------------------------------*/
-
-/* ------------------------------------Start-Spotify-définitif------------------------------------*/
-.spotify {
-    display: flex;
-    justify-content: center;
-}
-/* ------------------------------------End-Spotify-définitif------------------------------------*/
-
-/* ------------------------------------Start-Footer-définitif------------------------------------*/
-/* Footer Section */
-.mainFooter {
-    background-color: #111;
-    color: #fff;
-    padding: 6rem 2rem 3rem;
-    margin-top: 6rem;
-    position: relative;
-    z-index: 1;
-}
-
-.footerContent {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 4rem;
-    margin-bottom: 4rem;
-}
-
-.footerSection {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.footerLogo {
-    max-width: 200px;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto 2rem auto;
-}
-
-.footerDescription {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.8;
-    color: #ccc;
-}
-
-.footerSection h3 {
-    color: #fff;
-    font-size: 1.4rem;
-    margin-bottom: 1.5rem;
-    position: relative;
-}
-
-.footerSection h3::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -0.7rem;
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(45deg, #ff0000, #ff6b6b);
-}
-
-.footerLinks {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footerLinks li {
-    margin-bottom: 1rem;
-}
-
-.footerLinks a {
-    color: #ccc;
-    text-decoration: none;
-    transition: color 0.3s ease;
-    font-size: 1.1rem;
-}
-
-.footerLinks a:hover {
-    color: #ff0000;
-}
-
-.socialLinks {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-}
-
-.socialLink {
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
-    color: #ccc;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    font-size: 1.1rem;
-}
-
-.socialLink i {
-    font-size: 1.6rem;
-    width: 28px;
-    text-align: center;
-}
-
-.footerBottom {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-top: 3rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-    text-align: center;
-}
-
-.copyright {
-    color: #888;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-}
-
-.legalLink {
-    color: #ccc;
-    text-decoration: none;
-    margin: 0 1rem;
-    transition: color 0.3s ease;
-    font-size: 1rem;
-}
-
-.legalLink:hover {
-    color: #ff0000;
-}
-
-@media (max-width: 768px) {
-    .mainFooter {
-        padding: 4rem 1.5rem 2rem;
-        padding-bottom: calc(2rem + 60px);
-    }
-
-    .footerContent {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-
-    .footerSection {
-        text-align: center;
-        gap: 1.5rem;
-    }
-
-    .footerSection h3::after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .socialLinks {
-        align-items: center;
-    }
-
-    .socialLink {
-        justify-content: center;
-    }
-}
-
-/* ------------------------------------End-Footer-définitif------------------------------------*/
-
-/* ------------------------------------Start-Video-Page-définitif------------------------------------*/
-.videoList {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1em;
-}
-.singleVideo {
-    width: calc(90vw / 2);
-}
-.singleVideo h2 {
-    font-size: 2vw;
-    font-family: "Montserrat-Bold";
-    text-transform: uppercase;
-}
-/* ------------------------------------End-Video-Page-définitif------------------------------------*/
-
-/* ------------------------------------Start-Artist-définitif------------------------------------*/
-.containerArtist {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    /* gap: 0.5em; */
-}
-.containerArtist h2 {
-    /* text-align: center; */
-    text-transform: uppercase;
-    font-family: "Montserrat-bold";
-    font-size: 13vw;
-}
-.articleArtist {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 30px;
-}
-.articleArtist a {
-    width: calc(90vw / 1);
-    border: 2px solid #fff;
-    /* border-top: #000; */
-}
-.articleArtist img {
-    width: 100%;
-    height: 100%;
-}
-.articleArtist h3 {
-    text-transform: uppercase;
-    font-family: "Montserrat-bold";
-    font-size: 8vw;
-}
-/* ------------------------------------End-Artist-définitif------------------------------------*/
-
-/* ------------------------------------Start-Artists-Page-définitif------------------------------------*/
-/* Artiste Modal Section */
+/* Fenêtres vidéo et artiste */
+.modal,
 .artistModal {
     display: none;
     position: fixed;
@@ -937,256 +359,15 @@ h6 {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.8);
-    z-index: 1000;
-    overflow-y: auto;
+    z-index: 1100;
 }
 
-.modalContent {
-    position: relative;
-    background-color: white;
-    margin: 2rem auto;
-    padding: 2rem;
-    max-width: 1000px;
-    border-radius: 12px;
-}
-
-.closeModal {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    font-size: 2rem;
-    cursor: pointer;
-    color: #333;
-}
-
-.artistHeader {
-    margin-bottom: 2rem;
-}
-
-.artistProfile {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    color: #000;
-}
-
-.artistProfile img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.artistTitle h2 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-}
-.social_artist {
-    display: flex;
-    justify-content:start;
-    gap: 2em;
-}
-
-.artistBio {
-    margin-bottom: 2rem;
-}
-
-.artistBio h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #333;
-}
-
-.artistBio p {
-    margin-bottom: 1rem;
-    line-height: 1.6;
-    color: #666;
-}
-
-.artistMusic {
-    margin-bottom: 2rem;
-}
-
-.artistMusic h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #333;
-}
-
-.artistRelease {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
-.artistRelease img {
-    width: 7rem;
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-.artistRelease h4 {
-    margin: 0 0 .5rem;
-    color: #333;
-}
-
-.artistTextLinks {
-    display: flex;
-    flex-wrap: wrap;
-    gap: .5rem 1rem;
-}
-
-.artistTextLinks a {
-    color: #333;
-    text-decoration: underline;
-    text-underline-offset: .2em;
-}
-
-.artistGallery {
-    margin-bottom: 2rem;
-}
-
-.artistGallery h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #333;
-}
-
-.galleryGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-}
-
-.galleryItem {
-    position: relative;
-    aspect-ratio: 1;
-    overflow: hidden;
-    border-radius: 8px;
-}
-
-.galleryItem img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.galleryItem:hover img {
-    transform: scale(1.05);
-}
-
-.artistGallery .galleryGrid {
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 180px), 1fr));
-}
-
-.artistGallery .galleryItem {
-    aspect-ratio: var(--gallery-photo-ratio, 1);
-    align-self: start;
-}
-
-.artistGallery .galleryItem img {
-    display: block;
-    object-position: var(--gallery-photo-position, center);
-}
-
-@media (max-width: 768px) {
-    .modalContent {
-        margin: 1rem;
-        padding: 1rem;
-    }
-
-    .artistProfile {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .artistProfile img {
-        width: 120px;
-        height: 120px;
-    }
-    .social_artist {
-        justify-content:center;
-    }
-}
-
-/* ------------------------------------End-Artists-Page-définitif------------------------------------*/
-
-/* Video Modal Section */
 .modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 1000;
     overflow: hidden;
 }
 
-.modalContent {
-    position: relative;
-    width: 80%;
-    max-width: 900px;
-    margin: 5% auto;
-    background-color: #000;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.modalContent iframe {
-    width: 100%;
-    height: 500px;
-    border: none;
-    display: block;
-}
-
-.closeModal {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
-    z-index: 1001;
-}
-
-@media (max-width: 768px) {
-    .modalContent iframe {
-        height: 280px;
-    }
-    .modalContent {
-        width: 95%;
-        margin-top: 15%;
-    }
-}
-
-/* Fin Video Modal Section */
-
-@media screen and (min-width: 700px) {
-    .carousel img {
-        width: calc(100% / 2);
-        height: 430px;
-    }
-}
 @media screen and (min-width: 1000px) {
     .navMax1000 {
-        display: none;
-    }
-    .navMin1000 {
-        display: block;
-    }
-    .containerWrapper {
-        display: none;
-    }
-    .containerEvents {
-        display: none;
-    }
-    .containerArtist {
         display: none;
     }
     header {
@@ -1287,222 +468,7 @@ h6 {
     main {
         margin: 0;
     }
-    .wrapperMin {
-        width: 100%;
-        height: 80vh;
-        display: flex;
-        justify-content: center;
-        /* background-color: rgb(0, 110, 255); */
-        padding: 2% 0 2% 0;
-    }
-    .containerMin {
-        /* background-color: rgb(207, 247, 228); */
-        /* border: 2px solid rgb(243, 141, 141); */
-        width: 90%;
-        gap: 2%;
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: center;
-        /* margin: 2% 0 2% 0; */
-    }
-    .cardWrapper {
-        width: 100px;
-        /* background-color: rgb(133, 150, 94); */
-        border: 2px solid rgb(255, 255, 255);
-        /* border-radius: .75rem; */
-        border-radius: 2rem;
-        display: flex;
-        align-items: flex-end;
-        transition: 0.6s cubic-bezier(0.28, -0.03, 0, 0.99);
-        box-shadow: 0px 0px 30px -5px #ffffffff;
-        overflow: hidden;
-        margin: 0 10px;
-        cursor: pointer;
-    }
-    .cardWrapper > .titleCardWrapper {
-        display: flex;
-        flex-wrap: nowrap;
 
-        /* background-color: #ac99ee; */
-        /* border: 2px solid #fc7b7b; */
-    }
-    .cardWrapper > .titleCardWrapper > .iconCardWrapper {
-        background-color: #ffffff;
-        /* border: 2px solid #f3eeee; */
-        width: 70px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 16px;
-        box-shadow: 0px 30px 100px 30px #ffffffff;
-    }
-    .cardWrapper > .titleCardWrapper > .descriptionCardWrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        overflow: hidden;
-        height: 100px;
-        width: 520px;
-        opacity: 0;
-        transform: translateY(30px);
-        transition-delay: 0.3s;
-        transition: all 0.3s ease;
-    }
-    .descriptionCardWrapper p {
-        padding-top: 5px;
-        text-shadow: #000;
-        text-shadow: rgb(0, 0, 0) 1px 0 10px;
-        font-size: 195%;
-    }
-    .descriptionCardWrapper h2 {
-        text-transform: uppercase;
-        text-shadow: rgb(0, 0, 0) 1px 0 10px;
-        font-size: 195%;
-    }
-    .radio {
-        display: none;
-    }
-    input:checked + label {
-        width: 60%;
-    }
-    input:checked + label .descriptionCardWrapper {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-    }
-    .cardWrapper[for="cardWrapper1"] {
-        background-image: url("/img/Album_Red_Rave.png");
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .cardWrapper[for="cardWrapper2"] {
-        background-image: url("/img/Imagination_Fernando.png");
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .cardWrapper[for="cardWrapper3"] {
-        background-image: url("/img/DJ_BABE_Event.png");
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .cardWrapper[for="cardWrapper4"] {
-        background-image: url("/img/FeelGood_DJBabe.png");
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .cardWrapper[for="cardWrapper5"] {
-        background-image: url("/img/Red_Night.png");
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-
-    .containerReleases {
-        display: flex;
-        align-items: center;
-        position: relative;
-        margin-top: 1.2vh;
-    }
-    .containerReleases h2 {
-        writing-mode: vertical-rl;
-        text-orientation: mixed;
-        font-size: 6.2vw;
-        white-space: nowrap;
-        transform: rotate(180deg);
-        text-align: center;
-        position: absolute;
-    }
-    .articleReleases {
-        padding: 0 8vw 0 8vw;
-        display: flex;
-        justify-content: space-evenly;
-    }
-    .articleReleases a {
-        width: 20vw;
-    }
-
-    
-    .containerArtistMin {
-        display: flex;
-        align-items: center;
-        position: relative;
-        margin-top: 6vh;
-    }
-    .artistsMin {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 3em;
-    }
-    .containerArtistMin h2 {
-        /* display: block; */
-        text-transform: uppercase;
-        font-family: "Montserrat-bold";
-        font-size: 13vw;
-        writing-mode: vertical-rl;
-        text-orientation: mixed;
-        font-size: 6.2vw;
-        white-space: nowrap;
-        transform: rotate(180deg);
-        text-align: center;
-        position: absolute;
-    }
-    .artist12 {
-        display: flex;
-        width: 100%;
-        justify-content: space-evenly;
-    }
-    .artist34 {
-        display: flex;
-        width: 100%;
-        justify-content: space-evenly;
-    }
-    .articleArtistMin {
-        display: flex;
-        /* justify-content: center; */
-        flex-direction: column;
-        /* margin-bottom: 30px; */
-    }
-    .articleArtistMin a {
-        width: 30vw;
-        border: 2px solid #fff;
-        /* border-top: #000; */
-    }
-    .articleArtistMin img {
-        width: 100%;
-        height: 100%;
-    }
-    .articleArtistMin h3 {
-        text-transform: uppercase;
-        font-family: "Montserrat-bold";
-        font-size: 2vw;
-    }
-
-    .profilContainer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 3vh 0;
-    }
-    .profilContainer h1 {
-        text-transform: uppercase;
-        font-family: "Montserrat-bold";
-        font-size: 5vw;
-    }
-    .profilContainer p {
-        font-size: 1.5vw;
-        font-family: "Montserrat-regular";
-    }
-    .profilContainer a {
-        text-transform: uppercase;
-        text-decoration: none;
-        color: #000;
-        font-size: 1.5vw;
-        font-family: "Montserrat-bold";
-    }
-    .profilContainer button {
-        font-size: 1vw;
-        font-family: "Montserrat-regular";
-    }
 }
 
 /* Styles pour la page Albums */
@@ -1529,37 +495,6 @@ h6 {
     color: #ccc;
     max-width: 600px;
     margin: 0 auto;
-}
-
-.featuredAlbums {
-    margin-bottom: 4rem;
-}
-
-.featuredAlbums h2 {
-    font-family: "Montserrat-Bold";
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
-}
-
-.albumContainer {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.albumCard.featured {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    background: #1a1a1a;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
-}
-
-.albumCard.featured:hover {
-    transform: translateY(-5px);
 }
 
 .albumCatalog h2 {
@@ -1606,41 +541,6 @@ h6 {
     transform: scale(1.05);
 }
 
-.albumOverlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.albumCard:hover .albumOverlay {
-    opacity: 1;
-}
-
-.btnListen {
-    background: #1db954;
-    color: white;
-    padding: 1rem 2rem;
-    border-radius: 30px;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: bold;
-    transition: transform 0.3s ease;
-}
-
-.btnListen:hover {
-    transform: scale(1.05);
-}
-
 .albumInfo {
     padding: 1.5rem;
 }
@@ -1658,26 +558,8 @@ h6 {
     margin-bottom: 0.5rem;
 }
 
-.albumTags {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    margin-top: 1rem;
-}
-
-.albumTags .tag {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    color: #fff;
-}
-
 /* Media Queries pour la page Albums */
 @media (max-width: 1000px) {
-    .albumCard.featured {
-        grid-template-columns: 1fr;
-    }
 
     .albumHero h1 {
         font-size: 2.5rem;
@@ -1852,17 +734,16 @@ h6 {
     margin-top: 1rem;
 }
 
-#videoModal {
-    z-index: 1100;
-}
-
 #videoModal .modalContent {
+    position: relative;
     width: min(calc(100% - 1.5rem), 900px);
+    max-width: 1000px;
+    border-radius: 12px;
     padding: 0;
     margin: 0.75rem auto;
     max-height: calc(100vh - 1.5rem);
     max-height: calc(100dvh - 1.5rem);
-    overflow-y: auto;
+    overflow: hidden auto;
     overscroll-behavior: contain;
     background-color: #111;
     color: #fff;
@@ -1881,7 +762,6 @@ h6 {
 }
 
 #videoModal .closeModal {
-    position: static;
     display: grid;
     place-items: center;
     flex: none;
@@ -1902,6 +782,10 @@ h6 {
 #videoModal .video {
     max-width: max(356px, calc((100dvh - 5.5rem) * 16 / 9));
     margin-inline: auto;
+}
+
+#videoModal .video iframe {
+    display: block;
 }
 
 .videoModalBar a {
@@ -2003,38 +887,6 @@ h6 {
     font-size: 0.9rem;
 }
 
-/* Modal styles */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 1000;
-}
-
-.modalContent {
-    position: relative;
-    width: 80%;
-    max-width: 900px;
-    margin: 5% auto;
-    background-color: #000;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.closeModal {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
-    z-index: 1001;
-}
-
 /* Media Queries pour la page Vidéos */
 @media (max-width: 1000px) {
     .videoGrid {
@@ -2059,12 +911,7 @@ h6 {
         grid-template-columns: 1fr;
     }
 
-    .modalContent {
-        width: 95%;
-    }
 }
-
-
 
 /* Styles pour la page artiste */
 .mainArtist {
@@ -2103,18 +950,21 @@ h6 {
 
 .artistCard {
     position: relative;
-    border-radius: 12px;
+    border-radius: 15px;
     overflow: hidden;
+    aspect-ratio: 1;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
 
 .artistCard:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
 }
 
 .artistImage {
     position: relative;
+    width: 100%;
+    height: 100%;
     aspect-ratio: 1;
     overflow: hidden;
 }
@@ -2124,10 +974,6 @@ h6 {
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
-}
-
-.artistCard:hover .artistImage img {
-    transform: scale(1.05);
 }
 
 .artistOverlay {
@@ -2149,6 +995,7 @@ h6 {
     font-size: 1rem;
     margin-bottom: 0.5rem;
     opacity: 0.9;
+    color: #ccc;
 }
 
 .artistGenre {
@@ -2159,37 +1006,6 @@ h6 {
     font-size: 0.9rem;
 }
 
-/* Styles pour la modale */
-.artistModal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 1000;
-    overflow-y: auto;
-}
-
-.modalContent {
-    position: relative;
-    background-color: white;
-    margin: 2rem auto;
-    padding: 2rem;
-    max-width: 1000px;
-    border-radius: 12px;
-}
-
-.closeModal {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    font-size: 2rem;
-    cursor: pointer;
-    color: #333;
-}
-
 .artistHeader {
     margin-bottom: 2rem;
 }
@@ -2198,13 +1014,12 @@ h6 {
     display: flex;
     align-items: center;
     gap: 2rem;
+    color: #000;
 }
 
-.artistProfile img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
+.social_artist {
+    display: flex;
+    justify-content: start;
 }
 
 .artistTitle h2 {
@@ -2212,11 +1027,15 @@ h6 {
     margin-bottom: 0.5rem;
 }
 
-.artistBio {
+.artistBio,
+.artistMusic,
+.artistGallery {
     margin-bottom: 2rem;
 }
 
-.artistBio h3 {
+.artistBio h3,
+.artistMusic h3,
+.artistGallery h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
     color: #333;
@@ -2228,43 +1047,58 @@ h6 {
     color: #666;
 }
 
-.artistMusic {
-    margin-bottom: 2rem;
+.artistRelease {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
 }
 
-.artistMusic h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+.artistRelease img {
+    width: 7rem;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.artistRelease h4 {
+    margin: 0 0 .5rem;
     color: #333;
 }
 
-.artistGallery {
-    margin-bottom: 2rem;
+.artistTextLinks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem 1rem;
 }
 
-.artistGallery h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+.artistTextLinks a {
     color: #333;
+    text-decoration: underline;
+    text-underline-offset: .2em;
 }
 
 .galleryGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 180px), 1fr));
     gap: 1rem;
 }
 
 .galleryItem {
     position: relative;
-    aspect-ratio: 1;
+    aspect-ratio: var(--gallery-photo-ratio, 1);
+    align-self: start;
     overflow: hidden;
     border-radius: 8px;
 }
 
 .galleryItem img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: var(--gallery-photo-position, center);
     transition: transform 0.3s ease;
 }
 
@@ -2287,14 +1121,8 @@ h6 {
         text-align: center;
     }
 
-    .artistProfile img {
-        width: 120px;
-        height: 120px;
-    }
-
-    .modalContent {
-        margin: 1rem;
-        padding: 1rem;
+    .social_artist {
+        justify-content: center;
     }
 }
 
@@ -2431,24 +1259,6 @@ h6 {
     transform: scale(1.05);
 }
 
-.releaseOverlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.releaseCard:hover .releaseOverlay {
-    opacity: 1;
-}
-
 .btnListen {
     background: #1db954;
     color: white;
@@ -2477,77 +1287,6 @@ h6 {
 }
 
 .releaseInfo p {
-    color: #ccc;
-}
-
-
-
-/* Featured Artists Section */
-.featuredArtists {
-    padding: 4rem 2rem;
-    background-color: #111;
-}
-
-.featuredArtists h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: #fff;
-}
-
-.artistsGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.artistCard {
-    position: relative;
-    border-radius: 15px;
-    overflow: hidden;
-    aspect-ratio: 1;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.artistCard:hover {
-    transform: translateY(-10px);
-}
-
-.artistImage {
-    width: 100%;
-    height: 100%;
-}
-
-.artistImage img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.artistCard:hover .artistImage img {
-    transform: scale(1.05);
-}
-
-.artistOverlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 2rem;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-    color: white;
-}
-
-.artistInfo h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.artistInfo p {
     color: #ccc;
 }
 
@@ -2584,13 +1323,6 @@ h6 {
         align-items: center;
     }
 
-    .eventCard {
-        grid-template-columns: 1fr;
-    }
-
-    .eventImage {
-        aspect-ratio: 16/9;
-    }
 }
 
 @media (max-width: 768px) {
@@ -2606,8 +1338,7 @@ h6 {
         flex-direction: column;
     }
 
-    .releasesGrid,
-    .artistsGrid {
+    .releasesGrid {
         grid-template-columns: 1fr;
     }
 }
@@ -2726,14 +1457,6 @@ h6 {
     color: #888;
     font-size: 1rem;
     margin-bottom: 1rem;
-}
-
-.legalLink {
-    color: #ccc;
-    text-decoration: none;
-    margin: 0 1rem;
-    transition: color 0.3s ease;
-    font-size: 1rem;
 }
 
 /* Media Queries for Footer */
@@ -3138,12 +1861,21 @@ h6 {
 }
 
 #artistModal {
-    z-index: 1100;
+    overflow: hidden auto;
     overscroll-behavior-y: contain;
     padding-inline: env(safe-area-inset-left, 0px) env(safe-area-inset-right, 0px);
 }
 
-#artistModal .modalContent { overflow: visible; }
+#artistModal .modalContent {
+    position: relative;
+    width: 80%;
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 12px;
+    background-color: white;
+    overflow: visible;
+}
 
 .artistModalBar {
     position: sticky;
@@ -3157,7 +1889,6 @@ h6 {
 }
 
 #artistModal .closeModal {
-    position: static;
     display: grid;
     place-items: center;
     margin: -.4rem -.4rem 0 0;
@@ -3176,12 +1907,18 @@ h6 {
 #artistModal .artistShareButton { min-height: 44px; }
 #artistModal .social_artist { gap: .5rem; }
 #artistModal .social_artist .socialLink { min-width: 44px; min-height: 44px; justify-content: center; }
-#artistModal .artistMusic iframe { height: 152px; }
+#artistModal .artistMusic iframe {
+    display: block;
+    width: 100%;
+    height: 152px;
+    border: 0;
+}
 
 @media (max-width: 768px) {
     #artistModal .modalContent {
         width: calc(100% - 1.5rem);
         margin: max(.75rem, env(safe-area-inset-top, 0px)) auto max(.75rem, env(safe-area-inset-bottom, 0px));
+        padding: 1rem;
     }
 
     #artistModal .artistProfile { gap: 1.25rem; }

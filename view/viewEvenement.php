@@ -71,7 +71,7 @@ function renderEvenement()
                 <?php endforeach; ?>
             </div>
         </section>
-        <?= renderProjects(true) ?>
+        <?= renderProjects($projects, true) ?>
         <section class="dfrEventSection" aria-labelledby="past-events-title">
             <div class="dfrSectionHeading">
                 <p class="dfrEyebrow">Les éditions précédentes</p>

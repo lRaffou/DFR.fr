@@ -1,6 +1,9 @@
 <?php
-function renderFooter()
+require_once __DIR__ . '/../model/site.php';
+
+function renderFooter(): string
 {
+    $site = dfrSite();
     ob_start();
     ?>
     <footer class="mainFooter">
@@ -14,53 +17,33 @@ function renderFooter()
             <div class="footerSection">
                 <h3>Navigation</h3>
                 <ul class="footerLinks">
-                    <li><a href="/index.php">Accueil</a></li>
-                    <li><a href="/controller/evenement.php">Événements</a></li>
-                    <li><a href="/controller/artiste.php">Artistes</a></li>
-                    <li><a href="/controller/video.php">Vidéos</a></li>
-                    <li><a href="/controller/album.php">Sorties</a></li>
-                    <li><a href="mailto:Daofamilyrecords@gmail.com">Contactez-nous</a></li>
+                    <?php foreach ($site['navigation'] as [$path, $label]): ?>
+                        <li><a href="<?= htmlspecialchars($path) ?>"><?= htmlspecialchars($label) ?></a></li>
+                    <?php endforeach; ?>
+                    <li><a href="<?= htmlspecialchars($site['contact']) ?>">Contactez-nous</a></li>
                 </ul>
             </div>
 
             <div class="footerSection">
                 <h3>Suivez-nous</h3>
                 <div class="socialLinks">
-                    <a href="https://www.youtube.com/@DaoFamilyRecords" target="_blank" rel="noopener noreferrer"
-                        class="socialLink">
-                        <i class="fab fa-youtube"></i>
-                        <span>YouTube</span>
-                    </a>
-                    <a href="https://open.spotify.com/playlist/4z6XsMTJ8rsbSGyi20bz9T"
-                        target="_blank" rel="noopener noreferrer" class="socialLink">
-                        <i class="fab fa-spotify"></i>
-                        <span>Spotify</span>
-                    </a>
-                    <a href="https://www.instagram.com/dao_family_records/" target="_blank" rel="noopener noreferrer"
-                        class="socialLink">
-                        <i class="fab fa-instagram"></i>
-                        <span>Instagram</span>
-                    </a>
-                    <a href="https://www.facebook.com/redmarshalofficial" target="_blank" rel="noopener noreferrer"
-                        class="socialLink">
-                        <i class="fab fa-facebook"></i>
-                        <span>Facebook</span>
-                    </a>
-
+                    <?php foreach ($site['social'] as $platform => $social): ?>
+                        <a href="<?= htmlspecialchars($social['url']) ?>" target="_blank" rel="noopener noreferrer" class="socialLink">
+                            <i class="fab <?= htmlspecialchars($social['icon']) ?>" aria-hidden="true"></i>
+                            <span><?= htmlspecialchars($platform) ?></span>
+                        </a>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>
 
         <div class="footerBottom">
             <p class="copyright">
-                Copyright &copy; <span id="year"></span> Dao Family Records. Tous droits réservés.
+                Copyright &copy; <?= date('Y') ?> Dao Family Records. Tous droits réservés.
             </p>
         </div>
     </footer>
 
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
     </body>
     </html>
     <?php

@@ -1,7 +1,6 @@
 <?php
-function renderProjects(bool $eventsOnly = false): string
+function renderProjects(array $projects, bool $eventsOnly = false): string
 {
-    $projects = require __DIR__ . '/../model/projects.php';
     if ($eventsOnly) { unset($projects['dfr']); }
     ob_start(); ?>
     <section class="dfrProjects" aria-labelledby="projects-title">

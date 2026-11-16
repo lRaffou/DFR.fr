@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/../components/releases.php';
+
 function renderCataloguePagination(array $pagination, string $location): void
 {
     if ($pagination['pages'] <= 1) {
@@ -42,42 +44,7 @@ function renderAlbum()
                 <?php if ($section === 'catalog') { renderCataloguePagination($pagination, 'haut'); } ?>
                 <div class="albumGrid">
                     <?php foreach ($releases[$section] as $release): ?>
-                        <?php
-                        $cover = $release['image'];
-                        $spotifyMobileCover = $release['mobile_image'] ?? $spotifyMobileCovers[$cover] ?? null;
-                        $mobileCover = $spotifyMobileCover;
-                        if (str_starts_with($cover, '/img/albums/webp/')) {
-                            $localThumbnail = '/img/albums/webp/mobile/' . basename($cover);
-                            if (is_file(__DIR__ . '/..' . $localThumbnail)) {
-                                $mobileCover = $localThumbnail;
-                            }
-                        }
-                        ?>
-                        <article class="albumCard">
-                            <a class="albumImage coverLink" href="<?= htmlspecialchars($release['spotify']) ?>" target="_blank" rel="noopener noreferrer">
-                                <picture>
-                                    <?php if ($mobileCover !== null): ?>
-                                        <source media="(max-width: 540px)" srcset="<?= htmlspecialchars($mobileCover) ?>"<?= $spotifyMobileCover !== null ? ' data-album-thumbnail' : '' ?>>
-                                    <?php endif; ?>
-                                    <img src="<?= htmlspecialchars($cover) ?>"
-                                        alt="<?= htmlspecialchars($release['title'] . ' - ' . $release['artist']) ?>"
-                                        loading="lazy" decoding="async">
-                                </picture>
-                            </a>
-                            <div class="albumInfo">
-                                <h3><?= htmlspecialchars($release['title']) ?></h3>
-                                <p class="artistName"><?= htmlspecialchars($release['artist']) ?></p>
-                                <p class="releaseDate">
-                                    <time datetime="<?= htmlspecialchars($release['date']) ?>"><?= dfrReleaseDateLabel($release['date']) ?></time>
-                                </p>
-                                    <a href="<?= htmlspecialchars($release['spotify']) ?>" class="btnListen"
-                                        target="_blank" rel="noopener noreferrer"
-                                        aria-label="<?= htmlspecialchars($release['link_label'] . ' — ' . $release['title'] . ' par ' . $release['artist']) ?>">
-                                        <i class="fab fa-spotify" aria-hidden="true"></i>
-                                        <?= htmlspecialchars($release['link_label']) ?>
-                                    </a>
-                            </div>
-                        </article>
+                        <?= renderReleaseCard($release, true, $spotifyMobileCovers) ?>
                     <?php endforeach; ?>
                 </div>
                 <?php if ($section === 'catalog') { renderCataloguePagination($pagination, 'bas'); } ?>

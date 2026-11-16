@@ -1,13 +1,10 @@
 <?php
-function renderHeader($title = 'Dao Family Records', bool $includeArtistScript = false)
+require_once __DIR__ . '/../model/site.php';
+
+function renderHeader(string $title = 'Dao Family Records', bool $includeArtistScript = false): string
 {
-    $navigation = [
-        ['/index.php', 'Accueil', 'fa-home'],
-        ['/controller/evenement.php', 'Événements', 'fa-calendar-alt'],
-        ['/controller/artiste.php', 'Artistes', 'fa-music'],
-        ['/controller/video.php', 'Vidéos', 'fa-video'],
-        ['/controller/album.php', 'Sorties', 'fa-compact-disc'],
-    ];
+    $site = dfrSite();
+    $navigation = $site['navigation'];
     $currentPath = parse_url($_SERVER['REQUEST_URI'] ?? '/index.php', PHP_URL_PATH);
     if ($currentPath === '/') { $currentPath = '/index.php'; }
     ob_start();
@@ -66,12 +63,11 @@ function renderHeader($title = 'Dao Family Records', bool $includeArtistScript =
                         </ul>
                     </div>
                     <div class="navbarSocial">
-                        <a href="https://www.youtube.com/@DaoFamilyRecords" class="socialLink" target="_blank" rel="noopener noreferrer" aria-label="Dao Family Records sur YouTube"><i
-                                class="fab fa-youtube"></i></a>
-                        <a href="https://open.spotify.com/playlist/4z6XsMTJ8rsbSGyi20bz9T"
-                            class="socialLink" target="_blank" rel="noopener noreferrer" aria-label="Playlist Dao Family Records sur Spotify"><i class="fab fa-spotify"></i></a>
-                        <a href="https://www.instagram.com/dao_family_records" class="socialLink" target="_blank" rel="noopener noreferrer" aria-label="Dao Family Records sur Instagram"><i
-                                class="fab fa-instagram"></i></a>
+                        <?php foreach (['YouTube', 'Spotify', 'Instagram'] as $platform): ?>
+                            <?php $social = $site['social'][$platform]; ?>
+                            <a href="<?= htmlspecialchars($social['url']) ?>" class="socialLink" target="_blank" rel="noopener noreferrer" aria-label="<?= htmlspecialchars($social['label']) ?>"><i
+                                    class="fab <?= htmlspecialchars($social['icon']) ?>" aria-hidden="true"></i></a>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </nav>

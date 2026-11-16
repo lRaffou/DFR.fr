@@ -1,11 +1,14 @@
 <?php
+require_once __DIR__ . '/site.php';
+
+$social = dfrSite()['social'];
 return [
     'dfr' => [
         'name' => 'Dao Family Records', 'eyebrow' => 'Le label · Toulouse',
         'description' => 'Des artistes, des productions et des rendez-vous pour faire vivre la musique électronique, de la house à la hard techno.',
         'links' => [
-            'Instagram' => 'https://www.instagram.com/dao_family_records/',
-            'YouTube' => 'https://www.youtube.com/@DaoFamilyRecords',
+            'Instagram' => $social['Instagram']['url'],
+            'YouTube' => $social['YouTube']['url'],
             'Nos artistes' => '/controller/artiste.php',
         ],
     ],

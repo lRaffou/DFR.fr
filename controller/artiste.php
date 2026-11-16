@@ -1,11 +1,8 @@
 <?php
-// Suppression de session_start() car nous n'avons plus besoin de gérer les sessions
-
-include '../view/viewHeader.php';
-include '../view/viewArtiste.php';
-include '../view/viewFooter.php';
+require __DIR__ . '/../view/viewHeader.php';
+require __DIR__ . '/../view/viewArtiste.php';
+require __DIR__ . '/../view/viewFooter.php';
 
 echo renderHeader('Artistes | Dao Family Records', true);
 echo renderArtiste();
 echo renderFooter();
-?>
