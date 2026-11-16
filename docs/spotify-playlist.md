@@ -160,12 +160,12 @@ Références : [OAuth PKCE](https://developer.spotify.com/documentation/web-api/
 - Les fichiers privés et les jetons restent hors de la racine publique ; le JSON
   généré (0644) ne contient que les métadonnées publiques.
 
-## Frenzysax et tâche quotidienne actuelle
+## Frenzysax et tâche du 15 novembre 2026
 
 - Frenzysax (`4NqtEeAINDNe0G3FiHbqbs`) figure dans le dépôt et la configuration
   privée. `Live The Moment` est présent une seule fois dans la playlist : 82 titres.
 - Le catalogue contient 61 sorties automatiques et 8 fiches historiques, soit 69.
-- Seul cron actif : `qlZINi8abO`, `0 18 * * *`, avec le lanceur privé
+- Tâche de cette installation : `qlZINi8abO`, `0 18 * * *`, avec le lanceur privé
   `hostinger.php` ci-dessus. Il remplace `qptdz2aJH9`.
 - Déclenchement réel du lanceur observé le 15 novembre 2026 à 19:19 UTC ; la pause
   Spotify est respectée sans appel réseau. La tâche de test a ensuite été retirée.
@@ -173,3 +173,12 @@ Références : [OAuth PKCE](https://developer.spotify.com/documentation/web-api/
   à 17h UTC au minimum. Le prochain passage est prévu le 16 novembre à 18h UTC
   (19h à Paris). Les 47 tests hors réseau passent en local et sur Hostinger.
 - Voir [le compte rendu](deploiement.md) pour la sauvegarde et l’import initial.
+
+## Rapprochement avec la playlist, le 16 novembre 2026
+
+- Le seul cron DFR, `OEa66Z0AHL`, exécute maintenant le lanceur livré par GitHub à
+  18 h UTC. La tâche précédente et les tâches de test ont été retirées.
+- Les 59 tests hors réseau passent sur Hostinger. Le lanceur atteint l’état privé
+  existant et a respecté la pause Spotify jusqu’au 16 novembre à 17 h UTC.
+- La simulation à partir du relevé de la playlist a retrouvé ses 78 sorties. Le
+  premier passage avec accès à l’API est prévu le 16 novembre à 18 h UTC.
